@@ -1,0 +1,22 @@
+{
+	"name": "humanmade/dev-tools",
+	"description": "Human Made Platform Developer Tools Module",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Human Made",
+			"email": "hello@humanmade.com"
+		}
+	],
+	"autoload": {
+		"files": [
+			"load.php"
+		],
+		"classmap": [
+			"inc/"
+		]
+	},
+	"require": {
+		"johnbillion/query-monitor": "~3.3"
+	}
+}
