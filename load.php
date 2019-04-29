@@ -9,7 +9,7 @@ require_once __DIR__ . '/inc/namespace.php';
 
 add_action( 'hm-platform.modules.init', function () {
 	$default_settings = [
-		'enabled'       => in_array( get_environment_architecture(), [ 'local-server' ] ),
+		'enabled'       => in_array( get_environment_architecture(), [ 'chassis', 'local-server' ] ),
 		'query-monitor' => true,
 	];
 
