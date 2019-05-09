@@ -1,6 +1,6 @@
 {
 	"name": "humanmade/dev-tools",
-	"description": "Human Made Platform Developer Tools Module",
+	"description": "Developer Tools module for Altis",
 	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
