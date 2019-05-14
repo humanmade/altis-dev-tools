@@ -2,4 +2,4 @@
 
 <p align="center">Developer tooling for <strong><a href="https://altis-dxp.com/">Altis</a></strong>.</p>
 
-<p align="center"><img alt="Packagist Version" src="https://img.shields.io/packagist/v/altis/dev-tools.svg"></p>
+<p align="center"><a href="https://packagist.org/packages/altis/dev-tools"><img alt="Packagist Version" src="https://img.shields.io/packagist/v/altis/dev-tools.svg"></a></p>
