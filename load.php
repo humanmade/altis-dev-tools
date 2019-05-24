@@ -1,6 +1,6 @@
 <?php
 
-namespace Altis\Dev_Tools;
+namespace Altis\Dev_Tools; // @codingStandardsIgnoreLine
 
 use function Altis\get_environment_architecture;
 use function Altis\register_module;
