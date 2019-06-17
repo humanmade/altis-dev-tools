@@ -7,7 +7,7 @@ The Altis developer tools are built on top of the [Query Monitor](https://querym
 
 ## Getting started
 
-The developer tools are active by default for local development. While logged in, a summary of the request's details will appear in the toolbar at the top of the page. Click this summary to open the developer tools.
+The developer tools are active by default for all environment types except `production`. While logged in, a summary of the request's details will appear in the toolbar at the top of the page. Click this summary to open the developer tools.
 
 ![Screenshot of the developer tools toolbar item](./toolbar.png)
 
