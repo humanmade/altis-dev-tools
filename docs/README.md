@@ -1,6 +1,6 @@
 # Developer Tools
 
-Altis includes developer tools to allow you to debug and optimise your code. They provide you with an overview of how your page was rendered, as well as details on the various components.
+Altis includes developer tools to allow you to debug and optimize your code. They provide you with an overview of how your page was rendered, as well as details on the various components.
 
 The Altis developer tools are built on top of the [Query Monitor](https://querymonitor.com/) plugin.
 
@@ -11,7 +11,7 @@ The developer tools are active by default for all environment types except `prod
 
 ![Screenshot of the developer tools toolbar item](./toolbar.png)
 
-This summary will automatically change colour if errors or warnings are detected on your page.
+This summary will automatically change color if errors or warnings are detected on your page.
 
 The developer tools will be displayed as a panel at the bottom of your page.
 
