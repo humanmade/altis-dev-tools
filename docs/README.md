@@ -1,6 +1,9 @@
 # Developer Tools
 
+![](./assets/banner-dev-tools.png)
+
 Altis includes developer tools to allow you to debug and optimize your code. They provide you with an overview of how your page was rendered, as well as details on the various components.
+
 
 The Altis developer tools are built on top of the [Query Monitor](https://querymonitor.com/) plugin.
 
