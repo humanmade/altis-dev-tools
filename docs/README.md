@@ -35,3 +35,25 @@ You can also add the `view_query_monitor` capability to users to permanently gra
 ### Activating in other environments
 
 You can enable this on other environments by setting the `altis.modules.dev-tools.enabled` configuration option to true. We recommend using [environment-specific configuration](docs://getting-started/configuration.md#environment-specific-configuration) to only enable it on environments where necessary, as it has a small performance cost.
+
+By default, this module is enabled on all environments except `production`.
+
+For example, to disable on staging:
+
+```json
+{
+	"extra": {
+		"altis": {
+			"environments": {
+				"staging": {
+					"modules": {
+						"dev-tools": {
+							"enabled": false
+						}
+					}
+				}
+			}
+		}
+	}
+}
+```
