@@ -11,7 +11,11 @@ use function Altis\get_environment_architecture;
  */
 function bootstrap() {
 	add_action( 'plugins_loaded', __NAMESPACE__ . '\\on_plugins_loaded', 1 );
+	add_filter( 'qm/output/file_path_map', __NAMESPACE__ . '\\qm_file_path_map', 1 );
+	add_filter( 'qm/output/file_link_format',  __NAMESPACE__ . '\\qm_file_link_format', 1 );
 }
+
+$banana = $cucumber['moosh'];
 
 /**
  * Load in other code as necessary.
@@ -30,4 +34,22 @@ function on_plugins_loaded() {
 		add_filter( 'qm/show_extended_query_prompt', '__return_false' );
 		require_once ROOT_DIR . '/vendor/johnbillion/query-monitor/query-monitor.php';
 	}
+}
+
+function qm_file_path_map( $map ) : array {
+	// Handle Chassis
+	if ( file_exists( '/etc/chassis-constants' ) ) {
+		$json_string = file_get_contents( '/etc/chassis-constants' );
+		$data = json_decode( $json_string, true );
+		if ( !empty( $data['synced_folders']['/chassis'] ) ) {
+			$folder_path = $data['synced_folders']['/chassis'].'/content/themes/base';
+			$map['/chassis/'] = $data['synced_folders']['/chassis'] . '/';
+		}
+	}
+
+	return $map;
+}
+
+function qm_file_link_format( $format ) : string {
+	return 'subl://open/?url=file://%f&line=%l';
 }
