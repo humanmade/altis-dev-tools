@@ -11,7 +11,7 @@ use function Altis\get_environment_architecture;
  */
 function bootstrap() {
 	add_action( 'plugins_loaded', __NAMESPACE__ . '\\on_plugins_loaded', 1 );
-	add_filter( 'qm/output/file_link_format', __NAMESPACE__ . '\\qm_file_link_format', 1 );
+	add_filter( 'qm/output/file_link_format', __NAMESPACE__ . '\\set_edit_link_format', 1 );
 }
 
 /**
@@ -40,12 +40,12 @@ function on_plugins_loaded() {
  * @param string $format a protocol URL format
  * @return string a protocol URL format
  */
-function qm_file_link_format( $format ) : string {
+function set_edit_link_format( $format ) : string {
 	$editor = null;
 	if ( defined( 'QM_LOCAL_EDITOR' ) ) {
 		$editor = QM_LOCAL_EDITOR;
 	}
-	return qm_file_link_editor_format( $format, $editor );
+	return get_edit_link_format( $format, $editor );
 }
 
 /**
@@ -56,7 +56,7 @@ function qm_file_link_format( $format ) : string {
  * @param string|null $editor the chosen code editor
  * @return string a protocol URL format
  */
-function qm_file_link_editor_format( $default_format, $editor = null ) : string {
+function get_edit_link_format( $default_format, $editor = null ) : string {
 	switch ( $editor ) {
 		case 'phpstorm':
 			return 'phpstorm://open?file=%f&line=%l';
