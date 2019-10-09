@@ -35,3 +35,19 @@ You can also add the `view_query_monitor` capability to users to permanently gra
 ### Activating in other environments
 
 You can enable this on other environments by setting the `altis.modules.dev-tools.enabled` configuration option to true. We recommend using [environment-specific configuration](docs://getting-started/configuration.md#environment-specific-configuration) to only enable it on environments where necessary, as it has a small performance cost.
+
+### Editor Stack Traces
+
+When viewing a stack trace of a PHP warning or error, the developer tools can turn these into clickable links that open in your editor. To enable this, define `QM_LOCAL_EDITOR` like this:
+
+```php
+define( 'QM_LOCAL_EDITOR', 'phpstorm' );
+```
+
+Valid values include:
+
+ - `phpstorm`
+ - `vscode`
+ - `atom`
+ - `sublime`
+ - `netbeans`
