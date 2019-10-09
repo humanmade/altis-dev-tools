@@ -40,7 +40,7 @@ function qm_file_path_map( $map ) : array {
 		$json_string = file_get_contents( '/etc/chassis-constants' );
 		$data = json_decode( $json_string, true );
 		if ( ! empty( $data['synced_folders']['/chassis'] ) ) {
-			$folder_path = $data['synced_folders']['/chassis'].'/content/themes/base';
+			$folder_path = $data['synced_folders']['/chassis'] . '/content/themes/base';
 			$map['/chassis/'] = $data['synced_folders']['/chassis'] . '/';
 		}
 	}
