@@ -12,10 +12,8 @@ use function Altis\get_environment_architecture;
 function bootstrap() {
 	add_action( 'plugins_loaded', __NAMESPACE__ . '\\on_plugins_loaded', 1 );
 	add_filter( 'qm/output/file_path_map', __NAMESPACE__ . '\\qm_file_path_map', 1 );
-	add_filter( 'qm/output/file_link_format',  __NAMESPACE__ . '\\qm_file_link_format', 1 );
+	add_filter( 'qm/output/file_link_format', __NAMESPACE__ . '\\qm_file_link_format', 1 );
 }
-
-$banana = $cucumber['moosh'];
 
 /**
  * Load in other code as necessary.
@@ -41,7 +39,7 @@ function qm_file_path_map( $map ) : array {
 	if ( file_exists( '/etc/chassis-constants' ) ) {
 		$json_string = file_get_contents( '/etc/chassis-constants' );
 		$data = json_decode( $json_string, true );
-		if ( !empty( $data['synced_folders']['/chassis'] ) ) {
+		if ( ! empty( $data['synced_folders']['/chassis'] ) ) {
 			$folder_path = $data['synced_folders']['/chassis'].'/content/themes/base';
 			$map['/chassis/'] = $data['synced_folders']['/chassis'] . '/';
 		}
@@ -58,7 +56,7 @@ function qm_file_link_format( $format ) : string {
 	return qm_file_link_editor_format( $format, $editor );
 }
 
-function qm_file_link_editor_format( $format, $editor=null ) : string {
+function qm_file_link_editor_format( $format, $editor = null ) : string {
 	switch ( $editor ) {
 		case 'phpstorm':
 			return 'phpstorm://open?file=%f&line=%l';
