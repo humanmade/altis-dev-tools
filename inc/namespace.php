@@ -37,7 +37,7 @@ function on_plugins_loaded() {
 }
 
 function qm_file_path_map( $map ) : array {
-	// Handle Chassis
+	// Chassis and Local Server
 	if ( file_exists( '/etc/chassis-constants' ) ) {
 		$json_string = file_get_contents( '/etc/chassis-constants' );
 		$data = json_decode( $json_string, true );
@@ -51,5 +51,26 @@ function qm_file_path_map( $map ) : array {
 }
 
 function qm_file_link_format( $format ) : string {
-	return 'subl://open/?url=file://%f&line=%l';
+	$editor = 'phpstorm';
+	if ( defined( 'QM_LOCAL_EDITOR' ) ) {
+		$editor = QM_LOCAL_EDITOR;
+	}
+	return qm_file_link_editor_format( $format, $editor );
+}
+
+function qm_file_link_editor_format( $format, $editor=null ) : string {
+	switch ( $editor ) {
+		case 'phpstorm':
+			return 'phpstorm://open?file=%f&line=%l';
+		case 'vscode':
+			return 'vscode://file/%f:%l';
+		case 'atom':
+			return 'atom://open/?url=file://%f&line=%l';
+		case 'sublime':
+			return 'subl://open/?url=file://%f&line=%l';
+		case 'netbeans':
+			return 'nbopen://%f:%l';
+		default:
+			return $format;
+	}
 }
