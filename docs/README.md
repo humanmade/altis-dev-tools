@@ -57,3 +57,20 @@ For example, to disable on staging:
 	}
 }
 ```
+
+
+### Editor Stack Traces
+
+When viewing a stack trace of a PHP warning or error, the developer tools can turn these into clickable links that open in your editor. To enable this, define `QM_LOCAL_EDITOR` like this:
+
+```php
+define( 'QM_LOCAL_EDITOR', 'phpstorm' );
+```
+
+Valid values include:
+
+ - `phpstorm`
+ - `vscode`
+ - `atom`
+ - `sublime`
+ - `netbeans`
