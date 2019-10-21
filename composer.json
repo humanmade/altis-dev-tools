@@ -10,7 +10,7 @@
 	],
 	"autoload": {
 		"files": [
-			"load.php"
+			"inc/namespace.php"
 		],
 		"classmap": [
 			"inc/"
@@ -18,5 +18,8 @@
 	},
 	"require": {
 		"johnbillion/query-monitor": "~3.3"
+	},
+	"extra": {
+		"altis": {}
 	}
 }
