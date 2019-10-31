@@ -17,7 +17,9 @@
 		]
 	},
 	"require": {
-		"johnbillion/query-monitor": "~3.3"
+		"johnbillion/query-monitor": "~3.3",
+		"wp-phpunit/wp-phpunit": "5.2.4",
+		"phpunit/phpunit": "^7.5.17"
 	},
 	"extra": {
 		"altis": {}
