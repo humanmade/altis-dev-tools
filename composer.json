@@ -20,10 +20,10 @@
 	"require": {
 		"johnbillion/query-monitor": "~3.3",
 		"wp-phpunit/wp-phpunit": "5.2.4",
-		"phpunit/phpunit": "^7.5.17"
+		"phpunit/phpunit": "^7.1.4"
 	},
 	"extra": {
 		"altis": {},
-		"class": "Altis\\Dev_Tools\\Composer\\Command"
+		"class": "Altis\\Dev_Tools\\Composer\\Plugin"
 	}
 }
