@@ -2,6 +2,7 @@
 	"name": "altis/dev-tools",
 	"description": "Developer Tools module for Altis",
 	"license": "GPL-2.0-or-later",
+	"type": "composer-plugin",
 	"authors": [
 		{
 			"name": "Human Made",
@@ -22,6 +23,7 @@
 		"phpunit/phpunit": "^7.5.17"
 	},
 	"extra": {
-		"altis": {}
+		"altis": {},
+		"class": "Altis\\Dev_Tools\\Composer\\Command"
 	}
 }
