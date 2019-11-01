@@ -18,6 +18,7 @@
 		]
 	},
 	"require": {
+		"composer-plugin-api": "^1.1",
 		"johnbillion/query-monitor": "~3.3",
 		"wp-phpunit/wp-phpunit": "5.2.4",
 		"phpunit/phpunit": "^7.1.4"
