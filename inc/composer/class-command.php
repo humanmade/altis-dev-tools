@@ -7,6 +7,7 @@ use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -19,13 +20,27 @@ class Command extends BaseCommand {
 	protected function configure() {
 		$this->setName( 'dev-tools' );
 		$this->setDescription( 'Developer tools' );
-		// $this->setDefinition();
-		$this->addArgument(
-			'subcommand',
-			InputArgument::REQUIRED,
-			'Subcommand to run'
+		$this->setDefinition( [
+			new InputArgument( 'subcommand', InputArgument::REQUIRED, 'phpunit, scaffold' ),
+			new InputOption( 'chassis', null, null, 'Run commands in the Local Chassis environment' ),
+			new InputArgument( 'options', InputArgument::IS_ARRAY ),
+		] );
+		$this->setHelp(
+			<<<EOT
+Run a dev tools feature.
+
+To run PHPUnit integration tests:
+    phpunit [--] [options]      use `--` to separate arguments you want to
+                                pass to phpunit
+Create scaffolding for various features:
+    scaffold <type>             possible values are 'phpunit', defaults to
+                                'phpunit'
+Global options:
+    [--chassis]   Passing this instructs dev tools to run the command on your
+                  local chassis instance. By default this command looks for
+                  local server.
+EOT
 		);
-		$this->addOption( 'chassis', null, null, 'Run commands in the Local Chassis environment' );
 	}
 
 	/**
@@ -37,13 +52,9 @@ class Command extends BaseCommand {
 	 */
 	protected function execute( InputInterface $input, OutputInterface $output ) {
 		$subcommand = $input->getArgument( 'subcommand' );
-		$use_chassis = $input->getOption( 'chassis' );
-
-		$command = $use_chassis ? 'run_chassis_command' : 'run_docker_command';
-
 		switch ( $subcommand ) {
 			case 'phpunit':
-				$this->$command( $input, $output, 'vendor/bin/phpunit' );
+				$this->run_command( $input, $output, 'vendor/bin/phpunit' );
 				break;
 
 			case 'scaffold':
@@ -56,13 +67,29 @@ class Command extends BaseCommand {
 	}
 
 	/**
-	 * Create required test runner files.
+	 * Create base test runner files.
 	 *
 	 * @param InputInterface $input
 	 * @param OutputInterface $output
 	 * @return int
 	 */
 	protected function scaffold( InputInterface $input, OutputInterface $output ) {
+		// Scaffold PHPUnit by default.
+		$target = $input->getArgument( 'options' )[0] ?? 'phpunit';
+
+		switch ( $target ) {
+			case 'phpunit':
+				$this->scaffold_phpunit( $output );
+				break;
+			default:
+				throw new CommandNotFoundException( sprintf( '"%s" is not a recognised scaffold value.', $target ) );
+				break;
+		}
+	}
+
+	protected function scaffold_phpunit( OutputInterface $output ) {
+		$package_root = dirname( __DIR__, 2 );
+
 		// Check for an existing tests directory.
 		if ( file_exists( $this->get_root_dir() . '/tests' ) ) {
 			$output->writeln( '<error>You already have a "tests" directory present in your project!</>' );
@@ -82,30 +109,27 @@ class Command extends BaseCommand {
 				'</phpunit>'
 			);
 		} else {
-			copy( __DIR__ . '/boilerplate/phpunit.xml.dist', $this->get_root_dir() . '/phpunit.xml.dist' );
+			$output->writeln( '<info>Copying phpunit.xml.dist</>' );
+			copy( $package_root . '/boilerplate/phpunit.xml.dist', $this->get_root_dir() . '/phpunit.xml.dist' );
 		}
 
 		// Copy files over.
+		$output->writeln( '<info>Creating tests directory...</>' );
 		mkdir( $this->get_root_dir() . '/tests', 0755, true );
-		copy( __DIR__ . '/boilerplate/bootstrap.php', $this->get_root_dir() . '/tests/bootstrap.php' );
-		copy( __DIR__ . '/boilerplate/config.php', $this->get_root_dir() . '/tests/config.php' );
-		copy( __DIR__ . '/boilerplate/test-sample.php', $this->get_root_dir() . '/tests/test-sample.php' );
+		$output->writeln( '<info>Copying bootstrap.php</>' );
+		copy( $package_root . '/boilerplate/bootstrap.php', $this->get_root_dir() . '/tests/bootstrap.php' );
+		$output->writeln( '<info>Copying config.php</>' );
+		copy( $package_root . '/boilerplate/config.php', $this->get_root_dir() . '/tests/config.php' );
+		$output->writeln( '<info>Copying test-sample.php</>' );
+		copy( $package_root . '/boilerplate/test-sample.php', $this->get_root_dir() . '/tests/test-sample.php' );
 
+		$output->writeln( '<info>Success!</>' );
 		return 0;
 	}
 
-	/**
-	 * Run a command in the Chassis directory.
-	 *
-	 * @param string $command Command to execute
-	 * @return int Status returned from the command
-	 */
-	protected function run_chassis_command( InputInterface $input, OutputInterface $output, $command ) {
-		$cli = $this->getApplication()->find( 'chassis' );
-	}
-
-	protected function run_docker_command( InputInterface $input, OutputInterface $output, $command ) {
-		$cli = $this->getApplication()->find( 'local-server' );
+	protected function run_command( InputInterface $input, OutputInterface $output, $command ) {
+		$use_chassis = $input->getOption( 'chassis' );
+		$cli = $this->getApplication()->find( $use_chassis ? 'chassis' : 'local-server' );
 		$options = $input->getArgument( 'options' );
 
 		// Add the command to the start of the options.
@@ -140,18 +164,6 @@ class Command extends BaseCommand {
 		$composer_json = json_decode( $json, true );
 
 		return (array) $composer_json['extra']['altis']['modules'][ $module ] ?? [];
-	}
-
-	protected function get_project_subdomain() {
-		$config = $this->get_config( 'local-server' );
-
-		if ( isset( $config['name'] ) ) {
-			$project_name = $config['name'];
-		} else {
-			$project_name = basename( getcwd() );
-		}
-
-		return preg_replace( '/[^A-Za-z0-9\-\_]/', '', $project_name );
 	}
 
 }

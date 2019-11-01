@@ -13,7 +13,7 @@ class Plugin implements PluginInterface, Capable {
 
 	public function getCapabilities() {
 		return [
-			'Composer\\Plugin\\Capability\\CommandProvider' => __NAMESPACE__ . '\\CommandProvider',
+			'Composer\\Plugin\\Capability\\CommandProvider' => __NAMESPACE__ . '\\Command_Provider',
 		];
 	}
 }
