@@ -3,7 +3,6 @@
 namespace Altis\Dev_Tools\Composer;
 
 use Composer\Command\BaseCommand;
-use Exception;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputArgument;
@@ -94,10 +93,6 @@ class Command extends BaseCommand {
 
 		return 0;
 	}
-
-	// protected function run(  ) {
-
-	// }
 
 	/**
 	 * Run a command in the Chassis directory.
