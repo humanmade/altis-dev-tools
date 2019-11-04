@@ -54,12 +54,10 @@ EOT
 		$subcommand = $input->getArgument( 'subcommand' );
 		switch ( $subcommand ) {
 			case 'phpunit':
-				$this->run_command( $input, $output, 'vendor/bin/phpunit' );
-				break;
+				return $this->run_command( $input, $output, 'vendor/bin/phpunit' );
 
 			case 'scaffold':
-				$this->scaffold( $input, $output );
-				break;
+				return $this->scaffold( $input, $output );
 
 			default:
 				throw new CommandNotFoundException( sprintf( 'Subcommand "%s" is not defined.', $subcommand ) );
@@ -79,11 +77,10 @@ EOT
 
 		switch ( $target ) {
 			case 'phpunit':
-				$this->scaffold_phpunit( $output );
-				break;
+				return $this->scaffold_phpunit( $output );
+
 			default:
 				throw new CommandNotFoundException( sprintf( '"%s" is not a recognised scaffold value.', $target ) );
-				break;
 		}
 	}
 
