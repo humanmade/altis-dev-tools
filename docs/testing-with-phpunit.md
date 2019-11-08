@@ -26,7 +26,7 @@ This will create the following files:
 - `.tests/bootstrap.php` - Handles loading and installing Altis before running tests.
 - `.tests/setup.php` - Provides access to test suite functions such as `tests_add_filter()`.
 - `.tests/config.php` - A custom config file used to define constants or other code for the test run.
-- `.tests/class-test-sample.php` - A basic test to get you started.
+- `.tests/inc/class-test-sample.php` - A basic test to get you started.
 
 If you already have PHPUnit set up for a different environment you can temporarily move your existing `phpunit.xml.dist` file and a `.tests` directory to compare the scaffolded versions to your existing ones. The dot prefix ensures this directory is not accessible to HTTP requests.
 

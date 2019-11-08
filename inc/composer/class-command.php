@@ -115,15 +115,15 @@ EOT
 
 		// Copy files over.
 		$output->writeln( '<info>Creating .tests directory...</>' );
-		mkdir( $this->get_root_dir() . '/.tests', 0755, true );
+		mkdir( $this->get_root_dir() . '/.tests/inc', 0755, true );
 		$output->writeln( '<info>Copying bootstrap.php</>' );
 		copy( $package_root . '/boilerplate/bootstrap.php', $this->get_root_dir() . '/.tests/bootstrap.php' );
 		$output->writeln( '<info>Copying config.php</>' );
 		copy( $package_root . '/boilerplate/config.php', $this->get_root_dir() . '/.tests/config.php' );
 		$output->writeln( '<info>Copying setup.php</>' );
 		copy( $package_root . '/boilerplate/setup.php', $this->get_root_dir() . '/.tests/setup.php' );
-		$output->writeln( '<info>Copying class-test-sample.php</>' );
-		copy( $package_root . '/boilerplate/class-test-sample.php', $this->get_root_dir() . '/.tests/class-test-sample.php' );
+		$output->writeln( '<info>Copying inc/class-test-sample.php</>' );
+		copy( $package_root . '/boilerplate/inc/class-test-sample.php', $this->get_root_dir() . '/.tests/inc/class-test-sample.php' );
 
 		$output->writeln( '<info>Success!</>' );
 		return 0;

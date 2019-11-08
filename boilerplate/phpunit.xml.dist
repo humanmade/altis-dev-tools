@@ -14,7 +14,7 @@
 	</testsuites>
 
 	<php>
-		<env name="WP_PHPUNIT__TESTS_CONFIG" value="tests/config.php" />
+		<env name="WP_PHPUNIT__TESTS_CONFIG" value=".tests/config.php" />
 		<const name="WP_PHP_BINARY" value="/usr/bin/env php" />
 	</php>
 </phpunit>

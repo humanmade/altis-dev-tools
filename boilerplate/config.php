@@ -3,6 +3,8 @@
  * Tests Config file.
  *
  * Add any custom configuration you require for your test environment here.
+ *
+ * @phpcs:ignoreFile PSR1.Files.SideEffects.FoundWithSymbols
  */
 
 defined( 'WP_TESTS_DOMAIN' ) or define( 'WP_TESTS_DOMAIN', 'example.org' );
