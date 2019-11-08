@@ -5,7 +5,9 @@
  * Edit or delete this file to add your own tests.
  */
 
-class Example_Test extends WP_UnitTestCase {
+namespace Project\Tests;
+
+class Test_Sample extends WP_UnitTestCase {
 
 	public function test_it_works() {
 		$this->assertTrue( function_exists( 'do_action' ) );

@@ -62,7 +62,7 @@ EOT
 	}
 
 	/**
-	 * Create base test runner files.
+	 * Copies boilerplate files over to the project root.
 	 *
 	 * @param InputInterface $input
 	 * @param OutputInterface $output
@@ -91,8 +91,8 @@ EOT
 		$package_root = dirname( __DIR__, 2 );
 
 		// Check for an existing tests directory.
-		if ( file_exists( $this->get_root_dir() . '/tests' ) ) {
-			$output->writeln( '<error>You already have a "tests" directory present in your project!</>' );
+		if ( file_exists( $this->get_root_dir() . '/.tests' ) ) {
+			$output->writeln( '<error>You already have a ".tests" directory present in your project!</>' );
 			$output->writeln( '<comment>If you want to compare the recommended Altis testing setup you can temporarily rename your current tests directory and run this command again.</>' );
 			return 1;
 		}
@@ -101,9 +101,9 @@ EOT
 			$output->writeln( '<error>phpunit.xml.dist file found, skipping</>' );
 			$output->writeln( '<comment>You should ensure your version of the file uses the same values shown in this basic outline:</>' );
 			$output->write(
-				'<phpunit bootstrap="tests/bootstrap.php">' . "\n" .
+				'<phpunit bootstrap=".tests/bootstrap.php">' . "\n" .
 				"\t" . '<php>' . "\n" .
-				"\t\t" . '<env name="WP_PHPUNIT__TESTS_CONFIG" value="tests/config.php" />' . "\n" .
+				"\t\t" . '<env name="WP_PHPUNIT__TESTS_CONFIG" value=".tests/config.php" />' . "\n" .
 				"\t\t" . '<const name="WP_PHP_BINARY" value="/usr/bin/env php" />' . "\n" .
 				"\t" . '</php>' . "\n" .
 				'</phpunit>'
@@ -114,14 +114,16 @@ EOT
 		}
 
 		// Copy files over.
-		$output->writeln( '<info>Creating tests directory...</>' );
-		mkdir( $this->get_root_dir() . '/tests', 0755, true );
+		$output->writeln( '<info>Creating .tests directory...</>' );
+		mkdir( $this->get_root_dir() . '/.tests', 0755, true );
 		$output->writeln( '<info>Copying bootstrap.php</>' );
-		copy( $package_root . '/boilerplate/bootstrap.php', $this->get_root_dir() . '/tests/bootstrap.php' );
+		copy( $package_root . '/boilerplate/bootstrap.php', $this->get_root_dir() . '/.tests/bootstrap.php' );
 		$output->writeln( '<info>Copying config.php</>' );
-		copy( $package_root . '/boilerplate/config.php', $this->get_root_dir() . '/tests/config.php' );
-		$output->writeln( '<info>Copying test-sample.php</>' );
-		copy( $package_root . '/boilerplate/test-sample.php', $this->get_root_dir() . '/tests/test-sample.php' );
+		copy( $package_root . '/boilerplate/config.php', $this->get_root_dir() . '/.tests/config.php' );
+		$output->writeln( '<info>Copying setup.php</>' );
+		copy( $package_root . '/boilerplate/setup.php', $this->get_root_dir() . '/.tests/setup.php' );
+		$output->writeln( '<info>Copying class-test-sample.php</>' );
+		copy( $package_root . '/boilerplate/class-test-sample.php', $this->get_root_dir() . '/.tests/class-test-sample.php' );
 
 		$output->writeln( '<info>Success!</>' );
 		return 0;
@@ -143,7 +145,15 @@ EOT
 		return 0;
 	}
 
-	protected function run_command( InputInterface $input, OutputInterface $output, $command ) {
+	/**
+	 * Run the passed command on either the local-server or local-chassis environment.
+	 *
+	 * @param InputInterface $input
+	 * @param OutputInterface $output
+	 * @param string $command The command to run.
+	 * @return void
+	 */
+	protected function run_command( InputInterface $input, OutputInterface $output, string $command ) {
 		$use_chassis = $input->getOption( 'chassis' );
 		$cli = $this->getApplication()->find( $use_chassis ? 'chassis' : 'local-server' );
 		$options = $input->getArgument( 'options' );
