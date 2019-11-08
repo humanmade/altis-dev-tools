@@ -30,15 +30,12 @@ class Command extends BaseCommand {
 Run a dev tools feature.
 
 To run PHPUnit integration tests:
-    phpunit [--] [options]      use `--` to separate arguments you want to
-                                pass to phpunit
-Create scaffolding for various features:
-    scaffold <type>             possible values are 'phpunit', defaults to
-                                'phpunit'
-Global options:
-    [--chassis]   Passing this instructs dev tools to run the command on your
-                  local chassis instance. By default this command looks for
-                  local server.
+    phpunit [--chassis] [--] [options]
+                                use `--` to separate arguments you want to
+                                pass to phpunit. Use the --chassis option
+                                if you are running Local Chassis.
+Create scaffolding for various tools:
+    scaffold <type>             possible values are 'phpunit' and 'travis'
 EOT
 		);
 	}
@@ -73,18 +70,24 @@ EOT
 	 */
 	protected function scaffold( InputInterface $input, OutputInterface $output ) {
 		// Scaffold PHPUnit by default.
-		$target = $input->getArgument( 'options' )[0] ?? 'phpunit';
+		$target = $input->getArgument( 'options' )[0] ?? null;
 
 		switch ( $target ) {
 			case 'phpunit':
-				return $this->scaffold_phpunit( $output );
+				return $this->scaffold_phpunit( $input, $output );
+
+			case 'travis':
+				return $this->scaffold_travis( $input, $output );
 
 			default:
-				throw new CommandNotFoundException( sprintf( '"%s" is not a recognised scaffold value.', $target ) );
+				throw new CommandNotFoundException( sprintf(
+					'"%s" is not a recognised scaffold type, it must be one of "phpunit" or "travis".',
+					$target
+				) );
 		}
 	}
 
-	protected function scaffold_phpunit( OutputInterface $output ) {
+	protected function scaffold_phpunit( InputInterface $input, OutputInterface $output ) {
 		$package_root = dirname( __DIR__, 2 );
 
 		// Check for an existing tests directory.
@@ -119,6 +122,22 @@ EOT
 		copy( $package_root . '/boilerplate/config.php', $this->get_root_dir() . '/tests/config.php' );
 		$output->writeln( '<info>Copying test-sample.php</>' );
 		copy( $package_root . '/boilerplate/test-sample.php', $this->get_root_dir() . '/tests/test-sample.php' );
+
+		$output->writeln( '<info>Success!</>' );
+		return 0;
+	}
+
+	protected function scaffold_travis( InputInterface $input, OutputInterface $output ) {
+		$package_root = dirname( __DIR__, 2 );
+
+		if ( file_exists( $this->get_root_dir() . '/.travis.yml' ) ) {
+			$output->writeln( '<error>.travis.yml file found</>' );
+			$output->writeln( 'You can temporarily rename your existing travis config and run this command again to see the recommended set up.' );
+			return 1;
+		} else {
+			$output->writeln( '<info>Copying .travis.yml</>' );
+			copy( $package_root . '/boilerplate/.travis.yml', $this->get_root_dir() . '/.travis.yml' );
+		}
 
 		$output->writeln( '<info>Success!</>' );
 		return 0;

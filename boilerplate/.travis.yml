@@ -7,8 +7,9 @@ services:
   - docker
 
 env:
-  - COMPOSE_HTTP_TIMEOUT=360
-  - ES_MEM_LIMIT=2g
+  global:
+    - COMPOSE_HTTP_TIMEOUT=360
+    - ES_MEM_LIMIT=2g
 
 notifications:
   email:
@@ -22,13 +23,6 @@ branches:
 cache:
   directories:
     - $HOME/.composer/cache
-    - $HOME/docker-images
-
-before_install:
-  - docker load -i $HOME/docker-images/images.tar || true
-
-before_cache:
-  - docker save -o $HOME/docker-images/images.tar $(docker images -a -q)
 
 matrix:
   include:
@@ -39,4 +33,5 @@ before_script:
   - composer local-server start
 
 script:
+  # Add and edit your tests here
   - composer dev-tools phpunit
