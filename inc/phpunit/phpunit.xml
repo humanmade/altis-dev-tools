@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<phpunit
+	backupGlobals="false"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	>
+	<testsuites>
+		<testsuite name="project">
+			<directory prefix="class-test-" suffix=".php">../../../../.tests/</directory>
+			<directory prefix="class-test-" suffix=".php">../../../../tests/</directory>
+			<directory prefix="test-" suffix=".php">../../../../.tests/</directory>
+			<directory prefix="test-" suffix=".php">../../../../tests/</directory>
+		</testsuite>
+
+		<testsuite name="mu-plugins">
+			<directory prefix="class-test-" suffix=".php">../../../../content/mu-plugins/*/.tests/</directory>
+			<directory prefix="class-test-" suffix=".php">../../../../content/mu-plugins/*/tests/</directory>
+			<directory prefix="test-" suffix=".php">../../../../content/mu-plugins/*/.tests/</directory>
+			<directory prefix="test-" suffix=".php">../../../../content/mu-plugins/*/tests/</directory>
+		</testsuite>
+
+		<testsuite name="themes">
+			<directory prefix="class-test-" suffix=".php">../../../../content/themes/*/.tests/</directory>
+			<directory prefix="class-test-" suffix=".php">../../../../content/themes/*/tests/</directory>
+			<directory prefix="test-" suffix=".php">../../../../content/themes/*/.tests/</directory>
+			<directory prefix="test-" suffix=".php">../../../../content/themes/*/tests/</directory>
+		</testsuite>
+	</testsuites>
+</phpunit>
