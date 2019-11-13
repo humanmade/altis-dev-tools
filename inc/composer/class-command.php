@@ -51,7 +51,11 @@ EOT
 		$subcommand = $input->getArgument( 'subcommand' );
 		switch ( $subcommand ) {
 			case 'phpunit':
-				return $this->run_command( $input, $output, 'vendor/bin/phpunit' );
+				return $this->run_command( $input, $output, 'vendor/bin/phpunit', [
+					'--bootstrap vendor/altis/dev-tools/inc/phpunit/bootstrap.php',
+					'--configuration vendor/altis/dev-tools/inc/phpunit/phpunit.xml',
+					'--strict-global-state',
+				] );
 
 			case 'scaffold':
 				return $this->scaffold( $input, $output );
@@ -151,15 +155,20 @@ EOT
 	 * @param InputInterface $input
 	 * @param OutputInterface $output
 	 * @param string $command The command to run.
+	 * @param array $options Any required options to pass to the command.
 	 * @return void
 	 */
-	protected function run_command( InputInterface $input, OutputInterface $output, string $command ) {
+	protected function run_command( InputInterface $input, OutputInterface $output, string $command, array $options = [] ) {
 		$use_chassis = $input->getOption( 'chassis' );
 		$cli = $this->getApplication()->find( $use_chassis ? 'chassis' : 'local-server' );
-		$options = $input->getArgument( 'options' );
+		$input_options = $input->getArgument( 'options' );
 
-		// Add the command to the start of the options.
-		array_unshift( $options, $command );
+		// Add the command, default options and input options together.
+		$options = array_merge(
+			[ $command ],
+			$options,
+			$input_options
+		);
 
 		$return_val = $cli->run( new ArrayInput( [
 			'subcommand' => 'exec',
