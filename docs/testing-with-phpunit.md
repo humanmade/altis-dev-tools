@@ -1,6 +1,6 @@
 # Testing With PHPUnit
 
-[PHPUnit]() is a powerful framework for testing PHP code and applications. The tests that PHPUnit excels at running can be broken down into two fundamental types:
+[PHPUnit](https://phpunit.de) is a powerful framework for testing PHP code and applications. The tests that PHPUnit excels at running can be broken down into two fundamental types:
 
 - Unit tests
 - Integration tests
@@ -9,33 +9,22 @@ Unit tests can be run against a unit of code in isolation, such as a function or
 
 Integration tests allow you to test a running application. In the case of Altis this type of testing is often more useful however it is possible to run both types of test.
 
-Currently only PHPUnit <= 7.1 is supported.
+Currently only [PHPUnit 7.1](https://phpunit.readthedocs.io/en/7.1/) is supported.
 
 
-## Setting Up PHPUnit
+## Pre-requisites
 
-To set up PHPUnit from scratch run the following command:
+Altis provides PHPUnit as a zero configuration set up provided the following rules are kept to:
 
-```sh
-composer dev-tools scaffold phpunit
-```
-
-This will create the following files:
-
-- `phpunit.xml.dist` - Instructions for PHPUnit.
-- `.tests/bootstrap.php` - Handles loading and installing Altis before running tests.
-- `.tests/setup.php` - Provides access to test suite functions such as `tests_add_filter()`.
-- `.tests/config.php` - A custom config file used to define constants or other code for the test run.
-- `.tests/inc/class-test-sample.php` - A basic test to get you started.
-
-If you already have PHPUnit set up for a different environment you can temporarily move your existing `phpunit.xml.dist` file and a `.tests` directory to compare the scaffolded versions to your existing ones. The dot prefix ensures this directory is not accessible to HTTP requests.
-
-The scaffolded files can be edited as you need.
-
+- Tests must be in a directory called `tests` or `.tests` in your project root
+- Test class file names must match one of the following patterns:
+  - `class-test-*.php`
+  - `test-*.php`
+  - `*-test.php`
 
 ## Running Tests
 
-With the above scaffolding in place running your unit tests is straightforward:
+To run PHPUnit tests run the following command:
 
 ```sh
 composer dev-tools phpunit
@@ -49,9 +38,13 @@ composer dev-tools phpunit --chassis
 
 ### Passing Arguments To PHPUnit
 
-Often you may have multiple test directories, different configurations to run or you want to generate coverage reports. To pass any of the supported command line options to PHPUnit you need to add them after the options delimiter `--`. For example:
+To pass any of the supported command line options to PHPUnit you need to add them after the options delimiter `--`. For example:
 
 ```sh
+# Running tests from a non root directory.
+composer dev-tools phpunit -- content/themes/*/tests
+
+# Running tests with code coverage and junit reports.
 composer dev-tools phpunit -- --coverage-xml coverage --log-junit junit.xml
 ```
 
@@ -59,14 +52,6 @@ The [full list of PHPUnit command line options is available here](https://phpuni
 
 
 ## Writing Tests
-
-On top of the standard PHPUnit framework Altis bundles the WP PHPUnit framework to provide advanced functionality for integration testing.
-
-### Naming And Organisation
-
-All test classes should be prefixed with `class-test-` and have a `.php` suffix. The classes themselves should be namespaced and be named to match the file name, for example the file `class-test-feature-a.php` should declare a class called `Test_Feature_A`.
-
-Within the `.tests` directory you can organise your test classes as you see fit however it is good practice to group related tests into directories. This makes it easier to run a subset of tests rather than the full suite.
 
 Group tests into a class when they test different aspects of the same piece of functionality. It’s especially convenient to put tests together in a class when they can share a common `setUp()` or `setUpBeforeClass()` routine. As a rule, a single test class should not contain tests for more than one function/method and should test every possible input and expected output.
 
@@ -83,13 +68,6 @@ use PHPUnit\Framework\TestCase;
 
 class Test_Units extends TestCase {
 
-	/**
-	 * This special method is run once before all the tests in the class.
-	 */
-	public function setUpBeforeClass() {
-		require_once 'path/to/file/with/functions.php';
-	}
-
 	public function test_complex_maths_function() {
 		// Run the function to test.
 		$value = complex_maths( 22.24, 87 );
@@ -104,7 +82,9 @@ The framework has a great many features, it is highly recommended to [read throu
 
 ### Integration Tests
 
-To run tests against the running application your tests should follow the same pattern as above but test classes should extend the `WP_UnitTestCase` class.
+Altis also bundles the WordPress PHP Testing Framework, which is an extension of the PHPUnit testing framework designed to enable running WordPress integration tests.
+
+To run tests against the running application your tests should follow the same pattern as above but test classes should extend the `WP_UnitTestCase` class instead.
 
 ```php
 <?php
@@ -151,6 +131,13 @@ class Test_Custom_Post_Type extends WP_UnitTestCase {
 		self::$user_id = $factory->user->create( [
 			'role' => 'editor',
 		] );
+	}
+
+	/**
+	 * Clean up objects created in wpSetUpBeforeClass.
+	 */
+	public function wpTearDownAfterClass() {
+		wp_delete_user( self::$user_id );
 	}
 
 	public function test_post_has_default_meta_data() {
@@ -223,3 +210,67 @@ $post_ids = self::factory()->post->create_many( 10, [], [
 ```
 
 The `WP_UnitTest_Generator_Sequence` class will replace any `%s` placeholders with the current iteration number.
+
+### Extending The Bootstrap Process
+
+The default bootstrap process loads Composer's `autoload.php` file and Altis itself. Depending on your project you may need to run some custom code very early in the process to make sure everything you need is properly loaded and configured if it can't be handled through standard Altis configuration.
+
+Add a file called `bootstrap.php` to your root `tests` (or `.tests`) directory and it will be automatically included. From there you can call the `tests_add_filter()` helper function.
+
+The following example manually sets the theme to use when running tests:
+
+```php
+// Hook in early to muplugins_loaded.
+tests_add_filter( 'muplugins_loaded', function () {
+	// Get the target theme directory and theme name.
+	$theme_dir = dirname( dirname( __FILE__ ) ) . '/content/themes/custom-theme';
+	$theme = basename( $theme_dir );
+
+	// Register the theme.
+	register_theme_directory( dirname( $theme_dir ) );
+
+	// Force the theme to always be used for tests.
+	add_filter( 'pre_option_template', function() use ( $theme ) {
+		return $theme;
+	} );
+	add_filter( 'pre_option_stylesheet', function() use ( $theme ) {
+		return $theme;
+	} );
+} );
+```
+
+If you need to add any custom configuration such as constants for Altis you can use the `altis.loaded_autoloader` hook:
+
+```php
+tests_add_filter( 'altis.loaded_autoloader', function () {
+	define( 'TEST_ONLY_CONSTANT', true );
+}, 0 );
+```
+
+## Using A Custom Configuration
+
+In order to run PHPUnit with your own XML config file you can pass the `--configuration` option like so:
+
+```sh
+composer dev-tools phpunit -- --configuration phpunit.xml
+```
+
+If you wish to retain the benefits of the built in bootstrap process your basic config file should look something like this:
+
+```xml
+<?xml version="1.0"?>
+<phpunit
+	bootstrap="vendor/altis/dev-tools/phpunit/bootstrap.php"
+	backupGlobals="false"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	>
+	<testsuites>
+		<testsuite name="project">
+			<directory prefix="class-test-" suffix=".php">tests</directory>
+		</testsuite>
+	</testsuites>
+</phpunit>
+```

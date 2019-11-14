@@ -21,7 +21,7 @@ class Command extends BaseCommand {
 		$this->setName( 'dev-tools' );
 		$this->setDescription( 'Developer tools' );
 		$this->setDefinition( [
-			new InputArgument( 'subcommand', InputArgument::REQUIRED, 'phpunit, scaffold' ),
+			new InputArgument( 'subcommand', InputArgument::REQUIRED, 'phpunit' ),
 			new InputOption( 'chassis', null, null, 'Run commands in the Local Chassis environment' ),
 			new InputArgument( 'options', InputArgument::IS_ARRAY ),
 		] );
@@ -34,8 +34,6 @@ To run PHPUnit integration tests:
                                 use `--` to separate arguments you want to
                                 pass to phpunit. Use the --chassis option
                                 if you are running Local Chassis.
-Create scaffolding for various tools:
-    scaffold <type>             possible values are 'phpunit' and 'travis'
 EOT
 		);
 	}
@@ -53,9 +51,6 @@ EOT
 			case 'phpunit':
 				return $this->phpunit( $input, $output );
 
-			case 'scaffold':
-				return $this->scaffold( $input, $output );
-
 			default:
 				throw new CommandNotFoundException( sprintf( 'Subcommand "%s" is not defined.', $subcommand ) );
 		}
@@ -69,49 +64,15 @@ EOT
 	 * @return int
 	 */
 	protected function phpunit( InputInterface $input, OutputInterface $output ) {
-		return $this->run_command( $input, $output, 'vendor/bin/phpunit', [
-			'--bootstrap vendor/altis/dev-tools/inc/phpunit/bootstrap.php',
-			'--configuration vendor/altis/dev-tools/inc/phpunit/phpunit.xml',
-		] );
-	}
+		$options = [];
 
-	/**
-	 * Copies boilerplate files over to the project root.
-	 *
-	 * @param InputInterface $input
-	 * @param OutputInterface $output
-	 * @return int
-	 */
-	protected function scaffold( InputInterface $input, OutputInterface $output ) {
-		// Scaffold PHPUnit by default.
-		$target = $input->getArgument( 'options' )[0] ?? null;
-
-		switch ( $target ) {
-			case 'travis':
-				return $this->scaffold_travis( $input, $output );
-
-			default:
-				throw new CommandNotFoundException( sprintf(
-					'"%s" is not a recognised scaffold type, it must be one of "phpunit" or "travis".',
-					$target
-				) );
-		}
-	}
-
-	protected function scaffold_travis( InputInterface $input, OutputInterface $output ) {
-		$package_root = dirname( __DIR__, 2 );
-
-		if ( file_exists( $this->get_root_dir() . '/.travis.yml' ) ) {
-			$output->writeln( '<error>.travis.yml file found</>' );
-			$output->writeln( 'You can temporarily rename your existing travis config and run this command again to see the recommended set up.' );
-			return 1;
-		} else {
-			$output->writeln( '<info>Copying .travis.yml</>' );
-			copy( $package_root . '/boilerplate/.travis.yml', $this->get_root_dir() . '/.travis.yml' );
+		// Check for passed config option.
+		$input_options = implode( ' ', $input->getArgument( 'options' ) );
+		if ( ! preg_match( '/(-c|--configuration)\s+/', $input_options ) ) {
+			$options[] = '-c vendor/altis/dev-tools/inc/phpunit/phpunit.xml';
 		}
 
-		$output->writeln( '<info>Success!</>' );
-		return 0;
+		return $this->run_command( $input, $output, 'vendor/bin/phpunit', $options );
 	}
 
 	/**

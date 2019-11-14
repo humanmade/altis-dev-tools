@@ -10,11 +10,6 @@ if ( ! defined( 'Altis\\PHPUNIT_PROJECT_ROOT' ) ) {
 	define( 'Altis\\PHPUNIT_PROJECT_ROOT', getcwd() );
 }
 
-// Load any custom configuration for tests.
-if ( file_exists( Altis\PHPUNIT_PROJECT_ROOT . '/.tests/config.php' ) ) {
-	require_once Altis\PHPUNIT_PROJECT_ROOT . '/.tests/config.php';
-}
-
 defined( 'WP_TESTS_DOMAIN' ) or define( 'WP_TESTS_DOMAIN', 'example.org' );
 defined( 'WP_TESTS_EMAIL' ) or define( 'WP_TESTS_EMAIL', 'admin@example.org' );
 defined( 'WP_TESTS_TITLE' ) or define( 'WP_TESTS_TITLE', 'Test Blog' );

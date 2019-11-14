@@ -31,6 +31,3 @@ matrix:
 before_script:
   - composer install
   - composer local-server start
-
-script:
-  - composer dev-tools phpunit

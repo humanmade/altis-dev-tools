@@ -1,0 +1,5 @@
+# Custom travis configuration.
+# Settings here are merged with and appended to the base configuration.
+script:
+  # Run unit tests.
+  - composer dev-tools phpunit

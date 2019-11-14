@@ -3,11 +3,12 @@
 namespace Altis\Dev_Tools\Composer;
 
 use Composer\Composer;
+use Composer\EventDispatcher\EventSubscriberInterface;
 use Composer\IO\IOInterface;
 use Composer\Plugin\Capable;
 use Composer\Plugin\PluginInterface;
 
-class Plugin implements PluginInterface, Capable {
+class Plugin implements PluginInterface, Capable, EventSubscriberInterface {
 	public function activate( Composer $composer, IOInterface $io ) {
 		$this->composer = $composer;
 	}
@@ -33,14 +34,20 @@ class Plugin implements PluginInterface, Capable {
 		$source = dirname( __DIR__, 2 );
 		$dest   = dirname( $this->composer->getConfig()->get( 'vendor-dir' ) );
 
+		// Copy default tests file.
+		if ( ! file_exists( $dest . '/.config/travis.yml' ) ) {
+			@mkdir( $dest . '/.config', 0755, true );
+			copy( $source . '/travis/tests.yml', $dest . '/.config/travis.yml' );
+		}
+
 		// Create .travis.yml if one doesn't exist yet.
 		if ( ! file_exists( $dest . '/.travis.yml' ) ) {
-			copy( $source . '/travis/boilerplate.yml', $dest . '/.travis.yml' );
+			copy( $source . '/travis/project.yml', $dest . '/.travis.yml' );
 			return;
 		}
 
 		// Check files match.
-		$source_hash = md5( file_get_contents( $source . '/travis/boilerplate.yml' ) );
+		$source_hash = md5( file_get_contents( $source . '/travis/project.yml' ) );
 		$dest_hash = md5( file_get_contents( $dest . '/.travis.yml' ) );
 
 		if ( $source_hash === $dest_hash ) {
@@ -48,10 +55,9 @@ class Plugin implements PluginInterface, Capable {
 		}
 
 		// Files are mismatched, show a warning.
-		trigger_error(
+		echo(
 			'The file .travis.yml does not match that required by Altis.' . "\n" .
-			'Follow the guide at https://www.altis-dxp.com/resources/docs/dev-tools/continuous-integration/ for help migrating.',
-			E_USER_WARNING
+			'Follow the guide at https://www.altis-dxp.com/resources/docs/dev-tools/continuous-integration/ for help migrating.'
 		);
 	}
 }

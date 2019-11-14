@@ -41,9 +41,12 @@ tests_add_filter( 'upload_dir', function( $dir ) {
 	return $dir;
 } );
 
-// Load custom setup file.
-if ( file_exists( Altis\PHPUNIT_PROJECT_ROOT . '/.tests/setup.php' ) ) {
-	require Altis\PHPUNIT_PROJECT_ROOT . '/.tests/setup.php';
+// Load custom bootstrap code.
+if ( file_exists( Altis\PHPUNIT_PROJECT_ROOT . '/.tests/bootstrap.php' ) ) {
+	require Altis\PHPUNIT_PROJECT_ROOT . '/.tests/bootstrap.php';
+}
+if ( file_exists( Altis\PHPUNIT_PROJECT_ROOT . '/tests/bootstrap.php' ) ) {
+	require Altis\PHPUNIT_PROJECT_ROOT . '/tests/bootstrap.php';
 }
 
 // Start up the WP testing environment.
