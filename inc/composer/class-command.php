@@ -51,11 +51,7 @@ EOT
 		$subcommand = $input->getArgument( 'subcommand' );
 		switch ( $subcommand ) {
 			case 'phpunit':
-				return $this->run_command( $input, $output, 'vendor/bin/phpunit', [
-					'--bootstrap vendor/altis/dev-tools/inc/phpunit/bootstrap.php',
-					'--configuration vendor/altis/dev-tools/inc/phpunit/phpunit.xml',
-					'--strict-global-state',
-				] );
+				return $this->phpunit( $input, $output );
 
 			case 'scaffold':
 				return $this->scaffold( $input, $output );
@@ -63,6 +59,20 @@ EOT
 			default:
 				throw new CommandNotFoundException( sprintf( 'Subcommand "%s" is not defined.', $subcommand ) );
 		}
+	}
+
+	/**
+	 * Runs PHPUnit with zero config by default.
+	 *
+	 * @param InputInterface $input
+	 * @param OutputInterface $output
+	 * @return int
+	 */
+	protected function phpunit( InputInterface $input, OutputInterface $output ) {
+		return $this->run_command( $input, $output, 'vendor/bin/phpunit', [
+			'--bootstrap vendor/altis/dev-tools/inc/phpunit/bootstrap.php',
+			'--configuration vendor/altis/dev-tools/inc/phpunit/phpunit.xml',
+		] );
 	}
 
 	/**
@@ -77,9 +87,6 @@ EOT
 		$target = $input->getArgument( 'options' )[0] ?? null;
 
 		switch ( $target ) {
-			case 'phpunit':
-				return $this->scaffold_phpunit( $input, $output );
-
 			case 'travis':
 				return $this->scaffold_travis( $input, $output );
 
@@ -89,48 +96,6 @@ EOT
 					$target
 				) );
 		}
-	}
-
-	protected function scaffold_phpunit( InputInterface $input, OutputInterface $output ) {
-		$package_root = dirname( __DIR__, 2 );
-
-		// Check for an existing tests directory.
-		if ( file_exists( $this->get_root_dir() . '/.tests' ) ) {
-			$output->writeln( '<error>You already have a ".tests" directory present in your project!</>' );
-			$output->writeln( '<comment>If you want to compare the recommended Altis testing setup you can temporarily rename your current tests directory and run this command again.</>' );
-			return 1;
-		}
-
-		if ( file_exists( $this->get_root_dir() . '/phpunit.xml.dist' ) ) {
-			$output->writeln( '<error>phpunit.xml.dist file found, skipping</>' );
-			$output->writeln( '<comment>You should ensure your version of the file uses the same values shown in this basic outline:</>' );
-			$output->write(
-				'<phpunit bootstrap=".tests/bootstrap.php">' . "\n" .
-				"\t" . '<php>' . "\n" .
-				"\t\t" . '<env name="WP_PHPUNIT__TESTS_CONFIG" value=".tests/config.php" />' . "\n" .
-				"\t\t" . '<const name="WP_PHP_BINARY" value="/usr/bin/env php" />' . "\n" .
-				"\t" . '</php>' . "\n" .
-				'</phpunit>'
-			);
-		} else {
-			$output->writeln( '<info>Copying phpunit.xml.dist</>' );
-			copy( $package_root . '/boilerplate/phpunit.xml.dist', $this->get_root_dir() . '/phpunit.xml.dist' );
-		}
-
-		// Copy files over.
-		$output->writeln( '<info>Creating .tests directory...</>' );
-		mkdir( $this->get_root_dir() . '/.tests/inc', 0755, true );
-		$output->writeln( '<info>Copying bootstrap.php</>' );
-		copy( $package_root . '/boilerplate/bootstrap.php', $this->get_root_dir() . '/.tests/bootstrap.php' );
-		$output->writeln( '<info>Copying config.php</>' );
-		copy( $package_root . '/boilerplate/config.php', $this->get_root_dir() . '/.tests/config.php' );
-		$output->writeln( '<info>Copying setup.php</>' );
-		copy( $package_root . '/boilerplate/setup.php', $this->get_root_dir() . '/.tests/setup.php' );
-		$output->writeln( '<info>Copying inc/class-test-sample.php</>' );
-		copy( $package_root . '/boilerplate/inc/class-test-sample.php', $this->get_root_dir() . '/.tests/inc/class-test-sample.php' );
-
-		$output->writeln( '<info>Success!</>' );
-		return 0;
 	}
 
 	protected function scaffold_travis( InputInterface $input, OutputInterface $output ) {

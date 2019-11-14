@@ -33,5 +33,4 @@ before_script:
   - composer local-server start
 
 script:
-  # Add and edit your tests here
   - composer dev-tools phpunit

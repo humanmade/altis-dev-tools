@@ -23,6 +23,24 @@ require_once Altis\PHPUNIT_PROJECT_ROOT . '/vendor/autoload.php';
 // Give access to tests_add_filter() function.
 require_once getenv( 'WP_PHPUNIT__DIR' ) . '/includes/functions.php';
 
+/**
+ * Re-map the default `/uploads` folder with our own `/test-uploads` for tests.
+ *
+ * WordPress core runs a method (scan_user_uploads) on the first instance of `WP_UnitTestCase`.
+ * This method scans every single folder and file in the uploads directory. This is a problem
+ * if the regular uploads directory contains a lot of files.
+ *
+ * This filter adds a unique test uploads folder just for our tests to reduce load.
+ */
+tests_add_filter( 'upload_dir', function( $dir ) {
+	array_walk( $dir, function( &$item ) {
+		if ( is_string( $item ) ) {
+			$item = str_replace( '/uploads', '/test-uploads', $item );
+		}
+	} );
+	return $dir;
+} );
+
 // Load custom setup file.
 if ( file_exists( Altis\PHPUNIT_PROJECT_ROOT . '/.tests/setup.php' ) ) {
 	require Altis\PHPUNIT_PROJECT_ROOT . '/.tests/setup.php';
