@@ -16,7 +16,7 @@ Currently only [PHPUnit 7.1](https://phpunit.readthedocs.io/en/7.1/) is supporte
 
 Altis provides PHPUnit as a zero configuration set up provided the following rules are kept to:
 
-- Tests must be in a directory called `tests` or `.tests` in your project root
+- Tests must be in a directory called `tests` in your project root
 - Test class file names must match one of the following patterns:
   - `class-test-*.php`
   - `test-*.php`
@@ -41,7 +41,7 @@ composer dev-tools phpunit --chassis
 To pass any of the supported command line options to PHPUnit you need to add them after the options delimiter `--`. For example:
 
 ```sh
-# Running tests from a non root directory.
+# Running tests in a non root directory.
 composer dev-tools phpunit -- content/themes/*/tests
 
 # Running tests with code coverage and junit reports.
@@ -215,7 +215,7 @@ The `WP_UnitTest_Generator_Sequence` class will replace any `%s` placeholders wi
 
 The default bootstrap process loads Composer's `autoload.php` file and Altis itself. Depending on your project you may need to run some custom code very early in the process to make sure everything you need is properly loaded and configured if it can't be handled through standard Altis configuration.
 
-Add a file called `bootstrap.php` to your root `tests` (or `.tests`) directory and it will be automatically included. From there you can call the `tests_add_filter()` helper function.
+Add a file called `tests-bootstrap.php` to your root `.config` directory and it will be automatically included. From there you can call the `tests_add_filter()` helper function which is a way to use WordPress hooks before the application is loaded.
 
 The following example manually sets the theme to use when running tests:
 
