@@ -185,6 +185,8 @@ $factory->$object_type->$action();
   Creates and returns the object itself.
 - `create_many( int $count, array $args, [ array $generation_definitions ] )`<br />
   Creates a number of the target object type and returns an array of IDs.
+- `create_upload_object( string $file, int $parent = 0 )`<br />
+  For the attachment type only, this will upload a file specified by the path in `$file`.
 
 The `$args` array for each action is processed and passed to core functions in the following way:
 
