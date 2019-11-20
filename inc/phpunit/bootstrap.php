@@ -41,6 +41,38 @@ tests_add_filter( 'upload_dir', function( $dir ) {
 	return $dir;
 } );
 
+/**
+ * Setup ElasticPress on install.
+ */
+define( 'EP_INDEX_PREFIX', 'tests_' );
+tests_add_filter( 'plugins_loaded', function () {
+	if ( ! function_exists( 'ep_index_exists' ) ) {
+		return;
+	}
+
+	// Elevate error reporting level.
+	$error_reporting_level = error_reporting();
+	error_reporting( E_ERROR );
+
+	if ( ep_index_exists() ) {
+		return;
+	}
+
+	exec( 'EP_INDEX_PREFIX=tests_ wp elasticpress index --setup --network-wide --quiet --url=' . WP_TESTS_DOMAIN );
+
+	error_reporting( $error_reporting_level );
+} );
+
+/**
+ * Ensure Stream is installed.
+ */
+define( 'WP_STREAM_DEV_DEBUG', true );
+tests_add_filter( 'plugins_loaded', function () {
+	if ( function_exists( 'wp_stream_get_instance' ) && wp_stream_get_instance()->install ) {
+		wp_stream_get_instance()->install->check();
+	}
+}, 21 );
+
 // Load custom bootstrap code.
 if ( file_exists( Altis\PHPUNIT_PROJECT_ROOT . '/.config/tests-bootstrap.php' ) ) {
 	require Altis\PHPUNIT_PROJECT_ROOT . '/.config/tests-bootstrap.php';
