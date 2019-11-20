@@ -73,6 +73,11 @@ tests_add_filter( 'plugins_loaded', function () {
 	}
 }, 21 );
 
+/**
+ * Modify the cache keys to prevent conflicts.
+ */
+define( 'WP_CACHE_KEY_SALT', WP_TESTS_DOMAIN );
+
 // Load custom bootstrap code.
 if ( file_exists( Altis\PHPUNIT_PROJECT_ROOT . '/.config/tests-bootstrap.php' ) ) {
 	require Altis\PHPUNIT_PROJECT_ROOT . '/.config/tests-bootstrap.php';
