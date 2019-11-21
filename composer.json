@@ -2,6 +2,7 @@
 	"name": "altis/dev-tools",
 	"description": "Developer Tools module for Altis",
 	"license": "GPL-2.0-or-later",
+	"type": "composer-plugin",
 	"authors": [
 		{
 			"name": "Human Made",
@@ -17,9 +18,13 @@
 		]
 	},
 	"require": {
-		"johnbillion/query-monitor": "~3.3"
+		"composer-plugin-api": "^1.1",
+		"johnbillion/query-monitor": "~3.3",
+		"wp-phpunit/wp-phpunit": "5.2.4",
+		"phpunit/phpunit": "^7.1.4"
 	},
 	"extra": {
-		"altis": {}
+		"altis": {},
+		"class": "Altis\\Dev_Tools\\Composer\\Plugin"
 	}
 }
