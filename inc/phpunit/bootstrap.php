@@ -46,6 +46,8 @@ tests_add_filter( 'upload_dir', function( $dir ) {
  */
 define( 'EP_INDEX_PREFIX', 'tests_' );
 tests_add_filter( 'plugins_loaded', function () {
+	global $table_prefix;
+
 	if ( ! function_exists( 'ep_index_exists' ) ) {
 		return;
 	}
@@ -58,10 +60,15 @@ tests_add_filter( 'plugins_loaded', function () {
 		return;
 	}
 
-	exec( 'EP_INDEX_PREFIX=tests_ wp elasticpress index --setup --network-wide --quiet --url=' . WP_TESTS_DOMAIN );
+	exec( sprintf(
+		'TABLE_PREFIX=%s EP_INDEX_PREFIX=%s wp elasticpress index --setup --network-wide --url=%s',
+		$table_prefix,
+		EP_INDEX_PREFIX,
+		WP_TESTS_DOMAIN
+	) );
 
 	error_reporting( $error_reporting_level );
-} );
+}, 11 );
 
 /**
  * Ensure Stream is installed.
@@ -76,7 +83,7 @@ tests_add_filter( 'plugins_loaded', function () {
 /**
  * Modify the cache keys to prevent conflicts.
  */
-define( 'WP_CACHE_KEY_SALT', WP_TESTS_DOMAIN );
+define( 'WP_CACHE_KEY_SALT', 'phpunit' );
 
 // Load custom bootstrap code.
 if ( file_exists( Altis\PHPUNIT_PROJECT_ROOT . '/.config/tests-bootstrap.php' ) ) {
