@@ -5,6 +5,12 @@ namespace Altis\Dev_Tools; // @codingStandardsIgnoreLine
 use function Altis\get_environment_type;
 use function Altis\register_module;
 
+// In order to configure tests properly we need to be able to ensure
+// WP CLI commands can be run pointing to the correct tables.
+if ( getenv( 'TABLE_PREFIX' ) ) {
+	$table_prefix = getenv( 'TABLE_PREFIX' );
+}
+
 add_action( 'altis.modules.init', function () {
 	$default_settings = [
 		'enabled'       => get_environment_type() !== 'production',
