@@ -262,7 +262,7 @@ If you wish to retain the benefits of the built in bootstrap process your basic 
 ```xml
 <?xml version="1.0"?>
 <phpunit
-	bootstrap="vendor/altis/dev-tools/phpunit/bootstrap.php"
+	bootstrap="vendor/altis/dev-tools/inc/phpunit/bootstrap.php"
 	backupGlobals="false"
 	colors="true"
 	convertErrorsToExceptions="true"
@@ -272,6 +272,7 @@ If you wish to retain the benefits of the built in bootstrap process your basic 
 	<testsuites>
 		<testsuite name="project">
 			<directory prefix="class-test-" suffix=".php">tests</directory>
+			<directory prefix="class-test-" suffix=".php">content/mu-plugins/*/tests</directory>
 		</testsuite>
 	</testsuites>
 </phpunit>
