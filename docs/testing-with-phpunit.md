@@ -14,9 +14,9 @@ Integration tests allow you to test a running application. In the case of Altis 
 
 ## Zero Configuration
 
-Altis provides PHPUnit as a zero configuration set up provided the following rules are followed:
+PHPUnit in Altis requires zero configuration for the following scenario:
 
-- Tests are in a directory called `tests` in the project root.
+- Tests are in a directory called `tests` in the project root
 - Test class file names must match one of the following patterns:
   - `class-test-*.php`
   - `test-*.php`
@@ -77,7 +77,7 @@ To pass any of the supported command line options to PHPUnit you need to add the
 
 ```sh
 # Running tests in a specific directory.
-composer dev-tools phpunit -- content/themes/*/tests
+composer dev-tools phpunit -- content/themes/custom-theme/tests
 
 # Running tests with code coverage and junit reports.
 composer dev-tools phpunit -- --coverage-xml coverage --log-junit junit.xml
