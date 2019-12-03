@@ -42,7 +42,7 @@ While the zero configuration option is sufficient for most projects there may be
 							"beStrictAboutChangesToGlobalState": "true"
 						},
 						"extensions": [
-							"CustomPHPUnitExtension\Class"
+							"CustomPHPUnitExtension\\Class"
 						]
 					}
 				}
