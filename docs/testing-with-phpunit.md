@@ -17,7 +17,7 @@ Integration tests allow you to test a running application. In the case of Altis 
 PHPUnit in Altis requires zero configuration for the following scenario:
 
 - Tests are in a directory called `tests` in the project root
-- Test class file names must match one of the following patterns:
+- Test class file names match one of the following patterns:
   - `class-test-*.php`
   - `test-*.php`
   - `*-test.php`
