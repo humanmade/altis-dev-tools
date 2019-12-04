@@ -12,22 +12,27 @@ The Altis developer tools are built on top of the [Query Monitor](https://querym
 
 The developer tools are active by default for all environment types except `production`. While logged in, a summary of the request's details will appear in the toolbar at the top of the page. Click this summary to open the developer tools.
 
-![Screenshot of the developer tools toolbar item](./toolbar.png)
+![Screenshot of the developer tools toolbar item](./assets/toolbar.png)
 
 This summary will automatically change color if errors or warnings are detected on your page.
 
 The developer tools will be displayed as a panel at the bottom of your page.
 
-![Screenshot of the developer tools panel](./qm-overview.png)
+![Screenshot of the developer tools panel](./assets/qm-overview.png)
 
 
 ### Activating for other users
 
 By default, only administrators have access to the developer tools. You can temporarily test with other users or while logged out by setting an activation cookie instead.
 
-To activate this cookie, open the developer tools while logged in as an administrator, then click on the gear icon in the top right to access the settings screen. Click the "Set authentication cookie" button to enable developer tools for your browser, then switch to another account or log out.
+To activate this cookie:
 
-![Screenshot of the developer tools panel](./qm-settings.png)
+1. Open the developer tools while logged in as an administrator
+2. Click on the gear icon in the top right to access the settings screen
+3. Click the "Set authentication cookie" button to enable developer tools for your browser
+4. Switch to another account or log out
+
+![Screenshot of the developer tools panel](./assets/qm-settings-auth.png)
 
 You can also add the `view_query_monitor` capability to users to permanently grant them the ability to use the developer tools.
 
@@ -61,16 +66,14 @@ For example, to disable on staging:
 
 ### Editor Stack Traces
 
-When viewing a stack trace of a PHP warning or error, the developer tools can turn these into clickable links that open in your editor. To enable this, define `QM_LOCAL_EDITOR` like this:
+Stack traces within the developer tools panel can be made into clickable links that open in your editor. Database queries will also be clickable so you can jump directly to the function that made them.
 
-```php
-define( 'QM_LOCAL_EDITOR', 'phpstorm' );
-```
+To activate clickable stack traces:
 
-Valid values include:
+1. Open the developer tools panel
+2. Click on the gear icon in the top right to access the settings screen
+3. Select your editor from the drop down
+4. Click the "Set editor cookie" button
+5. Refresh the page
 
- - `phpstorm`
- - `vscode`
- - `atom`
- - `sublime`
- - `netbeans`
+![Screenshot of the developer tools panel](./assets/qm-settings-editor.png)

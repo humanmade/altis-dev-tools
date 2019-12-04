@@ -11,7 +11,6 @@ use function Altis\get_environment_architecture;
  */
 function bootstrap() {
 	add_action( 'plugins_loaded', __NAMESPACE__ . '\\on_plugins_loaded', 1 );
-	add_filter( 'qm/output/file_link_format', __NAMESPACE__ . '\\set_edit_link_format', 1 );
 }
 
 /**
@@ -30,45 +29,5 @@ function on_plugins_loaded() {
 		// Hide the db.php dropin installation warning and prompt.
 		add_filter( 'qm/show_extended_query_prompt', '__return_false' );
 		require_once ROOT_DIR . '/vendor/johnbillion/query-monitor/query-monitor.php';
-	}
-}
-
-/**
- * Implements a Query Monitor filter to adjust the
- * URLs used in stack traces for editor support.
- *
- * @param string $format a protocol URL format
- * @return string a protocol URL format
- */
-function set_edit_link_format( $format ) : string {
-	$editor = null;
-	if ( defined( 'QM_LOCAL_EDITOR' ) ) {
-		$editor = QM_LOCAL_EDITOR;
-	}
-	return get_edit_link_format( $format, $editor );
-}
-
-/**
- * Provides a protocol URL for edit links in QM stack
- * traces for various editors.
- *
- * @param string $default_format a format to use if no editor is found
- * @param string|null $editor the chosen code editor
- * @return string a protocol URL format
- */
-function get_edit_link_format( $default_format, $editor = null ) : string {
-	switch ( $editor ) {
-		case 'phpstorm':
-			return 'phpstorm://open?file=%f&line=%l';
-		case 'vscode':
-			return 'vscode://file/%f:%l';
-		case 'atom':
-			return 'atom://open/?url=file://%f&line=%l';
-		case 'sublime':
-			return 'subl://open/?url=file://%f&line=%l';
-		case 'netbeans':
-			return 'nbopen://%f:%l';
-		default:
-			return $default_format;
 	}
 }
