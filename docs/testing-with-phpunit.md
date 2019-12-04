@@ -9,18 +9,53 @@ Unit tests can be run against a unit of code in isolation, such as a function or
 
 Integration tests allow you to test a running application. In the case of Altis this type of testing is often more useful however it is possible to run both types of test.
 
-Currently only [PHPUnit 7.1](https://phpunit.readthedocs.io/en/7.1/) is supported.
+**NOTE**: Currently only [PHPUnit 7.1](https://phpunit.readthedocs.io/en/7.1/) is supported.
 
 
-## Pre-requisites
+## Zero Configuration
 
-Altis provides PHPUnit as a zero configuration set up provided the following rules are kept to:
+PHPUnit in Altis requires zero configuration for the following scenario:
 
-- Tests must be in a directory called `tests` in your project root
-- Test class file names must match one of the following patterns:
+- Tests are in a directory called `tests` in the project root
+- Test class file names match one of the following patterns:
   - `class-test-*.php`
   - `test-*.php`
   - `*-test.php`
+
+### Configuration Options
+
+While the zero configuration option is sufficient for most projects there may be occasions where you wish to include additional directories, change or add attributes on the `<phpunit>` tag or add PHPUnit extensions. This is supported through the Dev Tools module config. For example:
+
+```json
+{
+	"extra": {
+		"altis": {
+			"modules": {
+				"dev-tools": {
+					"phpunit": {
+						"directories": [
+							"content/mu-plugins/namespace-*/tests",
+							".tests"
+						],
+						"attributes": {
+							"colors": "false",
+							"beStrictAboutChangesToGlobalState": "true"
+						},
+						"extensions": [
+							"CustomPHPUnitExtension\\Class"
+						]
+					}
+				}
+			}
+		}
+	}
+}
+```
+
+- `directories` is an array of project root relative paths or glob patterns.
+- `attributes` is an object of [name-value pairs supported by the `<phpunit>` tag](https://phpunit.readthedocs.io/en/7.1/configuration.html#phpunit)
+- `extensions` is an array of [PHPUnit Extension](https://phpunit.readthedocs.io/en/7.1/extending-phpunit.html) class names to autoload
+
 
 ## Running Tests
 
@@ -41,8 +76,8 @@ composer dev-tools phpunit --chassis
 To pass any of the supported command line options to PHPUnit you need to add them after the options delimiter `--`. For example:
 
 ```sh
-# Running tests in a non root directory.
-composer dev-tools phpunit -- content/themes/*/tests
+# Running tests in a specific directory.
+composer dev-tools phpunit -- content/themes/custom-theme/tests
 
 # Running tests with code coverage and junit reports.
 composer dev-tools phpunit -- --coverage-xml coverage --log-junit junit.xml
@@ -215,7 +250,7 @@ The `WP_UnitTest_Generator_Sequence` class will replace any `%s` placeholders wi
 
 ### Extending The Bootstrap Process
 
-The default bootstrap process loads Composer's `autoload.php` file and Altis itself. Depending on your project you may need to run some custom code very early in the process to make sure everything you need is properly loaded and configured if it can't be handled through standard Altis configuration.
+The default bootstrap process loads Composer's `autoload.php` file and Altis itself. Depending on your project you may need to run some custom code very early in the process to make sure everything is properly loaded and configured if it can't be handled through standard Altis configuration.
 
 Add a file called `tests-bootstrap.php` to your root `.config` directory and it will be automatically included. From there you can call the `tests_add_filter()` helper function which is a way to use WordPress hooks before the application is loaded.
 
@@ -249,7 +284,7 @@ tests_add_filter( 'altis.loaded_autoloader', function () {
 }, 0 );
 ```
 
-## Using A Custom Configuration
+## Using A Custom Configuration File
 
 In order to run PHPUnit with your own XML config file you can pass the `--configuration` option like so:
 
