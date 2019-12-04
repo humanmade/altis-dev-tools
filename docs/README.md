@@ -32,7 +32,7 @@ To activate this cookie:
 3. Click the "Set authentication cookie" button to enable developer tools for your browser
 4. Switch to another account or log out
 
-![Screenshot of the developer tools panel](./assets/qm-settings.png)
+![Screenshot of the developer tools panel](./assets/qm-settings-auth.png)
 
 You can also add the `view_query_monitor` capability to users to permanently grant them the ability to use the developer tools.
 
@@ -76,4 +76,4 @@ To activate clickable stack traces:
 4. Click the "Set editor cookie" button
 5. Refresh the page
 
-![Screenshot of the developer tools panel](./assets/qm-settings.png)
+![Screenshot of the developer tools panel](./assets/qm-settings-editor.png)
