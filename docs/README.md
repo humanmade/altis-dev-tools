@@ -66,7 +66,7 @@ For example, to disable on staging:
 
 ### Editor Stack Traces
 
-Stack traces within the developer tools panel can be made clickable by providing information about the editor you use this enables you to jump directly to the source code where a problem occurs. Database queries are also clickable so you can jump directly to the function that made them. Altis will automatically handle mapping file paths between your computer and the local environment.
+Stack traces within the developer tools panel can be made into clickable links that open in your editor. Database queries will also be clickable so you can jump directly to the function that made them.
 
 To activate clickable stack traces:
 
