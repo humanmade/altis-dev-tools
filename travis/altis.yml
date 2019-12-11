@@ -1,33 +1,44 @@
+# Default Travis CI config for Altis
 sudo: false
 dist: xenial
 
+# Ensure PHP CLI and Composer are available
 language: php
 
+# Ensure docker-compose is available
 services:
   - docker
 
+# Configure local-server to ensure startup will complete in Travis CI
 env:
   global:
     - COMPOSE_HTTP_TIMEOUT=360
     - ES_MEM_LIMIT=2g
 
+# Default notification settings
 notifications:
   email:
     on_success: never
     on_failure: change
 
+# Build on common default branches
 branches:
   only:
     - master
+    - develop
+    - development
 
+# Cache composer dependencies by default
 cache:
   directories:
     - $HOME/.composer/cache
 
+# Only run for PHP 7.2
 matrix:
   include:
     - php: 7.2
 
+# Install application and start the local server
 before_script:
   - composer install
   - composer local-server start
