@@ -1,4 +1,4 @@
 version: ~> 1.0
 import:
-  - vendor/altis/dev-tools/travis/altis.yml
+  - humanmade/altis-dev-tools:travis/altis.yml@__ref
   - .config/travis.yml
