@@ -1,4 +1,7 @@
+# THIS FILE IS MANAGED BY ALTIS
+# ANY CHANGES MADE MAY BE LOST
 version: ~> 1.0
 import:
-  - vendor/altis/dev-tools/travis/altis.yml
+  # Commit reference is updated during composer dump-autoload
+  - humanmade/altis-dev-tools:travis/altis.yml@__ref_replace_me__
   - .config/travis.yml
