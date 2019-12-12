@@ -3,5 +3,7 @@
 version: ~> 1.0
 import:
   # Commit reference is updated during composer dump-autoload
-  - humanmade/altis-dev-tools:travis/altis.yml@__ref_replace_me__
-  - .config/travis.yml
+  - source: humanmade/altis-dev-tools:travis/altis.yml@__ref_replace_me__
+    mode: deep_merge_append # Travis default merge type
+  - source: .config/travis.yml
+    mode: merge # Allows any customizations to override the altis.yml import settings
