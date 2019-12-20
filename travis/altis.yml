@@ -22,11 +22,7 @@ notifications:
     on_failure: change
 
 # Build on common default branches
-branches:
-  only:
-    - master
-    - develop
-    - development
+if: type = pull_request
 
 # Cache composer dependencies by default
 cache:
