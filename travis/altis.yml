@@ -21,13 +21,6 @@ notifications:
     on_success: never
     on_failure: change
 
-# Build on common default branches
-branches:
-  only:
-    - master
-    - develop
-    - development
-
 # Cache composer dependencies by default
 cache:
   directories:
