@@ -42,7 +42,7 @@ function on_plugins_loaded() {
 function add_altis_config_info_to_qm() {
 
 	// Register collector.
-	require_once __DIR__ . '/altis-config/collector.php';
+	require_once __DIR__ . '/altis-config/class-qm-collector-altis-config.php';
 	QM_Collectors::add( new QM_Collector_Altis_Config() );
 
 	// Register outputter.
@@ -56,7 +56,7 @@ function add_altis_config_info_to_qm() {
  * @return array
  */
 function register_qm_output_html_altis_config( array $output, QM_Collectors $collectors ) {
-	require_once __DIR__ . '/altis-config/output.php';
+	require_once __DIR__ . '/altis-config/class-qm-output-html-altis-config.php';
 
 	$collector = QM_Collectors::get( 'altis-config' );
 	if ( $collector ) {
