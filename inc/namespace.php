@@ -29,5 +29,8 @@ function on_plugins_loaded() {
 		// Hide the db.php dropin installation warning and prompt.
 		add_filter( 'qm/show_extended_query_prompt', '__return_false' );
 		require_once ROOT_DIR . '/vendor/johnbillion/query-monitor/query-monitor.php';
+
+		require_once __DIR__ . '/altis-config/collector.php';
+		require_once __DIR__ . '/altis-config/output.php';
 	}
 }
