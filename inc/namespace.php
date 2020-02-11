@@ -5,7 +5,6 @@ namespace Altis\Dev_Tools;
 use const Altis\ROOT_DIR;
 use function Altis\get_config;
 use function Altis\get_environment_architecture;
-use QM_Collector;
 use QM_Collectors;
 
 /**

@@ -6,7 +6,6 @@
 namespace Altis\Dev_Tools;
 
 use function Altis\get_config;
-use QM_Collector;
 use QM_Output_Html;
 
 class QM_Output_Html_Altis_Config extends QM_Output_Html {
