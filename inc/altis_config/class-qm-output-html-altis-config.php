@@ -29,9 +29,6 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 
 		<?php $this->before_tabular_output(); ?>
 
-		<caption>
-			<h2><?php echo esc_html( $this->name() ); ?></h2>
-		</caption>
 		<thead>
 		<tr>
 			<th><?php echo esc_html__( 'Module', 'altis' ); ?></th>
