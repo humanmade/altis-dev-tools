@@ -6,6 +6,7 @@
 namespace Altis\Dev_Tools;
 
 use function Altis\get_config;
+use function Altis\get_environment_type;
 use QM_Collector;
 use QM_Output_Html;
 
@@ -34,6 +35,7 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 		<tr>
 			<th><?php echo esc_html__( 'Module', 'altis' ); ?></th>
 			<th><?php echo esc_html__( 'Settings', 'altis' ); ?></th>
+			<th><?php echo esc_html__( 'Environment Settings', 'altis' ); ?></th>
 		</tr>
 		</thead>
 		<tbody>
@@ -42,8 +44,19 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 				<td><?php echo esc_html( $module ); ?></td>
 				<td>
 					<?php printf( '<pre>%s</pre>', print_r( $settings, true ) ); ?>
+					<br/>
 					<p><?php echo esc_html__( 'JSON encoded', 'altis' ); ?></p>
 					<?php echo json_encode( $settings, true ); ?>
+				</td>
+				<td>
+					<?php
+					// Environment specific settings for the current module.
+					$env_settings = get_config()['environments'][ get_environment_type() ]['modules'][ $module ] ?? [];
+					?>
+					<?php printf( '<pre>%s</pre>', print_r( $env_settings, true ) ); ?>
+					<br/>
+					<p><?php echo esc_html__( 'JSON encoded', 'altis' ); ?></p>
+					<?php echo json_encode( $env_settings, true ); ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>
