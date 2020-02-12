@@ -50,7 +50,7 @@ function on_plugins_loaded() {
  * @return array Array of Query Monitor collectors with added one for Altis Config.
  */
 function register_altis_config_qm_collector( array $collectors ) : array {
-	$collectors['altis_config'] = new Altis_Config\QM_Collector_Altis_Config();
+	$collectors['altis-config'] = new Altis_Config\QM_Collector_Altis_Config();
 	return $collectors;
 }
 
