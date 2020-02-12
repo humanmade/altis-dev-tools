@@ -34,7 +34,7 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 		<thead>
 		<tr>
 			<th><?php echo esc_html__( 'Module', 'altis' ); ?></th>
-			<th><?php echo esc_html__( 'Settings', 'altis' ); ?></th>
+			<th><?php echo esc_html__( 'Final Settings', 'altis' ); ?></th>
 			<th><?php echo esc_html__( 'Environment Settings', 'altis' ); ?></th>
 		</tr>
 		</thead>
