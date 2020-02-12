@@ -30,11 +30,11 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 		<?php $this->before_tabular_output(); ?>
 
 		<thead>
-		<tr>
-			<th><?php echo esc_html__( 'Module', 'altis' ); ?></th>
-			<th><?php echo esc_html__( 'Merged Settings', 'altis' ); ?></th>
-			<th><?php echo esc_html__( 'Environment Settings', 'altis' ); ?></th>
-		</tr>
+			<tr>
+				<th><?php echo esc_html__( 'Module', 'altis' ); ?></th>
+				<th><?php echo esc_html__( 'Merged Settings', 'altis' ); ?></th>
+				<th><?php echo esc_html__( 'Environment Settings', 'altis' ); ?></th>
+			</tr>
 		</thead>
 		<tbody>
 		<?php foreach ( $config as $module => $settings ) : ?>
