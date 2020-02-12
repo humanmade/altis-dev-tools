@@ -9,6 +9,9 @@
 		}
 	],
 	"autoload": {
+		"classmap": [
+			"inc/"
+		],
 		"files": [
 			"inc/namespace.php"
 		]
