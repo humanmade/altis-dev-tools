@@ -34,7 +34,7 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 		<thead>
 		<tr>
 			<th><?php echo esc_html__( 'Module', 'altis' ); ?></th>
-			<th><?php echo esc_html__( 'Final Settings', 'altis' ); ?></th>
+			<th><?php echo esc_html__( 'Merged Settings', 'altis' ); ?></th>
 			<th><?php echo esc_html__( 'Environment Settings', 'altis' ); ?></th>
 		</tr>
 		</thead>
@@ -43,20 +43,14 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 			<tr>
 				<td><?php echo esc_html( $module ); ?></td>
 				<td>
-					<?php printf( '<pre>%s</pre>', print_r( $settings, true ) ); ?>
-					<br/>
-					<p><?php echo esc_html__( 'JSON encoded', 'altis' ); ?></p>
-					<?php echo json_encode( $settings, true ); ?>
+					<?php printf( '<pre><code>%s</code></pre>', json_encode( $settings, true ) ); ?>
 				</td>
 				<td>
 					<?php
 					// Environment specific settings for the current module.
 					$env_settings = get_config()['environments'][ get_environment_type() ]['modules'][ $module ] ?? [];
+					printf( '<pre><code>%s</code></pre>', json_encode( $env_settings, true ) );
 					?>
-					<?php printf( '<pre>%s</pre>', print_r( $env_settings, true ) ); ?>
-					<br/>
-					<p><?php echo esc_html__( 'JSON encoded', 'altis' ); ?></p>
-					<?php echo json_encode( $env_settings, true ); ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>
