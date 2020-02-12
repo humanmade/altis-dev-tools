@@ -44,7 +44,7 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 					<?php
 					printf(
 						'<pre>%s</pre>',
-						esc_html( json_encode( $settings, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) )
+						esc_html( json_encode( (object) $settings, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) )
 					);
 					?>
 				</td>
@@ -54,7 +54,7 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 					$env_settings = get_config()['environments'][ get_environment_type() ]['modules'][ $module ] ?? [];
 					printf(
 						'<pre>%s</pre>',
-						esc_html( json_encode( $env_settings, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) )
+						esc_html( json_encode( (object) $env_settings, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) )
 					);
 					?>
 				</td>
