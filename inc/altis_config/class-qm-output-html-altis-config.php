@@ -14,7 +14,8 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 
 	public function __construct( QM_Collector $collector ) {
 		parent::__construct( $collector );
-		add_filter( 'qm/output/panel_menus', [ $this, 'panel_menu' ], 50 );
+		add_filter( 'qm/output/menus', [ $this, 'admin_menu' ] );
+		add_filter( 'qm/output/panel_menus', [ $this, 'panel_menu' ] );
 	}
 
 	public function output() {
