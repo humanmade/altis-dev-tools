@@ -43,8 +43,8 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 				<td>
 					<?php
 					printf(
-							'<pre>%s</pre>',
-							esc_html( json_encode( $settings, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_FORCE_OBJECT ) )
+						'<pre>%s</pre>',
+						esc_html( json_encode( $settings, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_FORCE_OBJECT ) )
 					);
 					?>
 				</td>
