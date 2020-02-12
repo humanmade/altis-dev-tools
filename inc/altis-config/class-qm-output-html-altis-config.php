@@ -32,15 +32,19 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 		</caption>
 		<thead>
 		<tr>
-			<th><?php echo esc_html__( 'Module', 'altis' ) ?></th>
-			<th><?php echo esc_html__( 'Settings', 'altis' ) ?></th>
+			<th><?php echo esc_html__( 'Module', 'altis' ); ?></th>
+			<th><?php echo esc_html__( 'Settings', 'altis' ); ?></th>
 		</tr>
 		</thead>
 		<tbody>
 		<?php foreach ( $config as $module => $settings ) : ?>
 			<tr>
-				<td><?php echo esc_html( $module ) ?></td>
-				<td><?php printf( '<pre>%s</pre>', print_r( $settings, true ) ); ?>
+				<td><?php echo esc_html( $module ); ?></td>
+				<td>
+					<?php printf( '<pre>%s</pre>', print_r( $settings, true ) ); ?>
+					<p><?php echo esc_html__( 'JSON encoded', 'altis' ); ?></p>
+					<?php echo json_encode( $settings, true ); ?>
+				</td>
 			</tr>
 		<?php endforeach; ?>
 		</tbody>
