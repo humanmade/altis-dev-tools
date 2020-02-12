@@ -9,8 +9,6 @@ class QM_Collector_Altis_Config extends QM_Collector {
 	public $id = 'altis-config';
 
 	function name() {
-		return _x( 'Altis Config', 'Query monitor menu item name', 'altis' );
+		return _x( 'Altis Config', 'Menu item name for the Query Monitor plugin', 'altis' );
 	}
-
-	public function process() {}
 }
