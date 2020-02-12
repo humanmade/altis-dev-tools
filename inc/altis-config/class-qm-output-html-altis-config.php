@@ -1,6 +1,6 @@
 <?php
 /**
- * Altis config data output for HTML pages.
+ * Altis Config data output for HTML pages in the Query Monitor plugin.
  */
 
 namespace Altis\Dev_Tools;
@@ -44,6 +44,7 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 			</tr>
 		<?php endforeach; ?>
 		</tbody>
+
 		<?php
 		$this->after_tabular_output();
 	}

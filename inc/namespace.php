@@ -34,7 +34,7 @@ function on_plugins_loaded() {
 	add_filter( 'qm/show_extended_query_prompt', '__return_false' );
 	require_once ROOT_DIR . '/vendor/johnbillion/query-monitor/query-monitor.php';
 
-	// Add Altis config info to the Query Monitor.
+	// Add Altis Config info to the Query Monitor.
 	// Register collector.
 	add_filter( 'qm/collectors', __NAMESPACE__ . '\\register_qm_collector_altis_config' );
 
@@ -43,9 +43,11 @@ function on_plugins_loaded() {
 }
 
 /**
- * @param array $collectors
+ * Add Query Monitor collector for Altis Config info.
  *
- * @return array
+ * @param array $collectors Array of Query Monitor collectors.
+ *
+ * @return array Array of Query Monitor collectors with added one for Altis Config.
  */
 function register_qm_collector_altis_config( array $collectors ) : array {
 	require_once __DIR__ . '/altis-config/class-qm-collector-altis-config.php';
@@ -55,10 +57,12 @@ function register_qm_collector_altis_config( array $collectors ) : array {
 }
 
 /**
- * @param array         $output
- * @param QM_Collectors $collectors
+ * Add Query Monitor outputter for Altis Config info.
  *
- * @return array
+ * @param array         $output     Array of Query Monitor outputters.
+ * @param QM_Collectors $collectors Array of Query Monitor collectors.
+ *
+ * @return array Array of Query Monitor outputters with added one for Altis Config.
  */
 function register_qm_output_html_altis_config( array $output, QM_Collectors $collectors ) : array {
 	require_once __DIR__ . '/altis-config/class-qm-output-html-altis-config.php';

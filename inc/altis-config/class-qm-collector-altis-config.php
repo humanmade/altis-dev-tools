@@ -1,4 +1,7 @@
 <?php
+/**
+ * Altis Config data collector for the Query Monitor plugin.
+ */
 
 namespace Altis\Dev_Tools;
 
