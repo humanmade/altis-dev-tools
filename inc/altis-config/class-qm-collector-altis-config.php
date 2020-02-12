@@ -3,7 +3,7 @@
  * Altis Config data collector for the Query Monitor plugin.
  */
 
-namespace Altis\Dev_Tools;
+namespace Altis\Dev_Tools\Altis_Config;
 
 use QM_Collector;
 

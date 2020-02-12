@@ -3,7 +3,7 @@
  * Altis Config data output for HTML pages in the Query Monitor plugin.
  */
 
-namespace Altis\Dev_Tools;
+namespace Altis\Dev_Tools\Altis_Config;
 
 use function Altis\get_config;
 use function Altis\get_environment_type;
