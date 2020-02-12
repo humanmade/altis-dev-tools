@@ -39,7 +39,7 @@ function on_plugins_loaded() {
 	add_filter( 'qm/collectors', __NAMESPACE__ . '\\register_altis_config_qm_collector' );
 
 	// Register outputter.
-	add_filter( 'qm/outputter/html', __NAMESPACE__ . '\\register_altis_config_qm_output_html', 120, 2 );
+	add_filter( 'qm/outputter/html', __NAMESPACE__ . '\\register_altis_config_qm_output_html' );
 }
 
 /**
@@ -57,12 +57,11 @@ function register_altis_config_qm_collector( array $collectors ) : array {
 /**
  * Add Query Monitor outputter for Altis Config info.
  *
- * @param array         $output     Array of Query Monitor outputters.
- * @param QM_Collectors $collectors Array of Query Monitor collectors.
+ * @param array $output     Array of Query Monitor outputters.
  *
  * @return array Array of Query Monitor outputters with added one for Altis Config.
  */
-function register_altis_config_qm_output_html( array $output, QM_Collectors $collectors ) : array {
+function register_altis_config_qm_output_html( array $output ) : array {
 	$collector = QM_Collectors::get( 'altis-config' );
 	if ( $collector ) {
 		$output['altis-config'] = new Altis_Config\QM_Output_Html_Altis_Config( $collector );
