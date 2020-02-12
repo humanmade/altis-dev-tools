@@ -41,13 +41,21 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 			<tr>
 				<td><?php echo esc_html( $module ); ?></td>
 				<td>
-					<?php echo esc_html( json_encode( $settings, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) ); ?>
+					<?php
+					printf(
+							'<pre>%s</pre>',
+							esc_html( json_encode( $settings, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_FORCE_OBJECT ) )
+					);
+					?>
 				</td>
 				<td>
 					<?php
 					// Environment specific settings for the current module.
 					$env_settings = get_config()['environments'][ get_environment_type() ]['modules'][ $module ] ?? [];
-					echo esc_html( json_encode( $env_settings, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+					printf(
+						'<pre>%s</pre>',
+						esc_html( json_encode( $env_settings, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_FORCE_OBJECT ) )
+					);
 					?>
 				</td>
 			</tr>
