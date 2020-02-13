@@ -92,3 +92,9 @@ if ( file_exists( Altis\PHPUNIT_PROJECT_ROOT . '/.config/tests-bootstrap.php' ) 
 
 // Start up the WP testing environment.
 require getenv( 'WP_PHPUNIT__DIR' ) . '/includes/bootstrap.php';
+
+/**
+ * Action runs after WP PHPUnit is fully loaded. Use this to load any
+ * custom test case classes that extend WP_UnitTestCase.
+ */
+do_action( 'altis.loaded_phpunit' );

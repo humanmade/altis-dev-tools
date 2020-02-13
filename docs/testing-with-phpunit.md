@@ -284,6 +284,36 @@ tests_add_filter( 'altis.loaded_autoloader', function () {
 }, 0 );
 ```
 
+### Extending `WP_UnitTestCase` Classes
+
+In some cases you may wish to avoid repetitive code or add common helper methods to the standard `WP_UnitTestCase` class. Because the `WP_UnitTestCase` classes are loaded after the main bootstrap process you need to use the `altis.loaded_phpunit` action hook to ensure they're available.
+
+In your `.config/tests-bootstrap.php` you would add:
+
+```php
+tests_add_filter( 'altis.loaded_phpunit', function () {
+	// Load custom test case classes here.
+	require_once dirname( __DIR__ ) . '/tests/class-custom-unit-test-case.php';
+} );
+```
+
+In `tests/class-custom-unit-test-case.php` you could then add something like the following:
+
+```php
+<?php
+class Custom_UnitTestCase extends WP_UnitTestCase {
+
+	public function wpSetUpBeforeClass( $factory ) {
+		// Common set up routine.
+	}
+
+	public function wpTearDownAfterClass( $factory ) {
+		// Common tear down routine.
+	}
+
+}
+```
+
 ## Using A Custom Configuration File
 
 In order to run PHPUnit with your own XML config file you can pass the `--configuration` option like so:
