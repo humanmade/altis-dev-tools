@@ -97,7 +97,7 @@ function cleanup_debug_bar_qm_menu_titles( array $menus ) : array {
 		// Replace current menu item title (with redundant text) with just the Debug Panel title.
 		// This is done to preserve translations.
 		$collector_id = preg_replace( '/^qm-/', '', $id );
-		$collector    = QM_Collectors::get( $collector_id );
+		$collector = QM_Collectors::get( $collector_id );
 		if ( ! $collector ) {
 			continue;
 		}
