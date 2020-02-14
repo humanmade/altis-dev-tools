@@ -41,9 +41,9 @@ function on_plugins_loaded() {
 	// Register outputter.
 	add_filter( 'qm/outputter/html', __NAMESPACE__ . '\\register_altis_config_qm_output_html' );
 
-	// Rename menu title for "Debug Bar: ElasticPress" into "ElasticPress".
+	// Remove "Debug Bar:" text from the Query Monitor menu item titles if any.
 	// Hook on 300, as QM_Output_Html_Debug_Bar adds menus on 200.
-	add_filter( 'qm/output/menus', __NAMESPACE__ . '\\rename_elasticpress_qm_menu_title', 300 );
+	add_filter( 'qm/output/menus', __NAMESPACE__ . '\\cleanup_debug_bar_qm_menu_titles', 300 );
 }
 
 /**
@@ -74,33 +74,38 @@ function register_altis_config_qm_output_html( array $output ) : array {
 }
 
 /**
- * Rename menu title shown in Query Monitor's admin toolbar menu
- * from "Debug Bar: ElasticPress" into "ElasticPress".
+ * Remove "Debug Bar:" text from the Query Monitor menu item titles if any.
+ * Ex. "Debug Bar: <menu_title>" into "<menu_title>".
  *
- * @param array $menus Array of menus for Query Monitor.
+ * Note, the "Debug Bar:" is a translatable string in the Query Monitor plugin,
+ * so we can't just match the English spelling, as it will leave out the translated ones.
+ * Instead of string replacement, access the Debug Panel Collector and use its title instead
+ * as the new title for the Query Monitor menu item, thus preserving translations and
+ * removing redundant text.
  *
- * @return array Array of menus for Query Monitor with altered menu name item.
+ * @param array $menus Array of menus for the Query Monitor.
+ *
+ * @return array Array of menus for the Query Monitor with the cleaned up menu item titles.
  */
-function rename_elasticpress_qm_menu_title( array $menus ) : array {
+function cleanup_debug_bar_qm_menu_titles( array $menus ) : array {
 
-	// Query Monitor sets this to "debug_bar_{$class_name_strtolower}".
-	$debug_bar_id = 'debug_bar_ep_debug_bar_elasticpress';
+	foreach ( $menus as $id => $menu ) {
+		if ( strpos( $id, 'debug_bar_' ) === false ) {
+			continue;
+		}
 
-	$menu_item = $menus[ "qm-{$debug_bar_id}" ] ?? [];
-	if ( ! $menu_item ) {
-		return $menus;
+		// Replace current menu item title (with redundant text) with just the Debug Panel title.
+		// This is done to preserve translations.
+		$collector_id = preg_replace( '/^qm-/', '', $id );
+		$collector    = QM_Collectors::get( $collector_id );
+		if ( ! $collector ) {
+			continue;
+		}
+
+		// Overwrite the title.
+		$title = $collector->get_panel()->title();
+		$menus[ $id ]['title'] = $title;
 	}
-
-	// Get QM Collector, so we can access ElasticPress panel and reuse its title,
-	// keeping its translations if any.
-	$collector = QM_Collectors::get( $debug_bar_id );
-	if ( ! $collector ) {
-		return $menus;
-	}
-
-	// Overwrite the title.
-	$title = $collector->get_panel()->title();
-	$menus[ "qm-{$debug_bar_id}" ]['title'] = $title;
 
 	return $menus;
 }
