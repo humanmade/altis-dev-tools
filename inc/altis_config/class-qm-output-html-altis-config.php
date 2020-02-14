@@ -15,7 +15,6 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 	public function __construct( QM_Collector $collector ) {
 		parent::__construct( $collector );
 		add_filter( 'qm/output/menus', [ $this, 'admin_menu' ] );
-		add_filter( 'qm/output/panel_menus', [ $this, 'panel_menu' ] );
 	}
 
 	public function output() {
@@ -64,18 +63,5 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 
 		<?php
 		$this->after_tabular_output();
-	}
-
-	/**
-	 * Add menu item for Altis Config to the Query Monitor panel menu.
-	 *
-	 * @param array $menu Array of menus for Query Monitor.
-	 *
-	 * @return array Array of menus for Query Monitor including Altis Config menu item.
-	 */
-	public function panel_menu( array $menu ) : array {
-		$menu['altis-config']['title'] = $this->name();
-		$menu['altis-config']['href']  = '#' . $this->collector->id();
-		return $menu;
 	}
 }
