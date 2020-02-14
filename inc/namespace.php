@@ -40,6 +40,10 @@ function on_plugins_loaded() {
 
 	// Register outputter.
 	add_filter( 'qm/outputter/html', __NAMESPACE__ . '\\register_altis_config_qm_output_html' );
+
+	// Remove "Debug Bar:" text from the Query Monitor menu item titles if any.
+	// Hook on 300, as QM_Output_Html_Debug_Bar adds menus on 200.
+	add_filter( 'qm/output/menus', __NAMESPACE__ . '\\cleanup_debug_bar_qm_menu_titles', 300 );
 }
 
 /**
@@ -67,4 +71,41 @@ function register_altis_config_qm_output_html( array $output ) : array {
 		$output['altis-config'] = new Altis_Config\QM_Output_Html_Altis_Config( $collector );
 	}
 	return $output;
+}
+
+/**
+ * Remove "Debug Bar:" text from the Query Monitor menu item titles if any.
+ * Ex. "Debug Bar: <menu_title>" into "<menu_title>".
+ *
+ * Note, the "Debug Bar:" is a translatable string in the Query Monitor plugin,
+ * so we can't just match the English spelling, as it will leave out the translated ones.
+ * Instead of string replacement, access the Debug Panel Collector and use its title instead
+ * as the new title for the Query Monitor menu item, thus preserving translations and
+ * removing redundant text.
+ *
+ * @param array $menus Array of menus for the Query Monitor.
+ *
+ * @return array Array of menus for the Query Monitor with the cleaned up menu item titles.
+ */
+function cleanup_debug_bar_qm_menu_titles( array $menus ) : array {
+
+	foreach ( $menus as $id => $menu ) {
+		if ( strpos( $id, 'debug_bar_' ) === false ) {
+			continue;
+		}
+
+		// Replace current menu item title (with redundant text) with just the Debug Panel title.
+		// This is done to preserve translations.
+		$collector_id = preg_replace( '/^qm-/', '', $id );
+		$collector = QM_Collectors::get( $collector_id );
+		if ( ! $collector ) {
+			continue;
+		}
+
+		// Overwrite the title.
+		$title = $collector->get_panel()->title();
+		$menus[ $id ]['title'] = $title;
+	}
+
+	return $menus;
 }
