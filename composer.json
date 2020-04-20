@@ -8,6 +8,12 @@
 			"email": "hello@humanmade.com"
 		}
 	],
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org"
+		}
+	],
 	"autoload": {
 		"classmap": [
 			"inc/"
@@ -17,7 +23,7 @@
 		]
 	},
 	"require": {
-		"johnbillion/query-monitor": "^3.5.2",
+		"wpackagist-plugin/query-monitor": "^3.5.2",
 		"altis/dev-tools-command": "^0.3.0",
 		"wp-phpunit/wp-phpunit": "5.3.1",
 		"phpunit/phpunit": "^7.1.4"
