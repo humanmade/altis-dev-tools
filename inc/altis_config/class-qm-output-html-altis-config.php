@@ -17,6 +17,10 @@ class QM_Output_Html_Altis_Config extends QM_Output_Html {
 		add_filter( 'qm/output/menus', [ $this, 'admin_menu' ] );
 	}
 
+	public function name() {
+		return esc_html_x( 'Altis Config', 'Menu item name for the Query Monitor plugin', 'altis' );
+	}
+
 	public function output() {
 		$config = get_config()['modules'] ?? [];
 
