@@ -1,4 +1,9 @@
 <?php
+/**
+ * Altis Dev Tools.
+ *
+ * @package altis/dev-tools
+ */
 
 namespace Altis\Dev_Tools;
 

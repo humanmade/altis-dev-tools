@@ -2,7 +2,9 @@
 /**
  * Altis Tests Config file.
  *
- * phpcs:ignoreFile PSR1.Files.SideEffects.FoundWithSymbols
+ * phpcs:disable PSR1.Files.SideEffects
+ *
+ * @package altis/dev-tools
  */
 
 // Command is always executed from the project root on local servers.
