@@ -2,7 +2,9 @@
 /**
  * Altis PHPUnit bootstrap file.
  *
- * phpcs:ignoreFile PSR1.Files.SideEffects.FoundWithSymbols
+ * phpcs:disable PSR1.Files.SideEffects
+ *
+ * @package altis/dev-tools
  */
 
 // Set the PHP binary to use.
