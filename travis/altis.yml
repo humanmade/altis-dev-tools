@@ -6,6 +6,10 @@ dist: xenial
 language: php
 php:
   - '7.2'
+  
+# Set NodeJS version to match the build server.
+node_js:
+  - 12
 
 # Ensure docker-compose is available
 services:
