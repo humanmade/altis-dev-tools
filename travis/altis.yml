@@ -4,6 +4,8 @@ dist: xenial
 
 # Ensure PHP CLI and Composer are available
 language: php
+php:
+  - '7.2'
 
 # Ensure docker-compose is available
 services:
@@ -25,11 +27,6 @@ notifications:
 cache:
   directories:
     - $HOME/.composer/cache
-
-# Only run for PHP 7.2
-matrix:
-  include:
-    - php: 7.2
 
 # Install application and start the local server
 before_script:
