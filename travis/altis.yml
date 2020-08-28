@@ -1,5 +1,5 @@
 # Default Travis CI config for Altis
-sudo: false
+os: linux
 dist: xenial
 
 # Ensure PHP CLI and Composer are available
@@ -31,6 +31,11 @@ notifications:
 cache:
   directories:
     - $HOME/.composer/cache
+    
+# Ensure correct node version is used for build
+before_install:
+  - nvm install v12
+  - nvm use v12
 
 # Install application and start the local server
 before_script:
