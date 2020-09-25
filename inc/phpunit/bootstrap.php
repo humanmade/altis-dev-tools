@@ -5,6 +5,9 @@
  * phpcs:ignoreFile PSR1.Files.SideEffects.FoundWithSymbols
  */
 
+// Small hack to ensure docker volumes are synced before running tests.
+sleep( 2 );
+
 // Set the PHP binary to use.
 define( 'WP_PHP_BINARY', '/usr/bin/env php' );
 
