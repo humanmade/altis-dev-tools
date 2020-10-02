@@ -47,32 +47,32 @@ tests_add_filter( 'upload_dir', function( $dir ) {
 } );
 
 /**
- * Setup ElasticPress on install.
+ * Reindex ElasticPress on install.
  */
 define( 'EP_INDEX_PREFIX', 'tests_' );
 tests_add_filter( 'plugins_loaded', function () {
 	global $table_prefix;
 
-	if ( ! function_exists( 'ep_index_exists' ) ) {
+	if ( ! class_exists( 'ElasticPress\\Elasticsearch' ) ) {
 		return;
 	}
 
-	// Elevate error reporting level.
-	$error_reporting_level = error_reporting();
-	error_reporting( E_ERROR );
-
-	if ( ep_index_exists() ) {
-		return;
+	// Remove the shutdown sync action to prevent errors syncing non-existent posts etc...
+	foreach ( ElasticPress\Indexables::factory()->get_all() as $indexable ) {
+		if ( ! isset( $indexable->sync_manager ) ) {
+			continue;
+		}
+		remove_action( 'shutdown', [ $indexable->sync_manager, 'index_sync_queue' ] );
+		remove_filter( 'wp_redirect', [ $indexable->sync_manager, 'index_sync_queue_on_redirect' ], 10, 1 );
 	}
 
+	// Ensure indexes exist before tests run and silence the output.
 	exec( sprintf(
 		'TABLE_PREFIX=%s EP_INDEX_PREFIX=%s wp elasticpress index --setup --network-wide --url=%s',
 		$table_prefix,
 		EP_INDEX_PREFIX,
 		WP_TESTS_DOMAIN
-	) );
-
-	error_reporting( $error_reporting_level );
+	), $output, $return_val );
 }, 11 );
 
 /**
