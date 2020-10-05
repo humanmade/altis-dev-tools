@@ -49,7 +49,6 @@ tests_add_filter( 'upload_dir', function( $dir ) {
 /**
  * Setup ElasticPress on install.
  */
-define( 'EP_INDEX_PREFIX', 'tests_' );
 tests_add_filter( 'plugins_loaded', function () {
 	global $table_prefix;
 
