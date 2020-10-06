@@ -14,6 +14,12 @@ defined( 'WP_TESTS_DOMAIN' ) or define( 'WP_TESTS_DOMAIN', 'example.org' );
 defined( 'WP_TESTS_EMAIL' ) or define( 'WP_TESTS_EMAIL', 'admin@example.org' );
 defined( 'WP_TESTS_TITLE' ) or define( 'WP_TESTS_TITLE', 'Test Blog' );
 
+// Ensure cache key salt is different for test runs.
+defined( 'WP_CACHE_KEY_SALT' ) or define( 'WP_CACHE_KEY_SALT', 'phpunit' );
+
+// Ensure tests use their own ElasticPress indexes.
+defined( 'EP_INDEX_PREFIX' ) or define( 'EP_INDEX_PREFIX', 'tests_' );
+
 // Set tests table prefix.
 $table_prefix = 'wptests_';
 
