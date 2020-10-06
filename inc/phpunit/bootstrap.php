@@ -49,7 +49,6 @@ tests_add_filter( 'upload_dir', function( $dir ) {
 /**
  * Setup ElasticPress on install.
  */
-define( 'EP_INDEX_PREFIX', 'tests_' );
 tests_add_filter( 'plugins_loaded', function () {
 	global $table_prefix;
 
@@ -84,11 +83,6 @@ tests_add_filter( 'plugins_loaded', function () {
 		wp_stream_get_instance()->install->check();
 	}
 }, 21 );
-
-/**
- * Modify the cache keys to prevent conflicts.
- */
-define( 'WP_CACHE_KEY_SALT', 'phpunit' );
 
 // Load custom bootstrap code.
 if ( file_exists( Altis\PHPUNIT_PROJECT_ROOT . '/.config/tests-bootstrap.php' ) ) {
