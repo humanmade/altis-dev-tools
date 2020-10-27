@@ -6,7 +6,7 @@ dist: xenial
 language: php
 php:
   - '7.2'
-  
+
 # Set NodeJS version to match the build server.
 node_js:
   - 12
@@ -31,11 +31,13 @@ notifications:
 cache:
   directories:
     - $HOME/.composer/cache
-    
+
 # Ensure correct node version is used for build
 before_install:
   - nvm install v12
   - nvm use v12
+  # Ensure composer v1 is still used.
+  - composer self-update --1
 
 # Install application and start the local server
 before_script:
