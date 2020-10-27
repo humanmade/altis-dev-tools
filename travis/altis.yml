@@ -31,6 +31,10 @@ matrix:
   include:
     - php: 7.2
 
+# Ensure composer v1 is still used.
+before_install:
+  - composer self-update --1
+
 # Install application and start the local server
 before_script:
   - composer install
