@@ -29,12 +29,6 @@ function on_plugins_loaded() {
 		return;
 	}
 
-	// In Cloud environments, disable the Query Monitor error handler
-	// as this will override our own error handler in Cloud.
-	if ( in_array( get_environment_architecture(), [ 'ec2', 'ecs' ], true ) ) {
-		define( 'QM_DISABLE_ERROR_HANDLER', true );
-	}
-
 	// Hide the db.php dropin installation warning and prompt.
 	add_filter( 'qm/show_extended_query_prompt', '__return_false' );
 	require_once ROOT_DIR . '/vendor/johnbillion/query-monitor/query-monitor.php';
