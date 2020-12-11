@@ -17,7 +17,7 @@ define( 'WP_PHP_BINARY', '/usr/bin/env php' );
 define( 'Altis\\PHPUNIT_PROJECT_ROOT', getcwd() );
 
 // Set tests config path.
-// phpcs:ignoreWordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_putenv
+// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_putenv
 putenv( sprintf(
 	'WP_PHPUNIT__TESTS_CONFIG=%s/vendor/altis/dev-tools/inc/phpunit/config.php',
 	Altis\PHPUNIT_PROJECT_ROOT
