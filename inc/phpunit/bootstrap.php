@@ -17,6 +17,7 @@ define( 'WP_PHP_BINARY', '/usr/bin/env php' );
 define( 'Altis\\PHPUNIT_PROJECT_ROOT', getcwd() );
 
 // Set tests config path.
+// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_putenv
 putenv( sprintf(
 	'WP_PHPUNIT__TESTS_CONFIG=%s/vendor/altis/dev-tools/inc/phpunit/config.php',
 	Altis\PHPUNIT_PROJECT_ROOT
@@ -66,6 +67,7 @@ tests_add_filter( 'plugins_loaded', function () {
 	}
 
 	// Ensure indexes exist before tests run and silence the output.
+	// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.system_calls_exec
 	exec( sprintf(
 		'TABLE_PREFIX=%s EP_INDEX_PREFIX=%s wp elasticpress index --setup --network-wide --url=%s',
 		$table_prefix,
