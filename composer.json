@@ -23,6 +23,10 @@
 		"phpunit/phpunit": "^7.1.4"
 	},
 	"extra": {
-		"altis": {}
+		"altis": {
+			"install-overrides": [
+				"johnbillion/query-monitor"
+			]
+		}
 	}
 }
