@@ -10,6 +10,13 @@
 // Small hack to ensure docker volumes are synced before running tests.
 sleep( 2 );
 
+// Register shutdown event to clear the cache, also triggers if an error occurs.
+register_shutdown_function( function () {
+	if ( function_exists( 'wp_cache_flush' ) ) {
+		wp_cache_flush();
+	}
+} );
+
 // Set the PHP binary to use.
 define( 'WP_PHP_BINARY', '/usr/bin/env php' );
 
@@ -99,8 +106,3 @@ require getenv( 'WP_PHPUNIT__DIR' ) . '/includes/bootstrap.php';
  * custom test case classes that extend WP_UnitTestCase.
  */
 do_action( 'altis.loaded_phpunit' );
-
-// Flush the cache.
-if ( function_exists( 'wp_cache_flush' ) ) {
-	wp_cache_flush();
-}
