@@ -24,7 +24,7 @@ PHPUnit in Altis requires zero configuration for the following scenario:
 
 ### Configuration Options
 
-While the zero configuration option is sufficient for most projects there may be occasions where you wish to include additional directories, change or add attributes on the `<phpunit>` tag or add PHPUnit extensions. This is supported through the Dev Tools module config. For example:
+While the zero configuration option is sufficient for most projects there may be occasions where you wish to include or exclude additional directories, change or add attributes on the `<phpunit>` tag or add PHPUnit extensions. This is supported through the Dev Tools module config. For example:
 
 ```json
 {
@@ -36,6 +36,10 @@ While the zero configuration option is sufficient for most projects there may be
 						"directories": [
 							"content/mu-plugins/namespace-*/tests",
 							".tests"
+						],
+						"excludes": [
+							"content/mu-plugins/namespace-skip/tests",
+							"tests"
 						],
 						"attributes": {
 							"colors": "false",
@@ -53,6 +57,7 @@ While the zero configuration option is sufficient for most projects there may be
 ```
 
 - `directories` is an array of project root relative paths or glob patterns.
+- `excludes` is an array of project root relative paths or glob patterns.
 - `attributes` is an object of [name-value pairs supported by the `<phpunit>` tag](https://phpunit.readthedocs.io/en/7.1/configuration.html#phpunit)
 - `extensions` is an array of [PHPUnit Extension](https://phpunit.readthedocs.io/en/7.1/extending-phpunit.html) class names to autoload
 
