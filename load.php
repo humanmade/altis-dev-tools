@@ -20,12 +20,14 @@ add_action( 'altis.modules.init', function () {
 		'enabled'       => Altis\get_environment_type() !== 'production',
 		'query-monitor' => true,
 	];
-
+	$options = [
+		'defaults' => $default_settings,
+	];
 	Altis\register_module(
 		'dev-tools',
 		__DIR__,
 		'Developer Tools',
-		$default_settings,
+		$options,
 		__NAMESPACE__ . '\\bootstrap'
 	);
 } );
