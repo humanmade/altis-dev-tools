@@ -32,8 +32,6 @@ register_shutdown_function( function () {
 	}
 } );
 
-define( 'WP_STREAM_DEV_DEBUG', true );
-
 function bootstrapCCWP() {
 	/**
 	 * Re-map the default `/uploads` folder with our own `/test-uploads` for tests.
@@ -99,7 +97,6 @@ function bootstrapCCWP() {
 
 	// Start up the WP testing environment.
 	// require getenv( 'WP_PHPUNIT__DIR' ) . '/includes/bootstrap.php';
-
 
 	// Load an escape hatch early load file, if it exists.
 	if ( is_readable( Altis\PHPUNIT_PROJECT_ROOT . '/.config/load-early.php' ) ) {
