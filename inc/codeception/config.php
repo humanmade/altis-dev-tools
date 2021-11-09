@@ -35,6 +35,8 @@ register_shutdown_function( function () {
 /**
  * Bootstrapping test code and loading of Altis
  *
+ * This is passed to wp-browser's WPLoader module config in codeception.yml
+ *
  * phpcs:disable HM.Functions.NamespacedFunctions.MissingNamespace
  *
  * @return void
