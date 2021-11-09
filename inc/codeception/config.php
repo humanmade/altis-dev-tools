@@ -91,12 +91,9 @@ function bootstrapCCWP() {
 	}, 21 );
 
 	// Load custom bootstrap code.
-	// if ( file_exists( Altis\CODECEPTION_PROJECT_ROOT . '/.config/tests-bootstrap.php' ) ) {
-	// 	require Altis\CODECEPTION_PROJECT_ROOT . '/.config/tests-bootstrap.php';
-	// }
-
-	// Start up the WP testing environment.
-	// require getenv( 'WP_PHPUNIT__DIR' ) . '/includes/bootstrap.php';
+	if ( file_exists( Altis\CODECEPTION_PROJECT_ROOT . '/.config/tests-bootstrap.php' ) ) {
+		require Altis\CODECEPTION_PROJECT_ROOT . '/.config/tests-bootstrap.php';
+	}
 
 	// Load an escape hatch early load file, if it exists.
 	if ( is_readable( Altis\CODECEPTION_PROJECT_ROOT . '/.config/load-early.php' ) ) {
