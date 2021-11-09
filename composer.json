@@ -21,7 +21,7 @@
 		"altis/dev-tools-command": "^0.4.0",
 		"wp-phpunit/wp-phpunit": "5.8.1",
 		"phpunit/phpunit": "^7.5.20",
-		"lucatume/wp-browser": "^2.4",
+		"lucatume/wp-browser": "^3.0",
 		"codeception/module-asserts": "^1.0",
 		"codeception/module-phpbrowser": "^1.0",
 		"codeception/module-webdriver": "^1.0",
