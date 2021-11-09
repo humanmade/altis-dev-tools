@@ -8,8 +8,8 @@
  */
 
 // Command is always executed from the project root on local servers.
-if ( ! defined( 'Altis\\PHPUNIT_PROJECT_ROOT' ) ) {
-	define( 'Altis\\PHPUNIT_PROJECT_ROOT', getcwd() );
+if ( ! defined( 'Altis\\CODECEPTION_PROJECT_ROOT' ) ) {
+	define( 'Altis\\CODECEPTION_PROJECT_ROOT', getcwd() );
 }
 
 defined( 'WP_TESTS_DOMAIN' ) or define( 'WP_TESTS_DOMAIN', 'example.org' );
@@ -17,7 +17,7 @@ defined( 'WP_TESTS_EMAIL' ) or define( 'WP_TESTS_EMAIL', 'admin@example.org' );
 defined( 'WP_TESTS_TITLE' ) or define( 'WP_TESTS_TITLE', 'Test Blog' );
 
 // Ensure cache key salt is different for test runs.
-defined( 'WP_CACHE_KEY_SALT' ) or define( 'WP_CACHE_KEY_SALT', 'phpunit' );
+defined( 'WP_CACHE_KEY_SALT' ) or define( 'WP_CACHE_KEY_SALT', 'codeception' );
 
 // Ensure tests use their own ElasticPress indexes.
 defined( 'EP_INDEX_PREFIX' ) or define( 'EP_INDEX_PREFIX', 'tests_' );
@@ -91,28 +91,28 @@ function bootstrapCCWP() {
 	}, 21 );
 
 	// Load custom bootstrap code.
-	// if ( file_exists( Altis\PHPUNIT_PROJECT_ROOT . '/.config/tests-bootstrap.php' ) ) {
-	// 	require Altis\PHPUNIT_PROJECT_ROOT . '/.config/tests-bootstrap.php';
+	// if ( file_exists( Altis\CODECEPTION_PROJECT_ROOT . '/.config/tests-bootstrap.php' ) ) {
+	// 	require Altis\CODECEPTION_PROJECT_ROOT . '/.config/tests-bootstrap.php';
 	// }
 
 	// Start up the WP testing environment.
 	// require getenv( 'WP_PHPUNIT__DIR' ) . '/includes/bootstrap.php';
 
 	// Load an escape hatch early load file, if it exists.
-	if ( is_readable( Altis\PHPUNIT_PROJECT_ROOT . '/.config/load-early.php' ) ) {
+	if ( is_readable( Altis\CODECEPTION_PROJECT_ROOT . '/.config/load-early.php' ) ) {
 		include_once __DIR__ . '/.config/load-early.php';
 	}
 
 	// Load the plugin API (like add_action etc) early, so everything loaded
 	// via the Composer autoloaders can using actions.
-	require_once Altis\PHPUNIT_PROJECT_ROOT . '/wordpress/wp-includes/plugin.php';
+	require_once Altis\CODECEPTION_PROJECT_ROOT . '/wordpress/wp-includes/plugin.php';
 
 	// Load the whole autoloader very early, this will also include
 	// all `autoload.files` from all modules.
-	require_once Altis\PHPUNIT_PROJECT_ROOT . '/vendor/autoload.php';
+	require_once Altis\CODECEPTION_PROJECT_ROOT . '/vendor/autoload.php';
 
 	// Load all modules.
-	require_once Altis\PHPUNIT_PROJECT_ROOT . '/vendor/modules.php';
+	require_once Altis\CODECEPTION_PROJECT_ROOT . '/vendor/modules.php';
 
 	do_action( 'altis.loaded_autoloader' );
 
@@ -124,4 +124,4 @@ function bootstrapCCWP() {
 }
 
 // Load Altis.
-require_once Altis\PHPUNIT_PROJECT_ROOT . '/wp-config.php';
+require_once Altis\CODECEPTION_PROJECT_ROOT . '/wp-config.php';
