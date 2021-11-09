@@ -32,7 +32,14 @@ register_shutdown_function( function () {
 	}
 } );
 
-function bootstrapCCWP() {
+/**
+ * Bootstrapping test code and loading of Altis
+ *
+ * phpcs:disable HM.Functions.NamespacedFunctions.MissingNamespace
+ *
+ * @return void
+ */
+function bootstrap_codeception_wp() {
 	/**
 	 * Re-map the default `/uploads` folder with our own `/test-uploads` for tests.
 	 *
