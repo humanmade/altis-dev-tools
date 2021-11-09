@@ -12,8 +12,8 @@ if ( ! defined( 'Altis\\CODECEPTION_PROJECT_ROOT' ) ) {
 	define( 'Altis\\CODECEPTION_PROJECT_ROOT', getcwd() );
 }
 
-defined( 'WP_TESTS_DOMAIN' ) or define( 'WP_TESTS_DOMAIN', 'example.org' );
-defined( 'WP_TESTS_EMAIL' ) or define( 'WP_TESTS_EMAIL', 'admin@example.org' );
+defined( 'WP_TESTS_DOMAIN' ) or define( 'WP_TESTS_DOMAIN', getenv( 'TEST_SITE_WP_DOMAIN' ) );
+defined( 'WP_TESTS_EMAIL' ) or define( 'WP_TESTS_EMAIL', getenv( 'TEST_SITE_ADMIN_EMAIL' ) );
 defined( 'WP_TESTS_TITLE' ) or define( 'WP_TESTS_TITLE', 'Test Blog' );
 
 // Ensure cache key salt is different for test runs.
