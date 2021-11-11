@@ -2,6 +2,7 @@
 /**
  * Altis Dev Tools Module.
  *
+ * phpcs:disable PSR1.Files.SideEffects
  * @package altis/dev-tools
  */
 
@@ -30,7 +31,7 @@ add_action( 'altis.modules.init', function () {
 	);
 } );
 
-// Testing constants to switch to test db/redis/elastic
+// Testing constants to switch to test db/redis/elastic.
 add_action( 'altis.modules.init', function() {
 	// Detect requests from Codeception/phpunit, primarely to use the test database.
 	$is_test_request = (
