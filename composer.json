@@ -30,9 +30,6 @@
 		"codeception/module-cli": "~1.1.1",
 		"codeception/util-universalframework": "~1.0.0"
 	},
-	"replace": {
-		"ext-zip": "*"
-	},
 	"extra": {
 		"altis": {
 			"install-overrides": [
