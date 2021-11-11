@@ -3,6 +3,7 @@
  * Altis Dev Tools Module.
  *
  * phpcs:disable PSR1.Files.SideEffects
+ *
  * @package altis/dev-tools
  */
 
