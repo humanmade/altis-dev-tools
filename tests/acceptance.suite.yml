@@ -9,5 +9,5 @@ actor: AcceptanceTester
 modules:
     enabled:
         - WPDb
-        - WPBrowser
+        - WPWebDriver
         - \Helper\Acceptance
