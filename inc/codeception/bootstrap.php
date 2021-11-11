@@ -2,7 +2,7 @@
 /**
  * Bootstrapping code for codeception tests
  *
- * phpcs:ignore PSR1.Files.SideEffects.FoundWithSymbols
+ * phpcs:disable PSR1.Files.SideEffects.FoundWithSymbols
  */
 
 /**
