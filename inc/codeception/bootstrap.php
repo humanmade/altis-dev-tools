@@ -3,7 +3,7 @@
  * Bootstrapping code for codeception tests, used in Codeception configuration.
  */
 
-// phpcs:disable PSR1.Files.SideEffects.FoundWithSymbols
+// phpcs:disable PSR1.Files.SideEffects
 
 /**
  * Re-map the default `/uploads` folder with our own `/test-uploads` for tests.
