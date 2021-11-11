@@ -1,4 +1,9 @@
 <?php
+/**
+ * Bootstrapping code for codeception tests
+ *
+ * phpcs:ignore PSR1.Files.SideEffects.FoundWithSymbols
+ */
 
 /**
  * Re-map the default `/uploads` folder with our own `/test-uploads` for tests.
@@ -10,41 +15,41 @@
  * This filter adds a unique test uploads folder just for our tests to reduce load.
  */
 tests_add_filter( 'upload_dir', function( $dir ) {
-    array_walk( $dir, function( &$item ) {
-        if ( is_string( $item ) ) {
-            $item = str_replace( '/uploads', '/test-uploads', $item );
-        }
-    } );
-    return $dir;
+	array_walk( $dir, function( &$item ) {
+		if ( is_string( $item ) ) {
+			$item = str_replace( '/uploads', '/test-uploads', $item );
+		}
+	} );
+	return $dir;
 } );
 
 /**
  * Reindex ElasticPress on install.
  */
 tests_add_filter( 'plugins_loaded', function () {
-    global $table_prefix;
+	global $table_prefix;
 
-    if ( ! class_exists( 'ElasticPress\\Elasticsearch' ) ) {
-        return;
-    }
+	if ( ! class_exists( 'ElasticPress\\Elasticsearch' ) ) {
+		return;
+	}
 
-    // Remove the shutdown sync action to prevent errors syncing non-existent posts etc...
-    foreach ( ElasticPress\Indexables::factory()->get_all() as $indexable ) {
-        if ( ! isset( $indexable->sync_manager ) ) {
-            continue;
-        }
-        remove_action( 'shutdown', [ $indexable->sync_manager, 'index_sync_queue' ] );
-        remove_filter( 'wp_redirect', [ $indexable->sync_manager, 'index_sync_queue_on_redirect' ], 10, 1 );
-    }
+	// Remove the shutdown sync action to prevent errors syncing non-existent posts etc...
+	foreach ( ElasticPress\Indexables::factory()->get_all() as $indexable ) {
+		if ( ! isset( $indexable->sync_manager ) ) {
+			continue;
+		}
+		remove_action( 'shutdown', [ $indexable->sync_manager, 'index_sync_queue' ] );
+		remove_filter( 'wp_redirect', [ $indexable->sync_manager, 'index_sync_queue_on_redirect' ], 10, 1 );
+	}
 
-    // Ensure indexes exist before tests run and silence the output.
-    // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.system_calls_exec
-    exec( sprintf(
-        'TABLE_PREFIX=%s EP_INDEX_PREFIX=%s wp elasticpress index --setup --network-wide --url=%s',
-        $table_prefix,
-        EP_INDEX_PREFIX,
-        WP_TESTS_DOMAIN
-    ), $output, $return_val );
+	// Ensure indexes exist before tests run and silence the output.
+	// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.system_calls_exec
+	exec( sprintf(
+		'TABLE_PREFIX=%s EP_INDEX_PREFIX=%s wp elasticpress index --setup --network-wide --url=%s',
+		$table_prefix,
+		EP_INDEX_PREFIX,
+		WP_TESTS_DOMAIN
+	), $output, $return_val );
 }, 11 );
 
 /**
@@ -52,19 +57,19 @@ tests_add_filter( 'plugins_loaded', function () {
  */
 define( 'WP_STREAM_DEV_DEBUG', true );
 tests_add_filter( 'plugins_loaded', function () {
-    if ( function_exists( 'wp_stream_get_instance' ) && wp_stream_get_instance()->install ) {
-        wp_stream_get_instance()->install->check();
-    }
+	if ( function_exists( 'wp_stream_get_instance' ) && wp_stream_get_instance()->install ) {
+		wp_stream_get_instance()->install->check();
+	}
 }, 21 );
 
 // Load custom bootstrap code.
 if ( file_exists( Altis\CODECEPTION_PROJECT_ROOT . '/.config/tests-bootstrap.php' ) ) {
-    require Altis\CODECEPTION_PROJECT_ROOT . '/.config/tests-bootstrap.php';
+	require Altis\CODECEPTION_PROJECT_ROOT . '/.config/tests-bootstrap.php';
 }
 
 // Load an escape hatch early load file, if it exists.
 if ( is_readable( Altis\CODECEPTION_PROJECT_ROOT . '/.config/load-early.php' ) ) {
-    include_once __DIR__ . '/.config/load-early.php';
+	include_once __DIR__ . '/.config/load-early.php';
 }
 
 // Load the plugin API (like add_action etc) early, so everything loaded
