@@ -36,7 +36,7 @@ class AcceptanceTester extends \Codeception\Actor
 	 * @return void
 	 */
 	public function preLoadConfig( string $file, callable $function, bool $rollback_on_shutdown = true ) {
-		$path = 'tests/include.php';
+		$path = 'tests/load.php';
 
 		if ( ! file_exists( $file ) ) {
 			throw new Exception( 'File path does not exist.' );

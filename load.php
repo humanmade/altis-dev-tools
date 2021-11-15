@@ -50,8 +50,8 @@ add_action( 'altis.modules.init', function() {
 		define( 'WP_CACHE_KEY_SALT', 'codecept' );
 
 		// Support acceptance testing delayed execution. See AcceptanceTester::preLoadConfig.
-		if ( file_exists( Altis\ROOT_DIR . '/tests/include.php' ) ) {
-			include_once( Altis\ROOT_DIR . '/tests/include.php' );
+		if ( file_exists( Altis\ROOT_DIR . '/tests/load.php' ) ) {
+			include_once( Altis\ROOT_DIR . '/tests/load.php' );
 		}
 	}
 }, 1 );
