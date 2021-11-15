@@ -4,7 +4,7 @@ namespace Acme;
 class UserTest extends \Codeception\TestCase\WPTestCase
 {
     /**
-     * @var \WpunitTester
+     * @var \IntegrationTester
      */
     protected $tester;
 
