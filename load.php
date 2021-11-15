@@ -48,5 +48,10 @@ add_action( 'altis.modules.init', function() {
 		define( 'DB_NAME', 'test' );
 		define( 'EP_INDEX_PREFIX', 'tests_' );
 		define( 'WP_CACHE_KEY_SALT', 'codecept' );
+
+		// Support acceptance testing delayed execution. See AcceptanceTester::preLoadConfig.
+		if ( file_exists( Altis\ROOT_DIR . '/tests/include.php' ) ) {
+			include_once( Altis\ROOT_DIR . '/tests/include.php' );
+		}
 	}
 }, 1 );
