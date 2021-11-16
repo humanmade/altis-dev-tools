@@ -26,7 +26,7 @@
 		"codeception/module-phpbrowser": "~1.0.2",
 		"codeception/module-webdriver": "~1.4.0",
 		"codeception/module-db": "~1.1.0",
-		"codeception/module-filesystem": "~1.0.0",
+		"codeception/module-filesystem": "~1.0.3",
 		"codeception/module-cli": "~1.1.1",
 		"codeception/util-universalframework": "~1.0.0"
 	},
