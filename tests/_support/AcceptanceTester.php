@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Inherited Methods
  * @method void wantToTest($text)
@@ -27,23 +26,29 @@ class AcceptanceTester extends \Codeception\Actor
 	/**
 	 * Execute a callback during remote acceptance test executions.
 	 *
-	 * @param string $file File path.
 	 * @param callable $function Reference to a static class method.
+	 * @param string $file Optional file path, auto detected from method class otherwise.
 	 * @param bool $rollback_on_shutdown Rollback changes on shutdown.
 	 *
 	 * @throws Exception Throws an exception if passed parameters are not as expected.
 	 *
-	 * @return void
+	 * @return callable
 	 */
-	public function bootstrapWith( string $file, callable $function, bool $rollback_on_shutdown = true ) {
+	public function bootstrapWith( callable $function, string $file = null, bool $rollback_on_shutdown = true ) {
 		$path = __DIR__ . '/../../../../tests/load.php';
-
-		if ( ! file_exists( $file ) ) {
-			throw new Exception( 'File path does not exist.' );
-		}
 
 		if ( ! is_array( $function ) || ! is_string( $function[0] ) ) {
 			throw new Exception( 'Passed function needs to be a static method of a class.' );
+		}
+
+		if ( is_null( $file ) ) {
+			$class = $function[0];
+			$reflector = new \ReflectionClass( $class );
+			$file = $reflector->getFileName();
+		}
+
+		if ( ! file_exists( $file ) ) {
+			throw new Exception( 'File path does not exist.' );
 		}
 
 		$content = sprintf( '<?php require( "%s" ); call_user_func( [ "%s", "%s" ] );', $file, $function[0], $function[1] );
