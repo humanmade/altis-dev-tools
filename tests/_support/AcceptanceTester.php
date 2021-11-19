@@ -25,7 +25,7 @@ class AcceptanceTester extends \Codeception\Actor
 	 */
 
 	/**
-	 * Trigger actions during remote acceptance test executions.
+	 * Execute a callback during remote acceptance test executions.
 	 *
 	 * @param string $file File path.
 	 * @param callable $function Reference to a static class method.
@@ -35,7 +35,7 @@ class AcceptanceTester extends \Codeception\Actor
 	 *
 	 * @return void
 	 */
-	public function preLoadConfig( string $file, callable $function, bool $rollback_on_shutdown = true ) {
+	public function bootstrapWith( string $file, callable $function, bool $rollback_on_shutdown = true ) {
 		$path = __DIR__ . '/../../../../tests/load.php';
 
 		if ( ! file_exists( $file ) ) {
