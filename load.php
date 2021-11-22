@@ -48,6 +48,7 @@ add_action( 'altis.modules.init', function() {
 		define( 'DB_NAME', 'test' );
 		define( 'EP_INDEX_PREFIX', 'tests_' );
 		define( 'WP_CACHE_KEY_SALT', 'codecept' );
+		defined( 'WP_TESTS_DOMAIN' ) || define( 'WP_TESTS_DOMAIN', $_SERVER['HTTP_HOST'] );
 
 		// Load overrides code.
 		include_once( __DIR__ . '/inc/codeception/overrides.php' );
