@@ -1,66 +1,14 @@
 <?php
 /**
- * Bootstrapping code for codeception tests, used in Codeception configuration.
+ * Bootstrapping code for codeception tests
+ *
+ * This runs in Codeception test threads.
  */
 
 // phpcs:disable PSR1.Files.SideEffects
 
-/**
- * Re-map the default `/uploads` folder with our own `/test-uploads` for tests.
- *
- * WordPress core runs a method (scan_user_uploads) on the first instance of `WP_UnitTestCase`.
- * This method scans every single folder and file in the uploads directory. This is a problem
- * if the regular uploads directory contains a lot of files.
- *
- * This filter adds a unique test uploads folder just for our tests to reduce load.
- */
-tests_add_filter( 'upload_dir', function( $dir ) {
-	array_walk( $dir, function( &$item ) {
-		if ( is_string( $item ) ) {
-			$item = str_replace( '/uploads', '/test-uploads', $item );
-		}
-	} );
-	return $dir;
-} );
-
-/**
- * Reindex ElasticPress on install.
- */
-tests_add_filter( 'plugins_loaded', function () {
-	global $table_prefix;
-
-	if ( ! class_exists( 'ElasticPress\\Elasticsearch' ) ) {
-		return;
-	}
-
-	// Remove the shutdown sync action to prevent errors syncing non-existent posts etc...
-	foreach ( ElasticPress\Indexables::factory()->get_all() as $indexable ) {
-		if ( ! isset( $indexable->sync_manager ) ) {
-			continue;
-		}
-		remove_action( 'shutdown', [ $indexable->sync_manager, 'index_sync_queue' ] );
-		remove_filter( 'wp_redirect', [ $indexable->sync_manager, 'index_sync_queue_on_redirect' ], 10, 1 );
-	}
-
-	// Ensure indexes exist before tests run and silence the output.
-	// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.system_calls_exec
-	exec( sprintf(
-		'TABLE_PREFIX=%s EP_INDEX_PREFIX=%s wp elasticpress index --setup --network-wide --url=%s',
-		$table_prefix,
-		EP_INDEX_PREFIX,
-		WP_TESTS_DOMAIN
-	), $output, $return_val );
-}, 11 );
-
-/**
- * Ensure Stream is installed.
- */
-define( 'WP_STREAM_DEV_DEBUG', true );
-tests_add_filter( 'plugins_loaded', function () {
-	if ( function_exists( 'wp_stream_get_instance' ) && wp_stream_get_instance()->install ) {
-		wp_stream_get_instance()->install->check();
-	}
-}, 21 );
+// Load generic overrides code.
+include __DIR__ . '/overrides.php';
 
 // Load custom bootstrap code.
 if ( file_exists( Altis\CODECEPTION_PROJECT_ROOT . '/.config/tests-bootstrap.php' ) ) {
