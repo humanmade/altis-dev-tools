@@ -35,7 +35,7 @@ class AcceptanceTester extends \Codeception\Actor
 	 * @return callable
 	 */
 	public function bootstrapWith( callable $function, string $file = null, bool $rollback_on_shutdown = true ) {
-		$path = __DIR__ . '/../../../../tests/load.php';
+		$path = __DIR__ . '/../../../../vendor/webdriver-test-load.php';
 
 		if ( ! is_array( $function ) || ! is_string( $function[0] ) ) {
 			throw new Exception( 'Passed function needs to be a static method of a class.' );
