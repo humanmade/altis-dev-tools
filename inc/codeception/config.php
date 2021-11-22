@@ -19,13 +19,6 @@ defined( 'WP_TESTS_TITLE' ) or define( 'WP_TESTS_TITLE', 'Test Blog' );
 // Set tests table prefix.
 $table_prefix = 'wp_';
 
-// Register shutdown event to clear the cache, also triggers if an error occurs.
-register_shutdown_function( function () {
-	if ( function_exists( 'wp_cache_flush' ) ) {
-		wp_cache_flush();
-	}
-} );
-
 /**
  * Bootstrapping test code and loading of Altis
  *
