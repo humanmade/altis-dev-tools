@@ -17,6 +17,13 @@ register_shutdown_function( function () {
 
 // If running from the acceptance test thread, ie: in a full WP environment.
 if ( ! function_exists( 'tests_add_filter' ) ) {
+	/**
+	 * Polyfill the tests_add_filter on acceptance tests request threads for consistency.
+	 *
+	 * phpcs:disable HM.Functions.NamespacedFunctions
+	 *
+	 * @return mixed
+	 */
 	function tests_add_filter() {
 		return call_user_func_array( 'add_filter', func_get_args() );
 	}
