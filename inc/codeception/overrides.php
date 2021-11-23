@@ -7,10 +7,13 @@
 
 // phpcs:disable PSR1.Files.SideEffects
 
-
-// Flush cache now, and register shutdown event to clear the cache, also triggers if an error occurs.
+// Register shutdown event to clear the cache, also triggers if an error occurs.
 register_shutdown_function( function () {
-	if ( function_exists( 'wp_cache_flush' ) ) {
+	// In the acceptance test context there may be multiple pages visited or
+	// viewed per test, so flushing the cache after each request may get different
+	// results compared to production. Flushing the cache is fine for tests that
+	// run in a single request or process like integration tests.
+	if ( ( ! defined( 'WP_BROWSER_TEST' ) || ! WP_BROWSER_TEST ) && function_exists( 'wp_cache_flush' ) ) {
 		wp_cache_flush();
 	}
 } );
@@ -25,7 +28,7 @@ if ( ! function_exists( 'tests_add_filter' ) ) {
 	 * @return mixed
 	 */
 	function tests_add_filter() {
-		return call_user_func_array( 'add_filter', func_get_args() );
+		return add_filter( ...func_get_args() );
 	}
 }
 
@@ -57,13 +60,26 @@ tests_add_filter( 'plugins_loaded', function () {
 		return;
 	}
 
-	// Remove the shutdown sync action to prevent errors syncing non-existent posts etc...
+	// Track index creation.
+	$index_exists = true;
+
 	foreach ( ElasticPress\Indexables::factory()->get_all() as $indexable ) {
-		if ( ! isset( $indexable->sync_manager ) ) {
+		if ( ! $indexable->index_exists() ) {
+			$index_exists = false;
+		}
+
+		// Remove the shutdown sync action to prevent errors syncing non-existent posts etc...
+		// Not required for acceptance or functional tests as the db is emptied/removed after the tests.
+		if ( ( defined( 'WP_BROWSER_TEST' ) && WP_BROWSER_TEST ) || ! isset( $indexable->sync_manager ) ) {
 			continue;
 		}
 		remove_action( 'shutdown', [ $indexable->sync_manager, 'index_sync_queue' ] );
 		remove_filter( 'wp_redirect', [ $indexable->sync_manager, 'index_sync_queue_on_redirect' ], 10, 1 );
+	}
+
+	// Only index if we haven't already.
+	if ( $index_exists ) {
+		return;
 	}
 
 	// Ensure indexes exist before tests run and silence the output.
