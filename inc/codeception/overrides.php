@@ -9,6 +9,10 @@
 
 // Register shutdown event to clear the cache, also triggers if an error occurs.
 register_shutdown_function( function () {
+	// In the acceptance test context there may be multiple pages visited or
+	// viewed per test, so flushing the cache after each request may get different
+	// results compared to production. Flushing the cache is fine for tests that
+	// run in a single request or process like integration tests.
 	if ( ( ! defined( 'WP_BROWSER_TEST' ) || ! WP_BROWSER_TEST ) && function_exists( 'wp_cache_flush' ) ) {
 		wp_cache_flush();
 	}
@@ -65,6 +69,7 @@ tests_add_filter( 'plugins_loaded', function () {
 		}
 
 		// Remove the shutdown sync action to prevent errors syncing non-existent posts etc...
+		// Not required for acceptance or functional tests as the db is emptied/removed after the tests.
 		if ( ( defined( 'WP_BROWSER_TEST' ) && WP_BROWSER_TEST ) || ! isset( $indexable->sync_manager ) ) {
 			continue;
 		}
