@@ -20,6 +20,7 @@
 		"johnbillion/query-monitor": "^3.7.1",
 		"altis/dev-tools-command": "^0.4.0",
 		"wp-phpunit/wp-phpunit": "5.8.1",
+		"yoast/phpunit-polyfills": "^1.0.3",
 		"phpunit/phpunit": "^7.5.20",
 		"lucatume/wp-browser": "~3.0.13",
 		"codeception/module-asserts": "~1.3.1",
