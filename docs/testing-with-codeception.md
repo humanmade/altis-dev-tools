@@ -111,19 +111,23 @@ Collection of test classes, sharing running configuration and testing environmen
 - **Test class**
 Collection of tests for a certain functionality, or one aspect of it, typically combined in the same class. Defined by a class file, eg: `class-test-authorship-admin.php`.
 - **Test**
-Individual test methods within a test class, that typically tests a single specific scenario. eg: `test_user_can_signup` or `test_submition_invalid_email`.
+Individual test methods within a test class, that typically tests a single specific scenario. eg: `test_user_can_signup` or `test_submission_invalid_email`.
 - **Actor**
-A Codeception actor is the main driver of acceptance/functional tests, whose methods typically come from the defined modules and helpers in the test suite configuration, typically refered to as `$I`. [Read more on Codeception docs](https://codeception.com/docs/06-ReusingTestCode.html#What-are-Actors).
+A Codeception actor is the main driver of acceptance or functional tests, whose methods typically come from the defined modules and helpers in the test suite configuration, typically referred to as `$I`. [Read more on Codeception docs](https://codeception.com/docs/06-ReusingTestCode.html#What-are-Actors).
 - **Module**
-Codeception modules extend its functionality / environment, and provides related methods that can be used within tests, eg: `WPDb` provides methods to allow accessing the database and checking/updating objects, and also enables importing a base database snapshot using a `.sql` file, `WPLoader` provides a bootstrapped WordPress environment, `Asserts` provides the commonly used `Symfony\Asserts` methods, eg: `assertEquals`. [Read more on Codeception docs](https://codeception.com/docs/06-ModulesAndHelpers#Standard-Modules).
+Codeception modules extend its functionality or environment, and provide related methods that can be used within tests. For instance:
+  - `WPDb` provides methods to allow accessing the database and inserting or updating objects, and also enables importing a base database snapshot using a `.sql` file.
+  - `WPLoader` provides a bootstrapped WordPress environment
+  - `Asserts` provides the commonly used `Symfony\Asserts` methods, eg: `assertEquals`.
+  [Read more about modules in the Codeception docs](https://codeception.com/docs/06-ModulesAndHelpers#Standard-Modules).
 - **Helper**
-Codeception helpers are classes that provides commonly used / reused actions and assertions to Actors, eg: `$I->havePostInDatabase()` which creates a new post in the database, using the `WPDb` module. Those are typically located in the `_helpers` directory. [Read more on Codeception docs](https://codeception.com/docs/06-ModulesAndHelpers#Helpers).
+Codeception helpers are classes that provide commonly used actions and assertions to Actors, eg: `$I->havePostInDatabase()` which creates a new post in the database, using the `WPDb` module. Those are typically located in the `_helpers` directory. [Read more about helpers on the Codeception docs](https://codeception.com/docs/06-ModulesAndHelpers#Helpers).
 - **Environment**
-Codeception environments are sets of configurations that allows specifying different environment setups, modules, helpers, etc, to be able to run tests in different, well, environments! eg: running tests in Firefox vs Chrome, in Linux vs Windows, etc. Codeception allows defining environments in test suites or in dedicated shared files, eg: `_envs/chrome.yml`. [Read more on Codeception docs](https://codeception.com/docs/07-AdvancedUsage.html#Environments).
+Codeception environments are sets of configurations that allows specifying different environment setups, modules, helpers, etc, to be able to run tests in different, well, environments! eg: running tests in Firefox vs Chrome, in Linux vs Windows, etc. Codeception allows defining environments in test suites or in dedicated shared files, eg: `_envs/chrome.yml`. [Read more about environments on the Codeception docs](https://codeception.com/docs/07-AdvancedUsage.html#Environments).
 - **PageObject**
-Codeception `PageObject` is a special type of helper that represents a specific web page and/or template, where you define constants and actions for interacting with that page/template to be able to use it in different tests, which makes it easier to write tests, and to refactor actions based on changing templates. eg: a `LoginPage` helper would define the CSS and XPath selectors, eg: for forms and buttons, and actions needed to login to a site. [Read more on Codeception docs](https://codeception.com/docs/06-ReusingTestCode.html#PageObjects).
+Codeception's `PageObject` is a special type of helper that represents a specific web page and/or template, where you define constants and actions for interacting with that page/template to be able to use it in different tests. This makes it easier to write tests, and to refactor actions based on changing templates. For instance, a `LoginPage` helper would define the CSS and XPath selectors for forms and buttons, as well as the actions needed to login to a site. [Read more about the page object on the Codeception docs](https://codeception.com/docs/06-ReusingTestCode.html#PageObjects).
 - **StepObject**
-Codeception `StepObject` is a special type of helper that represents a set of actions common to a role / area of functionality, eg: `Admin` can represent actions that an Admin can do, eg: `loginAsAdmin` or `activatePlugin`. [Read more on Codeception docs](https://codeception.com/docs/06-ReusingTestCode.html#StepObjects).
+Codeception's `StepObject` is a special type of helper that represents a set of actions common to a role or area of functionality, eg: `Admin` can represent actions that an Admin user can do, eg: `loginAsAdmin` or `activatePlugin`. [Read more about step objects on the Codeception docs](https://codeception.com/docs/06-ReusingTestCode.html#StepObjects).
 
 ### Test directory structure
 
@@ -141,7 +145,7 @@ tests/
 - integration.suite.yml
 ```
 
-Typical suite configuration includes main actor, modules, helpers, and extensions used by the suite, eg:
+Typical suite configuration includes the main actor, modules, helpers, and extensions used by the suite, eg:
 
 ```yml
 # acceptance.suite.yml
@@ -157,7 +161,7 @@ modules:
 
 ### Test types
 
-To start writing tests, you need to decide which type of tests you need off the typical types available below, you can mix and match different types of tests to satisfy the project needs.
+To start writing tests, you need to decide which type of tests you need from the typical types available below. You can mix and match different types of tests to satisfy the project needs.
 
 #### Acceptance tests
 
@@ -168,6 +172,7 @@ This type uses a browser, where a web driver drives the browser clicking and typ
 These can be written in _CEPT_ format, eg:
 
 ```php
+<?php
 // SignupSubmissionTest.php
 
 // Add a page that contains the shortcode that will render the signup form.
@@ -233,7 +238,7 @@ class SignupSubmissionCest {
 
 In short: *Testing a scenario from a developer perspective*, eg: sending AJAX/API requests and checking responses and/or database changes.
 
-This type doesn't necessarily use a browser, as it can use a PHP library that acts like a browser, with no Javascript support. And it looks pretty much like Acceptance tests, but with different testing mindset/domain.
+This type of test doesn't necessarily use a browser, as it can use a PHP library that acts like a browser, but without Javascript support. These are a lot like Acceptance tests, but serve a slightly different purpose.
 
 Functional and acceptance tests can co-exist, eg: executing browser actions and checking expected database changes rather than just browser output.
 
@@ -279,7 +284,7 @@ class SignupSubmissionCest {
 
 In short: *Testing code within the context of a WordPress site*, eg: testing filters and actions are behaving as expected.
 
-This type is written in the PHPUnit format, however extending the `\Codeception\TestCase\WPTestCase` provided by `wp-browser`, eg:
+This type is written in the PHPUnit format, however extending the `\Codeception\TestCase\WPTestCase` class provided by `wp-browser`, eg:
 
 ```php
 // SubmissionHandlingTest.php
@@ -314,16 +319,16 @@ class SubmissionHandlingTest extends \Codeception\TestCase\WPTestCase {
 
 #### WordPress unit tests
 
-In short: *Testing single classes or functions in as much isolation as possible*, eg: testing one class or one function that requires WordPress-defined function or class, with a unit testing approach.
+In short: *Testing single classes or functions in as much isolation as possible*, eg: testing one class or one function that requires WordPress-defined functions or classes, with a unit testing approach.
 
-This type is written also in PHPUnit format, extending `\Codeception\Test\Test` class. eg:
+This type is written also in PHPUnit format, extending the `\Codeception\Test\Test` class. eg:
 
 ```php
 <?php
 // SubmissionHandlerTest.php
 
 class SubmissionHandlerTest extends Codeception\Test\Test {
-    protected  $request;
+    protected $request;
     protected $validator;
 
     public function setUp() {
@@ -375,7 +380,7 @@ function test_some_action( AcceptanceTester $I, \Helper\AdminBar $adminBar ) {}
 
 #### b. `_inject()`
 
-Codeception test / actor / helper classes has a special method where you can bootstrap helpers and virtual any PHP class, and attach it to the test class object, which has the added benefit of being able to construct objects with arbitrary arguments:
+Codeception test / actor / helper classes have a special method that lets you bootstrap helpers and virtually any PHP class that can be autoloaded. You can then attach these helpers to the test class object, which has the added benefit of being able to construct objects with arbitrary arguments:
 
 ```php
 class SampleTest {
@@ -395,15 +400,15 @@ class SampleTest {
 }
 ```
 
-[Read more on Codeception docs](https://codeception.com/docs/07-AdvancedUsage.html#Dependency-Injection).
+[Read more about dependency injection on the Codeception docs](https://codeception.com/docs/07-AdvancedUsage.html#Dependency-Injection).
 
 ### Annotations
 
-Codeception has different special annotations that helps write tests in a more effiecent way, some of which are:
+Codeception has different special annotations that help you to write tests in a more efficient way.
 
 #### Examples
 
-Codeception provides a similar functionality to PHPUnit's [`@dataProvider`](https://phpunit.readthedocs.io/en/9.5/writing-tests-for-phpunit.html?highlight=dataprovider#data-providers) annotations, to specify different scenarios / data sets for the same test to run once per each, eg:
+Codeception provides a similar functionality to PHPUnit's [`@dataProvider`](https://phpunit.readthedocs.io/en/9.5/writing-tests-for-phpunit.html?highlight=dataprovider#data-providers) annotations, to specify different scenarios or data sets for the same test to run once per each set of values, eg:
 
 ```php
 /**
@@ -422,7 +427,7 @@ You can define examples in Doctrine or JSON style, eg: `@example ["/api/", 200]`
 
 #### DataProviders
 
-You can also use  PHPUnit's `@dataProvider` pattern to create _dynamic data sets_ for test methods, where the test will run once per each data set returned from the protected data provider method, but the syntax differs a bit given the way test methods are written, eg:
+You can also use  PHPUnit's `@dataProvider` pattern to create _dynamic data sets_ for test methods, where the test will run once per each data set returned from the protected data provider method. The syntax differs a bit given the way test methods are written, eg:
 
 ```php
 /**
@@ -447,7 +452,7 @@ protected function pageProvider() {
 }
 ```
 
-[Read more on Codeception docs](https://codeception.com/docs/07-AdvancedUsage.html#Example-Annotation).
+[Read more about examples and data providers on the Codeception docs](https://codeception.com/docs/07-AdvancedUsage.html#Example-Annotation).
 
 #### Before and After
 
@@ -488,7 +493,7 @@ public function someTest() {}
 
 ### Available modules
 
-Altis' Codeception integration comes bundled with `wp-browser` library, which provides additional modules to simplify testing WordPress applications. Altis pre-configures such modules via the zero-config installation, so you don't need to manually configure them unless you need to override some of the default values, which you can do via test suite configuration, eg:
+Altis' Codeception integration comes bundled with the [`wp-browser` library](https://github.com/lucatume/wp-browser), which provides additional modules to simplify testing WordPress applications. Altis pre-configures these modules via the zero-config installation, so you don't need to manually configure them unless you need to override some of the default values, which you can do via test suite configuration, eg:
 
 ```yml
 # acceptance.suite.yml
@@ -505,7 +510,7 @@ modules:
                 X_WPBROWSER_REQUEST: 1
 ```
 
-For a list of available modules, please check [`wp-browser` documentation on modules](https://wpbrowser.wptestkit.dev/modules), and the respective configuration options, and methods, of each.
+For a list of available modules, please check the [`wp-browser` documentation on modules](https://wpbrowser.wptestkit.dev/modules), and the respective configuration options, and methods, of each.
 
 These are the available modules from wp-browser:
 
@@ -534,7 +539,7 @@ Both of those use different configurations and different running context / envir
 
 This module extends the `Db` module adding WordPress-specific configuration parameters and methods. It provides methods to read, write and update the WordPress database directly, without relying on WordPress methods, using WordPress functions or triggering WordPress filters.
 
-Altis comes with pre-prepared database contents that's imported on the fly to simulate a basic working site.
+Altis comes with a pre-prepared database dump that is imported on the fly to simulate a basic working site.
 
 **Important notes:**
 - `WPDb` imports the sample database content to a database called `test`, which is created (and later removed) on the fly.
@@ -553,7 +558,7 @@ The parameters provided to the module duplicate the ones used in the WordPress c
 
 **Important notes:**
 
-- If `loadOnly` parameter is set to `false`, Codeception will execute all database modification requests, eg: created and/or deleted content, as a sql transaction, which gets rolled-back whenever the test scenario completes.
+- If the `loadOnly` parameter is set to `false`, Codeception will execute all database modification requests, eg: created and/or deleted content, as an SQL transaction, which gets rolled-back whenever the test scenario completes.
 - WordPress defined functions and classes (and those of the plugins and themes loaded with it) will be available in the `setUpBeforeClass` method.
 - WordPress would not have loaded yet when PHPUnit calls the data provider methods, so don't expect to be able to use any WordPress functions within data provider methods.
 
@@ -561,7 +566,7 @@ The parameters provided to the module duplicate the ones used in the WordPress c
 
 #### WPQueries
 
-This module is typically used in integration tests, to make assertions on the database queries made by the global $wpdb object, and it **requires** `WPLoader` module to work. It will set, if not set already, the `SAVEQUERIES` constant to true and will throw an exception if the contstant is already set to a falsy value.
+This module is typically used in integration tests, to make assertions on the database queries made by the global $wpdb object, and it **requires** the `WPLoader` module in order to work. It will set, if not set already, the `SAVEQUERIES` constant to true and will throw an exception if the constant is already set to a falsy value.
 
 [Read more on WPQueries module configuration](https://wpbrowser.wptestkit.dev/modules/wpqueries#configuration).
 
@@ -569,7 +574,7 @@ This module is typically used in integration tests, to make assertions on the da
 
 This module is typically used in acceptance and functional tests, it extends the `Filesystem` module adding WordPress-specific configuration parameters and methods. It provides methods to read, write and update the WordPress filesystem directly, without relying on WordPress methods, using WordPress functions or triggering WordPress filters.
 
-One of the handy use cases of this module is scaffolding plugins and themes on the fly in the context of tests and auto-remove them after each test.
+One of the handy use cases of this module is scaffolding plugins and themes on the fly in the context of tests and automatically removing them after each test.
 
 [Read more on WPFilesystem module configuration](https://wpbrowser.wptestkit.dev/modules/wpfilesystem#configuration).
 
@@ -578,14 +583,14 @@ One of the handy use cases of this module is scaffolding plugins and themes on t
 This module is typically used in acceptance and functional tests to invoke WP-CLI commands, and test their output. It will use its own version of WP-CLI, not the one installed in the machine running the tests!
 
 **Important notes:***
-- By default, wp-browser will only include the `wp-cli/wp-cli` package; this package contains the basic files to run WP-CLI and does not contain all the commands that come with a typical `wp-cli` installation. If you require all the commands that usually come installed with WP-CLI, then you should require the `wp-cli/wp-cli-bundle` package as a development dependency of your project.
-- This module defines the environment variable `WPBROWSER_HOST_REQUEST` to distinguish testing session, Altis will detect that and switch to the test database similar to what happens with acceptance test sessions.
+- By default, `wp-browser` will only include the `wp-cli/wp-cli` package; this package contains the basic files to run WP-CLI and does not contain all the commands that come with a typical `wp-cli` installation. If you require all the commands that usually come installed with WP-CLI, then you should require the `wp-cli/wp-cli-bundle` package as a development dependency of your project.
+- This module defines the environment variable `WPBROWSER_HOST_REQUEST` to distinguish testing sessions. Altis will detect this and switch to the test database, similar to what happens in acceptance test sessions.
 
 [Read more on WPCLI module configuration](https://wpbrowser.wptestkit.dev/modules/wpcli#configuration).
 
 ### Altis helpers
 
-Altis extends Codeception/wp-browser with its own helpers, mainly used to test Altis modules, but can be useful for projects as well, and are available for you to use. Check out the `tests/_helpers` directory within the `dev-tools` package to check out existing helpers and new available functionality.
+Altis extends Codeception/wp-browser with its own helpers. Check out the `tests/_helpers` directory within the `dev-tools` package to check out existing helpers and new available functionality.
 
 ## Scaffolding
 
@@ -704,7 +709,7 @@ then, within the test method:
 $I->pause();
 ```
 
-**Note:** using the interfactive console requires the `hoa/console` composer package, which is not installed by default. Install it via:
+**Note:** using the interactive console requires the `hoa/console` composer package, which is not installed by default. Install it via:
 ```sh
 composer require --dev hoa/console
 ```
@@ -715,8 +720,8 @@ Codeception provides a set of useful extensions that can be used with tests, fin
 
 To give a quick glance:
 
-- **DorReporter**
-Provides less verbose output for test execution. Like PHPUnit printer it prints dots "." for successful testes and "F" for failures.
+- **DotReporter**
+Provides less verbose output for test execution. Like PHPUnit printer it prints dots "." for successful tests and "F" for failures.
 - **Logger**
 Logs suites/tests/steps using Monolog library.
 - **Recorder**
