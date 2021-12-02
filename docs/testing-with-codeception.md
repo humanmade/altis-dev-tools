@@ -53,12 +53,9 @@ composer dev-tools codecept run
 
 For some extra control, check out the available [advanced usage](#advanced-usage) for some fine-tuning.
 
-Also check out tests of Altis modules for some prior art and copy/paste opportunities.
-
-
 ## Running Tests
 
-**Note:** Codeception setup is currently only available while using the local-server module, with no support for local-chassis module.
+**Note:** Codeception setup is currently only available while using the Local Server module, with no support for Local Chassis.
 
 In order to run Codeception tests, you can run the following shorthand command:
 
@@ -66,7 +63,7 @@ In order to run Codeception tests, you can run the following shorthand command:
 composer dev-tools codecept run
 ```
 
-This assumes you have tests in the root `tests` directory, or you've configured directories in your `composer.json` as explained above. Check the [Advanced usage](#advanced-usage) section below for command parameters and options.
+This assumes you have tests in the root `tests` directory. Check the [Advanced usage](#advanced-usage) section below for command parameters and options.
 
 ### Advanced usage
 
@@ -77,7 +74,7 @@ composer dev-tools codecept [-p PATH/TO/TESTS] [-b BROWSER] run [TEST-SUITE] [[T
 ```
 
 - `-p/--path` defines the directory where tests exists. Omit to use the `tests` root directory, or the defined test directory/directories in your configuration file.
-- `-b/--browser` defines which browser to use for acceptance tests. Omit to use the default (or configured) browser. Options are `chrome` (default), `firefox`, and `edge` (although not quite functional yet).
+- `-b/--browser` defines which browser to use for acceptance tests. Omit to use the default (or configured) browser. Options are `chrome` (default), and `firefox`.
 - `TEST-SUITE` references the name of the test suite to run, typically one of the `*.suite.yml` files in the tests directory. Omit to run all found test suites.
 - `TestClass` references one of the test classes in the specified suite. Omit to run all tests within the suite(s).
 - `testMethod` references a single test method within the specified test class. Omit to run all test method within specified test class(es)/suite(s).
