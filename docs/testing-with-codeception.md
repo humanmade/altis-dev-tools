@@ -63,38 +63,38 @@ In order to run Codeception tests, you can run the following shorthand command:
 composer dev-tools codecept run
 ```
 
-This assumes you have tests in the root `tests` directory. Check the [Advanced usage](#advanced-usage) section below for command parameters and options.
+This assumes you have tests in the root `tests` directory. Check the [Advanced usage](#advanced-usage) section below for command options.
 
 ### Advanced usage
 
-There are multiple optional parameters to customize the running command, eg:
+There are multiple available options to customize the running command, eg:
 
 ```sh
 composer dev-tools codecept [-p PATH/TO/TESTS] [-b BROWSER] run [TEST-SUITE] [[TestClass]:testMethod]
 ```
 
-- `-p/--path` defines the directory where tests exists. Omit to use the `tests` root directory, or the defined test directory/directories in your configuration file.
-- `-b/--browser` defines which browser to use for acceptance tests. Omit to use the default (or configured) browser. Options are `chrome` (default), and `firefox`.
+- `-p/--path` defines the directory where tests exists. Omit to use the `tests` root directory.
+- `-b/--browser` defines which browser to use for acceptance tests. Omit to use the default browser. Possible parameters are `chrome` (default), and `firefox`.
 - `TEST-SUITE` references the name of the test suite to run, typically one of the `*.suite.yml` files in the tests directory. Omit to run all found test suites.
 - `TestClass` references one of the test classes in the specified suite. Omit to run all tests within the suite(s).
 - `testMethod` references a single test method within the specified test class. Omit to run all test method within specified test class(es)/suite(s).
 
-Altis `codecept` command proxies commands to the `codeception` cli, except for the `-b` and `-p` cli params, so you'll be able to execute advanced commands and utilize more of what Codeception has to offer as needed, eg: generate a suite or a test:
+Altis `codecept` command proxies commands to the `codeception` cli, except for the `-b` and `-p` cli options, so you'll be able to execute advanced commands and utilize more of what Codeception has to offer as needed, eg: generate a suite or a test:
 
 ```sh
 composer dev-tools codecept generate g:cest TEST-SUITE TestClassName
 ```
 
-To pass arbitary options to `codeception` command, eg: `-vv` to enable verbose mode, use a double hyphen `--` to split those as follows:
+To pass arbitary options to `codeception` command, eg: `-vv` to enable verbose mode, use the options delimiter `--` to split those as follows:
 
 ```sh
-composer dev-tools codecept -- -vv
+composer dev-tools codecept run -- -vv
 ```
 
-When you invoke the `codecept` command, this happens in the background:
+When you invoke the `codecept run` command, this happens in the background:
 - Altis looks within the tests directory/directories for test suites files, and runs through each suite one by one in separate threads.
 - For suites using the WebDriver module, Altis boots up a docker container with a headless browser to execute those tests, based on Selenium standalone web driver containers.
-- For suites using the WPDb module, Altis sets up test databases, and seeds them with a bundled sample dump file, which can be overridden in `composer.json` if need be.
+- For suites using the WPDb module, Altis sets up test databases, and seeds them with a bundled sample dump file.
 - Tests output, eg: failed tests screenshots/html snapshots, and debugging artifacts, are saved to `PROJECT/ROOT/tests/_output` for convenience.
 - After tests have run, Altis removes the test databases, clears test caches, and the browser container.
 
@@ -694,7 +694,7 @@ Codeception allows real-time execution of arbitrary acceptance test code via a l
 composer dev-tools codecept console acceptance
 ```
 
-Even better, you can pause test executions programmatically and get a nice console where you can execute arbitrary commands, provided are in debug mode by supplying `--debug` flag to the `run` command ( note the need for the arguments separator `--` ), eg:
+Even better, you can pause test executions programmatically and get a nice console where you can execute arbitrary commands, provided are in debug mode by supplying `--debug` flag to the `run` command ( note the need for the options delimiter `--` ), eg:
 
 ```sh
 composer dev-tools codecept run acceptance -- --debug
@@ -730,7 +730,7 @@ Starts and stops processes per suite. Can be used to start/stop selenium server,
 
 ### Custom config
 
-Projects can use a custom Codeception configuration file and override Altis' zero-config setup (or select only bits and pieces as needed), by providing a custom `codeception.yml` file within the tests directory, and using the `-c` parameter to specify the path to it, eg:
+Projects can use a custom Codeception configuration file and override Altis' zero-config setup (or select only bits and pieces as needed), by providing a custom `codeception.yml` file within the tests directory, and using the `-c` option to specify the path to it, eg:
 
 ```sh
 composer dev-tools codecept run -- -c path/to/codeception.yml
