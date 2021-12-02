@@ -235,7 +235,7 @@ In short: *Testing a scenario from a developer perspective*, eg: sending AJAX/AP
 
 This type doesn't necessarily use a browser, as it can use a PHP library that acts like a browser, with no Javascript support. And it looks pretty much like Acceptance tests, but with different testing mindset/domain.
 
-Functional and acceptance tests can theoretically/technically co-exist, eg: executing browser actions and checking expected database changes rather than just browser outout. But it adds the overhead of executing tests via a browser which can be slower than the quicker PHP browser.
+Functional and acceptance tests can co-exist, eg: executing browser actions and checking expected database changes rather than just browser output.
 
 Functional tests are typically written in _CEST_ format, eg:
 
@@ -524,8 +524,8 @@ Altis comes with built-in browser support for Chrome, and Firefox, based on Sele
 **Important notes:**
 
 - During acceptance tests, two processes (or more) are working in parallel:
-a. The test runner request, ie: Codeception process.
-b. The browser session driven by `WPWebDriver`, ie: application process.
+  - The test runner request, ie: Codeception process.
+  - The browser session driven by `WPWebDriver`, ie: application process.
 Both of those use different configurations and different running context / environment. And it'll save you time to distinguish between the two running processes/threads.
 
 [Read more on WPWebDriver module configuration](https://wpbrowser.wptestkit.dev/modules/wpwebdriver#configuration).
@@ -718,7 +718,7 @@ To give a quick glance:
 - **DorReporter**
 Provides less verbose output for test execution. Like PHPUnit printer it prints dots "." for successful testes and "F" for failures.
 - **Logger**
-Logs suites/tests/steps using Monolog library. Monolog should be installed additionally by Composer.
+Logs suites/tests/steps using Monolog library.
 - **Recorder**
 Saves a screenshot of each step in acceptance tests and shows them as a slideshow on one HTML page. Usable only for suites with WebDriver module enabled.
 - **RunBefore**
@@ -735,9 +735,3 @@ Projects can use a custom Codeception configuration file and override Altis' zer
 ```sh
 composer dev-tools codecept run -- -c path/to/codeception.yml
 ```
-
-## References and credits
-
-This integration is made possible thanks to PHPUnit, Codeception, wp-browser, and others. The documentation is also inspired by documentation from those libraries, slightly updated to match Altis' implementation.
-
-Check [`Codeception` documentation](https://codeception.com/docs/), [`wp-browser` documentation](https://wpbrowser.wptestkit.dev/), and [`PHPUnit` documentation](https://phpunit.readthedocs.io/en/9.5/) for more information.
