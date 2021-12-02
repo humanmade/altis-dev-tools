@@ -79,7 +79,7 @@ composer dev-tools codecept [-p PATH/TO/TESTS] [-b BROWSER] run [TEST-SUITE] [[T
 - `TestClass` references one of the test classes in the specified suite. Omit to run all tests within the suite(s).
 - `testMethod` references a single test method within the specified test class. Omit to run all test method within specified test class(es)/suite(s).
 
-Altis `codecept` command proxies commands to the `codeception` cli, except for the `-b` and `-p` cli options, so you'll be able to execute advanced commands and utilize more of what Codeception has to offer as needed, eg: generate a suite or a test:
+Altis `codecept` command proxies commands to the `codeception` CLI, except for the `-b` and `-p` parameters, so you'll be able to execute advanced commands and utilize more of what Codeception has to offer as needed. To generate a suite or a test for example you could run the following command:
 
 ```sh
 composer dev-tools codecept generate g:cest TEST-SUITE TestClassName
@@ -100,7 +100,7 @@ When you invoke the `codecept run` command, this happens in the background:
 
 ### Continuous Integration
 
-In order to run Codeception tests in Continous Integration environments, follow [Altis documentation on setting up Continous Integration on Travis](https://docs.altis-dxp.com/dev-tools/continuous-integration/), and specify your test running command(s) as per the documentation above, typically replacing `composer dev-tools phpunit` command referenced in CI setup docs with `composer dev-tools codecept`.
+In order to run Codeception tests in Continous Integration environments, follow the [documentation on setting up Continous Integration on Travis](https://docs.altis-dxp.com/dev-tools/continuous-integration/), and specify your test running command(s) as per the documentation above, typically using `composer dev-tools codecept run` instead of / in addition to `composer dev-tools phpunit` as explained in the docs.
 
 ## Writing Tests
 
