@@ -41,20 +41,25 @@ if ( ! function_exists( 'tests_add_filter' ) ) {
  *
  * This filter adds a unique test uploads folder just for our tests to reduce load.
  */
-tests_add_filter( 'upload_dir', function( $dir ) {
+tests_add_filter( 'upload_dir', function ( $dir ) {
 	array_walk( $dir, function( &$item ) {
 		if ( is_string( $item ) ) {
 			$item = str_replace( '/uploads', '/test-uploads', $item );
 		}
 	} );
 	return $dir;
-} );
+}, 1000 );
 
 /**
  * Reindex ElasticPress on install.
  */
 tests_add_filter( 'plugins_loaded', function () {
 	global $table_prefix;
+
+	// Not required for acceptance or functional tests.
+	if ( ( defined( 'WP_BROWSER_TEST' ) && WP_BROWSER_TEST ) ) {
+		return;
+	}
 
 	if ( ! class_exists( 'ElasticPress\\Elasticsearch' ) ) {
 		return;
@@ -69,8 +74,7 @@ tests_add_filter( 'plugins_loaded', function () {
 		}
 
 		// Remove the shutdown sync action to prevent errors syncing non-existent posts etc...
-		// Not required for acceptance or functional tests as the db is emptied/removed after the tests.
-		if ( ( defined( 'WP_BROWSER_TEST' ) && WP_BROWSER_TEST ) || ! isset( $indexable->sync_manager ) ) {
+		if ( ! isset( $indexable->sync_manager ) ) {
 			continue;
 		}
 		remove_action( 'shutdown', [ $indexable->sync_manager, 'index_sync_queue' ] );
@@ -85,10 +89,10 @@ tests_add_filter( 'plugins_loaded', function () {
 	// Ensure indexes exist before tests run and silence the output.
 	// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.system_calls_exec
 	exec( sprintf(
-		'TABLE_PREFIX=%s EP_INDEX_PREFIX=%s wp elasticpress index --setup --network-wide --url=%s',
+		'DB_NAME=%s TABLE_PREFIX=%s EP_INDEX_PREFIX=%s wp elasticpress index --setup --network-wide',
+		DB_NAME,
 		$table_prefix,
-		EP_INDEX_PREFIX,
-		WP_TESTS_DOMAIN
+		EP_INDEX_PREFIX
 	), $output, $return_val );
 }, 11 );
 

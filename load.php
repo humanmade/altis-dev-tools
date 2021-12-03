@@ -36,11 +36,14 @@ add_action( 'altis.modules.init', function () {
 
 // Testing constants to switch to test db/redis/elastic.
 add_action( 'altis.modules.init', function() {
-	// Detect requests from Codeception/phpunit, primarely to use the test database.
+	// Detect requests from Codeception/phpunit, primarily to use the test database.
 	$is_test_request = (
 		isset( $_SERVER['HTTP_X_TEST_REQUEST'] )
 		|| ( isset( $_SERVER['HTTP_USER_AGENT'] ) && strpos( $_SERVER['HTTP_USER_AGENT'], 'wp-browser' ) !== false )
 		|| getenv( 'WPBROWSER_HOST_REQUEST' )
+		// Ensure CLI commands have the test context.
+		|| ( defined( 'WP_CLI' ) && WP_CLI && file_exists( Altis\ROOT_DIR . '/vendor/.test-running' ) )
+		|| ( class_exists( 'HM\\Cavalcade\\Runner\\Runner' ) && file_exists( Altis\ROOT_DIR . '/vendor/.test-running' ) )
 	);
 
 	// For acceptance tests, change DB name and Elastic/Redis prefixes.
@@ -48,11 +51,13 @@ add_action( 'altis.modules.init', function() {
 		return;
 	}
 
+	$default_host = str_replace( '/tachyon', '', getenv( 'TACHYON_URL' ) );
+
 	define( 'WP_BROWSER_TEST', true );
 	define( 'DB_NAME', 'test' );
-	define( 'EP_INDEX_PREFIX', 'tests_' );
+	define( 'EP_INDEX_PREFIX', 'tests' );
 	define( 'WP_CACHE_KEY_SALT', 'codecept' );
-	defined( 'WP_TESTS_DOMAIN' ) || define( 'WP_TESTS_DOMAIN', $_SERVER['HTTP_HOST'] );
+	defined( 'WP_TESTS_DOMAIN' ) || define( 'WP_TESTS_DOMAIN', $_SERVER['HTTP_HOST'] ?? $default_host );
 
 	// Load overrides code.
 	include_once( __DIR__ . '/inc/codeception/overrides.php' );
