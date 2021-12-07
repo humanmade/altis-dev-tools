@@ -56,29 +56,38 @@ tests_add_filter( 'upload_dir', function ( $dir ) {
 tests_add_filter( 'plugins_loaded', function () {
 	global $table_prefix;
 
-	// Not required for acceptance or functional tests.
-	if ( ( defined( 'WP_BROWSER_TEST' ) && WP_BROWSER_TEST ) ) {
-		return;
-	}
-
 	if ( ! class_exists( 'ElasticPress\\Elasticsearch' ) ) {
 		return;
 	}
 
-	// Track index creation.
-	$index_exists = true;
+	if ( defined( 'WP_BROWSER_TEST' ) && WP_BROWSER_TEST ) {
+		return;
+	}
 
+	// Remove the shutdown sync action to prevent errors syncing non-existent posts etc...
 	foreach ( ElasticPress\Indexables::factory()->get_all() as $indexable ) {
-		if ( ! $indexable->index_exists() ) {
-			$index_exists = false;
-		}
-
-		// Remove the shutdown sync action to prevent errors syncing non-existent posts etc...
 		if ( ! isset( $indexable->sync_manager ) ) {
 			continue;
 		}
 		remove_action( 'shutdown', [ $indexable->sync_manager, 'index_sync_queue' ] );
 		remove_filter( 'wp_redirect', [ $indexable->sync_manager, 'index_sync_queue_on_redirect' ], 10, 1 );
+	}
+
+	// Check sync status.
+	$dashboard_syncing = get_site_option( 'ep_index_meta' );
+	$wpcli_syncing = get_site_transient( 'ep_wpcli_sync' );
+
+	if ( $dashboard_syncing || $wpcli_syncing ) {
+		return;
+	}
+
+	// Check index existence.
+	$index_exists = false;
+
+	foreach ( ElasticPress\Indexables::factory()->get_all() as $indexable ) {
+		if ( $indexable->index_exists() ) {
+			$index_exists = true;
+		}
 	}
 
 	// Only index if we haven't already.
