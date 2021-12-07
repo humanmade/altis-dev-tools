@@ -602,13 +602,15 @@ To bootstrap the tests folder, which will create the five default tests suites:
 
 ```sh
 composer dev-tools codecept bootstrap
+
+# OR, bootstrap tests in a custom directory:
+composer dev-tools codecept bootstrap -p path/to/tests
+
+# OR, bootstrap specific test suites
+composer dev-tools codecept bootstrap -p path/to/tests acceptance,unit
 ```
 
-You can choose to only create specific test suites and not all of them, by appending a comma-separated list of test suites to create, eg:
-
-```sh
-composer dev-tools codecept bootstrap acceptance,functional,integration,unit,wpunit
-```
+**Notes:** the `boostrap` command here is a custom implementation different from Codeception's `bootstrap` command, so it works with Altis' implementation.
 
 ### Generating tests and objects
 
@@ -654,6 +656,7 @@ composer dev-tools codecept generate:environment env
 composer dev-tools codecept generate:groupobject group
 ```
 
+**Note**: you'll need to specify the path to the tests folder if it's not the default root `tests` directory.
 **Note**: you'll need to manually update suite configuration(s) to include the new helper/page object as needed.
 
 ## Advanced usage
