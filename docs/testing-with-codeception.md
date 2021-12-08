@@ -70,11 +70,13 @@ This assumes you have tests in the root `tests` directory. Check the [Advanced u
 There are multiple available options to customize the running command, eg:
 
 ```sh
-composer dev-tools codecept [-p PATH/TO/TESTS] [-b BROWSER] run [TEST-SUITE] [[TestClass]:testMethod]
+composer dev-tools codecept [-p PATH/TO/TESTS] [-o PATH/TO/OUTPUT] [-b BROWSER] [-a] run [TEST-SUITE] [[TestClass]:testMethod]
 ```
 
 - `-p/--path` defines the directory where tests exists. Omit to use the `tests` root directory.
+- `-o/--output` defines the path to store artifacts from the test running process. Omit to use/create the `_output` directory within the chosen tests path.
 - `-b/--browser` defines which browser to use for acceptance tests. Omit to use the default browser. Possible parameters are `chrome` (default), and `firefox`.
+- `-a/--all` runs all testing suites despite any failure, otherwise fails/stops on the first failing suite (default).
 - `TEST-SUITE` references the name of the test suite to run, typically one of the `*.suite.yml` files in the tests directory. Omit to run all found test suites.
 - `TestClass` references one of the test classes in the specified suite. Omit to run all tests within the suite(s).
 - `testMethod` references a single test method within the specified test class. Omit to run all test method within specified test class(es)/suite(s).
