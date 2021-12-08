@@ -18,9 +18,11 @@ From there the tests you run are up to you. A minimal example of your `.config/t
 ```yml
 script:
   - composer dev-tools phpunit
+  # and/or
+  - composer dev-tools codecept run
 ```
 
-[See testing with PHPUnit for more information on the above command](./testing-with-phpunit.md).
+See [testing with PHPUnit](./testing-with-phpunit.md) and [testing with Codeception](./testing-with-codeception.md) for more information on the above commands.
 
 We recommend reading and bookmarking the following:
 
