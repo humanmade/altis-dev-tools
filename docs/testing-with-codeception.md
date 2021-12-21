@@ -202,7 +202,7 @@ or the more nuanced _CEST_ format, largerly recommended due to its DRY capabilit
 
 class SignupSubmissionCest {
 
-    public function _before( FunctionalTester $I ) {
+    public function _before( AcceptanceTester $I ) {
         // Add a page that contains the shortcode that will render the signup form.
         $I->havePageInDatabase( [
             'post_name' => 'signup',
@@ -211,7 +211,7 @@ class SignupSubmissionCest {
         $I->amOnPage( '/signup' );
     }
 
-    public function test_good_signup( FunctionalTester $I ) {
+    public function test_good_signup( AcceptanceTester $I ) {
         // Submit the form as a user would submit it.
         $I->submitForm( '#signup-form', [
             'name' => 'John Doe',
@@ -222,7 +222,7 @@ class SignupSubmissionCest {
         $I->waitForElement( '#signup-confirmation' );
     }
 
-    public function test_bad_email_signup( FunctionalTester $I ) {
+    public function test_bad_email_signup( AcceptanceTester $I ) {
         // Submit the form as a user would submit it.
         $I->submitForm( '#signup-form', [
             'name' => 'John Doe',
