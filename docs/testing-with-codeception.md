@@ -10,7 +10,6 @@ Note that while Codeception is typically geared towards acceptance and functiona
 # Table of contents
 
 - [Getting started](#getting-started)
-  - [Quick start](#quick-start)
 - [Running tests](#running-tests)
   - [Advanced usage](#advanced-usage)
   - [Continuous Integration](#continuous-integration)
@@ -167,7 +166,7 @@ To start writing tests, you need to decide which type of tests you need from the
 
 #### Acceptance tests
 
-In short: *Testing a scenario from a user perspective, **in the browser***, ie: opening signup page, typing credentials, clicking sign in, and checking browser output.
+In short: *Testing a scenario from a user perspective, **in the browser***, ie: opening login page, typing credentials, clicking sign in, and checking browser output.
 
 This type uses a browser, where a web driver drives the browser clicking and typing to simulate user actions.
 
