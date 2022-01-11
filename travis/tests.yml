@@ -3,3 +3,5 @@
 script:
   # Run unit tests.
   - composer dev-tools phpunit
+  # Run acceptance and functional tests.
+  - composer dev-tools codecept run
