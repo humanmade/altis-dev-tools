@@ -1,14 +1,7 @@
-# START OF SECTION, DO NOT EDIT THIS SECTION
-
 # Import Travis configuration from dev-tools repo
 version: ~> 1.0
 import:
-  - source: travis/module.yml
-    mode: deep_merge_prepend
-
-# ! END OF SECTION
+  - source: humanmade/altis-dev-tools:travis/module.yml@819e2bf
+    mode: deep_merge_append
 
 # Add your custom config below, which will merge with the default module config from the section above.
-
-before_install:
-  - echo "hello world!"
