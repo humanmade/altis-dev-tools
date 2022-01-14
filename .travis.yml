@@ -4,11 +4,11 @@
 version: ~> 1.0
 import:
   - source: travis/module.yml
-    mode: deep_merge_append
+    mode: deep_merge_prepend
 
 # ! END OF SECTION
 
 # Add your custom config below, which will merge with the default module config from the section above.
 
-before_script:
+before_install:
   - echo "hello world!"
