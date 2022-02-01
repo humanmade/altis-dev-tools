@@ -20,6 +20,7 @@ env:
   global:
     - COMPOSE_HTTP_TIMEOUT=360
     - ES_MEM_LIMIT=2g
+    - COMPOSER_NO_INTERACTION=1
 
 # Default notification settings
 notifications:
