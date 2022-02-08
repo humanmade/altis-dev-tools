@@ -50,16 +50,20 @@ branches:
     - master
     - main
     - /v\d+-branch/
-    - travis
+    - travis.*
 
 before_script:
   # Install Altis and start the local server
   - composer create-project altis/skeleton:dev-$TRAVIS_BRANCH --stability=dev $HOME/test-root || composer create-project altis/skeleton:dev-master --stability=dev $HOME/test-root || exit 1
+  # Install Altis test theme package
+  - cd $HOME/test-root && composer require altis/test-theme
+  # Mark the test theme as the default
+  - cd $HOME/test-root && cat <<< $(jq '. + {"extra":{"altis":{"modules":{"cms":{"default-theme":"test-theme"}}}}}' composer.json | jq . -) > composer.json
   # Require the current module and alias the branch to be tested to the target version main branch
   - cd $HOME/test-root && composer require "$ALTIS_PACKAGE:dev-${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH} as dev-$TRAVIS_BRANCH"
 
 script:
   # Start local server
-  - cd $HOME/test-root && composer serve
+  - cd $HOME/test-root && composer server start
   # Run Codeception for module tests, if test suites are found.
   - cd $HOME/test-root && composer dev-tools codecept run -p vendor/$ALTIS_PACKAGE/tests
