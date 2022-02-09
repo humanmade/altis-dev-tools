@@ -31,6 +31,7 @@ Note that while Codeception is typically geared towards acceptance and functiona
   - [Debugging](#debugging)
   - [Extensions](#extensions)
   - [Custom config](#custom-config)
+- [FAQ](#faq)
 
 
 ## Getting started
@@ -743,4 +744,21 @@ Projects can use a custom Codeception configuration file and override Altis' zer
 
 ```sh
 composer dev-tools codecept run -- -c path/to/codeception.yml
+```
+
+## FAQ
+
+- Why do my tests fail because it cannot find the content I created using WPBrowser DB helper functions ?
+
+WPBrowser DB helper functions, like `$I->havePostInDatabase()` and the alike, uses direct database queries to manage content, which means WordPress filters are not run for those operations, so integrations like ElasticPress are not notified of the changes and do not update the Elastic index as a result of that. So while the content is created in the database, it is not synced to Elastic index, and subsequently will not show up in queries that are typically run by Elastic.
+
+The fix for that would be to explicitly reindex content after such direct database operations to ensure the Elastic index is synced properly, and for that we have `$I->reindexContent()` helper function that does that for you.
+
+Example:
+
+```php
+$I->havePostInDatabase( $params );
+$I->haveUserInDatabase( $params );
+
+$I->reindexContent();
 ```
