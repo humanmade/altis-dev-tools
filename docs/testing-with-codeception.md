@@ -750,9 +750,9 @@ composer dev-tools codecept run -- -c path/to/codeception.yml
 
 - Why do my tests fail because it cannot find the content I created using WPBrowser DB helper functions ?
 
-WPBrowser DB helper functions, like `$I->havePostInDatabase()` and the alike, uses direct database queries to manage content, which means WordPress filters are not run for those operations, so integrations like ElasticPress are not notified of the changes and do not update the Elastic index as a result of that. So while the content is created in the database, it is not synced to Elastic index, and subsequently will not show up in queries that are typically run by Elastic.
+WPBrowser DB helper functions, like `$I->havePostInDatabase()` and the like, use direct database queries to manage content, which means WordPress filters are not run for those operations. This means that integrations like ElasticPress are not notified of the changes and do not update the Elasticsearch index as a result of that. So while the content is created in the database, it is not synced to Elasticsearch, and subsequently will not show up in queries that are handled by ElasticPress.
 
-The fix for that would be to explicitly reindex content after such direct database operations to ensure the Elastic index is synced properly, and for that we have `$I->reindexContent()` helper function that does that for you.
+The fix for this is to explicitly reindex content after such direct database operations to ensure the Elasticsearch index is synced properly, and for that you can use the `$I->reindexContent()` helper function.
 
 Example:
 
@@ -760,5 +760,6 @@ Example:
 $I->havePostInDatabase( $params );
 $I->haveUserInDatabase( $params );
 
-$I->reindexContent();
+// Use $extra_params to pass params to the `elasticpress` CLI command like `--indexables=post,user`, etc.
+$I->reindexContent( $extra_params );
 ```
