@@ -64,4 +64,21 @@ class AcceptanceTester extends \Codeception\Actor
 
 		return $rollback_callback;
 	}
+
+	/**
+	 * Run ElasticPress indexing command.
+	 *
+	 * WPBrowser DB management commands to not trigger WordPress actions, and hence Elastic does not keep track
+	 * of content updates and index them. This command makes sure Elastic index is updated to reflect the changes.
+	 *
+	 * @param string $options Additional arguments to append to the indexing command.
+	 * @return void
+	 */
+	public function reindexElastic( string $options = '' ) {
+		// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.system_calls_exec
+		exec( sprintf(
+			'WPBROWSER_HOST_REQUEST=1 wp elasticpress index --network-wide --setup --yes %s',
+			$options
+		), $output );
+	}
 }
