@@ -74,7 +74,7 @@ class AcceptanceTester extends \Codeception\Actor
 	 * @param string $options Additional arguments to append to the indexing command.
 	 * @return void
 	 */
-	public function reindexElastic( string $options = '' ) {
+	public function reindexContent( string $options = '' ) {
 		// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.system_calls_exec
 		exec( sprintf(
 			'WPBROWSER_HOST_REQUEST=1 wp elasticpress index --network-wide --setup --yes %s',
