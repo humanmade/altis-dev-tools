@@ -1,6 +1,6 @@
 # Default Travis CI config for Altis
 os: linux
-dist: xenial
+dist: bionic
 
 # Ensure PHP CLI and Composer are available
 language: php
