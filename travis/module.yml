@@ -5,7 +5,7 @@ dist: bionic
 # Ensure PHP CLI and Composer are available
 language: php
 php:
-  - '7.4'
+  - '8.0'
 
 # Set NodeJS version to match the build server.
 node_js:
