@@ -9,8 +9,6 @@ Unit tests can be run against a unit of code in isolation, such as a function or
 
 Integration tests allow you to test a running application. In the case of Altis this type of testing is often more useful however it is possible to run both types of test.
 
-**NOTE**: Currently only [PHPUnit 7.1](https://phpunit.readthedocs.io/en/7.1/) is supported.
-
 
 ## Zero Configuration
 

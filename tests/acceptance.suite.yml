@@ -1,0 +1,7 @@
+# acceptance.suite.yml
+actor: AcceptanceTester
+modules:
+    enabled:
+        - WPWebDriver:
+            url: https://altis-dev.altis.dev/
+        - \Helper\Acceptance
