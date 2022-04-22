@@ -4,4 +4,4 @@ modules:
     enabled:
         - WPWebDriver:
             url: https://altis-dev.altis.dev/
-        - \Helper\Acceptance
+        # - \Helper\Acceptance

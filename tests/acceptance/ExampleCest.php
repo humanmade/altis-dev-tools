@@ -10,5 +10,7 @@ class ExampleCest
     public function tryToTest(AcceptanceTester $I)
     {
         $I->loginAsAdmin();
+        $I->amOnPage( '/' );
+        $I->seeElement( '#wpadminbar' );
     }
 }
