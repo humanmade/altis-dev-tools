@@ -2,6 +2,6 @@
 actor: AcceptanceTester
 modules:
     enabled:
-        - WPWebDriver:
-            url: https://altis-dev.altis.dev/
-        # - \Helper\Acceptance
+        - WPDb
+        - WPWebDriver
+        - \Helper\Acceptance
