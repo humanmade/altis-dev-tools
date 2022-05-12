@@ -45,7 +45,7 @@ If you're already familiar with Codeception and wp-browser, you can start [boost
 composer dev-tools codecept bootstrap
 
 # Generate an acceptance test class
-composer dev-tools codecept generate:cest acceptance awesome-feature/admin/AwesomeFeatureAdminTest
+composer dev-tools codecept generate:cest acceptance awesomeFeature/admin/AwesomeFeatureAdminTest
 
 # Run tests!
 composer dev-tools codecept run
@@ -622,7 +622,7 @@ Codeception includes a subcommand to generate different types of entities, eg: t
 composer dev-tools codecept generate:[generator] [suite] [subdir/][test-class]
 
 # To generate a new CEST-style test in the existing `acceptance` test suite
-composer dev-tools codecept generate:cest acceptance awesome-feature/admin/AwesomeFeatureAdmin
+composer dev-tools codecept generate:cest acceptance awesomeFeature/admin/AwesomeFeatureAdmin
 
 # Other generators include:
 
