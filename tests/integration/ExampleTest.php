@@ -6,7 +6,7 @@ class ExampleTest extends \Codeception\TestCase\WPTestCase
      * @var \IntegrationTester
      */
     protected $tester;
-    
+
     public function setUp(): void
     {
         // Before...
@@ -27,7 +27,9 @@ class ExampleTest extends \Codeception\TestCase\WPTestCase
     public function test_it_works()
     {
         $post = static::factory()->post->create_and_get();
-        
+
         $this->assertInstanceOf(\WP_Post::class, $post);
+
+        $this->assertEquals( 'test2', DB_NAME );
     }
 }
