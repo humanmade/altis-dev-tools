@@ -17,21 +17,14 @@ if ( file_exists( Altis\CODECEPTION_PROJECT_ROOT . '/.config/tests-bootstrap.php
 
 // Load an escape hatch early load file, if it exists.
 if ( is_readable( Altis\CODECEPTION_PROJECT_ROOT . '/.config/load-early.php' ) ) {
-	include_once __DIR__ . '/.config/load-early.php';
+	include_once Altis\CODECEPTION_PROJECT_ROOT . '/.config/load-early.php';
 }
 
-// Load the plugin API (like add_action etc) early, so everything loaded
-// via the Composer autoloaders can using actions.
-require_once Altis\CODECEPTION_PROJECT_ROOT . '/wordpress/wp-includes/plugin.php';
+// Ensure wp-settings.php is bypassed and allow the wp loader bootstrap.php to do it.
+putenv( 'WP_PHPUNIT__TESTS_CONFIG=' . __FILE__ );
 
-// Load the whole autoloader very early, this will also include
-// all `autoload.files` from all modules.
-require_once Altis\CODECEPTION_PROJECT_ROOT . '/vendor/autoload.php';
-
-// Load all modules.
-require_once Altis\CODECEPTION_PROJECT_ROOT . '/vendor/modules.php';
-
-do_action( 'altis.loaded_autoloader' );
+// Load Altis but not WP.
+require_once Altis\CODECEPTION_PROJECT_ROOT . '/wp-config.php';
 
 /**
  * Action runs after WP PHPUnit is fully loaded. Use this to load any

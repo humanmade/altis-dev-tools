@@ -30,7 +30,7 @@ $table_prefix = 'wp_';
  */
 function bootstrap_codeception_wp() {
 	include __DIR__ . '/bootstrap.php';
-}
 
-// Load Altis.
-require_once Altis\CODECEPTION_PROJECT_ROOT . '/wp-config.php';
+	// Ensures plugin tables etc... are set up e.g. WP Signups.
+	do_action( 'wp_install' );
+}
