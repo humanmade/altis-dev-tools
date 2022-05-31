@@ -77,7 +77,8 @@ class AcceptanceTester extends \Codeception\Actor
 	public function reindexContent( string $options = '' ) {
 		// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.system_calls_exec
 		exec( sprintf(
-			'WPBROWSER_HOST_REQUEST=1 wp elasticpress index --network-wide --setup --yes %s',
+			'WPBROWSER_HOST_REQUEST=1 wp elasticpress index --network-wide --setup --yes --url=%s %s',
+			getenv( 'TEST_SITE_WP_DOMAIN' ),
 			$options
 		), $output );
 	}
