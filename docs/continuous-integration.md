@@ -36,6 +36,34 @@ Because there is a full instance of Altis running in the CI environment this ena
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 - [aXe accessibility testing](https://www.deque.com/axe/)
 
+## Overriding Config for CI
+
+In some cases you won't need certain modules or services for your test runs. For example, switching off cavalcade, or native analytics will result in the containers for those services to not be downloaded and started, resulting in faster test runs.
+
+There is a special environment type you can use to override the configuration in CI environments which extends the `local` environment settings if any. Use the key `ci` to apply these settings:
+
+```json
+{
+	"name": "example/my-site",
+	"require": {
+		"altis/altis": "*",
+	},
+	"extra": {
+		"altis": {
+			"environments": {
+				"ci": {
+					"modules": {
+						"cloud": {
+							"cavalcade": false
+						}
+					}
+				}
+			}
+		}
+	}
+}
+```
+
 ## Conditional Builds
 
 By default builds on Travis will run any time code is pushed to the repository or merged regardless of branch. You can use Travis' [conditional builds feature](https://docs.travis-ci.com/user/conditions-v1) to determine when a build should run. The following configuration examples show how to achieve some common set ups:
