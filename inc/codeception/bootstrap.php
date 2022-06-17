@@ -22,6 +22,7 @@ if ( is_readable( Altis\CODECEPTION_PROJECT_ROOT . '/.config/load-early.php' ) )
 }
 
 // Ensure wp-settings.php is bypassed and allow the wp loader bootstrap.php to do it.
+// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_putenv
 putenv( 'WP_PHPUNIT__TESTS_CONFIG=' . __FILE__ );
 
 // Load Altis but not WP.
