@@ -64,6 +64,8 @@ before_script:
   - composer create-project altis/skeleton:dev-$TRAVIS_BRANCH --stability=dev --ignore-platform-req=php+ --ignore-platform-req=ext-* $HOME/test-root || composer create-project altis/skeleton:dev-master --stability=dev --ignore-platform-req=php+ --ignore-platform-req=ext-* $HOME/test-root || exit 1
   # Install Altis test theme package
   - cd $HOME/test-root && composer require altis/test-theme --ignore-platform-req=php+ --ignore-platform-req=ext-*
+  # Set PHP value from build matrix
+  - cd $HOME/test-root && cat <<< $(jq '. + {"extra":{"altis":{"modules":{"local-server":{"php":"'$TRAVIS_PHP_VERSION'"}}}}}' composer.json | jq . -) > composer.json
   # Mark the test theme as the default
   - cd $HOME/test-root && cat <<< $(jq '. + {"extra":{"altis":{"modules":{"cms":{"default-theme":"test-theme"}}}}}' composer.json | jq . -) > composer.json
   # Require the current module and alias the branch to be tested to the target version main branch
