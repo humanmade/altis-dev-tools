@@ -59,6 +59,9 @@ add_action( 'altis.modules.init', function() {
 	define( 'WP_CACHE_KEY_SALT', 'codecept' );
 	defined( 'WP_TESTS_DOMAIN' ) || define( 'WP_TESTS_DOMAIN', $_SERVER['HTTP_HOST'] ?? $default_host );
 
+	// Prevent tracking data to segment.
+	defined( 'CI' ) || define( 'CI', true );
+
 	// Load overrides code.
 	include_once( __DIR__ . '/inc/codeception/overrides.php' );
 
