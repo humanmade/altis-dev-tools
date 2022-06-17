@@ -6,6 +6,7 @@
  */
 
 // phpcs:disable PSR1.Files.SideEffects
+// phpcs:disable WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_putenv
 
 // Load generic overrides code.
 include __DIR__ . '/overrides.php';
