@@ -3,11 +3,12 @@
 Altis has experimental built-in support for [GitHub Codespaces](https://github.com/features/codespaces), a Cloud-based development environment, that makes it possible to spin up a complete development environment in seconds within your browser, with a full editor based on Visual Studio Code, without having to install anything on your local machine.
 
 This is useful for many reasons:
-    - Bootstrap a full development environment in seconds.
-    - Zero local installation required.
-    - Standardized and highly configurable environment setup.
-    - Powerful and scalable development environment.
-    - Ability to share preview environments with colleagues.
+
+ - Bootstrap a full development environment in seconds.
+ - Zero local installation required.
+ - Standardized and highly configurable environment setup.
+ - Powerful and scalable development environment.
+ - Ability to share preview environments with colleagues.
 
 ## How to start
 
