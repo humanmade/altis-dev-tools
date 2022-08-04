@@ -22,7 +22,7 @@ This is useful for many reasons:
 
 3. **Start a new container**
 
-    Once the devcontainer configuration is committed, you'll be able to start a new Codespaces environment at https://github.com/codespaces/new , or from the "Codespaces" tab when you click on "Code" button where you typically get your repository checkout link.
+    Once the devcontainer configuration is committed, you'll be able to start a new Codespaces environment at https://github.com/codespaces/new , or from the "Codespaces" tab when you click on "Code" button where you typically get your repository checkout link. Note: we recommend configuring your codespace environment to use a machine type of '4-core'. Choose "Configure and create codespace" from the drop down menu on Github.
 
 4. **Start development!**
 
