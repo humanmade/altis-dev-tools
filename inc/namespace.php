@@ -15,7 +15,7 @@ use QM_Collectors;
  * Bootstrap.
  */
 function bootstrap() {
-	add_action( 'plugins_loaded', __NAMESPACE__ . '\\on_plugins_loaded', 1 );
+	add_action( 'muplugins_loaded', __NAMESPACE__ . '\\on_plugins_loaded', 1 );
 }
 
 /**
