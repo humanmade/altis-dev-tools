@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for Altis Dev Tools Module.
+ * Tests for the Altis Dev Tools Module.
  *
  * phpcs:disable WordPress.Files, WordPress.NamingConventions, PSR1.Classes.ClassDeclaration.MissingNamespace, HM.Functions.NamespacedFunctions
  */
@@ -41,7 +41,7 @@ class DevToolsCest {
 	}
 
 	/**
-	 * Open Query Monitor / Dev Tools panel and check all tabs are working.
+	 * Open Query Monitor / Dev Tools panel and check tabs are working.
 	 *
 	 * @param AcceptanceTester $I Tester
 	 */
@@ -53,7 +53,7 @@ class DevToolsCest {
 		// See the Query Monitor link in menu.
 		$I->moveMouseOver( '#wp-admin-bar-query-monitor' );
 
-		// Test and confirm the Altis Config tab and content renders, using the "Module" column heading.
+		// Check the Altis Config tab and content renders, using the "Module" column heading.
 		$I->seeLink( 'Altis Config' );
 		$I->click( 'Altis Config' );
 		$I->see( 'Module', 'th' );
