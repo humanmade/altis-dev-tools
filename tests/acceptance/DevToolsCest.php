@@ -7,7 +7,7 @@
 use Codeception\Util\Locator;
 
 /**
- * Test query monitor and it's tabs render correctly.
+ * Test Query Monitor and it's tabs render correctly.
  */
 class DevToolsCest {
 
@@ -21,23 +21,23 @@ class DevToolsCest {
 		$I->loginAsAdmin();
 		$I->amOnAdminPage( '/' );
 
-		// See the query monitor link in menu.
+		// See the Query Monitor link in menu.
 		$I->moveMouseOver( '#wp-admin-bar-query-monitor' );
 
-		// Test and confirm the Altis Config tab renders, using the module column name.
+		// Test and confirm the Altis Config tab and content renders, using the "Module" column heading.
 		$I->seeLink( 'Altis Config' );
 		$I->click( 'Altis Config' );
 		$I->see( 'Module', 'th' );
 
-		// Test and confirm the Hooks & Actions Tab.
+		// Test and confirm the Hooks & Actions tab and content renders, using the "Action" column heading.
 		$I->click( Locator::find( 'button', ['data-qm-href' => '#qm-hooks'] ) );
 		$I->see( 'Action', 'th' );
 
-		// Test and confirm the ElasticPress Tab.
+		// Test and confirm the ElasticPress tab and content renders, using the "Total ElasticPress Queries" span.
 		$I->click( Locator::find( 'button', ['data-qm-href' => '#qm-debug_bar_ep_debug_bar_elasticpress'] ) );
 		$I->see( 'Total ElasticPress Queries:', 'span' );
 
-		// Test and confrim AWS X-Ray tab,
+		// Test and confrim AWS X-Ray tab and content renders, using the "Segment Name" column heading.
 		$I->click( Locator::find( 'button', ['data-qm-href' => '#qm-aws-xray'] ) );
 		$I->see( 'Segment Name', 'th' );
 	}
