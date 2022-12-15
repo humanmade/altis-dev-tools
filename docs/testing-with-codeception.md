@@ -111,7 +111,7 @@ In order to run Codeception tests in Continous Integration environments, follow 
 - **Test suite**
 Collection of test classes, sharing running configuration and testing environment like modules, helpers, and constants, that typically runs in the same thread. Defined by a suite definition file, eg: `acceptance.suite.yml`, and a neighbouring folder that hosts related tests, with the same name as the suite, eg: `acceptance`.
 - **Test class**
-Collection of tests for a certain functionality, or one aspect of it, typically combined in the same class. Defined by a class file, eg: `class-test-authorship-admin.php`.
+Collection of tests for a certain functionality, or one aspect of it, typically combined in the same class. Defined by a class file, eg: `class-test-main.php`.
 - **Test**
 Individual test methods within a test class, that typically tests a single specific scenario. eg: `test_user_can_signup` or `test_submission_invalid_email`.
 - **Actor**
