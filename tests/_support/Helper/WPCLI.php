@@ -28,7 +28,7 @@ class WPCLI extends \Codeception\Module
 	 * @return void
 	 */
 	public function wpCli( string $command = '' ) {
-        unset( $this->shell_output, $this->shell_exit_code );
+		unset( $this->shell_output, $this->shell_exit_code );
 		// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.system_calls_exec
 		exec( sprintf(
 			'WPBROWSER_HOST_REQUEST=1 wp --url=%s %s',
