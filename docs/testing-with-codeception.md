@@ -592,7 +592,29 @@ This module is typically used in acceptance and functional tests to invoke WP-CL
 
 ### Altis helpers
 
-Altis extends Codeception/wp-browser with its own helpers. Check out the `tests/_helpers` directory within the `dev-tools` package to check out existing helpers and new available functionality.
+Altis extends Codeception with its own helpers. These can be found in the `tests/_support/Helper` directory within the `vendor/altis/dev-tools` package.
+
+All helpers are under the `Helper` namespace.
+
+#### `Helper\WPCLI`
+
+This helper provides a way to run WP CLI commands using the PHP Server's built in WP CLI package. This means you do not need to install any additional command packages to use them, and is useful if you are not testing CLI commands specifically but need to run a background cron task during a test for example. The following methods to the `$I` class:
+
+- `$I->wpCli( string $command )`: Run any WP CLI command, minus the `wp`
+- `$I->grabLastWpCliShellOutput()`: Retrieve the output from the previous call to `$I->wpCli()`
+- `$I->grabLastWpCliExitCode()`: Retrieve the exit code from the previous call to `$I->wpCli()`
+- `$I->wpCliToString( string $command )`: Run a command and return the output as a string
+- `$I->wpCliToArray( string $command )`: Run a command and return the output as an array, split on newlines.
+
+To use the helper, update your suite's YAML configuration, for example:
+
+```yml
+actor: AcceptanceTester
+modules:
+    enabled:
+        - WPBrowser
+        - \Helper\WPCLI
+```
 
 ## Scaffolding
 
