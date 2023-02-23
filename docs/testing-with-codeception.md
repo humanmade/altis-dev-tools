@@ -594,7 +594,7 @@ This module is typically used in acceptance and functional tests to invoke WP-CL
 
 Altis extends Codeception with its own helpers. These can be found in the `tests/_support/Helper` directory within the `vendor/altis/dev-tools` package.
 
-All helpers are under the `Helper` namespace.
+All helpers are under the `\Helper` namespace.
 
 #### `Helper\WPCLI`
 
