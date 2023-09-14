@@ -68,6 +68,8 @@ To run PHPUnit tests run the following command:
 composer dev-tools phpunit
 ```
 
+This will attempt to run your tests on the [Local Server](docs://local-server) environment. 
+
 ### Passing Arguments To PHPUnit
 
 To pass any of the supported command line options to PHPUnit you need to add them after the options delimiter `--`. For example:
