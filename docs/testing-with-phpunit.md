@@ -56,8 +56,8 @@ While the zero configuration option is sufficient for most projects there may be
 
 - `directories` is an array of project root relative paths or glob patterns.
 - `excludes` is an array of project root relative paths or glob patterns.
-- `attributes` is an object of [name-value pairs supported by the `<phpunit>` tag](https://phpunit.readthedocs.io/en/7.1/configuration.html#phpunit)
-- `extensions` is an array of [PHPUnit Extension](https://phpunit.readthedocs.io/en/7.1/extending-phpunit.html) class names to autoload
+- `attributes` is an object of [name-value pairs supported by the `<phpunit>` tag](https://docs.phpunit.de/en/9.6/configuration.html#the-phpunit-element)
+- `extensions` is an array of [PHPUnit Extension](https://docs.phpunit.de/en/10.3/extending-phpunit.html) class names to autoload
 
 
 ## Running Tests
@@ -68,11 +68,7 @@ To run PHPUnit tests run the following command:
 composer dev-tools phpunit
 ```
 
-By default this will attempt to run your tests on the [Local Server](docs://local-server) environment. If you are using [Local Chassis](docs://local-chassis) add the `--chassis` flag eg:
-
-```sh
-composer dev-tools phpunit --chassis
-```
+This will attempt to run your tests on the [Local Server](docs://local-server) environment. 
 
 ### Passing Arguments To PHPUnit
 
@@ -86,7 +82,7 @@ composer dev-tools phpunit -- content/themes/custom-theme/tests
 composer dev-tools phpunit -- --coverage-xml coverage --log-junit junit.xml
 ```
 
-The [full list of PHPUnit command line options is available here](https://phpunit.readthedocs.io/en/7.1/textui.html) or you can run `composer dev-tools phpunit -- --help`.
+The [full list of PHPUnit command line options is available here](https://docs.phpunit.de/en/9.6/textui.html#command-line-options) or you can run `composer dev-tools phpunit -- --help`.
 
 
 ## Writing Tests
@@ -95,7 +91,7 @@ Group tests into a class when they test different aspects of the same piece of f
 
 ### Unit Tests
 
-To create a unit test your class must extend the `PHPUnit\FrameWork\TestCase` class and the methods that contain [assertions](https://phpunit.readthedocs.io/en/7.1/assertions.html) must start with `test`.
+To create a unit test your class must extend the `PHPUnit\FrameWork\TestCase` class and the methods that contain [assertions](https://docs.phpunit.de/en/9.6/assertions.html) must start with `test`.
 
 ```php
 <?php
@@ -116,7 +112,7 @@ class Test_Units extends TestCase {
 }
 ```
 
-The framework has a great many features, it is highly recommended to [read through the PHPUnit documentation](https://phpunit.readthedocs.io/en/7.1/writing-tests-for-phpunit.html) to get the most value out of it.
+The framework has a great many features, it is highly recommended to [read through the PHPUnit documentation](https://docs.phpunit.de/en/9.6/writing-tests-for-phpunit.html) to get the most value out of it.
 
 ### Integration Tests
 
