@@ -5,7 +5,7 @@ updates:
   schedule:
     interval: weekly
   ignore:
-    - dependency-name: 	"wp-phpunit/wp-phpunit"
+    - dependency-name: "wp-phpunit/wp-phpunit"
   open-pull-requests-limit: 10
   allow:
   - dependency-type: "direct"
@@ -15,7 +15,29 @@ updates:
   schedule:
     interval: weekly
   ignore:
-    - dependency-name: 	"wp-phpunit/wp-phpunit"
+    - dependency-name: "wp-phpunit/wp-phpunit"
+  open-pull-requests-limit: 10
+  allow:
+  - dependency-type: "direct"
+  versioning-strategy: "increase"
+  target-branch: v17-branch
+- package-ecosystem: composer
+  directory: "/"
+  schedule:
+    interval: weekly
+  ignore:
+    - dependency-name: "wp-phpunit/wp-phpunit"
+  open-pull-requests-limit: 10
+  allow:
+  - dependency-type: "direct"
+  versioning-strategy: "increase"
+  target-branch: v16-branch
+- package-ecosystem: composer
+  directory: "/"
+  schedule:
+    interval: weekly
+  ignore:
+    - dependency-name: "wp-phpunit/wp-phpunit"
   open-pull-requests-limit: 10
   allow:
   - dependency-type: "direct"
@@ -26,7 +48,7 @@ updates:
   schedule:
     interval: weekly
   ignore:
-    - dependency-name: 	"wp-phpunit/wp-phpunit"
+    - dependency-name: "wp-phpunit/wp-phpunit"
   open-pull-requests-limit: 10
   allow:
   - dependency-type: "direct"
@@ -37,20 +59,9 @@ updates:
   schedule:
     interval: weekly
   ignore:
-    - dependency-name: 	"wp-phpunit/wp-phpunit"
+    - dependency-name: "wp-phpunit/wp-phpunit"
   open-pull-requests-limit: 10
   allow:
   - dependency-type: "direct"
   versioning-strategy: "increase"
   target-branch: v13-branch
-- package-ecosystem: composer
-  directory: "/"
-  schedule:
-    interval: weekly
-  ignore:
-    - dependency-name: 	"wp-phpunit/wp-phpunit"
-  open-pull-requests-limit: 10
-  allow:
-  - dependency-type: "direct"
-  versioning-strategy: "increase"
-  target-branch: v12-branch
