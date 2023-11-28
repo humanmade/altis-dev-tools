@@ -1,0 +1,76 @@
+---
+name: Altis Common Module Build and Test
+run-name:
+
+on:
+  push:
+    branches:
+      - master
+      - main
+      - /v[0-9]+-branch/
+      - travis.*
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Check for tests
+        run: |
+          whoami && \
+          echo "Home is $HOME" && \
+          exit 0
+          test -n "$(find $GITHUB_WORKSPACE/tests -maxdepth 1 -name '*.suite.yml' 2>/dev/null)" || exit 0
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: composer
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Authenticate with Docker Hub
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Install Altis
+        run: |
+          - composer create-project altis/skeleton:dev-${{ github.ref }} --stability=dev \
+            --ignore-platform-req=php+ --ignore-platform-req=ext-* \
+            $HOME/test-root \
+            || composer create-project altis/skeleton:dev-master --stability=dev --ignore-platform-req=php+ \
+            composer create-project altis/skeleton:dev-master --stability=dev --ignore-platform-req=php+ \
+            --ignore-platform-req=ext-* \
+            $HOME/test-root \
+            || exit 1
+      - name: Install Altis test theme
+        run: |
+          cd $HOME/test-root && composer require altis/test-theme --ignore-platform-req=php+ --ignore-platform-req=ext-*
+          cd $HOME/test-root \
+          && cat <<< $(jq '. * {"extra":{"altis":{"modules":{"cms":{"default-theme":"test-theme"},"search":{"enabled": false}}}}}' \
+          composer.json | jq . -) > composer.json \
+          && cat composer.json
+      - name: Require current module and alias branch
+        # Tricks composer to allow installing the branch version if a version constraint exists, by increasing the current patch version
+        run: |
+          echo $ALTIS_PACKAGE && \
+          echo $GITHUB_REF && \
+          cd $HOME/test-root && composer require -W "$ALTIS_PACKAGE:dev-${{ GITHUB_SHA }} as \
+            `jq \".packages[] | select (.name==\\\"$ALTIS_PACKAGE\\\") \
+            | .version\" composer.lock \
+            | sed -e 's/\"//g;/^dev/q;s/\$/9/'`"
+      - name: Start local server
+        run: |
+          ls -l $HOME/test-root/vendor/altis/local-server/docker/kibana-7.yml && \
+          cd $HOME/test-root && composer server start
+      - name: Run Codeception for module tests
+        run: |
+          cd $HOME/test-root && composer dev-tools codecept run -p vendor/$ALTIS_PACKAGE/tests
+      - name: Lint docs
+        run: |
+          cd $HOME/test-root && composer dev-tools lintdocs -l vendor/$ALTIS_PACKAGE all
