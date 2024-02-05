@@ -1,11 +1,11 @@
 # Default Travis CI config for Altis
 os: linux
-dist: bionic
+dist: jammy
 
 # Ensure PHP CLI and Composer are available
 language: php
 php:
-  - '8.0'
+  - '8.1'
 
 # Set NodeJS version to match the build server.
 node_js:
