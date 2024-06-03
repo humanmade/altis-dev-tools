@@ -55,8 +55,6 @@ For some extra control, check out the available [advanced usage](#advanced-usage
 
 ## Running Tests
 
-**Note:** Codeception setup is currently only available while using the Local Server module, with no support for Local Chassis.
-
 In order to run Codeception tests, you can run the following shorthand command:
 
 ```sh
