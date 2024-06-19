@@ -17,11 +17,11 @@
 		]
 	},
 	"require": {
-		"johnbillion/query-monitor": "^3.15.0",
+		"johnbillion/query-monitor": "^3.16.3",
 		"altis/dev-tools-command": "^0.7.2",
-		"wp-phpunit/wp-phpunit": "6.4.2",
-		"yoast/phpunit-polyfills": "^1.0.5",
-		"phpunit/phpunit": "^9.6.17",
+		"wp-phpunit/wp-phpunit": "6.5.2",
+		"yoast/phpunit-polyfills": "^2.0.1",
+		"phpunit/phpunit": "^9.6.19",
 		"lucatume/wp-browser": "~4.0.0",
 		"codeception/module-asserts": "~3.0.0",
 		"codeception/module-phpbrowser": "~3.0.0",
