@@ -18,7 +18,7 @@
 	},
 	"require": {
 		"johnbillion/query-monitor": "^3.16.3",
-		"altis/dev-tools-command": "^0.7.2",
+		"altis/dev-tools-command": "^0.8.0",
 		"wp-phpunit/wp-phpunit": "6.5.4",
 		"yoast/phpunit-polyfills": "^2.0.1",
 		"phpunit/phpunit": "~9.6",
