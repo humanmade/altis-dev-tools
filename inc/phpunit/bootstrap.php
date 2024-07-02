@@ -76,7 +76,7 @@ tests_add_filter( 'plugins_loaded', function () {
 	// Ensure indexes exist before tests run and silence the output.
 	// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.system_calls_exec
 	exec( sprintf(
-		'TABLE_PREFIX=%s EP_INDEX_PREFIX=%s wp elasticpress index --setup --network-wide --url=%s',
+		'TABLE_PREFIX=%s EP_INDEX_PREFIX=%s wp elasticpress sync --setup --network-wide --url=%s',
 		$table_prefix,
 		EP_INDEX_PREFIX,
 		WP_TESTS_DOMAIN

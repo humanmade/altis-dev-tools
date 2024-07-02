@@ -18,19 +18,20 @@
 	},
 	"require": {
 		"johnbillion/query-monitor": "^3.16.3",
-		"altis/dev-tools-command": "^0.7.2",
-		"wp-phpunit/wp-phpunit": "6.5.2",
+		"altis/dev-tools-command": "^0.8.0",
+		"wp-phpunit/wp-phpunit": "6.5.4",
 		"yoast/phpunit-polyfills": "^2.0.1",
-		"phpunit/phpunit": "^9.6.19",
-		"lucatume/wp-browser": "~3.2.3",
-		"codeception/module-asserts": "~1.3.1",
-		"codeception/module-phpbrowser": "~1.0.3",
-		"codeception/module-webdriver": "~1.4.1",
-		"codeception/module-db": "~1.2.0",
-		"codeception/module-filesystem": "~1.0.3",
-		"codeception/module-cli": "~1.1.1",
-		"codeception/util-universalframework": "~1.0.0"
-	},
+		"phpunit/phpunit": "~9.6",
+		"lucatume/wp-browser": "~4.2.0",
+		"codeception/module-asserts": "~3.0",
+		"codeception/module-phpbrowser": "~3.0",
+		"codeception/module-webdriver": "~3.0",
+		"codeception/module-db": "~3.1",
+		"codeception/module-filesystem": "~3.0",
+		"codeception/module-cli": "~2.0",
+		"codeception/util-universalframework": "~1.0",
+		"codeception/codeception": "~5.2"
+  },
 	"extra": {
 		"altis": {
 			"install-overrides": [
