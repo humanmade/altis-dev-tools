@@ -69,4 +69,5 @@ script:
   - cd $HOME/test-root && composer server start
   # Run Codeception for module tests, if test suites are found.
   - cd $HOME/test-root && composer dev-tools codecept run -p vendor/$ALTIS_PACKAGE/tests
+  - cd $HOME/test-root && composer dev-tools bootstrap lintdocs
   - cd $HOME/test-root && composer dev-tools lintdocs -l vendor/$ALTIS_PACKAGE all
