@@ -63,6 +63,15 @@ before_script:
   # Require the current module and alias the branch to be tested to the target version main branch
   # Tricks composer to allow installing the branch version if a version constraint exists, by increasing the current patch version
   - cd $HOME/test-root && composer require -W "$ALTIS_PACKAGE:dev-${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH} as `jq \".packages[] | select (.name==\\\"$ALTIS_PACKAGE\\\") | .version\" composer.lock | sed -e 's/\"//g;/^dev/q;s/\$/9/'`"
+  - cd $HOME/test-root && echo "<?php" > ".config/salts.php"
+  - cd $HOME/test-root && curl "https://api.wordpress.org/secret-key/1.1/salt/" >>.config/salts.php
+  - cd $HOME/test-root && if [ ! -f ".config/load.php" ] ; then echo "<?php" > ".config/load.php" ; fi
+  - |-4
+    cd $HOME/test-root && printf "if ( ( Altis\get_environment_type() === 'local' ) || ( Altis\get_environment_type() === 'ci' ) ) {\n \
+    \tif ( ! defined( 'AUTH_KEY' ) ) {\n \
+    \t\trequire_once __DIR__ . '/salts.php';\n \
+    \t}\n \
+    } " >> .config/load.php
 
 script:
   # Start local server
