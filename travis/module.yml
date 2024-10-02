@@ -54,8 +54,14 @@ branches:
     - travis.*
 
 before_script:
-  # Install Altis and start the local server
-  - composer create-project altis/skeleton:dev-$TRAVIS_BRANCH --stability=dev --ignore-platform-req=php+ --ignore-platform-req=ext-* $HOME/test-root || composer create-project altis/skeleton:dev-master --stability=dev --ignore-platform-req=php+ --ignore-platform-req=ext-* $HOME/test-root || exit 1
+  # Figure out the base branch or default to `master`
+  - '[[ $TRAVIS_BRANCH =~ (v[0-9]{2}-branch) ]] && BASE_BRANCH="${BASH_REMATCH[1]}" || BASE_BRANCH="dev-master"'
+  - export BASE_BRANCH
+  # Install Altis, using this PR branch or the calculated value above
+  - |
+    composer create-project altis/skeleton:dev-$TRAVIS_BRANCH --stability=dev --ignore-platform-req=php+ --ignore-platform-req=ext-* $HOME/test-root || \
+    composer create-project altis/skeleton:dev-$BASE_BRANCH --stability=dev --ignore-platform-req=php+ --ignore-platform-req=ext-* $HOME/test-root || \
+    exit 1
   # Install Altis test theme package
   - cd $HOME/test-root && composer require altis/test-theme --ignore-platform-req=php+ --ignore-platform-req=ext-*
   # Mark the test theme as the default
@@ -78,5 +84,6 @@ script:
   - cd $HOME/test-root && composer server start
   # Run Codeception for module tests, if test suites are found.
   - cd $HOME/test-root && composer dev-tools codecept run -p vendor/$ALTIS_PACKAGE/tests
+  # Initialise and run documentation lint config
   - cd $HOME/test-root && composer dev-tools bootstrap lintdocs
   - cd $HOME/test-root && composer dev-tools lintdocs -l vendor/$ALTIS_PACKAGE all
