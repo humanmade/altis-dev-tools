@@ -1,4 +1,4 @@
-<?php  //[STAMP] 5696b3706645aa20a210d8300166cde8
+<?php  //[STAMP] 57a2a27e12d9514968441a0e924111df
 // phpcs:ignoreFile
 namespace _generated;
 
@@ -24,9 +24,9 @@ trait AcceptanceTesterActions
      * $insertedId = $I->haveSiteMetaInDatabase(2, 'foo', ['bar' => 'baz']);
      * ```
      *
-     * @param int $blogId    The blog ID.
+     * @param int $blogId The blog ID.
      * @param string $string The meta key.
-     * @param mixed $value   The meta value.
+     * @param mixed $value The meta value.
      *
      * @return int The inserted row ID.
      * @see \lucatume\WPBrowser\Module\WPDb::haveSiteMetaInDatabase()
@@ -73,7 +73,7 @@ trait AcceptanceTesterActions
      * $type = $I->grabPostFieldFromDatabase(1, 'post_type');
      * ```
      *
-     * @param int $postId   The post ID.
+     * @param int $postId The post ID.
      * @param string $field The post field to get the value for.
      *
      * @return mixed The value of the post field.
@@ -125,7 +125,7 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -153,7 +153,7 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -383,14 +383,14 @@ trait AcceptanceTesterActions
      * $I->seePostWithTermInDatabase($postId, $fiction['term_taxonomy_id']);
      * ```
      *
-     * @param int $post_id                     The post ID.
-     * @param int $term_taxonomy_id            The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
+     * @param int $post_id The post ID.
+     * @param int $term_taxonomy_id The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
      *                                         passed this parameter will be interpreted as a `term_id`, else as a
      *                                         `term_taxonomy_id`.
-     * @param int|null $term_order             The order the term applies to the post, defaults to `null` to not use
+     * @param int|null $term_order The order the term applies to the post, defaults to `null` to not use
      *                                         the
      *                                         term order.
-     * @param string|null $taxonomy            The taxonomy the `term_id` is for; if passed this parameter will be used
+     * @param string|null $taxonomy The taxonomy the `term_id` is for; if passed this parameter will be used
      *                                         to build a `taxonomy_term_id` from the `term_id`.
      *
      *
@@ -415,14 +415,14 @@ trait AcceptanceTesterActions
      * $I->seePostWithTermInDatabase($postId, $fiction['term_taxonomy_id']);
      * ```
      *
-     * @param int $post_id                     The post ID.
-     * @param int $term_taxonomy_id            The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
+     * @param int $post_id The post ID.
+     * @param int $term_taxonomy_id The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
      *                                         passed this parameter will be interpreted as a `term_id`, else as a
      *                                         `term_taxonomy_id`.
-     * @param int|null $term_order             The order the term applies to the post, defaults to `null` to not use
+     * @param int|null $term_order The order the term applies to the post, defaults to `null` to not use
      *                                         the
      *                                         term order.
-     * @param string|null $taxonomy            The taxonomy the `term_id` is for; if passed this parameter will be used
+     * @param string|null $taxonomy The taxonomy the `term_id` is for; if passed this parameter will be used
      *                                         to build a `taxonomy_term_id` from the `term_id`.
      *
      *
@@ -627,7 +627,7 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param string $tableName The table to fetch the last insertion for.
-     * @param string $idColumn  The column that is used, in the table, to uniquely identify
+     * @param string $idColumn The column that is used, in the table, to uniquely identify
      *                          items.
      *
      * @return int The last insertion id.
@@ -657,8 +657,8 @@ trait AcceptanceTesterActions
      * }
      * ```
      *
-     * @param int $postId       The post ID.
-     * @param string $meta_key  The meta key.
+     * @param int $postId The post ID.
+     * @param string $meta_key The meta key.
      * @param mixed $meta_value The value to insert in the database, objects and arrays will be serialized.
      *
      * @return int The inserted meta `meta_id`.
@@ -757,8 +757,8 @@ trait AcceptanceTesterActions
      * ]);
      * ```
      *
-     * @param string $name                       The term name, e.g. "Fuzzy".
-     * @param string $taxonomy                   The term taxonomy
+     * @param string $name The term name, e.g. "Fuzzy".
+     * @param string $taxonomy The term taxonomy
      * @param array<int|string,mixed> $overrides An array of values to override the default ones.
      *
      * @return array<int> An array containing `term_id` and `term_taxonomy_id` of the inserted term.
@@ -809,8 +809,8 @@ trait AcceptanceTesterActions
      * }
      * ```
      *
-     * @param int $term_id      The ID of the term to insert the meta for.
-     * @param string $meta_key  The key of the meta to insert.
+     * @param int $term_id The ID of the term to insert the meta for.
+     * @param string $meta_key The key of the meta to insert.
      * @param mixed $meta_value The value of the meta to insert, if serializable it will be serialized.
      *
      * @return int The inserted term meta `meta_id`.
@@ -882,9 +882,9 @@ trait AcceptanceTesterActions
      * $I->haveTermRelationshipInDatabase($bookId, $fictionId);
      * ```
      *
-     * @param int $object_id        A post ID, a user ID or anything that can be assigned a taxonomy term.
+     * @param int $object_id A post ID, a user ID or anything that can be assigned a taxonomy term.
      * @param int $term_taxonomy_id The `term_taxonomy_id` of the term and taxonomy to create a relation with.
-     * @param int $term_order       Defaults to `0`.
+     * @param int $term_order Defaults to `0`.
      * @see \lucatume\WPBrowser\Module\WPDb::haveTermRelationshipInDatabase()
      */
     public function haveTermRelationshipInDatabase(int $object_id, int $term_taxonomy_id, int $term_order = 0): void {
@@ -1388,7 +1388,7 @@ trait AcceptanceTesterActions
      *
      * @param array<string,mixed> $criteria An associative array of the column names and values to use as deletion
      *                                      criteria.
-     * @param string $table                 The table name.
+     * @param string $table The table name.
      * @see \lucatume\WPBrowser\Module\WPDb::dontHaveInDatabase()
      */
     public function dontHaveInDatabase(string $table, array $criteria): void {
@@ -1472,9 +1472,9 @@ trait AcceptanceTesterActions
      * $I->grabUserMetaFromDatabase($userId, 'api_data');
      * ```
      *
-     * @param int $userId      The ID of th user to get the meta for.
+     * @param int $userId The ID of th user to get the meta for.
      * @param string $meta_key The meta key to fetch the value for.
-     * @param bool $single     Whether to return a single value or an array of values.
+     * @param bool $single Whether to return a single value or an array of values.
      *
      * @return array<int,mixed>|mixed An array of the different meta key values or a single value if `$single` is set
      *                                to `true`.
@@ -1498,8 +1498,8 @@ trait AcceptanceTesterActions
      * $I->grabAllFromDatabase($books, 'title', ['genre' => 'fiction']);
      * ```
      *
-     * @param string $table                 The table to grab the values from.
-     * @param string $column                The column to fetch.
+     * @param string $table The table to grab the values from.
+     * @param string $column The column to fetch.
      * @param array<string,mixed> $criteria The search criteria.
      *
      * @return array<array<string,mixed>> An array of results.
@@ -1528,7 +1528,7 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param string $transient The transient name.
-     * @param mixed $value      The transient value.
+     * @param mixed $value The transient value.
      *
      * @return int The inserted option `option_id`.
      * @see \lucatume\WPBrowser\Module\WPDb::haveTransientInDatabase()
@@ -1553,7 +1553,7 @@ trait AcceptanceTesterActions
      *
      * @param string $option_name The option name.
      * @param mixed $option_value The option value; if an array or object it will be serialized.
-     * @param string $autoload    Whether the option should be autoloaded by WordPress or not.
+     * @param string $autoload Whether the option should be autoloaded by WordPress or not.
      *
      * @return int The inserted option `option_id`
      * @see \lucatume\WPBrowser\Module\WPDb::haveOptionInDatabase()
@@ -1595,7 +1595,7 @@ trait AcceptanceTesterActions
      * $I->dontHaveOptionInDatabase('bar', 'baz');
      * ```
      *
-     * @param string $key       The option name.
+     * @param string $key The option name.
      * @param mixed|null $value If set the option will only be removed if its value matches the passed one.
      * @see \lucatume\WPBrowser\Module\WPDb::dontHaveOptionInDatabase()
      */
@@ -1616,7 +1616,7 @@ trait AcceptanceTesterActions
      * $fooCountOptionId = $I->haveSiteOptionInDatabase('foo_count','23');
      * ```
      *
-     * @param string $key  The name of the option to insert.
+     * @param string $key The name of the option to insert.
      * @param mixed $value The value to insert for the option.
      *
      * @return int The inserted option `option_id`.
@@ -1653,8 +1653,6 @@ trait AcceptanceTesterActions
      *
      * This has nothing to do with WordPress `switch_to_blog` function, this code will affect the table prefixes used.
      *
-     * @param int $blogId The ID of the blog to use.
-     * @throws ModuleException If the blog ID is not an integer greater than or equal to 0.
      * @example
      * ```php
      * // Switch to the blog with ID 23.
@@ -1664,6 +1662,8 @@ trait AcceptanceTesterActions
      * // Switch to the main blog using this method.
      * $I->useBlog(1);
      * ```
+     * @param int $blogId The ID of the blog to use.
+     * @throws ModuleException If the blog ID is not an integer greater than or equal to 0.
      * @see \lucatume\WPBrowser\Module\WPDb::useBlog()
      */
     public function useBlog(int $blogId = 1): void {
@@ -1676,11 +1676,6 @@ trait AcceptanceTesterActions
      *
      * Gets the blog URL from the Blog ID.
      *
-     * @param int $blogId The ID of the blog to get the URL for.
-     *
-     * @return string The blog URL.
-     * @throws ModuleException If the blog ID is not found in the database.
-     *
      * @example
      * ```php
      * // Get the URL for the main blog.
@@ -1688,6 +1683,11 @@ trait AcceptanceTesterActions
      * // Get the URL for the blog with ID 23.
      * $blog23Url = $I->grabBlogUrl(23);
      * ```
+     * @param int $blogId The ID of the blog to get the URL for.
+     *
+     * @return string The blog URL.
+     * @throws ModuleException If the blog ID is not found in the database.
+     *
      * @see \lucatume\WPBrowser\Module\WPDb::grabBlogUrl()
      */
     public function grabBlogUrl(int $blogId = 1): string {
@@ -1708,7 +1708,7 @@ trait AcceptanceTesterActions
      * $I->dontHaveSiteOptionInDatabase('foo_count', 23);
      * ```
      *
-     * @param string $key       The option name.
+     * @param string $key The option name.
      * @param mixed|null $value If set the option will only be removed it its value matches the specified one.
      * @see \lucatume\WPBrowser\Module\WPDb::dontHaveSiteOptionInDatabase()
      */
@@ -1730,7 +1730,7 @@ trait AcceptanceTesterActions
      * $I->haveSiteTransientInDatabase('api_data', ['user' => 'luca', 'token' => '11ae3ijns-j83']);
      * ```
      *
-     * @param string $key  The key of the site transient to insert, w/o the `_site_transient_` prefix.
+     * @param string $key The key of the site transient to insert, w/o the `_site_transient_` prefix.
      * @param mixed $value The value to insert; if serializable the value will be serialized.
      *
      * @return int The inserted transient `option_id`
@@ -1833,7 +1833,7 @@ trait AcceptanceTesterActions
      * $I->seeSiteSiteTransientInDatabase('total_counts', 23);
      * ```
      *
-     * @param string $key       The name of the transient to check for, w/o the `_site_transient_` prefix.
+     * @param string $key The name of the transient to check for, w/o the `_site_transient_` prefix.
      * @param mixed|null $value If provided then the assertion will include the value.
      *
      * @throws JsonException
@@ -1856,7 +1856,7 @@ trait AcceptanceTesterActions
      * $I->seeSiteSiteTransientInDatabase('total_counts', 23);
      * ```
      *
-     * @param string $key       The name of the transient to check for, w/o the `_site_transient_` prefix.
+     * @param string $key The name of the transient to check for, w/o the `_site_transient_` prefix.
      * @param mixed|null $value If provided then the assertion will include the value.
      *
      * @throws JsonException
@@ -1884,7 +1884,7 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -1912,7 +1912,7 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -1938,7 +1938,7 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -1963,7 +1963,7 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -1996,7 +1996,7 @@ trait AcceptanceTesterActions
      *                                       `Post Title - 1` for the second one and so on.
      *                                       The same applies to meta values as well.
      *
-     * @param int $count                     The number of posts to insert.
+     * @param int $count The number of posts to insert.
      *
      * @return array<int> An array of the inserted post IDs.
      *
@@ -2065,7 +2065,7 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param array<string,mixed> $criteria An array of search criteria.
-     * @param bool $purgeMeta               Whether the terms meta should be purged along side with the meta or not.
+     * @param bool $purgeMeta Whether the terms meta should be purged along side with the meta or not.
      *
      * @throws Exception If there's an issue removing the rows.
      * @see \lucatume\WPBrowser\Module\WPDb::dontHaveTermInDatabase()
@@ -2161,8 +2161,8 @@ trait AcceptanceTesterActions
      * $I->haveManyCommentsInDatabase(3, $postId, ['comment_content' => 'Comment {{n}}']);
      * ```
      *
-     * @param int $count                     The number of comments to insert.
-     * @param int $comment_post_ID           The comment parent post ID.
+     * @param int $count The number of comments to insert.
+     * @param int $comment_post_ID The comment parent post ID.
      * @param array<string,mixed> $overrides An associative array to override the defaults.
      *
      * @return array<int> An array containing the inserted comments IDs.
@@ -2183,7 +2183,7 @@ trait AcceptanceTesterActions
      * $I->haveCommentInDatabase($postId, ['comment_content' => 'Test Comment', 'comment_karma' => 23]);
      * ```
      *
-     * @param int $comment_post_ID          The id of the post the comment refers to.
+     * @param int $comment_post_ID The id of the post the comment refers to.
      * @param array<int|string,mixed> $data The comment data overriding default and random generated values.
      *
      * @return int The inserted comment `comment_id`.
@@ -2209,8 +2209,8 @@ trait AcceptanceTesterActions
      * $I->haveCommentMetaInDatabase($commentId, 'api_data', $apiData);
      * ```
      *
-     * @param int $comment_id   The ID of the comment to insert the meta for.
-     * @param string $meta_key  The key of the comment meta to insert.
+     * @param int $comment_id The ID of the comment to insert the meta for.
+     * @param string $meta_key The key of the comment meta to insert.
      * @param mixed $meta_value The value of the meta to insert, if serializable it will be serialized.
      *
      * @return int The inserted comment meta ID.
@@ -2255,7 +2255,7 @@ trait AcceptanceTesterActions
      * $draftsCount = $I->countRowsInDatabase($postsTable, ['post_status' => 'draft']);
      * ```
      *
-     * @param string $table                 The table to count the rows in.
+     * @param string $table The table to count the rows in.
      * @param array<string,mixed> $criteria Search criteria, if empty all table rows will be counted.
      *
      * @return int The number of table rows matching the search criteria.
@@ -2277,7 +2277,7 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param array<string,mixed> $criteria An array of search criteria.
-     * @param bool $purgeMeta               If set to `true` then the meta for the comment will be purged too.
+     * @param bool $purgeMeta If set to `true` then the meta for the comment will be purged too.
      *
      *
      * @throws Exception In case of incoherent query criteria.
@@ -2344,7 +2344,7 @@ trait AcceptanceTesterActions
      * $linkIds = $I->haveManyLinksInDatabase(3, ['link_url' => 'http://example.org/test-{{n}}']);
      * ```
      *
-     * @param int $count                     The number of links to insert.
+     * @param int $count The number of links to insert.
      * @param array<string,mixed> $overrides Overrides for the default arguments.
      *
      * @return array<int> An array of inserted `link_id`s.
@@ -2413,9 +2413,9 @@ trait AcceptanceTesterActions
      * );
      * ```
      *
-     * @param int $count                     The number of users to insert.
-     * @param string $user_login             The user login name.
-     * @param string $role                   The user role.
+     * @param int $count The number of users to insert.
+     * @param string $user_login The user login name.
+     * @param string $role The user role.
      * @param array<string,mixed> $overrides An array of values to override the default ones.
      *
      * @return array<int> An array of user IDs.
@@ -2464,14 +2464,14 @@ trait AcceptanceTesterActions
      * $userId = $I->haveUserInDatabase('luca', '');
      * ```
      *
-     * @param string|array<string> $role         The user role slug(s), e.g. `administrator` or `['author', 'editor']`;
+     * @param string|array<string> $role The user role slug(s), e.g. `administrator` or `['author', 'editor']`;
      *                                           defaults to `subscriber`. If more than one role is specified, then the
      *                                           first role in the list will be the user primary role and the
      *                                           `wp_user_level` will be set to that role.
      * @param array<int|string,mixed> $overrides An associative array of column names and values overriding defaults
      *                                           in the `users` and `usermeta` table.
      *
-     * @param string $user_login                 The user login name.
+     * @param string $user_login The user login name.
      *
      * @return int The inserted user ID.
      *
@@ -2562,7 +2562,7 @@ trait AcceptanceTesterActions
      * );
      * ```
      *
-     * @param int $userId                                              The ID of the user to set the capabilities of.
+     * @param int $userId The ID of the user to set the capabilities of.
      * @param string|array<string>|array<int,array<string,bool>> $role Either a role string (e.g.
      *                                                                 `administrator`),an associative array of blog
      *                                                                 IDs/roles for a multisite installation (e.g. `[1
@@ -2588,9 +2588,9 @@ trait AcceptanceTesterActions
      * $I->haveUserMetaInDatabase($userId, 'karma', 23);
      * ```
      *
-     * @param int $userId        The user ID.
-     * @param string $meta_key   The meta key to set the value for.
-     * @param mixed $meta_value  Either a single value or an array of values; objects will be serialized while array of
+     * @param int $userId The user ID.
+     * @param string $meta_key The meta key to set the value for.
+     * @param mixed $meta_value Either a single value or an array of values; objects will be serialized while array of
      *                           values will trigger the insertion of multiple rows.
      *
      * @return array<int> An array of inserted `umeta_id`s.
@@ -2635,7 +2635,7 @@ trait AcceptanceTesterActions
      * $I->haveUserLevelsInDatabase($userId, $moreThanAnEditorLessThanAnAdmin);
      * ```
      *
-     * @param int $userId                                                                 The ID of the user to set the
+     * @param int $userId The ID of the user to set the
      *                                                                                    level for.
      * @param string|array<string>|array<string,bool>|array<int,array<string,bool>> $role Either a user role (e.g.
      *                                                                                    `editor`), a list of user
@@ -2668,9 +2668,9 @@ trait AcceptanceTesterActions
      * $termTaxonomyIds = array_column($terms, 1);
      * ```
      *
-     * @param int $count                     The number of terms to insert.
-     * @param string $name                   The term name template, can include the `{{n}}` placeholder.
-     * @param string $taxonomy               The taxonomy to insert the terms for.
+     * @param int $count The number of terms to insert.
+     * @param string $name The term name template, can include the `{{n}}` placeholder.
+     * @param string $taxonomy The taxonomy to insert the terms for.
      * @param array<string,mixed> $overrides An associative array of default overrides.
      *
      * @return array<array<int>> An array of arrays containing `term_id` and `term_taxonomy_id` of the inserted terms.
@@ -3077,11 +3077,11 @@ trait AcceptanceTesterActions
      * }
      * ```
      *
-     * @param int $count                     The number of blogs to create.
+     * @param int $count The number of blogs to create.
      *
      * @param array<string,mixed> $overrides An array of values to override the default ones; `{{n}}` will be replaced
      *                                       by the count.
-     * @param bool $subdomain                Whether the new blogs should be created as a subdomain or subfolder.
+     * @param bool $subdomain Whether the new blogs should be created as a subdomain or subfolder.
      *
      * @return array<int> An array of inserted blogs `blog_id`s.
      * @throws JsonException
@@ -3106,9 +3106,9 @@ trait AcceptanceTesterActions
      * $blogId = $I->haveBlogInDatabase('test', ['administrator' => $userId], false);
      * ```
      *
-     * @param string $domainOrPath               The subdomain or the path to the be used for the blog.
+     * @param string $domainOrPath The subdomain or the path to the be used for the blog.
      * @param array<int|string,mixed> $overrides An array of values to override the defaults.
-     * @param bool $subdomain                    Whether the new blog should be created as a subdomain (`true`)
+     * @param bool $subdomain Whether the new blog should be created as a subdomain (`true`)
      *                                           or subfolder (`true`)
      *
      * @return int The inserted blog `blog_id`.
@@ -3159,8 +3159,8 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param array<string,mixed> $criteria An array of search criteria to find the blog rows in the blogs table.
-     * @param bool $removeTables            Remove the blog tables.
-     * @param bool $removeUploads           Remove the blog uploads; requires the `WPFilesystem` module.
+     * @param bool $removeTables Remove the blog tables.
+     * @param bool $removeUploads Remove the blog uploads; requires the `WPFilesystem` module.
      *
      * @throws JsonException If there's any issue debugging the query.
      * @see \lucatume\WPBrowser\Module\WPDb::dontHaveBlogInDatabase()
@@ -3273,10 +3273,10 @@ trait AcceptanceTesterActions
      * $I->useTheme('acme', 'acme', 'Acme Theme');
      * ```
      *
-     * @param string $stylesheet           The theme stylesheet slug, e.g. `twentysixteen`.
-     * @param string|null $template        The theme template slug, e.g. `twentysixteen`, defaults to `$stylesheet`.
+     * @param string $stylesheet The theme stylesheet slug, e.g. `twentysixteen`.
+     * @param string|null $template The theme template slug, e.g. `twentysixteen`, defaults to `$stylesheet`.
      *
-     * @param string|null $themeName       The theme name, e.g. `Acme`, defaults to the "title" version of
+     * @param string|null $themeName The theme name, e.g. `Acme`, defaults to the "title" version of
      *                                     `$stylesheet`.
      * @see \lucatume\WPBrowser\Module\WPDb::useTheme()
      */
@@ -3295,8 +3295,8 @@ trait AcceptanceTesterActions
      * list($termId, $termTaxId) = $I->haveMenuInDatabase('test', 'sidebar');
      * ```
      *
-     * @param string $slug                   The menu slug.
-     * @param string $location               The theme menu location the menu will be assigned to.
+     * @param string $slug The menu slug.
+     * @param string $location The theme menu location the menu will be assigned to.
      * @param array<string,mixed> $overrides An array of values to override the defaults.
      *
      * @return array<int> An array containing the created menu `term_id` and `term_taxonomy_id`.
@@ -3320,11 +3320,11 @@ trait AcceptanceTesterActions
      * $I->haveMenuItemInDatabase('test', 'Test two', 1);
      * ```
      *
-     * @param string $title                  The menu item title.
-     * @param int|null $menuOrder            An optional menu order, `1` based.
-     * @param array<string,mixed> $meta      An associative array that will be prefixed with `_menu_item_` for the item
+     * @param string $title The menu item title.
+     * @param int|null $menuOrder An optional menu order, `1` based.
+     * @param array<string,mixed> $meta An associative array that will be prefixed with `_menu_item_` for the item
      *                                       post meta.
-     * @param string $menuSlug               The menu slug the item should be added to.
+     * @param string $menuSlug The menu slug the item should be added to.
      *
      * @return int The menu item post `ID`
      * @throws ModuleException If there's an issue inserting the database row.
@@ -3391,15 +3391,15 @@ trait AcceptanceTesterActions
      *
      * Requires the WPFilesystem module.
      *
-     * @param string|int $date                          Either a string supported by the `strtotime` function or a UNIX
+     * @param string|int $date Either a string supported by the `strtotime` function or a UNIX
      *                                                  timestamp that should be used to build the "year/time" uploads
      *                                                  sub-folder structure.
-     * @param array<string,mixed> $overrides            An associative array of values overriding the default ones.
+     * @param array<string,mixed> $overrides An associative array of values overriding the default ones.
      * @param array<string,array<int>>|null $imageSizes An associative array in the format [ <size> =>
      *                                                  [<width>,<height>]] to override the image sizes created by
      *                                                  default.
      *
-     * @param string $file                              The absolute path to the attachment file.
+     * @param string $file The absolute path to the attachment file.
      *
      * @return int The post ID of the inserted attachment.
      *
@@ -3536,12 +3536,12 @@ trait AcceptanceTesterActions
      * $I->dontHaveAttachmentInDatabase($thumbnailId, true, true);
      * ```
      *
-     * @param bool $purgeMeta                  If set to `true` then the meta for the attachment will be purged too.
-     * @param bool $removeFiles                Remove all files too, requires the `WPFilesystem` module to be loaded in
+     * @param bool $purgeMeta If set to `true` then the meta for the attachment will be purged too.
+     * @param bool $removeFiles Remove all files too, requires the `WPFilesystem` module to be loaded in
      *                                         the suite.
      *
      *
-     * @param array<string,mixed> $criteria    An array of search criteria to find the attachment post in the posts
+     * @param array<string,mixed> $criteria An array of search criteria to find the attachment post in the posts
      *                                         table.
      *
      * @throws ModuleRequireException If the WPFilesystem module is not loaded in the suite and the `$removeFiles`
@@ -3636,7 +3636,7 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param array<string,mixed> $criteria An array of search criteria.
-     * @param bool $purgeMeta               If set to `true` then the meta for the post will be purged too.
+     * @param bool $purgeMeta If set to `true` then the meta for the post will be purged too.
      * @see \lucatume\WPBrowser\Module\WPDb::dontHavePostInDatabase()
      */
     public function dontHavePostInDatabase(array $criteria, bool $purgeMeta = true): void {
@@ -3675,7 +3675,7 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param string $userEmail The email of the user to remove.
-     * @param bool $purgeMeta   Whether the user meta should be purged alongside the user or not.
+     * @param bool $purgeMeta Whether the user meta should be purged alongside the user or not.
      *
      * @return array<int> An array of the deleted user(s) ID(s)
      *
@@ -3725,7 +3725,7 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param int|string $userIdOrLogin The user ID or login name.
-     * @param bool $purgeMeta           Whether the user meta should be purged alongside the user or not.
+     * @param bool $purgeMeta Whether the user meta should be purged alongside the user or not.
      * @see \lucatume\WPBrowser\Module\WPDb::dontHaveUserInDatabase()
      */
     public function dontHaveUserInDatabase(string|int $userIdOrLogin, bool $purgeMeta = true): void {
@@ -3763,9 +3763,9 @@ trait AcceptanceTesterActions
      * $thumbnail_id = $I->grabPostMetaFromDatabase($postId, '_thumbnail_id', true);
      * ```
      *
-     * @param int $postId     The post ID.
+     * @param int $postId The post ID.
      * @param string $metaKey The key of the meta to retrieve.
-     * @param bool $single    Whether to return a single meta value or an array of all available meta values.
+     * @param bool $single Whether to return a single meta value or an array of all available meta values.
      *
      * @return mixed|array<string,mixed> Either a single meta value or an array of all the available meta values.
      * @see \lucatume\WPBrowser\Module\WPDb::grabPostMetaFromDatabase()
@@ -3785,7 +3785,7 @@ trait AcceptanceTesterActions
      * $blogOptionTable = $I->grabBlogTableName($blogId, 'option');
      * ```
      *
-     * @param int $blogId   The blog ID.
+     * @param int $blogId The blog ID.
      * @param string $table The table name, without table prefix.
      *
      * @return string The full blog table name, including the table prefix or an empty string
@@ -3925,14 +3925,14 @@ trait AcceptanceTesterActions
      * $I->dontSeePostWithTermInDatabase($postId, $nonFiction['term_taxonomy_id], );
      * ```
      *
-     * @param int $post_id                     The post ID.
-     * @param int $term_taxonomy_id            The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
+     * @param int $post_id The post ID.
+     * @param int $term_taxonomy_id The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
      *                                         passed this parameter will be interpreted as a `term_id`, else as a
      *                                         `term_taxonomy_id`.
-     * @param int|null $term_order             The order the term applies to the post, defaults to `null` to not use
+     * @param int|null $term_order The order the term applies to the post, defaults to `null` to not use
      *                                         the
      *                                         term order.
-     * @param string|null $taxonomy            The taxonomy the `term_id` is for; if passed this parameter will be used
+     * @param string|null $taxonomy The taxonomy the `term_id` is for; if passed this parameter will be used
      *                                         to build a `taxonomy_term_id` from the `term_id`.
      *
      *
@@ -3958,14 +3958,14 @@ trait AcceptanceTesterActions
      * $I->dontSeePostWithTermInDatabase($postId, $nonFiction['term_taxonomy_id], );
      * ```
      *
-     * @param int $post_id                     The post ID.
-     * @param int $term_taxonomy_id            The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
+     * @param int $post_id The post ID.
+     * @param int $term_taxonomy_id The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
      *                                         passed this parameter will be interpreted as a `term_id`, else as a
      *                                         `term_taxonomy_id`.
-     * @param int|null $term_order             The order the term applies to the post, defaults to `null` to not use
+     * @param int|null $term_order The order the term applies to the post, defaults to `null` to not use
      *                                         the
      *                                         term order.
-     * @param string|null $taxonomy            The taxonomy the `term_id` is for; if passed this parameter will be used
+     * @param string|null $taxonomy The taxonomy the `term_id` is for; if passed this parameter will be used
      *                                         to build a `taxonomy_term_id` from the `term_id`.
      *
      *
@@ -3989,7 +3989,7 @@ trait AcceptanceTesterActions
      * $I->havePostThumbnailInDatabase($postId, $attachmentId);
      * ```
      *
-     * @param int $postId      The post ID to assign the thumbnail (featured image) to.
+     * @param int $postId The post ID to assign the thumbnail (featured image) to.
      * @param int $thumbnailId The post ID of the attachment.
      *
      * @return int The inserted meta id.
@@ -4066,7 +4066,7 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -4092,7 +4092,7 @@ trait AcceptanceTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -8384,5 +8384,1692 @@ trait AcceptanceTesterActions
      */
     public function canSeeThemeActivated(string $slug): void {
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeThemeActivated', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Handles and checks throwables (Exceptions/Errors) called inside the callback function.
+     * Either throwable class name or throwable instance should be provided.
+     *
+     * ```php
+     * <?php
+     * $I->expectThrowable(MyThrowable::class, function() {
+     *     $this->doSomethingBad();
+     * });
+     *
+     * $I->expectThrowable(new MyException(), function() {
+     *     $this->doSomethingBad();
+     * });
+     * ```
+     * If you want to check message or throwable code, you can pass them with throwable instance:
+     * ```php
+     * <?php
+     * // will check that throwable MyError is thrown with "Don't do bad things" message
+     * $I->expectThrowable(new MyError("Don't do bad things"), function() {
+     *     $this->doSomethingBad();
+     * });
+     * ```
+     *
+     * @param \Throwable|string $throwable
+     * @see \Codeception\Module\Asserts::expectThrowable()
+     */
+    public function expectThrowable($throwable, callable $callback): void {
+        $this->getScenario()->runStep(new \Codeception\Step\Action('expectThrowable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a file does not exist.
+     * @see \Codeception\Module\AbstractAsserts::assertFileNotExists()
+     */
+    public function assertFileNotExists(string $filename, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileNotExists', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a value is greater than or equal to another value.
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertGreaterOrEquals()
+     */
+    public function assertGreaterOrEquals($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertGreaterOrEquals', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is empty.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsEmpty()
+     */
+    public function assertIsEmpty($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsEmpty', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a value is smaller than or equal to another value.
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertLessOrEquals()
+     */
+    public function assertLessOrEquals($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertLessOrEquals', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a string does not match a given regular expression.
+     * @see \Codeception\Module\AbstractAsserts::assertNotRegExp()
+     */
+    public function assertNotRegExp(string $pattern, string $string, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotRegExp', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a string matches a given regular expression.
+     * @see \Codeception\Module\AbstractAsserts::assertRegExp()
+     */
+    public function assertRegExp(string $pattern, string $string, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertRegExp', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Evaluates a PHPUnit\Framework\Constraint matcher object.
+     *
+     * @param mixed $value
+     * @see \Codeception\Module\AbstractAsserts::assertThatItsNot()
+     */
+    public function assertThatItsNot($value, \PHPUnit\Framework\Constraint\Constraint $constraint, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertThatItsNot', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that an array has a specified key.
+     *
+     * @param int|string $key
+     * @param array|\ArrayAccess $array
+     * @see \Codeception\Module\AbstractAsserts::assertArrayHasKey()
+     */
+    public function assertArrayHasKey($key, $array, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertArrayHasKey', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that an array does not have a specified key.
+     *
+     * @param int|string $key
+     * @param array|\ArrayAccess $array
+     * @see \Codeception\Module\AbstractAsserts::assertArrayNotHasKey()
+     */
+    public function assertArrayNotHasKey($key, $array, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertArrayNotHasKey', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a class has a specified attribute.
+     * @see \Codeception\Module\AbstractAsserts::assertClassHasAttribute()
+     */
+    public function assertClassHasAttribute(string $attributeName, string $className, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertClassHasAttribute', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a class has a specified static attribute.
+     * @see \Codeception\Module\AbstractAsserts::assertClassHasStaticAttribute()
+     */
+    public function assertClassHasStaticAttribute(string $attributeName, string $className, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertClassHasStaticAttribute', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a class does not have a specified attribute.
+     * @see \Codeception\Module\AbstractAsserts::assertClassNotHasAttribute()
+     */
+    public function assertClassNotHasAttribute(string $attributeName, string $className, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertClassNotHasAttribute', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a class does not have a specified static attribute.
+     * @see \Codeception\Module\AbstractAsserts::assertClassNotHasStaticAttribute()
+     */
+    public function assertClassNotHasStaticAttribute(string $attributeName, string $className, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertClassNotHasStaticAttribute', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a haystack contains a needle.
+     *
+     * @param mixed $needle
+     * @see \Codeception\Module\AbstractAsserts::assertContains()
+     */
+    public function assertContains($needle, iterable $haystack, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertContains', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * @param mixed $needle
+     * @see \Codeception\Module\AbstractAsserts::assertContainsEquals()
+     */
+    public function assertContainsEquals($needle, iterable $haystack, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertContainsEquals', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a haystack contains only values of a given type.
+     * @see \Codeception\Module\AbstractAsserts::assertContainsOnly()
+     */
+    public function assertContainsOnly(string $type, iterable $haystack, ?bool $isNativeType = NULL, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertContainsOnly', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a haystack contains only instances of a given class name.
+     * @see \Codeception\Module\AbstractAsserts::assertContainsOnlyInstancesOf()
+     */
+    public function assertContainsOnlyInstancesOf(string $className, iterable $haystack, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertContainsOnlyInstancesOf', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts the number of elements of an array, Countable or Traversable.
+     *
+     * @param \Countable|iterable $haystack
+     * @see \Codeception\Module\AbstractAsserts::assertCount()
+     */
+    public function assertCount(int $expectedCount, $haystack, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertCount', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a directory does not exist.
+     * @see \Codeception\Module\AbstractAsserts::assertDirectoryDoesNotExist()
+     */
+    public function assertDirectoryDoesNotExist(string $directory, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertDirectoryDoesNotExist', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a directory exists.
+     * @see \Codeception\Module\AbstractAsserts::assertDirectoryExists()
+     */
+    public function assertDirectoryExists(string $directory, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertDirectoryExists', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a directory exists and is not readable.
+     * @see \Codeception\Module\AbstractAsserts::assertDirectoryIsNotReadable()
+     */
+    public function assertDirectoryIsNotReadable(string $directory, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertDirectoryIsNotReadable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a directory exists and is not writable.
+     * @see \Codeception\Module\AbstractAsserts::assertDirectoryIsNotWritable()
+     */
+    public function assertDirectoryIsNotWritable(string $directory, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertDirectoryIsNotWritable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a directory exists and is readable.
+     * @see \Codeception\Module\AbstractAsserts::assertDirectoryIsReadable()
+     */
+    public function assertDirectoryIsReadable(string $directory, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertDirectoryIsReadable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a directory exists and is writable.
+     * @see \Codeception\Module\AbstractAsserts::assertDirectoryIsWritable()
+     */
+    public function assertDirectoryIsWritable(string $directory, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertDirectoryIsWritable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a string does not match a given regular expression.
+     * @see \Codeception\Module\AbstractAsserts::assertDoesNotMatchRegularExpression()
+     */
+    public function assertDoesNotMatchRegularExpression(string $pattern, string $string, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertDoesNotMatchRegularExpression', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is empty.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertEmpty()
+     */
+    public function assertEmpty($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertEmpty', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two variables are equal.
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertEquals()
+     */
+    public function assertEquals($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertEquals', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two variables are equal (canonicalizing).
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertEqualsCanonicalizing()
+     */
+    public function assertEqualsCanonicalizing($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertEqualsCanonicalizing', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two variables are equal (ignoring case).
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertEqualsIgnoringCase()
+     */
+    public function assertEqualsIgnoringCase($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertEqualsIgnoringCase', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two variables are equal (with delta).
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertEqualsWithDelta()
+     */
+    public function assertEqualsWithDelta($expected, $actual, float $delta, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertEqualsWithDelta', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a condition is false.
+     *
+     * @param mixed $condition
+     * @see \Codeception\Module\AbstractAsserts::assertFalse()
+     */
+    public function assertFalse($condition, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFalse', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a file does not exist.
+     * @see \Codeception\Module\AbstractAsserts::assertFileDoesNotExist()
+     */
+    public function assertFileDoesNotExist(string $filename, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileDoesNotExist', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that the contents of one file is equal to the contents of another file.
+     * @see \Codeception\Module\AbstractAsserts::assertFileEquals()
+     */
+    public function assertFileEquals(string $expected, string $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileEquals', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that the contents of one file is equal to the contents of another file (canonicalizing).
+     * @see \Codeception\Module\AbstractAsserts::assertFileEqualsCanonicalizing()
+     */
+    public function assertFileEqualsCanonicalizing(string $expected, string $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileEqualsCanonicalizing', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that the contents of one file is equal to the contents of another file (ignoring case).
+     * @see \Codeception\Module\AbstractAsserts::assertFileEqualsIgnoringCase()
+     */
+    public function assertFileEqualsIgnoringCase(string $expected, string $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileEqualsIgnoringCase', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a file exists.
+     * @see \Codeception\Module\AbstractAsserts::assertFileExists()
+     */
+    public function assertFileExists(string $filename, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileExists', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a file exists and is not readable.
+     * @see \Codeception\Module\AbstractAsserts::assertFileIsNotReadable()
+     */
+    public function assertFileIsNotReadable(string $file, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileIsNotReadable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a file exists and is not writable.
+     * @see \Codeception\Module\AbstractAsserts::assertFileIsNotWritable()
+     */
+    public function assertFileIsNotWritable(string $file, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileIsNotWritable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a file exists and is readable.
+     * @see \Codeception\Module\AbstractAsserts::assertFileIsReadable()
+     */
+    public function assertFileIsReadable(string $file, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileIsReadable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a file exists and is writable.
+     * @see \Codeception\Module\AbstractAsserts::assertFileIsWritable()
+     */
+    public function assertFileIsWritable(string $file, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileIsWritable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that the contents of one file is not equal to the contents of another file.
+     * @see \Codeception\Module\AbstractAsserts::assertFileNotEquals()
+     */
+    public function assertFileNotEquals(string $expected, string $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileNotEquals', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that the contents of one file is not equal to the contents of another file (canonicalizing).
+     * @see \Codeception\Module\AbstractAsserts::assertFileNotEqualsCanonicalizing()
+     */
+    public function assertFileNotEqualsCanonicalizing(string $expected, string $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileNotEqualsCanonicalizing', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that the contents of one file is not equal to the contents of another file (ignoring case).
+     * @see \Codeception\Module\AbstractAsserts::assertFileNotEqualsIgnoringCase()
+     */
+    public function assertFileNotEqualsIgnoringCase(string $expected, string $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileNotEqualsIgnoringCase', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is finite.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertFinite()
+     */
+    public function assertFinite($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFinite', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a value is greater than another value.
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertGreaterThan()
+     */
+    public function assertGreaterThan($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertGreaterThan', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a value is greater than or equal to another value.
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertGreaterThanOrEqual()
+     */
+    public function assertGreaterThanOrEqual($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertGreaterThanOrEqual', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is infinite.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertInfinite()
+     */
+    public function assertInfinite($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertInfinite', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is of a given type.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertInstanceOf()
+     */
+    public function assertInstanceOf(string $expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertInstanceOf', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is of type array.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsArray()
+     */
+    public function assertIsArray($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsArray', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is of type bool.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsBool()
+     */
+    public function assertIsBool($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsBool', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is of type callable.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsCallable()
+     */
+    public function assertIsCallable($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsCallable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is of type resource and is closed.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsClosedResource()
+     */
+    public function assertIsClosedResource($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsClosedResource', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is of type float.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsFloat()
+     */
+    public function assertIsFloat($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsFloat', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is of type int.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsInt()
+     */
+    public function assertIsInt($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsInt', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is of type iterable.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsIterable()
+     */
+    public function assertIsIterable($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsIterable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is not of type array.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsNotArray()
+     */
+    public function assertIsNotArray($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotArray', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is not of type bool.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsNotBool()
+     */
+    public function assertIsNotBool($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotBool', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is not of type callable.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsNotCallable()
+     */
+    public function assertIsNotCallable($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotCallable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is not of type resource.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsNotClosedResource()
+     */
+    public function assertIsNotClosedResource($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotClosedResource', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is not of type float.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsNotFloat()
+     */
+    public function assertIsNotFloat($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotFloat', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is not of type int.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsNotInt()
+     */
+    public function assertIsNotInt($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotInt', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is not of type iterable.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsNotIterable()
+     */
+    public function assertIsNotIterable($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotIterable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is not of type numeric.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsNotNumeric()
+     */
+    public function assertIsNotNumeric($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotNumeric', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is not of type object.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsNotObject()
+     */
+    public function assertIsNotObject($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotObject', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a file/dir exists and is not readable.
+     * @see \Codeception\Module\AbstractAsserts::assertIsNotReadable()
+     */
+    public function assertIsNotReadable(string $filename, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotReadable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is not of type resource.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsNotResource()
+     */
+    public function assertIsNotResource($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotResource', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is not of type scalar.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsNotScalar()
+     */
+    public function assertIsNotScalar($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotScalar', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is not of type string.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsNotString()
+     */
+    public function assertIsNotString($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotString', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a file/dir exists and is not writable.
+     * @see \Codeception\Module\AbstractAsserts::assertIsNotWritable()
+     */
+    public function assertIsNotWritable(string $filename, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotWritable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is of type numeric.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsNumeric()
+     */
+    public function assertIsNumeric($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNumeric', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is of type object.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsObject()
+     */
+    public function assertIsObject($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsObject', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a file/dir is readable.
+     * @see \Codeception\Module\AbstractAsserts::assertIsReadable()
+     */
+    public function assertIsReadable(string $filename, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsReadable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is of type resource.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsResource()
+     */
+    public function assertIsResource($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsResource', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is of type scalar.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsScalar()
+     */
+    public function assertIsScalar($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsScalar', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is of type string.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertIsString()
+     */
+    public function assertIsString($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsString', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a file/dir exists and is writable.
+     * @see \Codeception\Module\AbstractAsserts::assertIsWritable()
+     */
+    public function assertIsWritable(string $filename, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsWritable', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a string is a valid JSON string.
+     * @see \Codeception\Module\AbstractAsserts::assertJson()
+     */
+    public function assertJson(string $actualJson, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertJson', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two JSON files are equal.
+     * @see \Codeception\Module\AbstractAsserts::assertJsonFileEqualsJsonFile()
+     */
+    public function assertJsonFileEqualsJsonFile(string $expectedFile, string $actualFile, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertJsonFileEqualsJsonFile', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two JSON files are not equal.
+     * @see \Codeception\Module\AbstractAsserts::assertJsonFileNotEqualsJsonFile()
+     */
+    public function assertJsonFileNotEqualsJsonFile(string $expectedFile, string $actualFile, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertJsonFileNotEqualsJsonFile', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that the generated JSON encoded object and the content of the given file are equal.
+     * @see \Codeception\Module\AbstractAsserts::assertJsonStringEqualsJsonFile()
+     */
+    public function assertJsonStringEqualsJsonFile(string $expectedFile, string $actualJson, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertJsonStringEqualsJsonFile', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two given JSON encoded objects or arrays are equal.
+     * @see \Codeception\Module\AbstractAsserts::assertJsonStringEqualsJsonString()
+     */
+    public function assertJsonStringEqualsJsonString(string $expectedJson, string $actualJson, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertJsonStringEqualsJsonString', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that the generated JSON encoded object and the content of the given file are not equal.
+     * @see \Codeception\Module\AbstractAsserts::assertJsonStringNotEqualsJsonFile()
+     */
+    public function assertJsonStringNotEqualsJsonFile(string $expectedFile, string $actualJson, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertJsonStringNotEqualsJsonFile', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two given JSON encoded objects or arrays are not equal.
+     * @see \Codeception\Module\AbstractAsserts::assertJsonStringNotEqualsJsonString()
+     */
+    public function assertJsonStringNotEqualsJsonString(string $expectedJson, string $actualJson, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertJsonStringNotEqualsJsonString', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a value is smaller than another value.
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertLessThan()
+     */
+    public function assertLessThan($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertLessThan', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a value is smaller than or equal to another value.
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertLessThanOrEqual()
+     */
+    public function assertLessThanOrEqual($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertLessThanOrEqual', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a string matches a given regular expression.
+     * @see \Codeception\Module\AbstractAsserts::assertMatchesRegularExpression()
+     */
+    public function assertMatchesRegularExpression(string $pattern, string $string, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertMatchesRegularExpression', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is nan.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertNan()
+     */
+    public function assertNan($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNan', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a haystack does not contain a needle.
+     *
+     * @param mixed $needle
+     * @see \Codeception\Module\AbstractAsserts::assertNotContains()
+     */
+    public function assertNotContains($needle, iterable $haystack, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotContains', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     *
+     * @see \Codeception\Module\AbstractAsserts::assertNotContainsEquals()
+     */
+    public function assertNotContainsEquals($needle, iterable $haystack, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotContainsEquals', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a haystack does not contain only values of a given type.
+     * @see \Codeception\Module\AbstractAsserts::assertNotContainsOnly()
+     */
+    public function assertNotContainsOnly(string $type, iterable $haystack, ?bool $isNativeType = NULL, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotContainsOnly', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts the number of elements of an array, Countable or Traversable.
+     *
+     * @param \Countable|iterable $haystack
+     * @see \Codeception\Module\AbstractAsserts::assertNotCount()
+     */
+    public function assertNotCount(int $expectedCount, $haystack, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotCount', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is not empty.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertNotEmpty()
+     */
+    public function assertNotEmpty($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotEmpty', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two variables are not equal.
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertNotEquals()
+     */
+    public function assertNotEquals($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotEquals', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two variables are not equal (canonicalizing).
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertNotEqualsCanonicalizing()
+     */
+    public function assertNotEqualsCanonicalizing($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotEqualsCanonicalizing', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two variables are not equal (ignoring case).
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertNotEqualsIgnoringCase()
+     */
+    public function assertNotEqualsIgnoringCase($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotEqualsIgnoringCase', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two variables are not equal (with delta).
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertNotEqualsWithDelta()
+     */
+    public function assertNotEqualsWithDelta($expected, $actual, float $delta, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotEqualsWithDelta', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a condition is not false.
+     *
+     * @param mixed $condition
+     * @see \Codeception\Module\AbstractAsserts::assertNotFalse()
+     */
+    public function assertNotFalse($condition, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotFalse', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is not of a given type.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertNotInstanceOf()
+     */
+    public function assertNotInstanceOf(string $expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotInstanceOf', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is not null.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertNotNull()
+     */
+    public function assertNotNull($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotNull', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two variables do not have the same type and value.
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertNotSame()
+     */
+    public function assertNotSame($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotSame', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Assert that the size of two arrays (or `Countable` or `Traversable` objects) is not the same.
+     *
+     * @param \Countable|iterable $expected
+     * @param \Countable|iterable $actual
+     * @see \Codeception\Module\AbstractAsserts::assertNotSameSize()
+     */
+    public function assertNotSameSize($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotSameSize', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a condition is not true.
+     *
+     * @param mixed $condition
+     * @see \Codeception\Module\AbstractAsserts::assertNotTrue()
+     */
+    public function assertNotTrue($condition, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotTrue', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a variable is null.
+     *
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertNull()
+     */
+    public function assertNull($actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNull', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that an object has a specified attribute.
+     * @see \Codeception\Module\AbstractAsserts::assertObjectHasAttribute()
+     */
+    public function assertObjectHasAttribute(string $attributeName, object $object, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertObjectHasAttribute', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that an object does not have a specified attribute.
+     * @see \Codeception\Module\AbstractAsserts::assertObjectNotHasAttribute()
+     */
+    public function assertObjectNotHasAttribute(string $attributeName, object $object, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertObjectNotHasAttribute', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two variables have the same type and value.
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     * @see \Codeception\Module\AbstractAsserts::assertSame()
+     */
+    public function assertSame($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertSame', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Assert that the size of two arrays (or `Countable` or `Traversable` objects) is the same.
+     *
+     * @param \Countable|iterable $expected
+     * @param \Countable|iterable $actual
+     * @see \Codeception\Module\AbstractAsserts::assertSameSize()
+     */
+    public function assertSameSize($expected, $actual, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertSameSize', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     *
+     * @see \Codeception\Module\AbstractAsserts::assertStringContainsString()
+     */
+    public function assertStringContainsString(string $needle, string $haystack, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringContainsString', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     *
+     * @see \Codeception\Module\AbstractAsserts::assertStringContainsStringIgnoringCase()
+     */
+    public function assertStringContainsStringIgnoringCase(string $needle, string $haystack, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringContainsStringIgnoringCase', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a string ends not with a given suffix.
+     * @see \Codeception\Module\AbstractAsserts::assertStringEndsNotWith()
+     */
+    public function assertStringEndsNotWith(string $suffix, string $string, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringEndsNotWith', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a string ends with a given suffix.
+     * @see \Codeception\Module\AbstractAsserts::assertStringEndsWith()
+     */
+    public function assertStringEndsWith(string $suffix, string $string, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringEndsWith', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that the contents of a string is equal to the contents of a file.
+     * @see \Codeception\Module\AbstractAsserts::assertStringEqualsFile()
+     */
+    public function assertStringEqualsFile(string $expectedFile, string $actualString, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringEqualsFile', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that the contents of a string is equal to the contents of a file (canonicalizing).
+     * @see \Codeception\Module\AbstractAsserts::assertStringEqualsFileCanonicalizing()
+     */
+    public function assertStringEqualsFileCanonicalizing(string $expectedFile, string $actualString, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringEqualsFileCanonicalizing', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that the contents of a string is equal to the contents of a file (ignoring case).
+     * @see \Codeception\Module\AbstractAsserts::assertStringEqualsFileIgnoringCase()
+     */
+    public function assertStringEqualsFileIgnoringCase(string $expectedFile, string $actualString, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringEqualsFileIgnoringCase', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a string matches a given format string.
+     * @see \Codeception\Module\AbstractAsserts::assertStringMatchesFormat()
+     */
+    public function assertStringMatchesFormat(string $format, string $string, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringMatchesFormat', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a string matches a given format file.
+     * @see \Codeception\Module\AbstractAsserts::assertStringMatchesFormatFile()
+     */
+    public function assertStringMatchesFormatFile(string $formatFile, string $string, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringMatchesFormatFile', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     *
+     * @see \Codeception\Module\AbstractAsserts::assertStringNotContainsString()
+     */
+    public function assertStringNotContainsString(string $needle, string $haystack, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringNotContainsString', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     *
+     * @see \Codeception\Module\AbstractAsserts::assertStringNotContainsStringIgnoringCase()
+     */
+    public function assertStringNotContainsStringIgnoringCase(string $needle, string $haystack, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringNotContainsStringIgnoringCase', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that the contents of a string is not equal to the contents of a file.
+     * @see \Codeception\Module\AbstractAsserts::assertStringNotEqualsFile()
+     */
+    public function assertStringNotEqualsFile(string $expectedFile, string $actualString, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringNotEqualsFile', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that the contents of a string is not equal to the contents of a file (canonicalizing).
+     * @see \Codeception\Module\AbstractAsserts::assertStringNotEqualsFileCanonicalizing()
+     */
+    public function assertStringNotEqualsFileCanonicalizing(string $expectedFile, string $actualString, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringNotEqualsFileCanonicalizing', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that the contents of a string is not equal to the contents of a file (ignoring case).
+     * @see \Codeception\Module\AbstractAsserts::assertStringNotEqualsFileIgnoringCase()
+     */
+    public function assertStringNotEqualsFileIgnoringCase(string $expectedFile, string $actualString, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringNotEqualsFileIgnoringCase', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a string does not match a given format string.
+     * @see \Codeception\Module\AbstractAsserts::assertStringNotMatchesFormat()
+     */
+    public function assertStringNotMatchesFormat(string $format, string $string, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringNotMatchesFormat', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a string does not match a given format string.
+     * @see \Codeception\Module\AbstractAsserts::assertStringNotMatchesFormatFile()
+     */
+    public function assertStringNotMatchesFormatFile(string $formatFile, string $string, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringNotMatchesFormatFile', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a string starts not with a given prefix.
+     * @see \Codeception\Module\AbstractAsserts::assertStringStartsNotWith()
+     */
+    public function assertStringStartsNotWith(string $prefix, string $string, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringStartsNotWith', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a string starts with a given prefix.
+     * @see \Codeception\Module\AbstractAsserts::assertStringStartsWith()
+     */
+    public function assertStringStartsWith(string $prefix, string $string, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringStartsWith', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Evaluates a PHPUnit\Framework\Constraint matcher object.
+     *
+     * @param mixed $value
+     * @see \Codeception\Module\AbstractAsserts::assertThat()
+     */
+    public function assertThat($value, \PHPUnit\Framework\Constraint\Constraint $constraint, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertThat', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that a condition is true.
+     *
+     * @param mixed $condition
+     * @see \Codeception\Module\AbstractAsserts::assertTrue()
+     */
+    public function assertTrue($condition, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertTrue', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two XML files are equal.
+     * @see \Codeception\Module\AbstractAsserts::assertXmlFileEqualsXmlFile()
+     */
+    public function assertXmlFileEqualsXmlFile(string $expectedFile, string $actualFile, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertXmlFileEqualsXmlFile', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two XML files are not equal.
+     * @see \Codeception\Module\AbstractAsserts::assertXmlFileNotEqualsXmlFile()
+     */
+    public function assertXmlFileNotEqualsXmlFile(string $expectedFile, string $actualFile, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertXmlFileNotEqualsXmlFile', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two XML documents are equal.
+     *
+     * @param \DOMDocument|string $actualXml
+     * @see \Codeception\Module\AbstractAsserts::assertXmlStringEqualsXmlFile()
+     */
+    public function assertXmlStringEqualsXmlFile(string $expectedFile, $actualXml, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertXmlStringEqualsXmlFile', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two XML documents are equal.
+     *
+     * @param \DOMDocument|string $expectedXml
+     * @param \DOMDocument|string $actualXml
+     * @see \Codeception\Module\AbstractAsserts::assertXmlStringEqualsXmlString()
+     */
+    public function assertXmlStringEqualsXmlString($expectedXml, $actualXml, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertXmlStringEqualsXmlString', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two XML documents are not equal.
+     *
+     * @param \DOMDocument|string $actualXml
+     * @see \Codeception\Module\AbstractAsserts::assertXmlStringNotEqualsXmlFile()
+     */
+    public function assertXmlStringNotEqualsXmlFile(string $expectedFile, $actualXml, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertXmlStringNotEqualsXmlFile', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Asserts that two XML documents are not equal.
+     *
+     * @param \DOMDocument|string $expectedXml
+     * @param \DOMDocument|string $actualXml
+     * @see \Codeception\Module\AbstractAsserts::assertXmlStringNotEqualsXmlString()
+     */
+    public function assertXmlStringNotEqualsXmlString($expectedXml, $actualXml, string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertXmlStringNotEqualsXmlString', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Fails a test with the given message.
+     * @see \Codeception\Module\AbstractAsserts::fail()
+     */
+    public function fail(string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('fail', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Mark the test as incomplete.
+     * @see \Codeception\Module\AbstractAsserts::markTestIncomplete()
+     */
+    public function markTestIncomplete(string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('markTestIncomplete', func_get_args()));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Mark the test as skipped.
+     * @see \Codeception\Module\AbstractAsserts::markTestSkipped()
+     */
+    public function markTestSkipped(string $message = "") {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('markTestSkipped', func_get_args()));
     }
 }
