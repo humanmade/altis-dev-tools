@@ -61,7 +61,7 @@ Tools module config. For example:
 - `excludes` is an array of project root relative paths or glob patterns.
 - `attributes` is an object
   of [name-value pairs supported by the `<phpunit>` tag](https://docs.phpunit.de/en/9.6/configuration.html#the-phpunit-element)
-- `extensions` is an array of [PHPUnit Extension](https://docs.phpunit.de/en/10.3/extending-phpunit.html) class names to autoload
+- `extensions` is an array of [PHPUnit Extension](https://docs.phpunit.de/en/10.5/extending-phpunit.html) class names to autoload
 
 ## Running Tests
 
