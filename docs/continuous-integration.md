@@ -42,8 +42,8 @@ the following:
 
 ## Overriding Config for CI
 
-In some cases you won't need certain modules or services for your test runs. For example, switching off cavalcade, or native
-analytics will result in the containers for those services to not be downloaded and started, resulting in faster test runs.
+In some cases you won't need certain modules or services for your test runs. For example, switching off cavalcade will result in the
+containers for those services to not be downloaded and started, resulting in faster test runs.
 
 There is a special environment type you can use to override the configuration in CI environments which extends the `local`
 environment settings if any. Use the key `ci` to apply these settings:
@@ -61,6 +61,96 @@ environment settings if any. Use the key `ci` to apply these settings:
                     "modules": {
                         "cloud": {
                             "cavalcade": false
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+Similarly, you can disable the following services:
+
+- X-ray
+- Elasticsearch
+- Kibana
+- Tachyon
+
+To disable X-ray, set the following configuration:
+
+```json
+{
+    "extra": {
+        "altis": {
+            "environments": {
+                "ci": {
+                    "modules": {
+                        "cloud": {
+                            "xray": false
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+To disable Elasticsearch and Kibana, set the following configuration:
+
+```json
+{
+    "extra": {
+        "altis": {
+            "environments": {
+                "ci": {
+                    "modules": {
+                        "cloud": {
+                            "elasticsearch": false
+                        },
+                        "local-server": {
+                            "elasticsearch": false
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+Note: Disabling Elasticsearch will automatically disable Kibana. But if you want to disable Kibana only, you can do so like this:
+
+```json
+{
+    "extra": {
+        "altis": {
+            "environments": {
+                "ci": {
+                    "modules": {
+                        "local-server": {
+                            "kibana": false
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+To disable Tachyon, set the following configuration:
+
+```json
+{
+    "extra": {
+        "altis": {
+            "environments": {
+                "ci": {
+                    "modules": {
+                        "media": {
+                            "tachyon": false
                         }
                     }
                 }
