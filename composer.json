@@ -22,7 +22,7 @@
 		"wp-phpunit/wp-phpunit": "6.7.0",
 		"yoast/phpunit-polyfills": "^4.0.0",
 		"phpunit/phpunit": "~9.6",
-		"lucatume/wp-browser": "~4.4.1",
+		"lucatume/wp-browser": "~4.4.2",
 		"codeception/module-asserts": "~3.0",
 		"codeception/module-phpbrowser": "~3.0",
 		"codeception/module-webdriver": "~3.0",
@@ -30,7 +30,7 @@
 		"codeception/module-filesystem": "~3.0",
 		"codeception/module-cli": "~2.0",
 		"codeception/util-universalframework": "~1.0",
-		"codeception/codeception": "~5.1.2",
+		"codeception/codeception": "~5.2.1",
 		"behat/gherkin": "~4.10.0"
   },
 	"extra": {
