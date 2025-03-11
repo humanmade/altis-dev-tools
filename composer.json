@@ -30,7 +30,8 @@
 		"codeception/module-filesystem": "~3.0",
 		"codeception/module-cli": "~2.0",
 		"codeception/util-universalframework": "~1.0",
-		"codeception/codeception": "~5.2.1"
+		"codeception/codeception": "~5.2.1",
+		"behat/gherkin": "~4.10.0"
   },
 	"extra": {
 		"altis": {
