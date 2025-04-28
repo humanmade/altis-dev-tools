@@ -23,7 +23,7 @@
 		"yoast/phpunit-polyfills": "^2.0.4",
 		"phpunit/phpunit": "~9.6",
 		"lucatume/wp-browser": "~4.2.5",
-		"codeception/module-asserts": "~3.0",
+		"codeception/module-asserts": "~3.1",
 		"codeception/module-phpbrowser": "~3.0",
 		"codeception/module-webdriver": "~3.0",
 		"codeception/module-db": "~3.2",
