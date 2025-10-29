@@ -1,4 +1,4 @@
-<?php  //[STAMP] a7021d7a1ee8626f6f81ebf78d04a79f
+<?php  //[STAMP] 76cb38b1e5922a5be98081e03aa1eadf
 // phpcs:ignoreFile
 namespace _generated;
 
@@ -24,9 +24,9 @@ trait FunctionalTesterActions
      * $insertedId = $I->haveSiteMetaInDatabase(2, 'foo', ['bar' => 'baz']);
      * ```
      *
-     * @param int $blogId    The blog ID.
+     * @param int $blogId The blog ID.
      * @param string $string The meta key.
-     * @param mixed $value   The meta value.
+     * @param mixed $value The meta value.
      *
      * @return int The inserted row ID.
      * @see \lucatume\WPBrowser\Module\WPDb::haveSiteMetaInDatabase()
@@ -73,7 +73,7 @@ trait FunctionalTesterActions
      * $type = $I->grabPostFieldFromDatabase(1, 'post_type');
      * ```
      *
-     * @param int $postId   The post ID.
+     * @param int $postId The post ID.
      * @param string $field The post field to get the value for.
      *
      * @return mixed The value of the post field.
@@ -125,7 +125,7 @@ trait FunctionalTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -153,7 +153,7 @@ trait FunctionalTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -383,14 +383,14 @@ trait FunctionalTesterActions
      * $I->seePostWithTermInDatabase($postId, $fiction['term_taxonomy_id']);
      * ```
      *
-     * @param int $post_id                     The post ID.
-     * @param int $term_taxonomy_id            The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
+     * @param int $post_id The post ID.
+     * @param int $term_taxonomy_id The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
      *                                         passed this parameter will be interpreted as a `term_id`, else as a
      *                                         `term_taxonomy_id`.
-     * @param int|null $term_order             The order the term applies to the post, defaults to `null` to not use
+     * @param int|null $term_order The order the term applies to the post, defaults to `null` to not use
      *                                         the
      *                                         term order.
-     * @param string|null $taxonomy            The taxonomy the `term_id` is for; if passed this parameter will be used
+     * @param string|null $taxonomy The taxonomy the `term_id` is for; if passed this parameter will be used
      *                                         to build a `taxonomy_term_id` from the `term_id`.
      *
      *
@@ -415,14 +415,14 @@ trait FunctionalTesterActions
      * $I->seePostWithTermInDatabase($postId, $fiction['term_taxonomy_id']);
      * ```
      *
-     * @param int $post_id                     The post ID.
-     * @param int $term_taxonomy_id            The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
+     * @param int $post_id The post ID.
+     * @param int $term_taxonomy_id The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
      *                                         passed this parameter will be interpreted as a `term_id`, else as a
      *                                         `term_taxonomy_id`.
-     * @param int|null $term_order             The order the term applies to the post, defaults to `null` to not use
+     * @param int|null $term_order The order the term applies to the post, defaults to `null` to not use
      *                                         the
      *                                         term order.
-     * @param string|null $taxonomy            The taxonomy the `term_id` is for; if passed this parameter will be used
+     * @param string|null $taxonomy The taxonomy the `term_id` is for; if passed this parameter will be used
      *                                         to build a `taxonomy_term_id` from the `term_id`.
      *
      *
@@ -627,7 +627,7 @@ trait FunctionalTesterActions
      * ```
      *
      * @param string $tableName The table to fetch the last insertion for.
-     * @param string $idColumn  The column that is used, in the table, to uniquely identify
+     * @param string $idColumn The column that is used, in the table, to uniquely identify
      *                          items.
      *
      * @return int The last insertion id.
@@ -657,8 +657,8 @@ trait FunctionalTesterActions
      * }
      * ```
      *
-     * @param int $postId       The post ID.
-     * @param string $meta_key  The meta key.
+     * @param int $postId The post ID.
+     * @param string $meta_key The meta key.
      * @param mixed $meta_value The value to insert in the database, objects and arrays will be serialized.
      *
      * @return int The inserted meta `meta_id`.
@@ -757,8 +757,8 @@ trait FunctionalTesterActions
      * ]);
      * ```
      *
-     * @param string $name                       The term name, e.g. "Fuzzy".
-     * @param string $taxonomy                   The term taxonomy
+     * @param string $name The term name, e.g. "Fuzzy".
+     * @param string $taxonomy The term taxonomy
      * @param array<int|string,mixed> $overrides An array of values to override the default ones.
      *
      * @return array<int> An array containing `term_id` and `term_taxonomy_id` of the inserted term.
@@ -809,8 +809,8 @@ trait FunctionalTesterActions
      * }
      * ```
      *
-     * @param int $term_id      The ID of the term to insert the meta for.
-     * @param string $meta_key  The key of the meta to insert.
+     * @param int $term_id The ID of the term to insert the meta for.
+     * @param string $meta_key The key of the meta to insert.
      * @param mixed $meta_value The value of the meta to insert, if serializable it will be serialized.
      *
      * @return int The inserted term meta `meta_id`.
@@ -882,9 +882,9 @@ trait FunctionalTesterActions
      * $I->haveTermRelationshipInDatabase($bookId, $fictionId);
      * ```
      *
-     * @param int $object_id        A post ID, a user ID or anything that can be assigned a taxonomy term.
+     * @param int $object_id A post ID, a user ID or anything that can be assigned a taxonomy term.
      * @param int $term_taxonomy_id The `term_taxonomy_id` of the term and taxonomy to create a relation with.
-     * @param int $term_order       Defaults to `0`.
+     * @param int $term_order Defaults to `0`.
      * @see \lucatume\WPBrowser\Module\WPDb::haveTermRelationshipInDatabase()
      */
     public function haveTermRelationshipInDatabase(int $object_id, int $term_taxonomy_id, int $term_order = 0): void {
@@ -1388,7 +1388,7 @@ trait FunctionalTesterActions
      *
      * @param array<string,mixed> $criteria An associative array of the column names and values to use as deletion
      *                                      criteria.
-     * @param string $table                 The table name.
+     * @param string $table The table name.
      * @see \lucatume\WPBrowser\Module\WPDb::dontHaveInDatabase()
      */
     public function dontHaveInDatabase(string $table, array $criteria): void {
@@ -1472,9 +1472,9 @@ trait FunctionalTesterActions
      * $I->grabUserMetaFromDatabase($userId, 'api_data');
      * ```
      *
-     * @param int $userId      The ID of th user to get the meta for.
+     * @param int $userId The ID of th user to get the meta for.
      * @param string $meta_key The meta key to fetch the value for.
-     * @param bool $single     Whether to return a single value or an array of values.
+     * @param bool $single Whether to return a single value or an array of values.
      *
      * @return array<int,mixed>|mixed An array of the different meta key values or a single value if `$single` is set
      *                                to `true`.
@@ -1498,8 +1498,8 @@ trait FunctionalTesterActions
      * $I->grabAllFromDatabase($books, 'title', ['genre' => 'fiction']);
      * ```
      *
-     * @param string $table                 The table to grab the values from.
-     * @param string $column                The column to fetch.
+     * @param string $table The table to grab the values from.
+     * @param string $column The column to fetch.
      * @param array<string,mixed> $criteria The search criteria.
      *
      * @return array<array<string,mixed>> An array of results.
@@ -1528,7 +1528,7 @@ trait FunctionalTesterActions
      * ```
      *
      * @param string $transient The transient name.
-     * @param mixed $value      The transient value.
+     * @param mixed $value The transient value.
      *
      * @return int The inserted option `option_id`.
      * @see \lucatume\WPBrowser\Module\WPDb::haveTransientInDatabase()
@@ -1553,7 +1553,7 @@ trait FunctionalTesterActions
      *
      * @param string $option_name The option name.
      * @param mixed $option_value The option value; if an array or object it will be serialized.
-     * @param string $autoload    Whether the option should be autoloaded by WordPress or not.
+     * @param string $autoload Whether the option should be autoloaded by WordPress or not.
      *
      * @return int The inserted option `option_id`
      * @see \lucatume\WPBrowser\Module\WPDb::haveOptionInDatabase()
@@ -1595,7 +1595,7 @@ trait FunctionalTesterActions
      * $I->dontHaveOptionInDatabase('bar', 'baz');
      * ```
      *
-     * @param string $key       The option name.
+     * @param string $key The option name.
      * @param mixed|null $value If set the option will only be removed if its value matches the passed one.
      * @see \lucatume\WPBrowser\Module\WPDb::dontHaveOptionInDatabase()
      */
@@ -1616,7 +1616,7 @@ trait FunctionalTesterActions
      * $fooCountOptionId = $I->haveSiteOptionInDatabase('foo_count','23');
      * ```
      *
-     * @param string $key  The name of the option to insert.
+     * @param string $key The name of the option to insert.
      * @param mixed $value The value to insert for the option.
      *
      * @return int The inserted option `option_id`.
@@ -1653,8 +1653,6 @@ trait FunctionalTesterActions
      *
      * This has nothing to do with WordPress `switch_to_blog` function, this code will affect the table prefixes used.
      *
-     * @param int $blogId The ID of the blog to use.
-     * @throws ModuleException If the blog ID is not an integer greater than or equal to 0.
      * @example
      * ```php
      * // Switch to the blog with ID 23.
@@ -1664,6 +1662,8 @@ trait FunctionalTesterActions
      * // Switch to the main blog using this method.
      * $I->useBlog(1);
      * ```
+     * @param int $blogId The ID of the blog to use.
+     * @throws ModuleException If the blog ID is not an integer greater than or equal to 0.
      * @see \lucatume\WPBrowser\Module\WPDb::useBlog()
      */
     public function useBlog(int $blogId = 1): void {
@@ -1676,11 +1676,6 @@ trait FunctionalTesterActions
      *
      * Gets the blog URL from the Blog ID.
      *
-     * @param int $blogId The ID of the blog to get the URL for.
-     *
-     * @return string The blog URL.
-     * @throws ModuleException If the blog ID is not found in the database.
-     *
      * @example
      * ```php
      * // Get the URL for the main blog.
@@ -1688,6 +1683,11 @@ trait FunctionalTesterActions
      * // Get the URL for the blog with ID 23.
      * $blog23Url = $I->grabBlogUrl(23);
      * ```
+     * @param int $blogId The ID of the blog to get the URL for.
+     *
+     * @return string The blog URL.
+     * @throws ModuleException If the blog ID is not found in the database.
+     *
      * @see \lucatume\WPBrowser\Module\WPDb::grabBlogUrl()
      */
     public function grabBlogUrl(int $blogId = 1): string {
@@ -1708,7 +1708,7 @@ trait FunctionalTesterActions
      * $I->dontHaveSiteOptionInDatabase('foo_count', 23);
      * ```
      *
-     * @param string $key       The option name.
+     * @param string $key The option name.
      * @param mixed|null $value If set the option will only be removed it its value matches the specified one.
      * @see \lucatume\WPBrowser\Module\WPDb::dontHaveSiteOptionInDatabase()
      */
@@ -1730,7 +1730,7 @@ trait FunctionalTesterActions
      * $I->haveSiteTransientInDatabase('api_data', ['user' => 'luca', 'token' => '11ae3ijns-j83']);
      * ```
      *
-     * @param string $key  The key of the site transient to insert, w/o the `_site_transient_` prefix.
+     * @param string $key The key of the site transient to insert, w/o the `_site_transient_` prefix.
      * @param mixed $value The value to insert; if serializable the value will be serialized.
      *
      * @return int The inserted transient `option_id`
@@ -1833,7 +1833,7 @@ trait FunctionalTesterActions
      * $I->seeSiteSiteTransientInDatabase('total_counts', 23);
      * ```
      *
-     * @param string $key       The name of the transient to check for, w/o the `_site_transient_` prefix.
+     * @param string $key The name of the transient to check for, w/o the `_site_transient_` prefix.
      * @param mixed|null $value If provided then the assertion will include the value.
      *
      * @throws JsonException
@@ -1856,7 +1856,7 @@ trait FunctionalTesterActions
      * $I->seeSiteSiteTransientInDatabase('total_counts', 23);
      * ```
      *
-     * @param string $key       The name of the transient to check for, w/o the `_site_transient_` prefix.
+     * @param string $key The name of the transient to check for, w/o the `_site_transient_` prefix.
      * @param mixed|null $value If provided then the assertion will include the value.
      *
      * @throws JsonException
@@ -1884,7 +1884,7 @@ trait FunctionalTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -1912,7 +1912,7 @@ trait FunctionalTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -1938,7 +1938,7 @@ trait FunctionalTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -1963,7 +1963,7 @@ trait FunctionalTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -1996,7 +1996,7 @@ trait FunctionalTesterActions
      *                                       `Post Title - 1` for the second one and so on.
      *                                       The same applies to meta values as well.
      *
-     * @param int $count                     The number of posts to insert.
+     * @param int $count The number of posts to insert.
      *
      * @return array<int> An array of the inserted post IDs.
      *
@@ -2065,7 +2065,7 @@ trait FunctionalTesterActions
      * ```
      *
      * @param array<string,mixed> $criteria An array of search criteria.
-     * @param bool $purgeMeta               Whether the terms meta should be purged along side with the meta or not.
+     * @param bool $purgeMeta Whether the terms meta should be purged along side with the meta or not.
      *
      * @throws Exception If there's an issue removing the rows.
      * @see \lucatume\WPBrowser\Module\WPDb::dontHaveTermInDatabase()
@@ -2161,8 +2161,8 @@ trait FunctionalTesterActions
      * $I->haveManyCommentsInDatabase(3, $postId, ['comment_content' => 'Comment {{n}}']);
      * ```
      *
-     * @param int $count                     The number of comments to insert.
-     * @param int $comment_post_ID           The comment parent post ID.
+     * @param int $count The number of comments to insert.
+     * @param int $comment_post_ID The comment parent post ID.
      * @param array<string,mixed> $overrides An associative array to override the defaults.
      *
      * @return array<int> An array containing the inserted comments IDs.
@@ -2183,7 +2183,7 @@ trait FunctionalTesterActions
      * $I->haveCommentInDatabase($postId, ['comment_content' => 'Test Comment', 'comment_karma' => 23]);
      * ```
      *
-     * @param int $comment_post_ID          The id of the post the comment refers to.
+     * @param int $comment_post_ID The id of the post the comment refers to.
      * @param array<int|string,mixed> $data The comment data overriding default and random generated values.
      *
      * @return int The inserted comment `comment_id`.
@@ -2209,8 +2209,8 @@ trait FunctionalTesterActions
      * $I->haveCommentMetaInDatabase($commentId, 'api_data', $apiData);
      * ```
      *
-     * @param int $comment_id   The ID of the comment to insert the meta for.
-     * @param string $meta_key  The key of the comment meta to insert.
+     * @param int $comment_id The ID of the comment to insert the meta for.
+     * @param string $meta_key The key of the comment meta to insert.
      * @param mixed $meta_value The value of the meta to insert, if serializable it will be serialized.
      *
      * @return int The inserted comment meta ID.
@@ -2255,7 +2255,7 @@ trait FunctionalTesterActions
      * $draftsCount = $I->countRowsInDatabase($postsTable, ['post_status' => 'draft']);
      * ```
      *
-     * @param string $table                 The table to count the rows in.
+     * @param string $table The table to count the rows in.
      * @param array<string,mixed> $criteria Search criteria, if empty all table rows will be counted.
      *
      * @return int The number of table rows matching the search criteria.
@@ -2277,7 +2277,7 @@ trait FunctionalTesterActions
      * ```
      *
      * @param array<string,mixed> $criteria An array of search criteria.
-     * @param bool $purgeMeta               If set to `true` then the meta for the comment will be purged too.
+     * @param bool $purgeMeta If set to `true` then the meta for the comment will be purged too.
      *
      *
      * @throws Exception In case of incoherent query criteria.
@@ -2344,7 +2344,7 @@ trait FunctionalTesterActions
      * $linkIds = $I->haveManyLinksInDatabase(3, ['link_url' => 'http://example.org/test-{{n}}']);
      * ```
      *
-     * @param int $count                     The number of links to insert.
+     * @param int $count The number of links to insert.
      * @param array<string,mixed> $overrides Overrides for the default arguments.
      *
      * @return array<int> An array of inserted `link_id`s.
@@ -2413,9 +2413,9 @@ trait FunctionalTesterActions
      * );
      * ```
      *
-     * @param int $count                     The number of users to insert.
-     * @param string $user_login             The user login name.
-     * @param string $role                   The user role.
+     * @param int $count The number of users to insert.
+     * @param string $user_login The user login name.
+     * @param string $role The user role.
      * @param array<string,mixed> $overrides An array of values to override the default ones.
      *
      * @return array<int> An array of user IDs.
@@ -2464,14 +2464,14 @@ trait FunctionalTesterActions
      * $userId = $I->haveUserInDatabase('luca', '');
      * ```
      *
-     * @param string|array<string> $role         The user role slug(s), e.g. `administrator` or `['author', 'editor']`;
+     * @param string|array<string> $role The user role slug(s), e.g. `administrator` or `['author', 'editor']`;
      *                                           defaults to `subscriber`. If more than one role is specified, then the
      *                                           first role in the list will be the user primary role and the
      *                                           `wp_user_level` will be set to that role.
      * @param array<int|string,mixed> $overrides An associative array of column names and values overriding defaults
      *                                           in the `users` and `usermeta` table.
      *
-     * @param string $user_login                 The user login name.
+     * @param string $user_login The user login name.
      *
      * @return int The inserted user ID.
      *
@@ -2562,7 +2562,7 @@ trait FunctionalTesterActions
      * );
      * ```
      *
-     * @param int $userId                                              The ID of the user to set the capabilities of.
+     * @param int $userId The ID of the user to set the capabilities of.
      * @param string|array<string>|array<int,array<string,bool>> $role Either a role string (e.g.
      *                                                                 `administrator`),an associative array of blog
      *                                                                 IDs/roles for a multisite installation (e.g. `[1
@@ -2588,9 +2588,9 @@ trait FunctionalTesterActions
      * $I->haveUserMetaInDatabase($userId, 'karma', 23);
      * ```
      *
-     * @param int $userId        The user ID.
-     * @param string $meta_key   The meta key to set the value for.
-     * @param mixed $meta_value  Either a single value or an array of values; objects will be serialized while array of
+     * @param int $userId The user ID.
+     * @param string $meta_key The meta key to set the value for.
+     * @param mixed $meta_value Either a single value or an array of values; objects will be serialized while array of
      *                           values will trigger the insertion of multiple rows.
      *
      * @return array<int> An array of inserted `umeta_id`s.
@@ -2635,7 +2635,7 @@ trait FunctionalTesterActions
      * $I->haveUserLevelsInDatabase($userId, $moreThanAnEditorLessThanAnAdmin);
      * ```
      *
-     * @param int $userId                                                                 The ID of the user to set the
+     * @param int $userId The ID of the user to set the
      *                                                                                    level for.
      * @param string|array<string>|array<string,bool>|array<int,array<string,bool>> $role Either a user role (e.g.
      *                                                                                    `editor`), a list of user
@@ -2668,9 +2668,9 @@ trait FunctionalTesterActions
      * $termTaxonomyIds = array_column($terms, 1);
      * ```
      *
-     * @param int $count                     The number of terms to insert.
-     * @param string $name                   The term name template, can include the `{{n}}` placeholder.
-     * @param string $taxonomy               The taxonomy to insert the terms for.
+     * @param int $count The number of terms to insert.
+     * @param string $name The term name template, can include the `{{n}}` placeholder.
+     * @param string $taxonomy The taxonomy to insert the terms for.
      * @param array<string,mixed> $overrides An associative array of default overrides.
      *
      * @return array<array<int>> An array of arrays containing `term_id` and `term_taxonomy_id` of the inserted terms.
@@ -3077,11 +3077,11 @@ trait FunctionalTesterActions
      * }
      * ```
      *
-     * @param int $count                     The number of blogs to create.
+     * @param int $count The number of blogs to create.
      *
      * @param array<string,mixed> $overrides An array of values to override the default ones; `{{n}}` will be replaced
      *                                       by the count.
-     * @param bool $subdomain                Whether the new blogs should be created as a subdomain or subfolder.
+     * @param bool $subdomain Whether the new blogs should be created as a subdomain or subfolder.
      *
      * @return array<int> An array of inserted blogs `blog_id`s.
      * @throws JsonException
@@ -3106,9 +3106,9 @@ trait FunctionalTesterActions
      * $blogId = $I->haveBlogInDatabase('test', ['administrator' => $userId], false);
      * ```
      *
-     * @param string $domainOrPath               The subdomain or the path to the be used for the blog.
+     * @param string $domainOrPath The subdomain or the path to the be used for the blog.
      * @param array<int|string,mixed> $overrides An array of values to override the defaults.
-     * @param bool $subdomain                    Whether the new blog should be created as a subdomain (`true`)
+     * @param bool $subdomain Whether the new blog should be created as a subdomain (`true`)
      *                                           or subfolder (`true`)
      *
      * @return int The inserted blog `blog_id`.
@@ -3159,8 +3159,8 @@ trait FunctionalTesterActions
      * ```
      *
      * @param array<string,mixed> $criteria An array of search criteria to find the blog rows in the blogs table.
-     * @param bool $removeTables            Remove the blog tables.
-     * @param bool $removeUploads           Remove the blog uploads; requires the `WPFilesystem` module.
+     * @param bool $removeTables Remove the blog tables.
+     * @param bool $removeUploads Remove the blog uploads; requires the `WPFilesystem` module.
      *
      * @throws JsonException If there's any issue debugging the query.
      * @see \lucatume\WPBrowser\Module\WPDb::dontHaveBlogInDatabase()
@@ -3273,10 +3273,10 @@ trait FunctionalTesterActions
      * $I->useTheme('acme', 'acme', 'Acme Theme');
      * ```
      *
-     * @param string $stylesheet           The theme stylesheet slug, e.g. `twentysixteen`.
-     * @param string|null $template        The theme template slug, e.g. `twentysixteen`, defaults to `$stylesheet`.
+     * @param string $stylesheet The theme stylesheet slug, e.g. `twentysixteen`.
+     * @param string|null $template The theme template slug, e.g. `twentysixteen`, defaults to `$stylesheet`.
      *
-     * @param string|null $themeName       The theme name, e.g. `Acme`, defaults to the "title" version of
+     * @param string|null $themeName The theme name, e.g. `Acme`, defaults to the "title" version of
      *                                     `$stylesheet`.
      * @see \lucatume\WPBrowser\Module\WPDb::useTheme()
      */
@@ -3295,8 +3295,8 @@ trait FunctionalTesterActions
      * list($termId, $termTaxId) = $I->haveMenuInDatabase('test', 'sidebar');
      * ```
      *
-     * @param string $slug                   The menu slug.
-     * @param string $location               The theme menu location the menu will be assigned to.
+     * @param string $slug The menu slug.
+     * @param string $location The theme menu location the menu will be assigned to.
      * @param array<string,mixed> $overrides An array of values to override the defaults.
      *
      * @return array<int> An array containing the created menu `term_id` and `term_taxonomy_id`.
@@ -3320,11 +3320,11 @@ trait FunctionalTesterActions
      * $I->haveMenuItemInDatabase('test', 'Test two', 1);
      * ```
      *
-     * @param string $title                  The menu item title.
-     * @param int|null $menuOrder            An optional menu order, `1` based.
-     * @param array<string,mixed> $meta      An associative array that will be prefixed with `_menu_item_` for the item
+     * @param string $title The menu item title.
+     * @param int|null $menuOrder An optional menu order, `1` based.
+     * @param array<string,mixed> $meta An associative array that will be prefixed with `_menu_item_` for the item
      *                                       post meta.
-     * @param string $menuSlug               The menu slug the item should be added to.
+     * @param string $menuSlug The menu slug the item should be added to.
      *
      * @return int The menu item post `ID`
      * @throws ModuleException If there's an issue inserting the database row.
@@ -3391,15 +3391,15 @@ trait FunctionalTesterActions
      *
      * Requires the WPFilesystem module.
      *
-     * @param string|int $date                          Either a string supported by the `strtotime` function or a UNIX
+     * @param string|int $date Either a string supported by the `strtotime` function or a UNIX
      *                                                  timestamp that should be used to build the "year/time" uploads
      *                                                  sub-folder structure.
-     * @param array<string,mixed> $overrides            An associative array of values overriding the default ones.
+     * @param array<string,mixed> $overrides An associative array of values overriding the default ones.
      * @param array<string,array<int>>|null $imageSizes An associative array in the format [ <size> =>
      *                                                  [<width>,<height>]] to override the image sizes created by
      *                                                  default.
      *
-     * @param string $file                              The absolute path to the attachment file.
+     * @param string $file The absolute path to the attachment file.
      *
      * @return int The post ID of the inserted attachment.
      *
@@ -3536,12 +3536,12 @@ trait FunctionalTesterActions
      * $I->dontHaveAttachmentInDatabase($thumbnailId, true, true);
      * ```
      *
-     * @param bool $purgeMeta                  If set to `true` then the meta for the attachment will be purged too.
-     * @param bool $removeFiles                Remove all files too, requires the `WPFilesystem` module to be loaded in
+     * @param bool $purgeMeta If set to `true` then the meta for the attachment will be purged too.
+     * @param bool $removeFiles Remove all files too, requires the `WPFilesystem` module to be loaded in
      *                                         the suite.
      *
      *
-     * @param array<string,mixed> $criteria    An array of search criteria to find the attachment post in the posts
+     * @param array<string,mixed> $criteria An array of search criteria to find the attachment post in the posts
      *                                         table.
      *
      * @throws ModuleRequireException If the WPFilesystem module is not loaded in the suite and the `$removeFiles`
@@ -3636,7 +3636,7 @@ trait FunctionalTesterActions
      * ```
      *
      * @param array<string,mixed> $criteria An array of search criteria.
-     * @param bool $purgeMeta               If set to `true` then the meta for the post will be purged too.
+     * @param bool $purgeMeta If set to `true` then the meta for the post will be purged too.
      * @see \lucatume\WPBrowser\Module\WPDb::dontHavePostInDatabase()
      */
     public function dontHavePostInDatabase(array $criteria, bool $purgeMeta = true): void {
@@ -3675,7 +3675,7 @@ trait FunctionalTesterActions
      * ```
      *
      * @param string $userEmail The email of the user to remove.
-     * @param bool $purgeMeta   Whether the user meta should be purged alongside the user or not.
+     * @param bool $purgeMeta Whether the user meta should be purged alongside the user or not.
      *
      * @return array<int> An array of the deleted user(s) ID(s)
      *
@@ -3725,7 +3725,7 @@ trait FunctionalTesterActions
      * ```
      *
      * @param int|string $userIdOrLogin The user ID or login name.
-     * @param bool $purgeMeta           Whether the user meta should be purged alongside the user or not.
+     * @param bool $purgeMeta Whether the user meta should be purged alongside the user or not.
      * @see \lucatume\WPBrowser\Module\WPDb::dontHaveUserInDatabase()
      */
     public function dontHaveUserInDatabase(string|int $userIdOrLogin, bool $purgeMeta = true): void {
@@ -3763,9 +3763,9 @@ trait FunctionalTesterActions
      * $thumbnail_id = $I->grabPostMetaFromDatabase($postId, '_thumbnail_id', true);
      * ```
      *
-     * @param int $postId     The post ID.
+     * @param int $postId The post ID.
      * @param string $metaKey The key of the meta to retrieve.
-     * @param bool $single    Whether to return a single meta value or an array of all available meta values.
+     * @param bool $single Whether to return a single meta value or an array of all available meta values.
      *
      * @return mixed|array<string,mixed> Either a single meta value or an array of all the available meta values.
      * @see \lucatume\WPBrowser\Module\WPDb::grabPostMetaFromDatabase()
@@ -3785,7 +3785,7 @@ trait FunctionalTesterActions
      * $blogOptionTable = $I->grabBlogTableName($blogId, 'option');
      * ```
      *
-     * @param int $blogId   The blog ID.
+     * @param int $blogId The blog ID.
      * @param string $table The table name, without table prefix.
      *
      * @return string The full blog table name, including the table prefix or an empty string
@@ -3925,14 +3925,14 @@ trait FunctionalTesterActions
      * $I->dontSeePostWithTermInDatabase($postId, $nonFiction['term_taxonomy_id], );
      * ```
      *
-     * @param int $post_id                     The post ID.
-     * @param int $term_taxonomy_id            The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
+     * @param int $post_id The post ID.
+     * @param int $term_taxonomy_id The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
      *                                         passed this parameter will be interpreted as a `term_id`, else as a
      *                                         `term_taxonomy_id`.
-     * @param int|null $term_order             The order the term applies to the post, defaults to `null` to not use
+     * @param int|null $term_order The order the term applies to the post, defaults to `null` to not use
      *                                         the
      *                                         term order.
-     * @param string|null $taxonomy            The taxonomy the `term_id` is for; if passed this parameter will be used
+     * @param string|null $taxonomy The taxonomy the `term_id` is for; if passed this parameter will be used
      *                                         to build a `taxonomy_term_id` from the `term_id`.
      *
      *
@@ -3958,14 +3958,14 @@ trait FunctionalTesterActions
      * $I->dontSeePostWithTermInDatabase($postId, $nonFiction['term_taxonomy_id], );
      * ```
      *
-     * @param int $post_id                     The post ID.
-     * @param int $term_taxonomy_id            The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
+     * @param int $post_id The post ID.
+     * @param int $term_taxonomy_id The term `term_id` or `term_taxonomy_id`; if the `$taxonomy` argument is
      *                                         passed this parameter will be interpreted as a `term_id`, else as a
      *                                         `term_taxonomy_id`.
-     * @param int|null $term_order             The order the term applies to the post, defaults to `null` to not use
+     * @param int|null $term_order The order the term applies to the post, defaults to `null` to not use
      *                                         the
      *                                         term order.
-     * @param string|null $taxonomy            The taxonomy the `term_id` is for; if passed this parameter will be used
+     * @param string|null $taxonomy The taxonomy the `term_id` is for; if passed this parameter will be used
      *                                         to build a `taxonomy_term_id` from the `term_id`.
      *
      *
@@ -3989,7 +3989,7 @@ trait FunctionalTesterActions
      * $I->havePostThumbnailInDatabase($postId, $attachmentId);
      * ```
      *
-     * @param int $postId      The post ID to assign the thumbnail (featured image) to.
+     * @param int $postId The post ID to assign the thumbnail (featured image) to.
      * @param int $thumbnailId The post ID of the attachment.
      *
      * @return int The inserted meta id.
@@ -4066,7 +4066,7 @@ trait FunctionalTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -4092,7 +4092,7 @@ trait FunctionalTesterActions
      * ```
      *
      * @param array<string,mixed>|string $criteriaOrName An array of search criteria or the option name.
-     * @param mixed|null $value                          The optional value to try and match, only used if the option
+     * @param mixed|null $value The optional value to try and match, only used if the option
      *                                                   name is provided.
      *
      *
@@ -4383,7 +4383,7 @@ trait FunctionalTesterActions
      *
      * ```php
      * <?php
-     * $I->haveInDatabase('users', array('name' => 'miles', 'email' => 'miles@davis.com'));
+     * $I->haveInDatabase('users', ['name' => 'miles', 'email' => 'miles@davis.com']);
      * ```
      * @see \Codeception\Module\Db::haveInDatabase()
      */
@@ -4553,7 +4553,7 @@ trait FunctionalTesterActions
      *
      * ``` php
      * <?php
-     * $mails = $I->grabColumnFromDatabase('users', 'email', array('name' => 'RebOOter'));
+     * $mails = $I->grabColumnFromDatabase('users', 'email', ['name' => 'RebOOter']);
      * ```
      * @see \Codeception\Module\Db::grabColumnFromDatabase()
      */
@@ -4570,7 +4570,7 @@ trait FunctionalTesterActions
      *
      * ``` php
      * <?php
-     * $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
+     * $mail = $I->grabFromDatabase('users', 'email', ['name' => 'Davert']);
      * ```
      * Comparison expressions can be used as well:
      *
@@ -4599,7 +4599,7 @@ trait FunctionalTesterActions
      *
      * ``` php
      * <?php
-     * $mail = $I->grabEntryFromDatabase('users', array('name' => 'Davert'));
+     * $mail = $I->grabEntryFromDatabase('users', ['name' => 'Davert']);
      * ```
      * Comparison expressions can be used as well:
      *
@@ -4628,7 +4628,7 @@ trait FunctionalTesterActions
      *
      * ``` php
      * <?php
-     * $mail = $I->grabEntriesFromDatabase('users', array('name' => 'Davert'));
+     * $mail = $I->grabEntriesFromDatabase('users', ['name' => 'Davert']);
      * ```
      * Comparison expressions can be used as well:
      *
@@ -4671,7 +4671,7 @@ trait FunctionalTesterActions
      *
      * ```php
      * <?php
-     * $I->updateInDatabase('users', array('isAdmin' => true), array('email' => 'miles@davis.com'));
+     * $I->updateInDatabase('users', ['isAdmin' => true], ['email' => 'miles@davis.com']);
      * ```
      * @see \Codeception\Module\Db::updateInDatabase()
      */
@@ -4772,7 +4772,7 @@ trait FunctionalTesterActions
      * Authenticates user for HTTP_AUTH
      * @see \Codeception\Module\PhpBrowser::amHttpAuthenticated()
      */
-    public function amHttpAuthenticated($username, $password): void {
+    public function amHttpAuthenticated(string $username, string $password): void {
         $this->getScenario()->runStep(new \Codeception\Step\Condition('amHttpAuthenticated', func_get_args()));
     }
 
@@ -4789,7 +4789,7 @@ trait FunctionalTesterActions
      * ```
      * @see \Codeception\Module\PhpBrowser::amOnUrl()
      */
-    public function amOnUrl($url): void {
+    public function amOnUrl(string $url): void {
         $this->getScenario()->runStep(new \Codeception\Step\Condition('amOnUrl', func_get_args()));
     }
 
@@ -4813,7 +4813,7 @@ trait FunctionalTesterActions
      *
      * @see \Codeception\Module\PhpBrowser::amOnSubdomain()
      */
-    public function amOnSubdomain($subdomain): void {
+    public function amOnSubdomain(string $subdomain): void {
         $this->getScenario()->runStep(new \Codeception\Step\Condition('amOnSubdomain', func_get_args()));
     }
 
@@ -4835,11 +4835,9 @@ trait FunctionalTesterActions
      *
      * It is not recommended to use this command on a regular basis.
      * If Codeception lacks important Guzzle Client methods, implement them and submit patches.
-     *
-     * @return mixed
      * @see \Codeception\Module\PhpBrowser::executeInGuzzle()
      */
-    public function executeInGuzzle(\Closure $function) {
+    public function executeInGuzzle(\Closure $function): mixed {
         return $this->getScenario()->runStep(new \Codeception\Step\Action('executeInGuzzle', func_get_args()));
     }
 
@@ -7700,6 +7698,7 @@ trait FunctionalTesterActions
      *     $this->doSomethingBad();
      * });
      * ```
+     *
      * If you want to check message or throwable code, you can pass them with throwable instance:
      * ```php
      * <?php
@@ -7708,11 +7707,9 @@ trait FunctionalTesterActions
      *     $this->doSomethingBad();
      * });
      * ```
-     *
-     * @param \Throwable|string $throwable
      * @see \Codeception\Module\Asserts::expectThrowable()
      */
-    public function expectThrowable($throwable, callable $callback): void {
+    public function expectThrowable(\Throwable|string $throwable, callable $callback): void {
         $this->getScenario()->runStep(new \Codeception\Step\Action('expectThrowable', func_get_args()));
     }
 
@@ -8018,6 +8015,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is empty.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert empty $actual
      * @see \Codeception\Module\AbstractAsserts::assertEmpty()
      */
     public function assertEmpty($actual, string $message = "") {
@@ -8087,6 +8086,8 @@ trait FunctionalTesterActions
      * Asserts that a condition is false.
      *
      * @param mixed $condition
+     *
+     * @phpstan-assert false $condition
      * @see \Codeception\Module\AbstractAsserts::assertFalse()
      */
     public function assertFalse($condition, string $message = "") {
@@ -8285,7 +8286,12 @@ trait FunctionalTesterActions
      *
      * Asserts that a variable is of a given type.
      *
+     * @template ExpectedType of object
+     *
      * @param mixed $actual
+     * @param class-string<ExpectedType> $expected
+     *
+     * @phpstan-assert =ExpectedType $actual
      * @see \Codeception\Module\AbstractAsserts::assertInstanceOf()
      */
     public function assertInstanceOf(string $expected, $actual, string $message = "") {
@@ -8299,6 +8305,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is of type array.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert array $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsArray()
      */
     public function assertIsArray($actual, string $message = "") {
@@ -8312,6 +8320,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is of type bool.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert bool $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsBool()
      */
     public function assertIsBool($actual, string $message = "") {
@@ -8325,6 +8335,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is of type callable.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert callable $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsCallable()
      */
     public function assertIsCallable($actual, string $message = "") {
@@ -8338,6 +8350,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is of type resource and is closed.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert resource $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsClosedResource()
      */
     public function assertIsClosedResource($actual, string $message = "") {
@@ -8351,6 +8365,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is of type float.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert float $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsFloat()
      */
     public function assertIsFloat($actual, string $message = "") {
@@ -8364,6 +8380,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is of type int.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert int $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsInt()
      */
     public function assertIsInt($actual, string $message = "") {
@@ -8377,6 +8395,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is of type iterable.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert iterable $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsIterable()
      */
     public function assertIsIterable($actual, string $message = "") {
@@ -8390,6 +8410,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is not of type array.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !array $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsNotArray()
      */
     public function assertIsNotArray($actual, string $message = "") {
@@ -8403,6 +8425,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is not of type bool.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !bool $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsNotBool()
      */
     public function assertIsNotBool($actual, string $message = "") {
@@ -8416,6 +8440,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is not of type callable.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !callable $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsNotCallable()
      */
     public function assertIsNotCallable($actual, string $message = "") {
@@ -8429,6 +8455,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is not of type resource.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !resource $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsNotClosedResource()
      */
     public function assertIsNotClosedResource($actual, string $message = "") {
@@ -8442,6 +8470,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is not of type float.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !float $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsNotFloat()
      */
     public function assertIsNotFloat($actual, string $message = "") {
@@ -8455,6 +8485,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is not of type int.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !int $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsNotInt()
      */
     public function assertIsNotInt($actual, string $message = "") {
@@ -8468,6 +8500,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is not of type iterable.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !iterable $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsNotIterable()
      */
     public function assertIsNotIterable($actual, string $message = "") {
@@ -8481,6 +8515,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is not of type numeric.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !numeric $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsNotNumeric()
      */
     public function assertIsNotNumeric($actual, string $message = "") {
@@ -8494,6 +8530,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is not of type object.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !object $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsNotObject()
      */
     public function assertIsNotObject($actual, string $message = "") {
@@ -8518,6 +8556,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is not of type resource.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !resource $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsNotResource()
      */
     public function assertIsNotResource($actual, string $message = "") {
@@ -8531,6 +8571,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is not of type scalar.
      *
      * @param mixed $actual
+     *
+     * @psalm-assert !scalar $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsNotScalar()
      */
     public function assertIsNotScalar($actual, string $message = "") {
@@ -8544,6 +8586,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is not of type string.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !string $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsNotString()
      */
     public function assertIsNotString($actual, string $message = "") {
@@ -8568,6 +8612,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is of type numeric.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert numeric $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsNumeric()
      */
     public function assertIsNumeric($actual, string $message = "") {
@@ -8581,6 +8627,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is of type object.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert object $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsObject()
      */
     public function assertIsObject($actual, string $message = "") {
@@ -8605,6 +8653,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is of type resource.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert resource $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsResource()
      */
     public function assertIsResource($actual, string $message = "") {
@@ -8618,6 +8668,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is of type scalar.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert scalar $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsScalar()
      */
     public function assertIsScalar($actual, string $message = "") {
@@ -8631,6 +8683,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is of type string.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert string $actual
      * @see \Codeception\Module\AbstractAsserts::assertIsString()
      */
     public function assertIsString($actual, string $message = "") {
@@ -8832,6 +8886,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is not empty.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !empty $actual
      * @see \Codeception\Module\AbstractAsserts::assertNotEmpty()
      */
     public function assertNotEmpty($actual, string $message = "") {
@@ -8901,6 +8957,8 @@ trait FunctionalTesterActions
      * Asserts that a condition is not false.
      *
      * @param mixed $condition
+     *
+     * @phpstan-assert !false $condition
      * @see \Codeception\Module\AbstractAsserts::assertNotFalse()
      */
     public function assertNotFalse($condition, string $message = "") {
@@ -8913,7 +8971,12 @@ trait FunctionalTesterActions
      *
      * Asserts that a variable is not of a given type.
      *
+     * @template ExpectedType of object
+     *
      * @param mixed $actual
+     * @param class-string<ExpectedType> $expected
+     *
+     * @phpstan-assert !ExpectedType $actual
      * @see \Codeception\Module\AbstractAsserts::assertNotInstanceOf()
      */
     public function assertNotInstanceOf(string $expected, $actual, string $message = "") {
@@ -8927,6 +8990,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is not null.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !null $actual
      * @see \Codeception\Module\AbstractAsserts::assertNotNull()
      */
     public function assertNotNull($actual, string $message = "") {
@@ -8968,6 +9033,8 @@ trait FunctionalTesterActions
      * Asserts that a condition is not true.
      *
      * @param mixed $condition
+     *
+     * @phpstan-assert !true $condition
      * @see \Codeception\Module\AbstractAsserts::assertNotTrue()
      */
     public function assertNotTrue($condition, string $message = "") {
@@ -8981,6 +9048,8 @@ trait FunctionalTesterActions
      * Asserts that a variable is null.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert null $actual
      * @see \Codeception\Module\AbstractAsserts::assertNull()
      */
     public function assertNull($actual, string $message = "") {
@@ -9014,9 +9083,15 @@ trait FunctionalTesterActions
      * [!] Method is generated. Documentation taken from corresponding module.
      *
      * Asserts that two variables have the same type and value.
+     * Used on objects, it asserts that two variables reference
+     * the same object.
      *
-     * @param mixed $expected
+     * @template ExpectedType
+     *
+     * @param ExpectedType $expected
      * @param mixed $actual
+     *
+     * @phpstan-assert =ExpectedType $actual
      * @see \Codeception\Module\AbstractAsserts::assertSame()
      */
     public function assertSame($expected, $actual, string $message = "") {
@@ -9255,6 +9330,8 @@ trait FunctionalTesterActions
      * Asserts that a condition is true.
      *
      * @param mixed $condition
+     *
+     * @phpstan-assert true $condition
      * @see \Codeception\Module\AbstractAsserts::assertTrue()
      */
     public function assertTrue($condition, string $message = "") {
