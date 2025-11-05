@@ -65,14 +65,3 @@ updates:
   - dependency-type: "direct"
   versioning-strategy: "increase"
   target-branch: v21-branch
-- package-ecosystem: composer
-  directory: "/"
-  schedule:
-    interval: weekly
-  ignore:
-    - dependency-name: "wp-phpunit/wp-phpunit"
-  open-pull-requests-limit: 10
-  allow:
-  - dependency-type: "direct"
-  versioning-strategy: "increase"
-  target-branch: v20-branch
