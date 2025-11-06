@@ -37,7 +37,7 @@ directory, to speed up subsequent runs of the same build.
 ## Before Install Phase
 
 If there are no tests defined (it checks the `/tests` directory), the execution will exit early, and no further processing takes
-place. We then install `node.js` 12 via `nvm`. Note: I don't believe this is actually needed any more for Altis modules. Finally, we
+place. We then install `node.js` 20 via `nvm`. Note: I don't believe this is actually needed any more for Altis modules. Finally, we
 authenticate with Docker Hub using secrets configured in the repositories.
 
 ## Before Script Phase
@@ -53,7 +53,7 @@ We then modify composer to require the current module on the pull request branch
 For example, if the current PR branch is `my-pr-branch` and the PR is against `v19-branch`, we alias that using
 `composer require module/name:dev-my-pr-branch as 19.0.0` or whatever version composer has calculated in the lock file.
 
-Next, we generate a `salts.php` file with ther output of a call to <https://api.wordpress.org/secret-key/1.1/salt/> as `wp-phpunit`
+Next, we generate a `salts.php` file with the output of a call to <https://api.wordpress.org/secret-key/1.1/salt/> as `wp-phpunit`
 requires these to be defined now. Then we append `require_once __DIR__ . '/salts.php` to the `.config/load.php` file.
 
 ## Script Phase
