@@ -9,7 +9,7 @@ php:
 
 # Set NodeJS version to match the build server.
 node_js:
-  - 20
+  - 24
 
 # Ensure docker-compose is available
 services:
@@ -37,8 +37,8 @@ cache:
 before_install:
   # Exit early if no tests are found
   - test -n "$(find $TRAVIS_BUILD_DIR/tests -maxdepth 1 -name '*.suite.yml' 2>/dev/null)" || exit 0
-  - nvm install v20
-  - nvm use v20
+  - nvm install v24
+  - nvm use v24
   # Authenticate with docker hub.
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 

@@ -37,8 +37,8 @@ directory, to speed up subsequent runs of the same build.
 ## Before Install Phase
 
 If there are no tests defined (it checks the `/tests` directory), the execution will exit early, and no further processing takes
-place. We then install `node.js` 20 via `nvm`. Note: I don't believe this is actually needed any more for Altis modules. Finally, we
-authenticate with Docker Hub using secrets configured in the repositories.
+place. We then install `node.js` 24 via `nvm`. Note: I don't believe this is actually needed any more for Altis modules. 
+Finally, we authenticate with Docker Hub using secrets configured in the repositories.
 
 ## Before Script Phase
 

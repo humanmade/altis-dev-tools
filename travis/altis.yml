@@ -9,7 +9,7 @@ php:
 
 # Set NodeJS version to match the build server.
 node_js:
-  - 20
+  - 24
 
 # Ensure docker-compose is available
 services:
