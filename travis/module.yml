@@ -5,11 +5,11 @@ dist: jammy
 # Ensure PHP CLI and Composer are available
 language: php
 php:
-  - '8.1'
+  - '8.3'
 
 # Set NodeJS version to match the build server.
 node_js:
-  - 12
+  - 24
 
 # Ensure docker-compose is available
 services:
@@ -37,8 +37,8 @@ cache:
 before_install:
   # Exit early if no tests are found
   - test -n "$(find $TRAVIS_BUILD_DIR/tests -maxdepth 1 -name '*.suite.yml' 2>/dev/null)" || exit 0
-  - nvm install v12
-  - nvm use v12
+  - nvm install v24
+  - nvm use v24
   # Authenticate with docker hub.
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
