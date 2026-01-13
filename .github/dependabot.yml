@@ -10,6 +10,8 @@ updates:
   allow:
   - dependency-type: "direct"
   versioning-strategy: "increase"
+  commit-message:
+    prefix: "[master]"
 - package-ecosystem: composer
   directory: "/"
   schedule:
@@ -21,6 +23,8 @@ updates:
     - dependency-type: "direct"
   versioning-strategy: "increase"
   target-branch: v25-branch
+  commit-message:
+    prefix: "[v25-branch]"
 - package-ecosystem: composer
   directory: "/"
   schedule:
@@ -32,6 +36,8 @@ updates:
     - dependency-type: "direct"
   versioning-strategy: "increase"
   target-branch: v24-branch
+  commit-message:
+    prefix: "[v24-branch]"
 - package-ecosystem: composer
   directory: "/"
   schedule:
@@ -43,6 +49,8 @@ updates:
   - dependency-type: "direct"
   versioning-strategy: "increase"
   target-branch: v23-branch
+  commit-message:
+    prefix: "[v23-branch]"
 - package-ecosystem: composer
   directory: "/"
   schedule:
@@ -54,3 +62,5 @@ updates:
   - dependency-type: "direct"
   versioning-strategy: "increase"
   target-branch: v22-branch
+  commit-message:
+    prefix: "[v22-branch]"
