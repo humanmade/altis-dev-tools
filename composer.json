@@ -30,7 +30,7 @@
 		"codeception/module-filesystem": "~3.0",
 		"codeception/module-cli": "~2.0",
 		"codeception/util-universalframework": "~2.0",
-		"codeception/codeception": "~5.3.3",
+		"codeception/codeception": "~5.3.4",
 		"behat/gherkin": "~4.16.1"
   },
 	"extra": {
