@@ -1,4 +1,4 @@
-<?php  //[STAMP] 76cb38b1e5922a5be98081e03aa1eadf
+<?php  //[STAMP] 163243aacda7eb6a153e2975f0ad9cb0
 // phpcs:ignoreFile
 namespace _generated;
 
@@ -7442,7 +7442,7 @@ trait FunctionalTesterActions
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
-     * Go to a page in the admininstration area of the site.
+     * Go to a page in the administration area of the site.
      *
      * This method will **not** handle authentication to the administration area.
      *
