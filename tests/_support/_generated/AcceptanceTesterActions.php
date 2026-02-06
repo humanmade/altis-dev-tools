@@ -1,4 +1,4 @@
-<?php  //[STAMP] 0a5fbc61a1d6a7fe3afd3703c550e015
+<?php  //[STAMP] 0986a831d9f2e8b79195c0e4276a17ec
 // phpcs:ignoreFile
 namespace _generated;
 
@@ -8147,7 +8147,7 @@ trait AcceptanceTesterActions
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
-     * Go to a page in the admininstration area of the site.
+     * Go to a page in the administration area of the site.
      *
      * This method will **not** handle authentication to the administration area.
      *
