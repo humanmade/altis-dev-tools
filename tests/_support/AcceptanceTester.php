@@ -75,10 +75,22 @@ class AcceptanceTester extends \Codeception\Actor
 	 * @return void
 	 */
 	public function reindexContent( string $options = '' ) {
+		// Get URL from environment or fallback to reading from codeception.env file.
+		$url = getenv( 'TEST_SITE_WP_URL' );
+		if ( empty( $url ) ) {
+			$env_file = \Codeception\Configuration::projectDir() . 'codeception.env';
+			if ( file_exists( $env_file ) ) {
+				$contents = file_get_contents( $env_file );
+				if ( preg_match( '/^TEST_SITE_WP_URL=(.+)$/m', $contents, $matches ) ) {
+					$url = trim( $matches[1] );
+				}
+			}
+		}
+
 		// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.system_calls_exec
 		exec( sprintf(
 			'WPBROWSER_HOST_REQUEST=1 wp elasticpress sync --network-wide --setup --yes --url=%s %s',
-			getenv( 'TEST_SITE_WP_DOMAIN' ),
+			$url,
 			$options
 		), $output );
 	}

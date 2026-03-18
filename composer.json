@@ -17,20 +17,21 @@
 		]
 	},
 	"require": {
-		"johnbillion/query-monitor": "^3.16.4",
+		"johnbillion/query-monitor": "^3.20.2",
 		"altis/dev-tools-command": "^0.8.1",
-		"wp-phpunit/wp-phpunit": "6.7.0",
-		"yoast/phpunit-polyfills": "^3.0.0",
+		"wp-phpunit/wp-phpunit": "6.8.1",
+		"yoast/phpunit-polyfills": "^4.0.0",
 		"phpunit/phpunit": "~9.6",
-		"lucatume/wp-browser": "~4.3.8",
-		"codeception/module-asserts": "~3.0",
+		"lucatume/wp-browser": "~4.5.15",
+		"codeception/module-asserts": "~3.1",
 		"codeception/module-phpbrowser": "~3.0",
 		"codeception/module-webdriver": "~3.0",
-		"codeception/module-db": "~3.1",
+		"codeception/module-db": "~3.2",
 		"codeception/module-filesystem": "~3.0",
 		"codeception/module-cli": "~2.0",
-		"codeception/util-universalframework": "~1.0",
-		"codeception/codeception": "~5.1.2"
+		"codeception/util-universalframework": "~2.0",
+		"codeception/codeception": "~5.3.5",
+		"behat/gherkin": "~4.16.1"
   },
 	"extra": {
 		"altis": {

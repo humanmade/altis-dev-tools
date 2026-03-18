@@ -1,4 +1,4 @@
-<?php  //[STAMP] 57a2a27e12d9514968441a0e924111df
+<?php  //[STAMP] 0986a831d9f2e8b79195c0e4276a17ec
 // phpcs:ignoreFile
 namespace _generated;
 
@@ -12,7 +12,7 @@ trait AcceptanceTesterActions
      */
     abstract protected function getScenario();
 
-    
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -35,7 +35,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveSiteMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -61,7 +61,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabSiteMetaFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -83,7 +83,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabPostFieldFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -107,7 +107,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('importSqlDumpFile', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -164,7 +164,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeOptionInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -192,7 +192,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabPrefixedTableNameFor', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -237,7 +237,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seePostMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -282,7 +282,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeLinkInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -323,7 +323,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeLinkInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -368,7 +368,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeePostMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -433,7 +433,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seePostWithTermInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -484,7 +484,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeUserInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -529,7 +529,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeUserInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -556,7 +556,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('havePageInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -591,7 +591,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('havePostInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -613,7 +613,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabPostsTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -639,7 +639,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabLatestEntryByFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -668,7 +668,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('havePostmetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -690,7 +690,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabPostmetaTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -716,7 +716,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabTermIdFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -738,7 +738,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabTermsTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -769,7 +769,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveTermInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -791,7 +791,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabTermTaxonomyTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -820,7 +820,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveTermMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -842,7 +842,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabTermMetaTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -867,7 +867,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabTermTaxonomyIdFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -891,7 +891,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('haveTermRelationshipInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -909,7 +909,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabTermRelationshipsTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -954,7 +954,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seePageInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -999,7 +999,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seePostInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1040,7 +1040,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeePageInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1085,7 +1085,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeePostInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1128,7 +1128,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeCommentInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1177,7 +1177,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeCommentInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1224,7 +1224,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeCommentMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1273,7 +1273,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeCommentMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1312,7 +1312,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeUserMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1357,7 +1357,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeUserMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1375,7 +1375,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveLinkInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1395,7 +1395,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1416,7 +1416,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveTermRelationshipInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1437,7 +1437,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveTermTaxonomyInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1458,7 +1458,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveUserMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1486,7 +1486,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabUserMetaFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1511,7 +1511,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabAllFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1537,7 +1537,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveTransientInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1562,7 +1562,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveOptionInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1581,7 +1581,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveTransientInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1603,7 +1603,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveOptionInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1626,7 +1626,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveSiteOptionInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1645,7 +1645,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('useMainBlog', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1670,7 +1670,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('useBlog', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1694,7 +1694,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabBlogUrl', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1716,7 +1716,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveSiteOptionInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1740,7 +1740,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveSiteTransientInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1758,7 +1758,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveSiteTransientInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1778,7 +1778,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabSiteOptionFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1798,7 +1798,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabOptionFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1819,7 +1819,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabSiteTransientFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1866,7 +1866,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeSiteSiteTransientInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1923,7 +1923,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeOptionInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -1974,7 +1974,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeSiteOptionInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2007,7 +2007,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveManyPostsInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2052,7 +2052,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeTermInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2074,7 +2074,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveTermInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2095,7 +2095,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveTermMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2146,7 +2146,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeTermInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2172,7 +2172,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveManyCommentsInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2194,7 +2194,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveCommentInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2220,7 +2220,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveCommentMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2240,7 +2240,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabCommentmetaTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2265,7 +2265,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('countRowsInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2287,7 +2287,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveCommentInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2309,7 +2309,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabCommentsTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2330,7 +2330,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveCommentMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2354,7 +2354,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveManyLinksInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2374,7 +2374,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveLinkInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2396,7 +2396,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabLinksTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2425,7 +2425,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveManyUsersInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2485,7 +2485,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveUserInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2508,7 +2508,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('getUsersTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2530,7 +2530,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabUsersTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2576,7 +2576,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveUserCapabilitiesInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2600,7 +2600,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveUserMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2622,7 +2622,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabUsermetaTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2655,7 +2655,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveUserLevelsInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2680,7 +2680,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveManyTermsInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2721,7 +2721,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeTermTaxonomyInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2762,7 +2762,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeTermTaxonomyInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2805,7 +2805,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeTermMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2848,7 +2848,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeTermMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2885,7 +2885,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeTableInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2907,7 +2907,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabBlogVersionsTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2929,7 +2929,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabSiteMetaTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2951,7 +2951,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabSignupsTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2973,7 +2973,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabRegistrationLogTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -2995,7 +2995,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabSiteTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3040,7 +3040,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeBlogInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3062,7 +3062,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabBlogsTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3092,7 +3092,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveManyBlogsInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3121,7 +3121,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveBlogInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3142,7 +3142,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('getSiteDomain', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3169,7 +3169,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveBlogInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3196,7 +3196,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabBlogTableNames', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3219,7 +3219,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveTableInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3260,7 +3260,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeBlogInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3284,7 +3284,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('useTheme', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3307,7 +3307,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveMenuInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3334,7 +3334,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveMenuItemInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3375,7 +3375,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeTermRelationshipInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3415,7 +3415,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveAttachmentInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3435,7 +3435,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabSiteUrl', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3476,7 +3476,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeAttachmentInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3517,7 +3517,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeAttachmentInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3552,7 +3552,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveAttachmentInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3577,7 +3577,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveAttachmentFilesInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3600,7 +3600,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabAttachmentAttachedFile', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3623,7 +3623,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabAttachmentMetadata', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3643,7 +3643,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHavePostInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3662,7 +3662,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHavePostMetaInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3686,7 +3686,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveUserInDatabaseWithEmail', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3708,7 +3708,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabTablePrefix', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3732,7 +3732,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHaveUserInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3752,7 +3752,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabUserIdFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3774,7 +3774,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabPostMetaFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3798,7 +3798,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabBlogTableName', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3841,7 +3841,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeTableInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3863,7 +3863,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabBlogTablePrefix', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3886,7 +3886,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabBlogDomain', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3909,7 +3909,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabBlogPath', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3976,7 +3976,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeePostWithTermInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -3999,7 +3999,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('havePostThumbnailInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4024,7 +4024,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dontHavePostThumbnailInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4050,7 +4050,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('importSql', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4103,7 +4103,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeSiteOptionInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4125,7 +4125,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabTransientFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4170,7 +4170,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeTransientInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4217,7 +4217,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeTransientInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4264,7 +4264,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeSiteTransientInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4311,7 +4311,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeSiteTransientInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4332,7 +4332,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Condition('amConnectedToDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4374,7 +4374,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('performInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4383,7 +4383,7 @@ trait AcceptanceTesterActions
      *
      * ```php
      * <?php
-     * $I->haveInDatabase('users', array('name' => 'miles', 'email' => 'miles@davis.com'));
+     * $I->haveInDatabase('users', ['name' => 'miles', 'email' => 'miles@davis.com']);
      * ```
      * @see \Codeception\Module\Db::haveInDatabase()
      */
@@ -4391,7 +4391,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4446,7 +4446,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4485,7 +4485,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeNumRecords', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4544,7 +4544,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4553,7 +4553,7 @@ trait AcceptanceTesterActions
      *
      * ``` php
      * <?php
-     * $mails = $I->grabColumnFromDatabase('users', 'email', array('name' => 'RebOOter'));
+     * $mails = $I->grabColumnFromDatabase('users', 'email', ['name' => 'RebOOter']);
      * ```
      * @see \Codeception\Module\Db::grabColumnFromDatabase()
      */
@@ -4561,7 +4561,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabColumnFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4570,7 +4570,7 @@ trait AcceptanceTesterActions
      *
      * ``` php
      * <?php
-     * $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
+     * $mail = $I->grabFromDatabase('users', 'email', ['name' => 'Davert']);
      * ```
      * Comparison expressions can be used as well:
      *
@@ -4589,7 +4589,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4599,7 +4599,7 @@ trait AcceptanceTesterActions
      *
      * ``` php
      * <?php
-     * $mail = $I->grabEntryFromDatabase('users', array('name' => 'Davert'));
+     * $mail = $I->grabEntryFromDatabase('users', ['name' => 'Davert']);
      * ```
      * Comparison expressions can be used as well:
      *
@@ -4619,7 +4619,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabEntryFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4628,7 +4628,7 @@ trait AcceptanceTesterActions
      *
      * ``` php
      * <?php
-     * $mail = $I->grabEntriesFromDatabase('users', array('name' => 'Davert'));
+     * $mail = $I->grabEntriesFromDatabase('users', ['name' => 'Davert']);
      * ```
      * Comparison expressions can be used as well:
      *
@@ -4648,7 +4648,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabEntriesFromDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4663,7 +4663,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabNumRecords', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4671,7 +4671,7 @@ trait AcceptanceTesterActions
      *
      * ```php
      * <?php
-     * $I->updateInDatabase('users', array('isAdmin' => true), array('email' => 'miles@davis.com'));
+     * $I->updateInDatabase('users', ['isAdmin' => true], ['email' => 'miles@davis.com']);
      * ```
      * @see \Codeception\Module\Db::updateInDatabase()
      */
@@ -4679,7 +4679,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('updateInDatabase', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4705,7 +4705,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('loginAsAdmin', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4736,7 +4736,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('loginAs', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4758,7 +4758,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabCookiesWithPattern', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4778,7 +4778,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('waitForJqueryAjax', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4799,7 +4799,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabFullUrl', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4829,7 +4829,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('deactivatePlugin', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4859,7 +4859,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('activatePlugin', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4870,7 +4870,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('debugWebDriverLogs', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4894,7 +4894,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Condition('amOnSubdomain', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4914,7 +4914,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('makeScreenshot', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4936,7 +4936,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('makeElementScreenshot', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4955,7 +4955,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('makeHtmlSnapshot', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -4972,7 +4972,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('resizeWindow', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5009,7 +5009,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeCookie', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5036,7 +5036,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeCookie', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5055,7 +5055,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('setCookie', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5069,7 +5069,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('resetCookie', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5082,7 +5082,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabCookie', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5096,7 +5096,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabPageSource', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5113,7 +5113,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Condition('amOnUrl', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5132,7 +5132,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Condition('amOnPage', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5207,7 +5207,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('see', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5278,7 +5278,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSee', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5311,7 +5311,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeInSource', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5344,7 +5344,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeInSource', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5375,7 +5375,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeInPageSource', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5396,7 +5396,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeInPageSource', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5432,7 +5432,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('click', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5467,7 +5467,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeLink', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5502,7 +5502,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeLink', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5539,7 +5539,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeInCurrentUrl', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5574,7 +5574,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeCurrentUrlEquals', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5607,7 +5607,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeCurrentUrlMatches', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5638,7 +5638,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeInCurrentUrl', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5673,7 +5673,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeCurrentUrlEquals', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5706,7 +5706,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeCurrentUrlMatches', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5724,7 +5724,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabFromCurrentUrl', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5759,7 +5759,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeCheckboxIsChecked', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5792,7 +5792,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeCheckboxIsChecked', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5839,7 +5839,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeInField', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -5884,7 +5884,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeInField', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6007,7 +6007,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeInFormFields', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6092,7 +6092,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeInFormFields', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6125,7 +6125,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('selectOption', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6139,7 +6139,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('unselectOption', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6155,7 +6155,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('checkOption', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6171,7 +6171,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('uncheckOption', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6188,7 +6188,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('fillField', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6206,7 +6206,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('clearField', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6235,7 +6235,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('type', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6252,7 +6252,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('attachFile', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6272,7 +6272,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabTextFrom', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6289,7 +6289,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabAttributeFrom', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6309,7 +6309,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabValueFrom', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6338,7 +6338,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabMultiple', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6385,7 +6385,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeElement', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6424,7 +6424,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeElement', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6459,7 +6459,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeElementInDOM', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6484,7 +6484,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeElementInDOM', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6521,7 +6521,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeNumberOfElements', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6546,7 +6546,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeNumberOfElementsInDOM', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6581,7 +6581,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeOptionIsSelected', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6616,7 +6616,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeOptionIsSelected', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6651,7 +6651,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeInTitle', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6676,7 +6676,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeInTitle', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6689,7 +6689,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('acceptPopup', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6700,7 +6700,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('cancelPopup', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6727,7 +6727,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeInPopup', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6754,7 +6754,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeeInPopup', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6767,7 +6767,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('typeInPopup', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6778,7 +6778,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('reloadPage', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6789,7 +6789,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('moveBack', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6800,7 +6800,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('moveForward', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6964,7 +6964,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('submitForm', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -6988,7 +6988,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('waitForElementChange', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7010,7 +7010,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('waitForElement', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7032,7 +7032,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('waitForElementVisible', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7053,7 +7053,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('waitForElementNotVisible', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7075,7 +7075,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('waitForElementClickable', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7100,7 +7100,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('waitForText', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7114,7 +7114,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('wait', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7140,7 +7140,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('executeInSelenium', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7180,7 +7180,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('switchToWindow', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7210,7 +7210,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('switchToIFrame', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7240,7 +7240,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('switchToFrame', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7260,7 +7260,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('waitForJS', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7285,7 +7285,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('executeJS', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7310,7 +7310,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('executeAsyncJS', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7321,7 +7321,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('maximizeWindow', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7340,7 +7340,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('dragAndDrop', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7365,7 +7365,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('moveMouseOver', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7391,7 +7391,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('clickWithLeftButton', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7416,7 +7416,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('clickWithRightButton', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7430,7 +7430,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('doubleClick', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7458,7 +7458,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('pressKey', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7480,7 +7480,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('appendField', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7516,7 +7516,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('saveSessionSnapshot', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7532,7 +7532,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('loadSessionSnapshot', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7547,7 +7547,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('deleteSessionSnapshot', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7567,7 +7567,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('scrollTo', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7586,7 +7586,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('openNewTab', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7617,7 +7617,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeNumberOfTabs', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7633,7 +7633,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('closeTab', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7653,7 +7653,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('switchToNextTab', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7673,7 +7673,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('switchToPreviousTab', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7723,7 +7723,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('performOn', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7748,7 +7748,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('logOut', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7771,7 +7771,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Condition('amOnPluginsPage', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7791,7 +7791,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Condition('amOnPagesPage', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7838,7 +7838,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seePluginDeactivated', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7885,7 +7885,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seePluginInstalled', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7932,7 +7932,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seePluginActivated', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -7979,7 +7979,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('dontSeePluginInstalled', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -8030,7 +8030,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeErrorMessage', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -8071,7 +8071,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeWpDiePage', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -8120,7 +8120,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeMessage', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -8143,11 +8143,11 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabWordPressTestCookie', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
-     * Go to a page in the admininstration area of the site.
+     * Go to a page in the administration area of the site.
      *
      * This method will **not** handle authentication to the administration area.
      *
@@ -8166,7 +8166,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Condition('amOnAdminPage', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -8186,7 +8186,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Condition('amOnAdminAjaxPage', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -8205,7 +8205,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Condition('amOnCronPage', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -8228,7 +8228,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Condition('amEditingPostWithId', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -8253,7 +8253,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Condition('amEditingUserWithId', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -8266,7 +8266,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Condition('amOnThemesPage', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -8291,7 +8291,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabAvailableThemes', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -8313,7 +8313,7 @@ trait AcceptanceTesterActions
         return $this->getScenario()->runStep(new \Codeception\Step\Action('grabActiveTheme', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -8337,7 +8337,7 @@ trait AcceptanceTesterActions
         $this->getScenario()->runStep(new \Codeception\Step\Action('activateTheme', func_get_args()));
     }
 
- 
+
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
@@ -8384,1692 +8384,5 @@ trait AcceptanceTesterActions
      */
     public function canSeeThemeActivated(string $slug): void {
         $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeThemeActivated', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Handles and checks throwables (Exceptions/Errors) called inside the callback function.
-     * Either throwable class name or throwable instance should be provided.
-     *
-     * ```php
-     * <?php
-     * $I->expectThrowable(MyThrowable::class, function() {
-     *     $this->doSomethingBad();
-     * });
-     *
-     * $I->expectThrowable(new MyException(), function() {
-     *     $this->doSomethingBad();
-     * });
-     * ```
-     * If you want to check message or throwable code, you can pass them with throwable instance:
-     * ```php
-     * <?php
-     * // will check that throwable MyError is thrown with "Don't do bad things" message
-     * $I->expectThrowable(new MyError("Don't do bad things"), function() {
-     *     $this->doSomethingBad();
-     * });
-     * ```
-     *
-     * @param \Throwable|string $throwable
-     * @see \Codeception\Module\Asserts::expectThrowable()
-     */
-    public function expectThrowable($throwable, callable $callback): void {
-        $this->getScenario()->runStep(new \Codeception\Step\Action('expectThrowable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a file does not exist.
-     * @see \Codeception\Module\AbstractAsserts::assertFileNotExists()
-     */
-    public function assertFileNotExists(string $filename, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileNotExists', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a value is greater than or equal to another value.
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertGreaterOrEquals()
-     */
-    public function assertGreaterOrEquals($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertGreaterOrEquals', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is empty.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsEmpty()
-     */
-    public function assertIsEmpty($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsEmpty', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a value is smaller than or equal to another value.
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertLessOrEquals()
-     */
-    public function assertLessOrEquals($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertLessOrEquals', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a string does not match a given regular expression.
-     * @see \Codeception\Module\AbstractAsserts::assertNotRegExp()
-     */
-    public function assertNotRegExp(string $pattern, string $string, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotRegExp', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a string matches a given regular expression.
-     * @see \Codeception\Module\AbstractAsserts::assertRegExp()
-     */
-    public function assertRegExp(string $pattern, string $string, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertRegExp', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Evaluates a PHPUnit\Framework\Constraint matcher object.
-     *
-     * @param mixed $value
-     * @see \Codeception\Module\AbstractAsserts::assertThatItsNot()
-     */
-    public function assertThatItsNot($value, \PHPUnit\Framework\Constraint\Constraint $constraint, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertThatItsNot', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that an array has a specified key.
-     *
-     * @param int|string $key
-     * @param array|\ArrayAccess $array
-     * @see \Codeception\Module\AbstractAsserts::assertArrayHasKey()
-     */
-    public function assertArrayHasKey($key, $array, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertArrayHasKey', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that an array does not have a specified key.
-     *
-     * @param int|string $key
-     * @param array|\ArrayAccess $array
-     * @see \Codeception\Module\AbstractAsserts::assertArrayNotHasKey()
-     */
-    public function assertArrayNotHasKey($key, $array, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertArrayNotHasKey', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a class has a specified attribute.
-     * @see \Codeception\Module\AbstractAsserts::assertClassHasAttribute()
-     */
-    public function assertClassHasAttribute(string $attributeName, string $className, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertClassHasAttribute', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a class has a specified static attribute.
-     * @see \Codeception\Module\AbstractAsserts::assertClassHasStaticAttribute()
-     */
-    public function assertClassHasStaticAttribute(string $attributeName, string $className, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertClassHasStaticAttribute', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a class does not have a specified attribute.
-     * @see \Codeception\Module\AbstractAsserts::assertClassNotHasAttribute()
-     */
-    public function assertClassNotHasAttribute(string $attributeName, string $className, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertClassNotHasAttribute', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a class does not have a specified static attribute.
-     * @see \Codeception\Module\AbstractAsserts::assertClassNotHasStaticAttribute()
-     */
-    public function assertClassNotHasStaticAttribute(string $attributeName, string $className, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertClassNotHasStaticAttribute', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a haystack contains a needle.
-     *
-     * @param mixed $needle
-     * @see \Codeception\Module\AbstractAsserts::assertContains()
-     */
-    public function assertContains($needle, iterable $haystack, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertContains', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * @param mixed $needle
-     * @see \Codeception\Module\AbstractAsserts::assertContainsEquals()
-     */
-    public function assertContainsEquals($needle, iterable $haystack, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertContainsEquals', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a haystack contains only values of a given type.
-     * @see \Codeception\Module\AbstractAsserts::assertContainsOnly()
-     */
-    public function assertContainsOnly(string $type, iterable $haystack, ?bool $isNativeType = NULL, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertContainsOnly', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a haystack contains only instances of a given class name.
-     * @see \Codeception\Module\AbstractAsserts::assertContainsOnlyInstancesOf()
-     */
-    public function assertContainsOnlyInstancesOf(string $className, iterable $haystack, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertContainsOnlyInstancesOf', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts the number of elements of an array, Countable or Traversable.
-     *
-     * @param \Countable|iterable $haystack
-     * @see \Codeception\Module\AbstractAsserts::assertCount()
-     */
-    public function assertCount(int $expectedCount, $haystack, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertCount', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a directory does not exist.
-     * @see \Codeception\Module\AbstractAsserts::assertDirectoryDoesNotExist()
-     */
-    public function assertDirectoryDoesNotExist(string $directory, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertDirectoryDoesNotExist', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a directory exists.
-     * @see \Codeception\Module\AbstractAsserts::assertDirectoryExists()
-     */
-    public function assertDirectoryExists(string $directory, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertDirectoryExists', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a directory exists and is not readable.
-     * @see \Codeception\Module\AbstractAsserts::assertDirectoryIsNotReadable()
-     */
-    public function assertDirectoryIsNotReadable(string $directory, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertDirectoryIsNotReadable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a directory exists and is not writable.
-     * @see \Codeception\Module\AbstractAsserts::assertDirectoryIsNotWritable()
-     */
-    public function assertDirectoryIsNotWritable(string $directory, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertDirectoryIsNotWritable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a directory exists and is readable.
-     * @see \Codeception\Module\AbstractAsserts::assertDirectoryIsReadable()
-     */
-    public function assertDirectoryIsReadable(string $directory, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertDirectoryIsReadable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a directory exists and is writable.
-     * @see \Codeception\Module\AbstractAsserts::assertDirectoryIsWritable()
-     */
-    public function assertDirectoryIsWritable(string $directory, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertDirectoryIsWritable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a string does not match a given regular expression.
-     * @see \Codeception\Module\AbstractAsserts::assertDoesNotMatchRegularExpression()
-     */
-    public function assertDoesNotMatchRegularExpression(string $pattern, string $string, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertDoesNotMatchRegularExpression', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is empty.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertEmpty()
-     */
-    public function assertEmpty($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertEmpty', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two variables are equal.
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertEquals()
-     */
-    public function assertEquals($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertEquals', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two variables are equal (canonicalizing).
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertEqualsCanonicalizing()
-     */
-    public function assertEqualsCanonicalizing($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertEqualsCanonicalizing', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two variables are equal (ignoring case).
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertEqualsIgnoringCase()
-     */
-    public function assertEqualsIgnoringCase($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertEqualsIgnoringCase', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two variables are equal (with delta).
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertEqualsWithDelta()
-     */
-    public function assertEqualsWithDelta($expected, $actual, float $delta, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertEqualsWithDelta', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a condition is false.
-     *
-     * @param mixed $condition
-     * @see \Codeception\Module\AbstractAsserts::assertFalse()
-     */
-    public function assertFalse($condition, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFalse', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a file does not exist.
-     * @see \Codeception\Module\AbstractAsserts::assertFileDoesNotExist()
-     */
-    public function assertFileDoesNotExist(string $filename, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileDoesNotExist', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that the contents of one file is equal to the contents of another file.
-     * @see \Codeception\Module\AbstractAsserts::assertFileEquals()
-     */
-    public function assertFileEquals(string $expected, string $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileEquals', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that the contents of one file is equal to the contents of another file (canonicalizing).
-     * @see \Codeception\Module\AbstractAsserts::assertFileEqualsCanonicalizing()
-     */
-    public function assertFileEqualsCanonicalizing(string $expected, string $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileEqualsCanonicalizing', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that the contents of one file is equal to the contents of another file (ignoring case).
-     * @see \Codeception\Module\AbstractAsserts::assertFileEqualsIgnoringCase()
-     */
-    public function assertFileEqualsIgnoringCase(string $expected, string $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileEqualsIgnoringCase', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a file exists.
-     * @see \Codeception\Module\AbstractAsserts::assertFileExists()
-     */
-    public function assertFileExists(string $filename, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileExists', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a file exists and is not readable.
-     * @see \Codeception\Module\AbstractAsserts::assertFileIsNotReadable()
-     */
-    public function assertFileIsNotReadable(string $file, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileIsNotReadable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a file exists and is not writable.
-     * @see \Codeception\Module\AbstractAsserts::assertFileIsNotWritable()
-     */
-    public function assertFileIsNotWritable(string $file, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileIsNotWritable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a file exists and is readable.
-     * @see \Codeception\Module\AbstractAsserts::assertFileIsReadable()
-     */
-    public function assertFileIsReadable(string $file, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileIsReadable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a file exists and is writable.
-     * @see \Codeception\Module\AbstractAsserts::assertFileIsWritable()
-     */
-    public function assertFileIsWritable(string $file, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileIsWritable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that the contents of one file is not equal to the contents of another file.
-     * @see \Codeception\Module\AbstractAsserts::assertFileNotEquals()
-     */
-    public function assertFileNotEquals(string $expected, string $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileNotEquals', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that the contents of one file is not equal to the contents of another file (canonicalizing).
-     * @see \Codeception\Module\AbstractAsserts::assertFileNotEqualsCanonicalizing()
-     */
-    public function assertFileNotEqualsCanonicalizing(string $expected, string $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileNotEqualsCanonicalizing', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that the contents of one file is not equal to the contents of another file (ignoring case).
-     * @see \Codeception\Module\AbstractAsserts::assertFileNotEqualsIgnoringCase()
-     */
-    public function assertFileNotEqualsIgnoringCase(string $expected, string $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFileNotEqualsIgnoringCase', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is finite.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertFinite()
-     */
-    public function assertFinite($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertFinite', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a value is greater than another value.
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertGreaterThan()
-     */
-    public function assertGreaterThan($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertGreaterThan', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a value is greater than or equal to another value.
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertGreaterThanOrEqual()
-     */
-    public function assertGreaterThanOrEqual($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertGreaterThanOrEqual', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is infinite.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertInfinite()
-     */
-    public function assertInfinite($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertInfinite', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is of a given type.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertInstanceOf()
-     */
-    public function assertInstanceOf(string $expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertInstanceOf', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is of type array.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsArray()
-     */
-    public function assertIsArray($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsArray', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is of type bool.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsBool()
-     */
-    public function assertIsBool($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsBool', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is of type callable.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsCallable()
-     */
-    public function assertIsCallable($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsCallable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is of type resource and is closed.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsClosedResource()
-     */
-    public function assertIsClosedResource($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsClosedResource', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is of type float.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsFloat()
-     */
-    public function assertIsFloat($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsFloat', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is of type int.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsInt()
-     */
-    public function assertIsInt($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsInt', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is of type iterable.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsIterable()
-     */
-    public function assertIsIterable($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsIterable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is not of type array.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsNotArray()
-     */
-    public function assertIsNotArray($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotArray', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is not of type bool.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsNotBool()
-     */
-    public function assertIsNotBool($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotBool', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is not of type callable.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsNotCallable()
-     */
-    public function assertIsNotCallable($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotCallable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is not of type resource.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsNotClosedResource()
-     */
-    public function assertIsNotClosedResource($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotClosedResource', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is not of type float.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsNotFloat()
-     */
-    public function assertIsNotFloat($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotFloat', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is not of type int.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsNotInt()
-     */
-    public function assertIsNotInt($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotInt', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is not of type iterable.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsNotIterable()
-     */
-    public function assertIsNotIterable($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotIterable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is not of type numeric.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsNotNumeric()
-     */
-    public function assertIsNotNumeric($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotNumeric', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is not of type object.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsNotObject()
-     */
-    public function assertIsNotObject($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotObject', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a file/dir exists and is not readable.
-     * @see \Codeception\Module\AbstractAsserts::assertIsNotReadable()
-     */
-    public function assertIsNotReadable(string $filename, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotReadable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is not of type resource.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsNotResource()
-     */
-    public function assertIsNotResource($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotResource', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is not of type scalar.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsNotScalar()
-     */
-    public function assertIsNotScalar($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotScalar', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is not of type string.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsNotString()
-     */
-    public function assertIsNotString($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotString', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a file/dir exists and is not writable.
-     * @see \Codeception\Module\AbstractAsserts::assertIsNotWritable()
-     */
-    public function assertIsNotWritable(string $filename, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNotWritable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is of type numeric.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsNumeric()
-     */
-    public function assertIsNumeric($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsNumeric', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is of type object.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsObject()
-     */
-    public function assertIsObject($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsObject', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a file/dir is readable.
-     * @see \Codeception\Module\AbstractAsserts::assertIsReadable()
-     */
-    public function assertIsReadable(string $filename, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsReadable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is of type resource.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsResource()
-     */
-    public function assertIsResource($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsResource', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is of type scalar.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsScalar()
-     */
-    public function assertIsScalar($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsScalar', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is of type string.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertIsString()
-     */
-    public function assertIsString($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsString', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a file/dir exists and is writable.
-     * @see \Codeception\Module\AbstractAsserts::assertIsWritable()
-     */
-    public function assertIsWritable(string $filename, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertIsWritable', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a string is a valid JSON string.
-     * @see \Codeception\Module\AbstractAsserts::assertJson()
-     */
-    public function assertJson(string $actualJson, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertJson', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two JSON files are equal.
-     * @see \Codeception\Module\AbstractAsserts::assertJsonFileEqualsJsonFile()
-     */
-    public function assertJsonFileEqualsJsonFile(string $expectedFile, string $actualFile, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertJsonFileEqualsJsonFile', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two JSON files are not equal.
-     * @see \Codeception\Module\AbstractAsserts::assertJsonFileNotEqualsJsonFile()
-     */
-    public function assertJsonFileNotEqualsJsonFile(string $expectedFile, string $actualFile, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertJsonFileNotEqualsJsonFile', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that the generated JSON encoded object and the content of the given file are equal.
-     * @see \Codeception\Module\AbstractAsserts::assertJsonStringEqualsJsonFile()
-     */
-    public function assertJsonStringEqualsJsonFile(string $expectedFile, string $actualJson, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertJsonStringEqualsJsonFile', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two given JSON encoded objects or arrays are equal.
-     * @see \Codeception\Module\AbstractAsserts::assertJsonStringEqualsJsonString()
-     */
-    public function assertJsonStringEqualsJsonString(string $expectedJson, string $actualJson, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertJsonStringEqualsJsonString', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that the generated JSON encoded object and the content of the given file are not equal.
-     * @see \Codeception\Module\AbstractAsserts::assertJsonStringNotEqualsJsonFile()
-     */
-    public function assertJsonStringNotEqualsJsonFile(string $expectedFile, string $actualJson, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertJsonStringNotEqualsJsonFile', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two given JSON encoded objects or arrays are not equal.
-     * @see \Codeception\Module\AbstractAsserts::assertJsonStringNotEqualsJsonString()
-     */
-    public function assertJsonStringNotEqualsJsonString(string $expectedJson, string $actualJson, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertJsonStringNotEqualsJsonString', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a value is smaller than another value.
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertLessThan()
-     */
-    public function assertLessThan($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertLessThan', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a value is smaller than or equal to another value.
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertLessThanOrEqual()
-     */
-    public function assertLessThanOrEqual($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertLessThanOrEqual', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a string matches a given regular expression.
-     * @see \Codeception\Module\AbstractAsserts::assertMatchesRegularExpression()
-     */
-    public function assertMatchesRegularExpression(string $pattern, string $string, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertMatchesRegularExpression', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is nan.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertNan()
-     */
-    public function assertNan($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNan', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a haystack does not contain a needle.
-     *
-     * @param mixed $needle
-     * @see \Codeception\Module\AbstractAsserts::assertNotContains()
-     */
-    public function assertNotContains($needle, iterable $haystack, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotContains', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     *
-     * @see \Codeception\Module\AbstractAsserts::assertNotContainsEquals()
-     */
-    public function assertNotContainsEquals($needle, iterable $haystack, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotContainsEquals', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a haystack does not contain only values of a given type.
-     * @see \Codeception\Module\AbstractAsserts::assertNotContainsOnly()
-     */
-    public function assertNotContainsOnly(string $type, iterable $haystack, ?bool $isNativeType = NULL, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotContainsOnly', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts the number of elements of an array, Countable or Traversable.
-     *
-     * @param \Countable|iterable $haystack
-     * @see \Codeception\Module\AbstractAsserts::assertNotCount()
-     */
-    public function assertNotCount(int $expectedCount, $haystack, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotCount', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is not empty.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertNotEmpty()
-     */
-    public function assertNotEmpty($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotEmpty', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two variables are not equal.
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertNotEquals()
-     */
-    public function assertNotEquals($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotEquals', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two variables are not equal (canonicalizing).
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertNotEqualsCanonicalizing()
-     */
-    public function assertNotEqualsCanonicalizing($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotEqualsCanonicalizing', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two variables are not equal (ignoring case).
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertNotEqualsIgnoringCase()
-     */
-    public function assertNotEqualsIgnoringCase($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotEqualsIgnoringCase', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two variables are not equal (with delta).
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertNotEqualsWithDelta()
-     */
-    public function assertNotEqualsWithDelta($expected, $actual, float $delta, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotEqualsWithDelta', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a condition is not false.
-     *
-     * @param mixed $condition
-     * @see \Codeception\Module\AbstractAsserts::assertNotFalse()
-     */
-    public function assertNotFalse($condition, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotFalse', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is not of a given type.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertNotInstanceOf()
-     */
-    public function assertNotInstanceOf(string $expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotInstanceOf', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is not null.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertNotNull()
-     */
-    public function assertNotNull($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotNull', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two variables do not have the same type and value.
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertNotSame()
-     */
-    public function assertNotSame($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotSame', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Assert that the size of two arrays (or `Countable` or `Traversable` objects) is not the same.
-     *
-     * @param \Countable|iterable $expected
-     * @param \Countable|iterable $actual
-     * @see \Codeception\Module\AbstractAsserts::assertNotSameSize()
-     */
-    public function assertNotSameSize($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotSameSize', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a condition is not true.
-     *
-     * @param mixed $condition
-     * @see \Codeception\Module\AbstractAsserts::assertNotTrue()
-     */
-    public function assertNotTrue($condition, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNotTrue', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a variable is null.
-     *
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertNull()
-     */
-    public function assertNull($actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertNull', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that an object has a specified attribute.
-     * @see \Codeception\Module\AbstractAsserts::assertObjectHasAttribute()
-     */
-    public function assertObjectHasAttribute(string $attributeName, object $object, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertObjectHasAttribute', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that an object does not have a specified attribute.
-     * @see \Codeception\Module\AbstractAsserts::assertObjectNotHasAttribute()
-     */
-    public function assertObjectNotHasAttribute(string $attributeName, object $object, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertObjectNotHasAttribute', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two variables have the same type and value.
-     *
-     * @param mixed $expected
-     * @param mixed $actual
-     * @see \Codeception\Module\AbstractAsserts::assertSame()
-     */
-    public function assertSame($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertSame', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Assert that the size of two arrays (or `Countable` or `Traversable` objects) is the same.
-     *
-     * @param \Countable|iterable $expected
-     * @param \Countable|iterable $actual
-     * @see \Codeception\Module\AbstractAsserts::assertSameSize()
-     */
-    public function assertSameSize($expected, $actual, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertSameSize', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     *
-     * @see \Codeception\Module\AbstractAsserts::assertStringContainsString()
-     */
-    public function assertStringContainsString(string $needle, string $haystack, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringContainsString', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     *
-     * @see \Codeception\Module\AbstractAsserts::assertStringContainsStringIgnoringCase()
-     */
-    public function assertStringContainsStringIgnoringCase(string $needle, string $haystack, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringContainsStringIgnoringCase', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a string ends not with a given suffix.
-     * @see \Codeception\Module\AbstractAsserts::assertStringEndsNotWith()
-     */
-    public function assertStringEndsNotWith(string $suffix, string $string, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringEndsNotWith', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a string ends with a given suffix.
-     * @see \Codeception\Module\AbstractAsserts::assertStringEndsWith()
-     */
-    public function assertStringEndsWith(string $suffix, string $string, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringEndsWith', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that the contents of a string is equal to the contents of a file.
-     * @see \Codeception\Module\AbstractAsserts::assertStringEqualsFile()
-     */
-    public function assertStringEqualsFile(string $expectedFile, string $actualString, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringEqualsFile', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that the contents of a string is equal to the contents of a file (canonicalizing).
-     * @see \Codeception\Module\AbstractAsserts::assertStringEqualsFileCanonicalizing()
-     */
-    public function assertStringEqualsFileCanonicalizing(string $expectedFile, string $actualString, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringEqualsFileCanonicalizing', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that the contents of a string is equal to the contents of a file (ignoring case).
-     * @see \Codeception\Module\AbstractAsserts::assertStringEqualsFileIgnoringCase()
-     */
-    public function assertStringEqualsFileIgnoringCase(string $expectedFile, string $actualString, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringEqualsFileIgnoringCase', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a string matches a given format string.
-     * @see \Codeception\Module\AbstractAsserts::assertStringMatchesFormat()
-     */
-    public function assertStringMatchesFormat(string $format, string $string, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringMatchesFormat', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a string matches a given format file.
-     * @see \Codeception\Module\AbstractAsserts::assertStringMatchesFormatFile()
-     */
-    public function assertStringMatchesFormatFile(string $formatFile, string $string, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringMatchesFormatFile', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     *
-     * @see \Codeception\Module\AbstractAsserts::assertStringNotContainsString()
-     */
-    public function assertStringNotContainsString(string $needle, string $haystack, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringNotContainsString', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     *
-     * @see \Codeception\Module\AbstractAsserts::assertStringNotContainsStringIgnoringCase()
-     */
-    public function assertStringNotContainsStringIgnoringCase(string $needle, string $haystack, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringNotContainsStringIgnoringCase', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that the contents of a string is not equal to the contents of a file.
-     * @see \Codeception\Module\AbstractAsserts::assertStringNotEqualsFile()
-     */
-    public function assertStringNotEqualsFile(string $expectedFile, string $actualString, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringNotEqualsFile', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that the contents of a string is not equal to the contents of a file (canonicalizing).
-     * @see \Codeception\Module\AbstractAsserts::assertStringNotEqualsFileCanonicalizing()
-     */
-    public function assertStringNotEqualsFileCanonicalizing(string $expectedFile, string $actualString, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringNotEqualsFileCanonicalizing', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that the contents of a string is not equal to the contents of a file (ignoring case).
-     * @see \Codeception\Module\AbstractAsserts::assertStringNotEqualsFileIgnoringCase()
-     */
-    public function assertStringNotEqualsFileIgnoringCase(string $expectedFile, string $actualString, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringNotEqualsFileIgnoringCase', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a string does not match a given format string.
-     * @see \Codeception\Module\AbstractAsserts::assertStringNotMatchesFormat()
-     */
-    public function assertStringNotMatchesFormat(string $format, string $string, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringNotMatchesFormat', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a string does not match a given format string.
-     * @see \Codeception\Module\AbstractAsserts::assertStringNotMatchesFormatFile()
-     */
-    public function assertStringNotMatchesFormatFile(string $formatFile, string $string, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringNotMatchesFormatFile', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a string starts not with a given prefix.
-     * @see \Codeception\Module\AbstractAsserts::assertStringStartsNotWith()
-     */
-    public function assertStringStartsNotWith(string $prefix, string $string, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringStartsNotWith', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a string starts with a given prefix.
-     * @see \Codeception\Module\AbstractAsserts::assertStringStartsWith()
-     */
-    public function assertStringStartsWith(string $prefix, string $string, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertStringStartsWith', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Evaluates a PHPUnit\Framework\Constraint matcher object.
-     *
-     * @param mixed $value
-     * @see \Codeception\Module\AbstractAsserts::assertThat()
-     */
-    public function assertThat($value, \PHPUnit\Framework\Constraint\Constraint $constraint, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertThat', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that a condition is true.
-     *
-     * @param mixed $condition
-     * @see \Codeception\Module\AbstractAsserts::assertTrue()
-     */
-    public function assertTrue($condition, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertTrue', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two XML files are equal.
-     * @see \Codeception\Module\AbstractAsserts::assertXmlFileEqualsXmlFile()
-     */
-    public function assertXmlFileEqualsXmlFile(string $expectedFile, string $actualFile, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertXmlFileEqualsXmlFile', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two XML files are not equal.
-     * @see \Codeception\Module\AbstractAsserts::assertXmlFileNotEqualsXmlFile()
-     */
-    public function assertXmlFileNotEqualsXmlFile(string $expectedFile, string $actualFile, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertXmlFileNotEqualsXmlFile', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two XML documents are equal.
-     *
-     * @param \DOMDocument|string $actualXml
-     * @see \Codeception\Module\AbstractAsserts::assertXmlStringEqualsXmlFile()
-     */
-    public function assertXmlStringEqualsXmlFile(string $expectedFile, $actualXml, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertXmlStringEqualsXmlFile', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two XML documents are equal.
-     *
-     * @param \DOMDocument|string $expectedXml
-     * @param \DOMDocument|string $actualXml
-     * @see \Codeception\Module\AbstractAsserts::assertXmlStringEqualsXmlString()
-     */
-    public function assertXmlStringEqualsXmlString($expectedXml, $actualXml, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertXmlStringEqualsXmlString', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two XML documents are not equal.
-     *
-     * @param \DOMDocument|string $actualXml
-     * @see \Codeception\Module\AbstractAsserts::assertXmlStringNotEqualsXmlFile()
-     */
-    public function assertXmlStringNotEqualsXmlFile(string $expectedFile, $actualXml, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertXmlStringNotEqualsXmlFile', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Asserts that two XML documents are not equal.
-     *
-     * @param \DOMDocument|string $expectedXml
-     * @param \DOMDocument|string $actualXml
-     * @see \Codeception\Module\AbstractAsserts::assertXmlStringNotEqualsXmlString()
-     */
-    public function assertXmlStringNotEqualsXmlString($expectedXml, $actualXml, string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('assertXmlStringNotEqualsXmlString', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Fails a test with the given message.
-     * @see \Codeception\Module\AbstractAsserts::fail()
-     */
-    public function fail(string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('fail', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Mark the test as incomplete.
-     * @see \Codeception\Module\AbstractAsserts::markTestIncomplete()
-     */
-    public function markTestIncomplete(string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('markTestIncomplete', func_get_args()));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * Mark the test as skipped.
-     * @see \Codeception\Module\AbstractAsserts::markTestSkipped()
-     */
-    public function markTestSkipped(string $message = "") {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('markTestSkipped', func_get_args()));
     }
 }
