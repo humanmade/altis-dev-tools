@@ -116,10 +116,9 @@ When you invoke the `codecept run` command, this happens in the background:
 ### Continuous Integration
 
 In order to run Codeception tests in Continuous Integration environments, follow
-the [documentation on setting up Continuous Integration on Travis](https://docs.altis-dxp.com/dev-tools/continuous-integration/),
-and
-specify your test running command(s) as per the documentation above, typically using `composer dev-tools codecept run` instead of /
-in addition to `composer dev-tools phpunit` as explained in the docs.
+the [documentation on setting up Continuous Integration](https://docs.altis-dxp.com/dev-tools/continuous-integration/) and
+specify your test running command(s) as per that documentation — typically using `composer dev-tools codecept run` instead of (or
+in addition to) `composer dev-tools phpunit`.
 
 ## Writing tests
 

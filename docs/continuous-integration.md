@@ -3,34 +3,45 @@
 It is common practice to use some form of Continuous Integration service on projects. There are many benefits to this such as
 running tests and code linting tools.
 
-[Travis CI](https://travis-ci.com) is the recommended tool for testing with Altis.
+[GitHub Actions](https://docs.github.com/actions) is the recommended tool for testing Altis modules. Altis provides a reusable
+workflow at `humanmade/altis-dev-tools/.github/workflows/altis-ci.yml` that handles `composer install`, `composer local-server
+start`, and runs your tests.
 
-A basic Travis configuration is installed automatically that imports the base Altis configuration and your own custom config file
-from `.config/travis.yml`.
-
-Configuration in `.config/travis.yml` will be merged into the Altis base config using a recursive-merge-append approach.
-
-The base configuration will run the following set up steps:
-
-- `composer install`
-- `composer server start`
-
-From there the tests you run are up to you. A minimal example of your `.config/travis.yml` file might look like the following:
+A minimal `.github/workflows/ci.yml` for an Altis project looks like this:
 
 ```yml
-script:
-    - composer dev-tools phpunit
-    # and/or
-    - composer dev-tools codecept run
+name: CI
+
+on:
+  push:
+    branches: [master, main, 'v*-branch']
+  pull_request:
+    branches: [master, main, 'v*-branch']
+
+jobs:
+  ci:
+    uses: humanmade/altis-dev-tools/.github/workflows/altis-ci.yml@<sha>
+    with:
+      test-command: phpunit       # or 'codecept'
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 ```
+
+Pin `<sha>` to a commit on `humanmade/altis-dev-tools`. The workflow runs the following set up steps for you:
+
+- `composer install`
+- `composer local-server start`
+
+From there the tests are up to you. The most common command is `composer dev-tools phpunit` or `composer dev-tools codecept run`.
 
 See [testing with PHPUnit](./testing-with-phpunit.md) and [testing with Codeception](./testing-with-codeception.md) for more
 information on the above commands.
 
 We recommend reading and bookmarking the following:
 
-- [Travis CI documentation](https://docs.travis-ci.com/)
-- [Travis config file reference](https://config.travis-ci.com/)
+- [GitHub Actions documentation](https://docs.github.com/actions)
+- [Reusing workflows](https://docs.github.com/actions/using-workflows/reusing-workflows)
 
 Because there is a full instance of Altis running in the CI environment this enables the use of end to end testing using tools like
 the following:
@@ -39,6 +50,14 @@ the following:
 - [Cypress](https://cypress.io)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 - [aXe accessibility testing](https://www.deque.com/axe/)
+
+## Using Travis CI
+
+Travis CI was the previous default and remains a fully supported option for Altis projects. The skeleton no longer ships a Travis
+template by default, but you can continue to use Travis on your own project by maintaining a `.travis.yml` file at the repository
+root. The previous module template lived at `humanmade/altis-dev-tools:travis/altis.yml` and ran the same `composer install` /
+`composer local-server start` setup; it is no longer maintained but the equivalent commands are documented above and the `ci`
+environment overrides below apply equally to both Travis and GitHub Actions runs.
 
 ## Overriding Config for CI
 
@@ -162,47 +181,63 @@ To disable Tachyon, set the following configuration:
 
 ## Conditional Builds
 
-By default builds on Travis will run any time code is pushed to the repository or merged regardless of branch. You can use
-Travis' [conditional builds feature](https://docs.travis-ci.com/user/conditions-v1) to determine when a build should run. The
-following configuration examples show how to achieve some common set ups:
+By default builds will run any time code is pushed to the repository or a pull request is opened. To restrict when a workflow
+runs, use the standard GitHub Actions [`on` triggers](https://docs.github.com/actions/using-workflows/events-that-trigger-workflows)
+and [path/branch filters](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet).
+A few common setups:
+
+```yaml
+# Only run on pull requests
+on:
+  pull_request:
+
+# Only run on specific branches (push and PRs targeting them)
+on:
+  push:
+    branches: [staging, development]
+  pull_request:
+    branches: [staging, development]
+
+# Skip the workflow on commits that only touch documentation
+on:
+  push:
+    paths-ignore:
+      - 'docs/**'
+      - '*.md'
+```
+
+If you are still on Travis CI, the equivalent feature is [conditional builds](https://docs.travis-ci.com/user/conditions-v1):
 
 ```yaml
 # Only run on pull requests
 if: type = pull_request
 
-# Only run on specific branches (and pull requests to those branches)
+# Only run on specific branches
 if: branch IN (staging, development)
-
-# Combining the above
-if: type = pull_request AND branch IN (staging, development)
 ```
-
-There are many built in values and types of operator you can make use of in your config, as well
-as [setting conditions per stage for multistage builds](https://docs.travis-ci.com/user/build-stages/).
-
-## Migrating From An Existing Travis Config
-
-If you already have an existing Travis configuration then follow these steps:
-
-1. Copy `.travis.yml` to `.config/travis.yml`
-1. Compare this file to the one in `vendor/altis/dev-tools/travis/altis.yml`:
-
-- Remove any duplicate items from `.config/travis.yml`
-- Remove additional PHP versions if you have a PHP version matrix
-- Update any `phpunit` commands to use `composer dev-tools phpunit`. If you pass any arguments to `phpunit` you must separate them
-  with the options delimiter `--` e.g. `composer dev-tools phpunit -- [options]`
-
-1. Commit these changes to a branch and create a pull request
-1. Confirm that the build works and tests pass
-
-Please contact support if you require any assistance with migrating.
 
 ## Overriding The Base Config
 
-If you need to fully override the base config you can remove the line importing `humanmade/altis-dev-tools:travis/altis.yml` and
-committing the change. You can then add your full configuration to `.config/travis.yml`.
+For most projects the reusable workflow is enough. If you need to override or extend it — extra steps, custom matrix, services,
+artifacts — copy the steps from `humanmade/altis-dev-tools/.github/workflows/altis-ci.yml` directly into your own
+`.github/workflows/ci.yml` and modify them as needed. The reusable workflow's source is the canonical reference.
 
-**Note:** Altis will emit a warning on `composer install` or `composer update` if the `.travis.yml` doesn't match what's expected
-but no error codes are returned and you can safely ignore this.
+If you need different behaviour, the recommended pattern is to call the reusable workflow for the standard test job and add
+your own jobs alongside it:
 
-When overriding the base Travis config we cannot guarantee functionality within Travis or support any issues you may encounter.
+```yaml
+jobs:
+  ci:
+    uses: humanmade/altis-dev-tools/.github/workflows/altis-ci.yml@<sha>
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+  e2e:
+    needs: ci
+    runs-on: ubuntu-22.04
+    steps:
+      # your own end-to-end / Cypress / Lighthouse steps
+```
+
+When you override the base config we cannot guarantee functionality or support any issues you may encounter.
