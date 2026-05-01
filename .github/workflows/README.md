@@ -10,7 +10,9 @@ Used by every Altis module repo (`altis-cms`, `altis-media`, `altis-core`, …).
 
 ### `altis-ci.yml` — replaces `travis/altis.yml`
 
-Used by the skeleton/`empty` package, where the repo *is* the Altis project (rather than a module installed into one). Just runs `composer install`, starts local-server, and runs tests.
+Used by the skeleton/`empty` package and by end-user Altis projects, where the repo *is* the Altis project (rather than a module installed into one). Just runs `composer install`, starts local-server, and runs tests.
+
+The thin caller for end-user projects is shipped as the template at [`templates/project-ci.yml`](../../templates/project-ci.yml). The `altis/dev-tools-command` composer plugin copies it to `.github/workflows/ci.yml` on `composer create-project altis/skeleton` and re-pins the `@<ref>` to the installed dev-tools version on every `composer install` / `composer update` (until the user customises the file).
 
 ## Calling the reusable workflow
 
