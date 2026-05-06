@@ -38,27 +38,7 @@ on:
         required: true
 
 jobs:
-  detect-tests:
-    runs-on: ${{ inputs.runs-on }}
-    outputs:
-      has-tests: ${{ steps.check.outputs.has-tests }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - id: check
-        shell: bash
-        run: |
-          if [ -n "$(find tests -maxdepth 1 -name '*.suite.yml' 2>/dev/null)" ]; then
-            echo "has-tests=true" >> "$GITHUB_OUTPUT"
-            echo "Found Codeception suite files; will run tests."
-          else
-            echo "has-tests=false" >> "$GITHUB_OUTPUT"
-            echo "No Codeception suite files in tests/; skipping test job."
-          fi
-
   test:
-    needs: detect-tests
-    if: needs.detect-tests.outputs.has-tests == 'true'
     runs-on: ${{ inputs.runs-on }}
     env:
       COMPOSE_HTTP_TIMEOUT: '360'
