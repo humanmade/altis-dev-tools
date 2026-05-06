@@ -1,0 +1,21 @@
+name: CI
+
+# Default Altis project CI workflow.
+# Installed automatically by altis/dev-tools-command. The reference after `@`
+# is re-pinned to the installed altis/dev-tools version on every
+# `composer install` / `composer update`. Customise this file freely — once it
+# diverges from the canonical template the auto-pinning stops, leaving you in
+# full control.
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  ci:
+    uses: humanmade/altis-dev-tools/.github/workflows/altis-ci.yml@__ref_replace_me__
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}

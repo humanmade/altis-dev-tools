@@ -1,0 +1,90 @@
+name: Altis CI
+
+# Reusable workflow for the Altis skeleton/empty package, where the repo IS the
+# composer project (rather than a module installed into the skeleton).
+# Replaces travis/altis.yml + the .config/travis.yml override.
+
+on:
+  workflow_call:
+    inputs:
+      php-version:
+        default: '8.3'
+        type: string
+      node-version:
+        default: '24'
+        type: string
+      test-command:
+        description: "'phpunit' (default) or 'codecept'."
+        default: 'phpunit'
+        type: string
+      runs-on:
+        default: 'ubuntu-22.04'
+        type: string
+    secrets:
+      DOCKER_USERNAME:
+        required: true
+      DOCKER_PASSWORD:
+        required: true
+
+jobs:
+  test:
+    runs-on: ${{ inputs.runs-on }}
+    env:
+      COMPOSE_HTTP_TIMEOUT: '360'
+      ES_MEM_LIMIT: '2g'
+      COMPOSER_NO_INTERACTION: '1'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ inputs.php-version }}
+          tools: composer:v2
+          coverage: none
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.composer/cache
+          key: composer-${{ runner.os }}-php${{ inputs.php-version }}-${{ hashFiles('composer.json', 'composer.lock') }}
+          restore-keys: |
+            composer-${{ runner.os }}-php${{ inputs.php-version }}-
+
+      - name: Authenticate with Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Composer install
+        run: composer install
+
+      - name: Start local server
+        run: composer local-server start
+
+      - name: Run tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${{ inputs.test-command }}" = "codecept" ]; then
+            composer dev-tools codecept run
+          else
+            composer dev-tools phpunit
+          fi
+
+      - name: Upload test output on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: altis-ci-output-php${{ inputs.php-version }}
+          path: |
+            tests/_output/
+            .tests/_output/
+          if-no-files-found: ignore
+          retention-days: 7
