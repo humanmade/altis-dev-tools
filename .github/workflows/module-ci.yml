@@ -119,7 +119,7 @@ jobs:
           # Inject the package under test, aliased so composer accepts the dev branch
           # against any existing version constraint. Mirrors travis/module.yml.
           # Search both packages and packages-dev (e.g. altis/local-server is require-dev in skeleton).
-          INSTALLED_VERSION=$(jq -r '(.packages[], .packages-dev[]) | select(.name==$pkg) | .version' --arg pkg "$ALTIS_PACKAGE" composer.lock | head -1)
+          INSTALLED_VERSION=$(jq -r '(.packages[], .["packages-dev"][]) | select(.name==$pkg) | .version' --arg pkg "$ALTIS_PACKAGE" composer.lock | head -1)
           if [[ -z "$INSTALLED_VERSION" || "$INSTALLED_VERSION" =~ ^dev- ]]; then
             ALIAS_VERSION="9999.9.9"
           else
