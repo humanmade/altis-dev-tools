@@ -82,7 +82,7 @@ jobs:
           if [[ "$BRANCH_NAME" =~ ^(v[0-9]{2}-branch)$ ]]; then
             BASE_BRANCH="${BASH_REMATCH[1]}"
           else
-            BASE_BRANCH="dev-master"
+            BASE_BRANCH="master"
           fi
           echo "base-branch=$BASE_BRANCH" >> "$GITHUB_OUTPUT"
           echo "Branch under test: $BRANCH_NAME"
@@ -118,8 +118,13 @@ jobs:
 
           # Inject the package under test, aliased so composer accepts the dev branch
           # against any existing version constraint. Mirrors travis/module.yml.
-          INSTALLED_VERSION=$(jq -r ".packages[] | select (.name==\"$ALTIS_PACKAGE\") | .version" composer.lock)
-          ALIAS_VERSION=$(printf '%s' "$INSTALLED_VERSION" | sed -e '/^dev/q;s/$/9/')
+          # Search both packages and packages-dev (e.g. altis/local-server is require-dev in skeleton).
+          INSTALLED_VERSION=$(jq -r '(.packages[], .packages-dev[]) | select(.name==$pkg) | .version' --arg pkg "$ALTIS_PACKAGE" composer.lock | head -1)
+          if [[ -z "$INSTALLED_VERSION" || "$INSTALLED_VERSION" =~ ^dev- ]]; then
+            ALIAS_VERSION="9999.9.9"
+          else
+            ALIAS_VERSION="${INSTALLED_VERSION}9"
+          fi
           composer require -W "$ALTIS_PACKAGE:dev-${BRANCH_NAME} as ${ALIAS_VERSION}"
 
       - name: Generate WP salts and load.php guard
