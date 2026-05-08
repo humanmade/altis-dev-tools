@@ -41,8 +41,10 @@ resolve_alias_version() {
     )
 
     local alias_version
-    if [[ -z "$installed_version" || "$installed_version" =~ ^dev- ]]; then
+    if [[ -z "$installed_version" ]]; then
         alias_version="9999.9.9"
+    elif [[ "$installed_version" =~ ^dev- ]]; then
+        alias_version="$installed_version"
     else
         alias_version="${installed_version}9"
     fi
@@ -121,7 +123,7 @@ LOCK=$(write_lock <<'JSON'
 }
 JSON
 )
-run_case "dev-master installed"                   "$LOCK" "altis/cms"          "9999.9.9"
+run_case "dev-master installed"                   "$LOCK" "altis/cms"          "dev-master"
 
 LOCK=$(write_lock <<'JSON'
 {
@@ -130,7 +132,7 @@ LOCK=$(write_lock <<'JSON'
 }
 JSON
 )
-run_case "dev-feature-branch installed"           "$LOCK" "altis/cms"          "9999.9.9"
+run_case "dev-feature-branch installed"           "$LOCK" "altis/cms"          "dev-feature-branch"
 
 # Case 4: package not present in either array -> 9999.9.9
 LOCK=$(write_lock <<'JSON'

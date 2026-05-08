@@ -127,9 +127,15 @@ jobs:
           # Search both packages and packages-dev (e.g. altis/local-server is require-dev in skeleton).
           # Logic mirrored in tests/ci-version-resolution.sh — keep the two in sync.
           INSTALLED_VERSION=$(jq -r '(.packages[], .["packages-dev"][]) | select(.name==$pkg) | .version' --arg pkg "$ALTIS_PACKAGE" composer.lock | head -1)
-          if [[ -z "$INSTALLED_VERSION" || "$INSTALLED_VERSION" =~ ^dev- ]]; then
+          if [[ -z "$INSTALLED_VERSION" ]]; then
+            # Package not present in lock — pick a high alias that satisfies any reasonable constraint.
             ALIAS_VERSION="9999.9.9"
+          elif [[ "$INSTALLED_VERSION" =~ ^dev- ]]; then
+            # Sibling packages may carry a `dev-master` (or similar) constraint on this package; alias to
+            # the installed dev branch so the constraint is still satisfied. Mirrors Travis's `/^dev/q` sed.
+            ALIAS_VERSION="$INSTALLED_VERSION"
           else
+            # Concrete X.Y.Z — bump patch so the dev branch satisfies any caret/tilde constraint at that level.
             ALIAS_VERSION="${INSTALLED_VERSION}9"
           fi
           composer require -W "$ALTIS_PACKAGE:dev-${BRANCH_NAME} as ${ALIAS_VERSION}"
