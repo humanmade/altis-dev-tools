@@ -1,8 +1,10 @@
 name: CI
 
-# Caller for the reusable Module CI workflow.
-# After the reusable workflow lands on master, bump `@master` to a pinned SHA via
-# scripts/update-module-gha-ref.sh.
+# Self-CI caller for dev-tools' own module-ci.yml.
+# Uses the relative-path form so this repo always tests the reusable workflow
+# at the same commit as the caller (i.e. the PR or push under test) rather
+# than whatever happens to be on master. Module repos that consume the
+# reusable workflow continue to pin via `@<sha>` in their own ci.yml.
 
 on:
   push:
@@ -18,7 +20,7 @@ on:
 
 jobs:
   ci:
-    uses: humanmade/altis-dev-tools/.github/workflows/module-ci.yml@master
+    uses: ./.github/workflows/module-ci.yml
     with:
       altis-package: altis/dev-tools
       test-command: phpunit

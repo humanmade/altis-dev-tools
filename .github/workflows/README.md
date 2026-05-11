@@ -73,7 +73,7 @@ These are the same secrets the previous Travis builds used. Verify with `gh secr
 
 The `module-ci.yml` test job:
 
-1. Determine the base branch — match `vNN-branch` against the trigger ref, otherwise fall back to `dev-master`.
+1. Determine the base branch — match `vNN-branch` against the PR target ref (or the pushed branch on push events), otherwise fall back to `master`.
 2. `composer create-project altis/skeleton:dev-<branch>` into `$HOME/test-root` (with the base branch as a fallback).
 3. `composer require altis/test-theme` and set it as the default theme.
 4. `composer require <altis-package>:dev-<branch> as <aliased-version>` to inject the package being tested over any version constraint.
@@ -86,3 +86,24 @@ The `module-ci.yml` test job:
 ## Skipping when there are no tests
 
 The `detect-tests` job checks for `tests/*.suite.yml` files. If none exist, the `test` job is skipped — same early-exit behaviour as the Travis `before_install` check.
+
+## Developer-side test scripts
+
+Two shell scripts under [`tests/`](tests/) exercise the inline shell snippets in `module-ci.yml` so the logic can be checked locally without round-tripping through GitHub Actions. They are not invoked by CI; they exist for review and pre-commit verification when changing the workflow.
+
+- `ci-branch-resolution.sh` — mirrors the "Compute base branch" step. Runs a matrix of `push` and `pull_request` scenarios across `master`, `v##-branch`, and arbitrary feature branches.
+- `ci-version-resolution.sh` — mirrors the `composer require … as <alias>` derivation. Builds synthetic `composer.lock` fixtures and checks the resolved alias, including packages found under `.packages-dev` and `dev-*` installed versions.
+
+Both scripts support two modes:
+
+```bash
+# Run the full test matrix.
+.github/workflows/tests/ci-branch-resolution.sh
+.github/workflows/tests/ci-version-resolution.sh
+
+# Evaluate one ad-hoc input.
+HEAD_REF=feat/foo BASE_REF=v25-branch .github/workflows/tests/ci-branch-resolution.sh --eval
+LOCK_FILE=./composer.lock PKG=altis/cms  .github/workflows/tests/ci-version-resolution.sh --eval
+```
+
+Each script duplicates the shell logic from `module-ci.yml`. A shared source file would not work because the reusable workflow's `actions/checkout@v4` checks out the caller's repo, not this one. The YAML steps carry comments pointing at these scripts to flag drift on review.

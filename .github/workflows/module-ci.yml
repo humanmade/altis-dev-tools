@@ -45,7 +45,11 @@ jobs:
       ES_MEM_LIMIT: '2g'
       COMPOSER_NO_INTERACTION: '1'
       ALTIS_PACKAGE: ${{ inputs.altis-package }}
+      # BRANCH_NAME = source branch on PRs, pushed branch on push events.
+      # BASE_REF    = target branch on PRs, pushed branch on push events.
+      # Mirrors travis/module.yml, where BASE_BRANCH was derived from $TRAVIS_BRANCH (the target on PRs).
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+      BASE_REF: ${{ github.base_ref || github.ref_name }}
     steps:
       - uses: actions/checkout@v4
 
@@ -76,16 +80,18 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Compute base branch
+        # Logic mirrored in tests/ci-branch-resolution.sh — keep the two in sync.
         id: base
         shell: bash
         run: |
-          if [[ "$BRANCH_NAME" =~ ^(v[0-9]{2}-branch)$ ]]; then
+          if [[ "$BASE_REF" =~ ^(v[0-9]{2}-branch)$ ]]; then
             BASE_BRANCH="${BASH_REMATCH[1]}"
           else
             BASE_BRANCH="master"
           fi
           echo "base-branch=$BASE_BRANCH" >> "$GITHUB_OUTPUT"
           echo "Branch under test: $BRANCH_NAME"
+          echo "Target ref:        $BASE_REF"
           echo "Base branch:       $BASE_BRANCH"
 
       - name: Create Altis test root
@@ -119,10 +125,17 @@ jobs:
           # Inject the package under test, aliased so composer accepts the dev branch
           # against any existing version constraint. Mirrors travis/module.yml.
           # Search both packages and packages-dev (e.g. altis/local-server is require-dev in skeleton).
+          # Logic mirrored in tests/ci-version-resolution.sh — keep the two in sync.
           INSTALLED_VERSION=$(jq -r '(.packages[], .["packages-dev"][]) | select(.name==$pkg) | .version' --arg pkg "$ALTIS_PACKAGE" composer.lock | head -1)
-          if [[ -z "$INSTALLED_VERSION" || "$INSTALLED_VERSION" =~ ^dev- ]]; then
+          if [[ -z "$INSTALLED_VERSION" ]]; then
+            # Package not present in lock — pick a high alias that satisfies any reasonable constraint.
             ALIAS_VERSION="9999.9.9"
+          elif [[ "$INSTALLED_VERSION" =~ ^dev- ]]; then
+            # Sibling packages may carry a `dev-master` (or similar) constraint on this package; alias to
+            # the installed dev branch so the constraint is still satisfied. Mirrors Travis's `/^dev/q` sed.
+            ALIAS_VERSION="$INSTALLED_VERSION"
           else
+            # Concrete X.Y.Z — bump patch so the dev branch satisfies any caret/tilde constraint at that level.
             ALIAS_VERSION="${INSTALLED_VERSION}9"
           fi
           composer require -W "$ALTIS_PACKAGE:dev-${BRANCH_NAME} as ${ALIAS_VERSION}"
