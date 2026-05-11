@@ -4,8 +4,6 @@
  *
  * phpcs:disable WordPress.Files, WordPress.NamingConventions, PSR1.Classes.ClassDeclaration.MissingNamespace, HM.Functions.NamespacedFunctions
  */
-use Codeception\Util\Locator;
-
 /**
  * Test Query Monitor and it's tabs render correctly.
  */
@@ -41,34 +39,75 @@ class DevToolsCest {
 	}
 
 	/**
-	 * Open Query Monitor / Dev Tools panel and check tabs are working.
+	 * Confirm the Altis-specific Query Monitor panels are rendered.
+	 *
+	 * Query Monitor v4 mounts its UI in a React app inside a shadow DOM
+	 * (#query-monitor-container) and moves the server-rendered panel HTML
+	 * from `<div id="query-monitor-fallbacks">` into the shadow tree once
+	 * React boots. That means Codeception's `see()`/`seeInPageSource()`
+	 * can't reach the rendered panel content — `see()` only walks the
+	 * light DOM, and `getPageSource()` returns the post-React serialized
+	 * DOM where the fallback nodes have already been moved.
+	 *
+	 * Instead, fetch the raw server response over a same-session XHR and
+	 * assert against that. We're verifying the three Altis-specific panel
+	 * outputters (Altis Config, ElasticPress, AWS X-Ray) emit the expected
+	 * markup; QM itself owns the client-side rendering and is tested
+	 * upstream.
 	 *
 	 * @param AcceptanceTester $I Tester
 	 */
 	public function testQueryMonitor( AcceptanceTester $I ) {
-		$I->wantToTest( 'Open Query Monitor / Dev Tools panel and check all tabs are working.' );
+		$I->wantToTest( 'Altis-specific Query Monitor panels render server-side.' );
 		$I->loginAsAdmin();
 		$I->amOnAdminPage( '/' );
 
-		// See the Query Monitor link in menu.
-		$I->moveMouseOver( '#wp-admin-bar-query-monitor' );
+		// Grab the raw server-rendered HTML response within the authenticated
+		// browser session. Synchronous XHR is deprecated but still supported
+		// in Chrome and works here without needing to thread cookies into a
+		// separate PHP HTTP client.
+		$source = $I->executeJS(
+			'const xhr = new XMLHttpRequest();' .
+			'xhr.open("GET", window.location.href, false);' .
+			'xhr.send();' .
+			'return xhr.responseText;'
+		);
 
-		// Check the Altis Config tab and content renders, using the "Module" column heading.
-		$I->seeLink( 'Altis Config' );
-		$I->click( 'Altis Config' );
-		$I->see( 'Module', 'th' );
+		// Altis Config panel: "Module" column heading.
+		PHPUnit\Framework\Assert::assertStringContainsString(
+			'id="qm-altis-config-container"',
+			$source,
+			'Altis Config QM panel fallback container missing from page source.'
+		);
+		PHPUnit\Framework\Assert::assertStringContainsString(
+			'<th>Module</th>',
+			$source,
+			'Altis Config panel missing expected "Module" column header.'
+		);
 
-		// Test and confirm the Hooks & Actions tab and content renders, using the "Action" column heading.
-		$I->click( Locator::find( 'button', ['data-qm-href' => '#qm-hooks'] ) );
-		$I->see( 'Action', 'th' );
+		// ElasticPress panel.
+		PHPUnit\Framework\Assert::assertStringContainsString(
+			'id="qm-debug_bar_ep_debug_bar_elasticpress-container"',
+			$source,
+			'ElasticPress QM panel fallback container missing from page source.'
+		);
+		PHPUnit\Framework\Assert::assertStringContainsString(
+			'Total ElasticPress Queries:',
+			$source,
+			'ElasticPress panel missing expected "Total ElasticPress Queries:" text.'
+		);
 
-		// Test and confirm the ElasticPress tab and content renders, using the "Total ElasticPress Queries" span.
-		$I->click( Locator::find( 'button', ['data-qm-href' => '#qm-debug_bar_ep_debug_bar_elasticpress'] ) );
-		$I->see( 'Total ElasticPress Queries:', 'span' );
-
-		// Test and confrim AWS X-Ray tab and content renders, using the "Segment Name" column heading.
-		$I->click( Locator::find( 'button', ['data-qm-href' => '#qm-aws-xray'] ) );
-		$I->see( 'Segment Name', 'th' );
+		// AWS X-Ray panel: "Segment Name" column heading.
+		PHPUnit\Framework\Assert::assertStringContainsString(
+			'id="qm-aws-xray-container"',
+			$source,
+			'AWS X-Ray QM panel fallback container missing from page source.'
+		);
+		PHPUnit\Framework\Assert::assertStringContainsString(
+			'<th>Segment Name</th>',
+			$source,
+			'AWS X-Ray panel missing expected "Segment Name" column header.'
+		);
 	}
 
 	/**
