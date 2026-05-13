@@ -76,12 +76,13 @@ The `module-ci.yml` test job:
 1. Determine the base branch — match `vNN-branch` against the PR target ref (or the pushed branch on push events), otherwise fall back to `master`.
 2. `composer create-project altis/skeleton:dev-<branch>` into `$HOME/test-root` (with the base branch as a fallback).
 3. `composer require altis/test-theme` and set it as the default theme.
-4. `composer require <altis-package>:dev-<branch> as <aliased-version>` to inject the package being tested over any version constraint.
-5. Generate `.config/salts.php` from the WordPress salts API and append a load guard to `.config/load.php`.
-6. `composer server start`.
-7. `composer dev-tools codecept run -p vendor/<altis-package>/tests` (or `phpunit`).
-8. `composer dev-tools bootstrap lintdocs` + `composer dev-tools lintdocs -l vendor/<altis-package> all`.
-9. On failure, upload Codeception output as a workflow artifact (named `codecept-output-<package>-php<version>`).
+4. Register `humanmade/altis-<name>.git` as a `vcs` repository for the package under test, bypassing Packagist (whose CDN can lag behind a freshly pushed branch).
+5. `composer require <altis-package>:dev-<branch> as <aliased-version>` to inject the package being tested over any version constraint.
+6. Generate `.config/salts.php` from the WordPress salts API and append a load guard to `.config/load.php`.
+7. `composer server start`.
+8. `composer dev-tools codecept run -p vendor/<altis-package>/tests` (or `phpunit`).
+9. `composer dev-tools bootstrap lintdocs` + `composer dev-tools lintdocs -l vendor/<altis-package> all`.
+10. On failure, upload Codeception output as a workflow artifact (named `codecept-output-<package>-php<version>`).
 
 ## Skipping when there are no tests
 
