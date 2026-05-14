@@ -122,8 +122,11 @@ jobs:
           jq '. * {"extra":{"altis":{"modules":{"cms":{"default-theme":"test-theme"}}}}}' composer.json > composer.json.tmp
           mv composer.json.tmp composer.json
 
+          # Use GitHub as the source for test to avoid packagist lag causing a race condition
+          composer config "repositories.$ALTIS_PACKAGE" vcs "https://github.com/humanmade/altis-${ALTIS_PACKAGE#altis/}.git"
+
           # Inject the package under test, aliased so composer accepts the dev branch
-          # against any existing version constraint. Mirrors travis/module.yml.
+          # against any existing version constraint.
           # Search both packages and packages-dev (e.g. altis/local-server is require-dev in skeleton).
           # Logic mirrored in tests/ci-version-resolution.sh — keep the two in sync.
           INSTALLED_VERSION=$(jq -r '(.packages[], .["packages-dev"][]) | select(.name==$pkg) | .version' --arg pkg "$ALTIS_PACKAGE" composer.lock | head -1)
