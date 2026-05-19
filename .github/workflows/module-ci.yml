@@ -118,8 +118,8 @@ jobs:
           # Install Altis test theme.
           composer require altis/test-theme --ignore-platform-req=php+ --ignore-platform-req=ext-*
 
-          # Mark the test theme as the default.
-          jq '. * {"extra":{"altis":{"modules":{"cms":{"default-theme":"test-theme"}}}}}' composer.json > composer.json.tmp
+          # Mark the test theme as the default for the CMS module.
+          jq '. * {"extra":{"altis":{"modules":{"cms":{"default-theme":"test-theme"},"dev-tools":{"codeception":{"modules":{"config":{"WPLoader":{"theme":"test-theme"}}}}}}}}}' composer.json > composer.json.tmp
           mv composer.json.tmp composer.json
 
           # Use GitHub as the source for test to avoid packagist lag causing a race condition
