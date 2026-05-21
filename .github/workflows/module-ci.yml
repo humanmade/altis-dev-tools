@@ -31,6 +31,10 @@ on:
         description: 'Runner image. Defaults to ubuntu-22.04 to match the previous Travis "jammy" dist.'
         default: 'ubuntu-22.04'
         type: string
+      module-config:
+        description: 'Optional JSON object merged into extra.altis.modules in the test-root composer.json. Used to enable opt-in module features for the CI run, e.g. ''{"media":{"private-media":true}}''.'
+        default: ''
+        type: string
     secrets:
       DOCKER_USERNAME:
         required: true
@@ -110,6 +114,7 @@ jobs:
       - name: Install test theme and inject package under test
         env:
           BASE_BRANCH: ${{ steps.base.outputs.base-branch }}
+          MODULE_CONFIG: ${{ inputs.module-config }}
         shell: bash
         run: |
           set -euo pipefail
@@ -121,6 +126,14 @@ jobs:
           # Mark the test theme as the default for the CMS module.
           jq '. * {"extra":{"altis":{"modules":{"cms":{"default-theme":"test-theme"},"dev-tools":{"codeception":{"modules":{"config":{"WPLoader":{"theme":"test-theme"}}}}}}}}}' composer.json > composer.json.tmp
           mv composer.json.tmp composer.json
+
+          # Merge any caller-provided module config into extra.altis.modules.
+          if [[ -n "$MODULE_CONFIG" ]]; then
+            jq --argjson cfg "$MODULE_CONFIG" \
+              '. * {"extra":{"altis":{"modules":$cfg}}}' \
+              composer.json > composer.json.tmp
+            mv composer.json.tmp composer.json
+          fi
 
           # Use GitHub as the source for test to avoid packagist lag causing a race condition
           composer config "repositories.$ALTIS_PACKAGE" vcs "https://github.com/humanmade/altis-${ALTIS_PACKAGE#altis/}.git"
@@ -200,11 +213,19 @@ jobs:
           cd "$HOME/test-root"
           composer dev-tools lintdocs -l "vendor/${ALTIS_PACKAGE}" all
 
+      - name: Compute artifact name
+        if: failure()
+        id: artifact
+        shell: bash
+        run: |
+          # Artifact names disallow '/', so substitute the composer-name slash with '-'.
+          echo "name=codecept-output-${ALTIS_PACKAGE//\//-}-php${{ inputs.php-version }}" >> "$GITHUB_OUTPUT"
+
       - name: Upload Codeception output on failure
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: codecept-output-${{ inputs.altis-package }}-php${{ inputs.php-version }}
+          name: ${{ steps.artifact.outputs.name }}
           path: |
             ~/test-root/.tests/_output/
             ~/test-root/tests/_output/
