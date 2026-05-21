@@ -35,6 +35,10 @@ on:
         description: 'Optional JSON object merged into extra.altis.modules in the test-root composer.json. Used to enable opt-in module features for the CI run, e.g. ''{"media":{"private-media":true}}''.'
         default: ''
         type: string
+      composer-config:
+        description: 'Optional JSON object shallow-merged into the test-root composer.json at the top level. Use to inject keys like `repositories` for sibling deps not yet on Packagist, e.g. ''{"repositories":{"wpackagist":{"type":"composer","url":"https://wpackagist.org"}}}''. Pass repositories in object form (named keys), not array form, to coexist with the per-package vcs entry the workflow adds automatically.'
+        default: ''
+        type: string
     secrets:
       DOCKER_USERNAME:
         required: true
@@ -115,6 +119,7 @@ jobs:
         env:
           BASE_BRANCH: ${{ steps.base.outputs.base-branch }}
           MODULE_CONFIG: ${{ inputs.module-config }}
+          COMPOSER_CONFIG: ${{ inputs.composer-config }}
         shell: bash
         run: |
           set -euo pipefail
@@ -131,6 +136,16 @@ jobs:
           if [[ -n "$MODULE_CONFIG" ]]; then
             jq --argjson cfg "$MODULE_CONFIG" \
               '. * {"extra":{"altis":{"modules":$cfg}}}' \
+              composer.json > composer.json.tmp
+            mv composer.json.tmp composer.json
+          fi
+
+          # Shallow-merge any caller-provided composer config (top-level keys like `repositories`).
+          # Runs before the per-package vcs entry below so callers passing `repositories` in object
+          # form coexist with the auto-added `repositories.$ALTIS_PACKAGE` key.
+          if [[ -n "$COMPOSER_CONFIG" ]]; then
+            jq --argjson cfg "$COMPOSER_CONFIG" \
+              '. + $cfg' \
               composer.json > composer.json.tmp
             mv composer.json.tmp composer.json
           fi
