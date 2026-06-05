@@ -68,6 +68,7 @@ Pin to a SHA from this repo (mirrors the `travis/module.yml@<sha>` pattern). The
 - `DOCKER_PASSWORD` — Docker Hub access token
 
 These are the same secrets the previous Travis builds used. Verify with `gh secret list -R humanmade/<repo>`.
+When these secrets are unavailable in untrusted contexts (for example Dependabot pull requests), the Docker login step is skipped.
 
 ## Phases (mirrors the previous Travis flow)
 
