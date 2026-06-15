@@ -47,7 +47,7 @@ Pin to a SHA from this repo (mirrors the `travis/module.yml@<sha>` pattern). The
 | Input | Default | Notes |
 | --- | --- | --- |
 | `altis-package` | *(required)* | Composer name (e.g. `altis/cms`). Used to install the package and locate its tests under `vendor/<altis-package>/tests`. |
-| `php-version` | `8.3` | |
+| `php-version` | `8.4` | |
 | `node-version` | `24` | |
 | `test-command` | `codecept` | Set to `phpunit` for `altis-dev-tools` itself. |
 | `lint-docs` | `true` | Run `dev-tools lintdocs` after tests. |
@@ -57,7 +57,7 @@ Pin to a SHA from this repo (mirrors the `travis/module.yml@<sha>` pattern). The
 
 | Input | Default |
 | --- | --- |
-| `php-version` | `8.3` |
+| `php-version` | `8.4` |
 | `node-version` | `24` |
 | `test-command` | `phpunit` |
 | `runs-on` | `ubuntu-22.04` |
