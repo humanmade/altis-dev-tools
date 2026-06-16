@@ -8,7 +8,7 @@ on:
   workflow_call:
     inputs:
       php-version:
-        default: '8.3'
+        default: '8.4'
         type: string
       node-version:
         default: '24'
