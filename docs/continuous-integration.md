@@ -7,7 +7,11 @@ running tests and code linting tools.
 workflow at `humanmade/altis-dev-tools/.github/workflows/altis-ci.yml` that handles `composer install`, `composer local-server
 start`, and runs your tests.
 
-A minimal `.github/workflows/ci.yml` for an Altis project looks like this:
+`altis/dev-tools` installs and maintains this file for you: a minimal
+`.github/workflows/ci.yml` is created on `composer install`/`composer update`, and
+its `@<version>` ref is re-pinned to the installed `altis/dev-tools` version on each
+run. Once you edit the file it stops being managed and is yours to maintain. A
+managed file looks like this:
 
 ```yml
 name: CI
@@ -20,7 +24,7 @@ on:
 
 jobs:
   ci:
-    uses: humanmade/altis-dev-tools/.github/workflows/altis-ci.yml@<sha>
+    uses: humanmade/altis-dev-tools/.github/workflows/altis-ci.yml@<version>
     with:
       test-command: phpunit       # or 'codecept'
     secrets:
@@ -28,7 +32,10 @@ jobs:
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 ```
 
-Pin `<sha>` to a commit on `humanmade/altis-dev-tools`. The workflow runs the following set up steps for you:
+Pin `<version>` to a released `humanmade/altis-dev-tools` tag (managed files do this
+automatically). The runner PHP version is taken from your project's
+`config.platform.php`; pass `php-version` to override it. The workflow runs the
+following set up steps for you:
 
 - `composer install`
 - `composer local-server start`
@@ -228,7 +235,7 @@ your own jobs alongside it:
 ```yaml
 jobs:
   ci:
-    uses: humanmade/altis-dev-tools/.github/workflows/altis-ci.yml@<sha>
+    uses: humanmade/altis-dev-tools/.github/workflows/altis-ci.yml@<version>
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}

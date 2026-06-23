@@ -8,7 +8,8 @@ on:
   workflow_call:
     inputs:
       php-version:
-        default: '8.4'
+        description: 'Override the runner PHP version. Empty = detect from config.platform.php.'
+        default: ''
         type: string
       node-version:
         default: '24'
@@ -36,10 +37,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Detect PHP version
+        id: detect
+        env:
+          OVERRIDE: ${{ inputs.php-version }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          PHP="${OVERRIDE:-$(jq -r '.config.platform.php // "8.4"' composer.json)}"
+          PHP=$(echo "$PHP" | cut -d. -f1,2)
+          echo "php=$PHP" >> "$GITHUB_OUTPUT"
+          echo "Runner PHP: $PHP"
+
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ inputs.php-version }}
+          php-version: ${{ steps.detect.outputs.php }}
           tools: composer:v2
           coverage: none
 
@@ -52,9 +65,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.composer/cache
-          key: composer-${{ runner.os }}-php${{ inputs.php-version }}-${{ hashFiles('composer.json', 'composer.lock') }}
+          key: composer-${{ runner.os }}-${{ hashFiles('composer.json', 'composer.lock') }}
           restore-keys: |
-            composer-${{ runner.os }}-php${{ inputs.php-version }}-
+            composer-${{ runner.os }}-
 
       - name: Authenticate with Docker Hub
         uses: docker/login-action@v3
@@ -82,7 +95,7 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: altis-ci-output-php${{ inputs.php-version }}
+          name: altis-ci-output-php${{ steps.detect.outputs.php }}
           path: |
             tests/_output/
             .tests/_output/
