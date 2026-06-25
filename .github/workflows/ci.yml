@@ -27,3 +27,20 @@ jobs:
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+  # Proves a real install of this package scaffolds .github/workflows/ci.yml
+  # from templates/project-ci.yml. See .github/workflows/tests/.
+  bootstrap-tests:
+    name: CI bootstrap tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: composer
+      - name: Static template/constraint linkage check
+        run: .github/workflows/tests/ci-template-constraint.sh
+      - name: End-to-end install scaffolds ci.yml
+        run: .github/workflows/tests/ci-bootstrap-install.sh

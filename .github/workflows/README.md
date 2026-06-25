@@ -109,3 +109,15 @@ LOCK_FILE=./composer.lock PKG=altis/cms  .github/workflows/tests/ci-version-reso
 ```
 
 Each script duplicates the shell logic from `module-ci.yml`. A shared source file would not work because the reusable workflow's `actions/checkout@v4` checks out the caller's repo, not this one. The YAML steps carry comments pointing at these scripts to flag drift on review.
+
+## CI bootstrap guard (run by CI)
+
+Two further scripts under [`tests/`](tests/) guard the project CI bootstrap — installing this package scaffolds a project's `.github/workflows/ci.yml` from [`templates/project-ci.yml`](../../templates/project-ci.yml) via `altis/dev-tools-command`. **Unlike the mirror scripts above, these run in CI** (the `bootstrap-tests` job in [`ci.yml`](ci.yml)).
+
+- `ci-template-constraint.sh` — fast, no network: checks the `altis/dev-tools-command` constraint admits the release that consumes the template.
+- `ci-bootstrap-install.sh` — real `composer install` of a throwaway fixture, asserting `ci.yml` is scaffolded and pinned. Needs `composer` + network.
+
+```bash
+.github/workflows/tests/ci-template-constraint.sh
+.github/workflows/tests/ci-bootstrap-install.sh
+```
