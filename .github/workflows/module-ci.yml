@@ -12,7 +12,11 @@ on:
         required: true
         type: string
       php-version:
-        description: 'PHP version for the runner.'
+        description: 'Override the runner PHP version. Empty = detect from the skeleton config.platform.php.'
+        default: ''
+        type: string
+      bootstrap-php-version:
+        description: 'PHP used to run composer before the detected version is selected.'
         default: '8.4'
         type: string
       node-version:
@@ -64,7 +68,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ inputs.php-version }}
+          php-version: ${{ inputs.php-version || inputs.bootstrap-php-version }}
           tools: composer:v2
           coverage: none
 
@@ -77,9 +81,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.composer/cache
-          key: composer-${{ runner.os }}-php${{ inputs.php-version }}-${{ hashFiles('composer.json', 'composer.lock') }}
+          key: composer-${{ runner.os }}-${{ hashFiles('composer.json', 'composer.lock') }}
           restore-keys: |
-            composer-${{ runner.os }}-php${{ inputs.php-version }}-
+            composer-${{ runner.os }}-
 
       - name: Authenticate with Docker Hub
         if: ${{ env.DOCKER_USERNAME != '' && env.DOCKER_PASSWORD != '' }}
@@ -118,6 +122,31 @@ jobs:
           composer create-project "altis/skeleton:dev-${BASE_BRANCH}" \
             --stability=dev --ignore-platform-req=php+ --ignore-platform-req=ext-* \
             "$HOME/test-root"
+
+      - name: Detect PHP version
+        id: detect
+        env:
+          OVERRIDE: ${{ inputs.php-version }}
+          FALLBACK: ${{ inputs.bootstrap-php-version }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -n "$OVERRIDE" ]]; then
+            PHP="$OVERRIDE"
+          else
+            PHP=$(jq -r '.config.platform.php // empty' "$HOME/test-root/composer.json")
+            PHP="${PHP:-$FALLBACK}"
+          fi
+          PHP=$(echo "$PHP" | cut -d. -f1,2)
+          echo "php=$PHP" >> "$GITHUB_OUTPUT"
+          echo "Runner PHP: $PHP"
+
+      - name: Switch to detected PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ steps.detect.outputs.php }}
+          tools: composer:v2
+          coverage: none
 
       - name: Install test theme and inject package under test
         env:
@@ -238,7 +267,7 @@ jobs:
         shell: bash
         run: |
           # Artifact names disallow '/', so substitute the composer-name slash with '-'.
-          echo "name=codecept-output-${ALTIS_PACKAGE//\//-}-php${{ inputs.php-version }}" >> "$GITHUB_OUTPUT"
+          echo "name=codecept-output-${ALTIS_PACKAGE//\//-}-php${{ steps.detect.outputs.php }}" >> "$GITHUB_OUTPUT"
 
       - name: Upload Codeception output on failure
         if: failure()
