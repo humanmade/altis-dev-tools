@@ -89,9 +89,9 @@ The `module-ci.yml` test job:
 
 The `detect-tests` job checks for `tests/*.suite.yml` files. If none exist, the `test` job is skipped — same early-exit behaviour as the Travis `before_install` check.
 
-## Developer-side test scripts
+## Workflow logic mirror tests
 
-Three shell scripts under [`tests/`](tests/) exercise the inline shell snippets in `module-ci.yml` (and `altis-ci.yml`) so the logic can be checked locally without round-tripping through GitHub Actions. They are not invoked by CI; they exist for review and pre-commit verification when changing the workflow.
+Three shell scripts under [`tests/`](tests/) exercise the inline shell snippets in `module-ci.yml` (and `altis-ci.yml`) so the logic can be checked without round-tripping through GitHub Actions. They run in the `bootstrap-tests` job in [`ci.yml`](ci.yml), and can also be run locally for pre-commit verification when changing the workflow.
 
 - `ci-branch-resolution.sh` — mirrors the "Compute base branch" step. Runs a matrix of `push` and `pull_request` scenarios across `master`, `v##-branch`, and arbitrary feature branches.
 - `ci-version-resolution.sh` — mirrors the `composer require … as <alias>` derivation. Builds synthetic `composer.lock` fixtures and checks the resolved alias, including packages found under `.packages-dev` and `dev-*` installed versions.
@@ -113,9 +113,9 @@ COMPOSER_JSON=./composer.json FALLBACK=8.4 .github/workflows/tests/ci-php-detect
 
 Each script duplicates the shell logic from `module-ci.yml`/`altis-ci.yml`. A shared source file would not work because the reusable workflow's `actions/checkout@v4` checks out the caller's repo, not this one. The YAML steps carry comments pointing at these scripts to flag drift on review.
 
-## CI bootstrap guard (run by CI)
+## CI bootstrap guard
 
-Two further scripts under [`tests/`](tests/) guard the project CI bootstrap — installing this package scaffolds a project's `.github/workflows/ci.yml` from [`templates/project-ci.yml`](../../templates/project-ci.yml) via `altis/dev-tools-command`. **Unlike the mirror scripts above, these run in CI** (the `bootstrap-tests` job in [`ci.yml`](ci.yml)).
+Two further scripts under [`tests/`](tests/) guard the project CI bootstrap — installing this package scaffolds a project's `.github/workflows/ci.yml` from [`templates/project-ci.yml`](../../templates/project-ci.yml) via `altis/dev-tools-command`. They run in the same `bootstrap-tests` job in [`ci.yml`](ci.yml).
 
 - `ci-template-constraint.sh` — fast, no network: checks the `altis/dev-tools-command` constraint admits the release that consumes the template.
 - `ci-bootstrap-install.sh` — real `composer install` of a throwaway fixture, asserting `ci.yml` is scaffolded and pinned. Needs `composer` + network.
