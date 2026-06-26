@@ -38,6 +38,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Detect PHP version
+        # Logic mirrored in tests/ci-php-detection.sh — keep the two in sync.
         id: detect
         env:
           OVERRIDE: ${{ inputs.php-version }}
