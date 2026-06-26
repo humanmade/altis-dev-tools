@@ -91,24 +91,27 @@ The `detect-tests` job checks for `tests/*.suite.yml` files. If none exist, the 
 
 ## Developer-side test scripts
 
-Two shell scripts under [`tests/`](tests/) exercise the inline shell snippets in `module-ci.yml` so the logic can be checked locally without round-tripping through GitHub Actions. They are not invoked by CI; they exist for review and pre-commit verification when changing the workflow.
+Three shell scripts under [`tests/`](tests/) exercise the inline shell snippets in `module-ci.yml` (and `altis-ci.yml`) so the logic can be checked locally without round-tripping through GitHub Actions. They are not invoked by CI; they exist for review and pre-commit verification when changing the workflow.
 
 - `ci-branch-resolution.sh` — mirrors the "Compute base branch" step. Runs a matrix of `push` and `pull_request` scenarios across `master`, `v##-branch`, and arbitrary feature branches.
 - `ci-version-resolution.sh` — mirrors the `composer require … as <alias>` derivation. Builds synthetic `composer.lock` fixtures and checks the resolved alias, including packages found under `.packages-dev` and `dev-*` installed versions.
+- `ci-php-detection.sh` — mirrors the "Detect PHP version" step. Builds synthetic `composer.json` fixtures and checks the resolved runner PHP, covering `config.platform.php`, patch-level trimming to major.minor, the fallback default, and the `php-version` override.
 
-Both scripts support two modes:
+Each script supports two modes:
 
 ```bash
 # Run the full test matrix.
 .github/workflows/tests/ci-branch-resolution.sh
 .github/workflows/tests/ci-version-resolution.sh
+.github/workflows/tests/ci-php-detection.sh
 
 # Evaluate one ad-hoc input.
-HEAD_REF=feat/foo BASE_REF=v25-branch .github/workflows/tests/ci-branch-resolution.sh --eval
-LOCK_FILE=./composer.lock PKG=altis/cms  .github/workflows/tests/ci-version-resolution.sh --eval
+HEAD_REF=feat/foo BASE_REF=v25-branch  .github/workflows/tests/ci-branch-resolution.sh --eval
+LOCK_FILE=./composer.lock PKG=altis/cms .github/workflows/tests/ci-version-resolution.sh --eval
+COMPOSER_JSON=./composer.json FALLBACK=8.4 .github/workflows/tests/ci-php-detection.sh --eval
 ```
 
-Each script duplicates the shell logic from `module-ci.yml`. A shared source file would not work because the reusable workflow's `actions/checkout@v4` checks out the caller's repo, not this one. The YAML steps carry comments pointing at these scripts to flag drift on review.
+Each script duplicates the shell logic from `module-ci.yml`/`altis-ci.yml`. A shared source file would not work because the reusable workflow's `actions/checkout@v4` checks out the caller's repo, not this one. The YAML steps carry comments pointing at these scripts to flag drift on review.
 
 ## CI bootstrap guard (run by CI)
 
