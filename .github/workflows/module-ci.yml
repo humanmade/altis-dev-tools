@@ -124,6 +124,7 @@ jobs:
             "$HOME/test-root"
 
       - name: Detect PHP version
+        # Logic mirrored in tests/ci-php-detection.sh — keep the two in sync.
         id: detect
         env:
           OVERRIDE: ${{ inputs.php-version }}
