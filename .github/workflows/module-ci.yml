@@ -210,6 +210,7 @@ jobs:
         run: |
           set -euo pipefail
           cd "$HOME/test-root"
+          mkdir -p .config
           echo "<?php" > .config/salts.php
           curl -fsSL "https://api.wordpress.org/secret-key/1.1/salt/" >> .config/salts.php
           if [ ! -f .config/load.php ]; then
