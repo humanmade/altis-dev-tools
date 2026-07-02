@@ -28,7 +28,7 @@ on:
 
 jobs:
   ci:
-    uses: humanmade/altis-dev-tools/.github/workflows/module-ci.yml@<sha>
+    uses: humanmade/altis-dev-tools/.github/workflows/module-ci.yml@module-ci-v1
     with:
       altis-package: altis/cms          # the composer name
       # test-command: phpunit          # default is 'codecept'
@@ -38,7 +38,23 @@ jobs:
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 ```
 
-Pin to a SHA from this repo (mirrors the `travis/module.yml@<sha>` pattern). The bulk-update helper at `humanmade/altis/scripts/update-module-gha-ref.sh` opens PRs across module repos to bump the SHA.
+### The `module-ci-v1` moving tag
+
+**All module branches track the `module-ci-v1` moving tag** rather than pinning a SHA. The `v1` is the CI *contract* version (the `actions/checkout@v4` pattern): every backward-compatible change to these reusable workflows is shipped by force-moving `module-ci-v1` to the new commit, and every module picks it up on its next run — no per-module PRs.
+
+```sh
+# Ship a compatible fix to all consumers: move the tag.
+git tag -f module-ci-v1 <sha>
+git push -f origin module-ci-v1
+```
+
+**Only move `v1` for changes that stay compatible with the oldest branch still on it.** A *breaking* change (e.g. a new required input, or dropping support for an older Altis line) gets a new `module-ci-v2` tag; callers are then migrated deliberately — newest branches first, older release branches left on `v1`.
+
+The bulk helper at `humanmade/altis/scripts/update-module-gha-ref.sh` opens a PR per module repo to (re)point the `uses:` ref — used for the one-time move of a branch onto a tag, or to pin a specific SHA. It takes a ref (a tag/branch name kept literal, or a hex SHA pinned) and a `BASE_BRANCH` (default `master`):
+
+```sh
+BASE_BRANCH=v25-branch update-module-gha-ref.sh module-ci-v1 "<why>"
+```
 
 ## Inputs
 
