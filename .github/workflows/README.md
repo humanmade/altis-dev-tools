@@ -50,11 +50,16 @@ git push -f origin module-ci-v1
 
 **Only move `v1` for changes that stay compatible with the oldest branch still on it.** A *breaking* change (e.g. a new required input, or dropping support for an older Altis line) gets a new `module-ci-v2` tag; callers are then migrated deliberately — newest branches first, older release branches left on `v1`.
 
-The bulk helper at `humanmade/altis/scripts/update-module-gha-ref.sh` opens a PR per module repo to (re)point the `uses:` ref — used for the one-time move of a branch onto a tag, or to pin a specific SHA. It takes a ref (a tag/branch name kept literal, or a hex SHA pinned) and a `BASE_BRANCH` (default `master`):
+The bulk helper at `humanmade/altis/scripts/update-module-gha-ref.sh` opens a PR per module repo to (re)point the `uses:` ref —
+used for the one-time move of a branch onto a tag, or to pin a specific SHA. It takes a ref (a tag/branch name kept literal, or
+a hex SHA pinned) and a `--base` branch (default `master`):
 
 ```sh
-BASE_BRANCH=v25-branch update-module-gha-ref.sh module-ci-v1 "<why>"
+# run from the root of the product-dev repo
+./scripts/update-module-gha-ref.sh module-ci-v1 --base v25-branch --message "..."
 ```
+
+For full details see [the script](https://github.com/humanmade/product-dev/blob/master/scripts/update-module-gha-ref.sh).
 
 ## Inputs
 
