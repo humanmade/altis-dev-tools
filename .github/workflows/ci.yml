@@ -35,6 +35,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Workflow logic mirror tests
+        run: |
+          .github/workflows/tests/ci-branch-resolution.sh
+          .github/workflows/tests/ci-version-resolution.sh
+          .github/workflows/tests/ci-php-detection.sh
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
