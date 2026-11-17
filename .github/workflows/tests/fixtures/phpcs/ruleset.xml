@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<ruleset name="WorkflowSmokeTest">
+	<description>Verify caller rulesets can resolve the isolated HM installation.</description>
+	<rule ref="HM" />
+</ruleset>

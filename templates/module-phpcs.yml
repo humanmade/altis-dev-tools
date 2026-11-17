@@ -1,0 +1,14 @@
+name: PHPCS
+
+on:
+  push:
+    branches: [master, main, 'v*-branch']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  phpcs:
+    # Replace <ref> with a reviewed commit SHA or released dev-tools tag.
+    uses: humanmade/altis-dev-tools/.github/workflows/phpcs.yml@<ref>

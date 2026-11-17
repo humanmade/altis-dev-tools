@@ -1,0 +1,79 @@
+name: PHPCS
+
+on:
+  workflow_call:
+    inputs:
+      php-version:
+        description: 'PHP version for the linter (8.2 or newer).'
+        type: string
+        default: '8.4'
+      coding-standards-version:
+        description: 'Composer constraint for humanmade/coding-standards.'
+        type: string
+        default: '^2.5'
+      standard:
+        description: 'PHPCS standard or caller-relative ruleset path. Empty auto-detects a project ruleset, falling back to HM.'
+        type: string
+        default: ''
+      path:
+        description: 'Caller-relative file or directory to lint.'
+        type: string
+        default: '.'
+      ignore:
+        description: 'Comma-separated PHPCS ignore patterns, in addition to ruleset exclusions.'
+        type: string
+        default: '*/vendor/*,*/node_modules/*'
+
+permissions:
+  contents: read
+
+jobs:
+  phpcs:
+    name: PHPCS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ inputs.php-version }}
+          extensions: mbstring, xml
+          tools: composer:v2
+          coverage: none
+
+      # Do not install the module's dependencies: modules may require an entire
+      # Altis project, private packages, or Composer plugins unrelated to linting.
+      - name: Install coding standards
+        env:
+          CODING_STANDARDS_VERSION: ${{ inputs.coding-standards-version }}
+          COMPOSER_NO_INTERACTION: '1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          tools_dir="$RUNNER_TEMP/altis-phpcs"
+          mkdir -p "$tools_dir"
+          printf '%s\n' '{"config":{"allow-plugins":{"dealerdirect/phpcodesniffer-composer-installer":true}}}' > "$tools_dir/composer.json"
+          composer require --working-dir="$tools_dir" --no-progress --no-scripts --prefer-dist \
+            "humanmade/coding-standards:$CODING_STANDARDS_VERSION"
+
+      - name: Run PHPCS
+        env:
+          PHPCS_STANDARD: ${{ inputs.standard }}
+          PHPCS_PATH: ${{ inputs.path }}
+          PHPCS_IGNORE: ${{ inputs.ignore }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          args=(--report=full --extensions=php)
+          if [[ -n "$PHPCS_STANDARD" ]]; then
+            args+=("--standard=$PHPCS_STANDARD")
+          elif [[ ! -f .phpcs.xml && ! -f phpcs.xml && ! -f .phpcs.xml.dist && ! -f phpcs.xml.dist ]]; then
+            args+=(--standard=HM)
+          fi
+          if [[ -n "$PHPCS_IGNORE" ]]; then
+            args+=("--ignore=$PHPCS_IGNORE")
+          fi
+          "$RUNNER_TEMP/altis-phpcs/vendor/bin/phpcs" "${args[@]}" -- "$PHPCS_PATH"
