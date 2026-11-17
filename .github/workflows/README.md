@@ -145,3 +145,48 @@ Two further scripts under [`tests/`](tests/) guard the project CI bootstrap — 
 .github/workflows/tests/ci-template-constraint.sh
 .github/workflows/tests/ci-bootstrap-install.sh
 ```
+
+## Reusable PHPCS workflow
+
+[`phpcs.yml`](phpcs.yml) runs PHP_CodeSniffer independently of the module test
+suite. Copy [`templates/module-phpcs.yml`](../../templates/module-phpcs.yml) to a
+module's `.github/workflows/phpcs.yml`, replacing `<ref>` with a reviewed commit
+SHA or released dev-tools tag containing this workflow. The existing
+`module-ci-v1` tag does not include it until explicitly updated by a maintainer.
+No secrets, Docker services, module Composer installation, or write permissions
+are needed; ordinary `pull_request` events support fork PRs. Do not use
+`pull_request_target` to lint untrusted code.
+
+| Input | Default | Notes |
+| --- | --- | --- |
+| `php-version` | `8.4` | Linter runtime; must be 8.2+ for the default standards. |
+| `coding-standards-version` | `^2.5` | Composer constraint for `humanmade/coding-standards`; includes PHPCS 3 and its required standards. |
+| `standard` | *(auto)* | Uses the caller's `.phpcs.xml`, `phpcs.xml`, `.phpcs.xml.dist`, or `phpcs.xml.dist` if present (PHPCS precedence); otherwise `HM`. Override with a standard name or ruleset path. |
+| `path` | `.` | One caller-relative file or directory; paths containing spaces are supported. |
+| `ignore` | `*/vendor/*,*/node_modules/*` | Comma-separated PHPCS exclusions, added to ruleset exclusions. Set empty to disable these defaults. |
+
+For example, customise a caller job with:
+
+```yaml
+jobs:
+  phpcs:
+    uses: humanmade/altis-dev-tools/.github/workflows/phpcs.yml@<ref>
+    with:
+      php-version: '8.3'
+      standard: phpcs.ruleset.xml
+      path: inc
+      ignore: '*/vendor/*,*/node_modules/*,*/generated/*'
+```
+
+Standards are installed in an isolated temporary Composer project. Custom
+rulesets can reference the installed HM, WordPress, VIP, and compatibility
+standards, but additional project-specific sniffs are not installed. Neither
+`.phpcsignore` nor `.github/hmlinter.yml` is read: migrate relevant exclusions and
+settings into a PHPCS ruleset or these inputs before switching a module. The
+workflow checks the selected tree, not just changed lines, and preserves PHPCS's
+exit status (including failures for warnings by default).
+
+Output is a full PHPCS report in the Actions log. Inline review comments and
+annotations are deliberately not part of this initial shared workflow; Vantage's
+repository-specific XML matcher is not reusable as-is. Module migration,
+required-check changes, and retiring `altis-review` remain separate rollout work.

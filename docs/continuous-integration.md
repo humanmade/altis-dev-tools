@@ -248,3 +248,12 @@ jobs:
 ```
 
 When you override the base config we cannot guarantee functionality or support any issues you may encounter.
+
+## PHP coding standards
+
+For module PHPCS linting without starting Altis, use the separate reusable
+[`phpcs.yml` workflow](https://github.com/humanmade/altis-dev-tools/blob/master/.github/workflows/README.md#reusable-phpcs-workflow).
+It installs Human Made coding standards independently of your project dependencies
+and supports custom rulesets, PHP versions, paths, and exclusions. A thin caller
+is provided in `templates/module-phpcs.yml`; pin it to a reviewed dev-tools commit
+or release containing the workflow before use.
